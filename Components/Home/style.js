@@ -7,9 +7,13 @@ export const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: Colors.lighter,
     },
-    navLogo: {
-        height: 50,
-        width: 50
+    Home: {
+        marginLeft: 10,
+        marginRight: 10,
+    },
+    textInput: {
+        borderColor: "#A9A8A8",
+        borderWidth: 1,
     },
     engine: {
         position: 'absolute',

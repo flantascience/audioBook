@@ -1,10 +1,15 @@
 /**
  * @format
  */
+import React from 'react';
 import { AppRegistry, Easing, Animated } from 'react-native';
 import { Home } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
+import { Provider } from 'react-redux';
+import configureStore from './store';
+
+const store = configureStore();
 
 const screenConfig = {
     duration: 200,
@@ -44,6 +49,12 @@ const MainNavigator = createStackNavigator({
     })
 });
 
-const App = createAppContainer(MainNavigator);
+const IniApp = createAppContainer(MainNavigator);
+
+const App = ()=>(
+  <Provider store = { store }> 
+    <IniApp /> 
+  </Provider>
+);
 
 AppRegistry.registerComponent(appName, () => App);
