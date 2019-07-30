@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    container: {
-        display: "flex",
-        flexDirection: "row"
+    iconText: {
+        fontWeight: "100",
+        fontSize: 14,
+        textAlign: "center",
+        color: "#747373"
     },
     icon: {
         alignContent: "center",
         justifyContent: "center",
-        flex: 1,
-        padding: 5
+        textAlign: "center"
     }
 });

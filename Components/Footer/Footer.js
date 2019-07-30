@@ -1,5 +1,5 @@
 import React from 'react';
-import Iconicon from "../Icon/Iconicon";
+import IconButton from "../IconButton/IconButton";
 import {
     View,
     Text,
@@ -11,9 +11,20 @@ import { styles } from './style';
 const Footer = ()=>{
     return(
         <View style={ styles.container }>
-            <Iconicon
+            <IconButton
                 name={'home'}
                 style = { styles.icon }
+                text={'Home'}
+            />
+            <IconButton
+                name={'volume-high'}
+                style = { styles.icon }
+                text={'Tracks'}
+            />
+            <IconButton
+                name={'person'}
+                style = { styles.icon }
+                text={'Author'}
             />
         </View>
     )

@@ -9,13 +9,16 @@ export const styles = StyleSheet.create({
     },
     Home: {
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
+        height: "100%"
     },
     homeMid: {
-        flex:2
+        flex:6,
+        overflow: "hidden"
     },
     homeFooter: {
-        flex:1
+        flex:1,
+        padding: 5
     },
     centerImageContainer: {
         display: "flex",

@@ -66,7 +66,6 @@ class Home extends React.Component {
           </View>
         </View>
         <View style = { styles.homeFooter }>
-          <Text>Footer</Text>
           <Footer />
         </View>
       </View>
