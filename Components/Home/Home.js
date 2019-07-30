@@ -8,27 +8,14 @@
 import React  from 'react';
 import {
   View,
-  Image,
-  Text,
-  TextInput,
-  Button
+  Image
 } from 'react-native';
-import { connect } from 'react-redux';
-import { addPlace } from '../../Actions/places';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 
 
 class Home extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state= {
-      placeName:"",
-      paces: []
-    }
-  }
 
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -43,13 +30,6 @@ class Home extends React.Component {
         height: 80,
     },
   });
-
-  onPress = () => {
-    if(this.state.placeName.trim() === '') {
-      return;
-    }
-    this.props.add(this.state.placeName);
-  }
 
   render(){
 
@@ -70,19 +50,5 @@ class Home extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    placeName: state.places.placeName,
-    places: state.places.places
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    add: (name) => {
-      dispatch(addPlace(name))
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

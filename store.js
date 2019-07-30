@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import placeReducer from './Reducers/placeReducer';
+import inputReducer from './Reducers/inputReducer';
 
 const rootReducer = combineReducers({
-  places: placeReducer
+  input: inputReducer
 });
 
 const configureStore = () => {

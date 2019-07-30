@@ -2,61 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a2badec-7f7e-4833-8805-21dc1027526f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Header/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Header/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Home/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Home/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/debug-mergeJniLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/file-input-save-data.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/facebook/react/PackageList.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/com/facebook/react/PackageList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/192/com/facebook/react/PackageList.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/192/com/facebook/react/PackageList.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/0/classes.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexMerger/debug/__content__.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/mergeJavaRes/debug/__content__.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.ios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.ios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/audioBook.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/audioBook.xcworkspace/xcuserdata/muganwas.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook.xcworkspace/xcuserdata/muganwas.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/audioBook/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/BuildDescriptionCacheIndex-6a5b426417770450d94e3d97ccaccd63" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/BuildDescriptionCacheIndex-6a5b426417770450d94e3d97ccaccd63" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/build.db" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/build.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/ffcae968729d3fe89e639c9b47837590-desc.xcbuild" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/XCBuildData/ffcae968729d3fe89e639c9b47837590-manifest.xcbuild" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/audioBookTests" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/audioBookTests" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/_CodeSignature/CodeResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/audioBook" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/audioBook" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/Session.modulevalidation" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/Session.modulevalidation" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Author/Author.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Author/Author.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Author/images/author.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Author/images/author.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Author/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Author/style.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

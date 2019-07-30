@@ -8,27 +8,21 @@
 import React  from 'react';
 import {
   View,
+  Platform,
+  ScrollView,
   Image,
   Text,
   TextInput,
   Button
 } from 'react-native';
 import { connect } from 'react-redux';
-import { addPlace } from '../../Actions/places';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
-
+import { author } from '../../Misc/Strings';
+import { storeInput } from '../../Actions/userInput';
 
 class Author extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state= {
-      placeName:"",
-      paces: []
-    }
-  }
 
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -44,25 +38,53 @@ class Author extends React.Component {
     },
   });
 
-  onPress = () => {
-    if(this.state.placeName.trim() === '') {
-      return;
+  onPress = ()=>{
+
+  }
+
+  tempSave = (text)=>{
+    if(text.trim() === '') {
+        return;
     }
-    this.props.add(this.state.placeName);
+    this.props.store(text);
   }
 
   render(){
+
+    console.log(this.props);
 
     let {
       navigation
     } = this.props;
     return (
       <View style={ styles.Home }>
-        <View style = { styles.homeMid }>
+        <ScrollView style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            <Image style={ styles.centerImage } source={require('./images/author.jpg')} />
+            <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
           </View>
-        </View>
+          <Text style = {styles.name}>{ author.name }</Text>
+          <View style={ styles.introContainer }>
+              <Text style={ styles.introText }>{ author.intro }</Text>
+          </View>
+          <View style={ styles.actionContainer }>
+              <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+              <TextInput
+                style={ styles.emailInput }
+                autoCompleteType={'email'}
+                textContentType={'emailAddress'}
+                placeholder={ author.emailPlaceHolder }
+                onChangeText={ this.tempSave }
+              />
+              <View style = { styles.buttonContainer }>
+                <Button 
+                    color={ Platform.OS === "android"?'#C7C6C6':'#888787' } 
+                    title={ author.buttonText } 
+                    onPress={ this.onPress } 
+                />
+              </View>
+              
+          </View>
+        </ScrollView>
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
@@ -71,16 +93,16 @@ class Author extends React.Component {
   }
 }
 const mapStateToProps = state => {
+    //console.log(state)
   return {
-    placeName: state.places.placeName,
-    places: state.places.places
+    userEmail: state.userEmail
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    add: (name) => {
-      dispatch(addPlace(name))
+    store: (input) => {
+        dispatch(storeInput(input))
     }
   }
 }

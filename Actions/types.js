@@ -1,1 +1,1 @@
-export const ADD_PLACE = 'ADD_PLACE';
+export const STORE_INPUT = 'STORE_INPUT';

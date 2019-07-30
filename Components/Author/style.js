@@ -14,6 +14,7 @@ export const styles = StyleSheet.create({
     },
     homeMid: {
         flex:6,
+        minHeight: "70%",
         overflow: "hidden"
     },
     homeFooter: {
@@ -22,46 +23,58 @@ export const styles = StyleSheet.create({
     },
     centerImageContainer: {
         display: "flex",
+        alignContent: "center",
+        justifyContent: "center",
         flexDirection: "row"
     },
-    centerImage: {
-        flex: 1
+    authorImage: {
+        marginTop: 5,
+        height: 200,
+        width: 200,
+        borderRadius: 100
     },
-    textInput: {
-        borderColor: "#A9A8A8",
-        borderWidth: 1,
+    name: {
+        fontWeight: "bold",
+        textAlign: "center",
+        fontSize: 25,
+        textTransform: "capitalize"
     },
-    engine: {
-        position: 'absolute',
-        right: 0,
+    introContainer: {
+        borderTopColor: "#C7C6C6",
+        borderBottomColor: "#C7C6C6",
+        borderBottomWidth: 1,
+        borderTopWidth: 1,
+        marginLeft: 40,
+        marginRight: 40,
+        marginTop: 5,
     },
-    body: {
-        backgroundColor: Colors.white,
+    introText: {
+        textAlign: "center",
+        padding: 10,
+        fontSize: 17,
     },
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
+    callToAction: {
+        paddingLeft: 5,
+        paddingRight: 5,
+        textAlign: "center",
+        fontSize: 25,
+        fontWeight: "200"
     },
-    sectionTitle: {
-        fontSize: 24,
-        fontWeight: '600',
-        color: Colors.black,
+    actionContainer: {
+        alignContent: "center",
+        justifyContent: "center"
     },
-    sectionDescription: {
-        marginTop: 8,
-        fontSize: 18,
-        fontWeight: '400',
-        color: Colors.dark,
+    emailInput: {
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+        padding: 5,
+        borderColor: "#C7C6C6",
+        borderWidth: 1
     },
-    highlight: {
-        fontWeight: '700',
-    },
-    footer: {
-        color: Colors.dark,
-        fontSize: 12,
-        fontWeight: '600',
-        padding: 4,
-        paddingRight: 12,
-        textAlign: 'right',
-    },
+    buttonContainer:{
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+    }
 });
