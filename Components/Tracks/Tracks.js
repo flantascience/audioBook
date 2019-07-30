@@ -20,7 +20,7 @@ import Footer from '../Footer/Footer';
 import { styles } from './style';
 
 
-class Home extends React.Component {
+class Tracks extends React.Component {
 
   constructor(props){
     super(props);
@@ -60,7 +60,7 @@ class Home extends React.Component {
       <View style={ styles.Home }>
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            <Image style={ styles.centerImage } source={require('./images/sample-book-cover.jpg')} />
+            <Text>Tracks</Text>
           </View>
         </View>
         <View style = { styles.homeFooter }>
@@ -85,4 +85,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Tracks);

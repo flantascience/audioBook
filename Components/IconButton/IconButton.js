@@ -4,19 +4,20 @@ import propTypes from 'prop-types';
 import {
     Platform,
     View,
-    Text
+    Text,
+    TouchableOpacity
 } from 'react-native';
 import { styles } from './style';
-const IconButton = ({name, ...props})=>{
+const IconButton = ({name, onPress, ...props})=>{
     return(
-        <View style={ props.style}>
+        <TouchableOpacity onPress={ onPress } style={ props.style}>
             <Icon
                 name={ Platform.OS === "ios" ? `ios-${name}` : `md-${name}`}
                 size={ props.size }
                 style={ styles.icon }
             />
             <Text style={ styles.iconText }>{ props.text }</Text>
-        </View>
+        </TouchableOpacity>
     )
 }
 

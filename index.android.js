@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { AppRegistry, Easing, Animated } from 'react-native';
-import { Home } from './Components';
+import { Home, Author, Tracks } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
@@ -12,14 +12,14 @@ import configureStore from './store';
 const store = configureStore();
 
 const screenConfig = {
-    duration: 200,
-    easing: Easing.out(Easing.poly(4)),
-    timing: Animated.timing,
+    duration: 10,
+    easing: Easing.out(Easing.poly(4))
 };
 
 const MainNavigator = createStackNavigator({
-    First: { screen: Home }
-    //Second: { screen: PostDetailComponent }
+    First: { screen: Home },
+    Second: { screen: Tracks },
+    Third: { screen: Author }
 },  
 {
     initialRouteName: 'First',
