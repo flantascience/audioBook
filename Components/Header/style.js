@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
         width: 50,
     },
     header: {
-        width: 300,
+        width: 350,
         display: "flex",
         flexDirection: "row"
     },
@@ -19,11 +19,12 @@ export const styles = StyleSheet.create({
         flex: 3
     },
     headerText:{
+        textTransform: "uppercase",
         fontSize: 20,
         fontWeight: "bold",
     },
     subHeaderText: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: "500",
     }
 });

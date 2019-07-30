@@ -8,6 +8,7 @@
 import React  from 'react';
 import {
   View,
+  Image,
   Text,
   TextInput,
   Button
@@ -15,6 +16,7 @@ import {
 import { connect } from 'react-redux';
 import { addPlace } from '../../Actions/places';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import { styles } from './style';
 
 
@@ -58,18 +60,15 @@ class Home extends React.Component {
 
     return (
       <View style={ styles.Home }>
-        <Text>Audio Book</Text>
-        <View><Text>{ placeName }</Text></View>
-        <TextInput
-          style = { styles.textInput }
-          value={ this.state.placeName }
-          onChangeText={ (value)=>{
-            this.setState({
-              placeName: value
-            });
-          } }
-        />
-        <Button onPress={ this.onPress } title={'Submit'} />
+        <View style = { styles.homeMid }>
+          <View style = { styles.centerImageContainer }>
+            <Image style={ styles.centerImage } source={require('./images/sample-book-cover.jpg')} />
+          </View>
+        </View>
+        <View style = { styles.homeFooter }>
+          <Text>Footer</Text>
+          <Footer />
+        </View>
       </View>
     );
   }

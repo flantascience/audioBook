@@ -8,8 +8,21 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.lighter,
     },
     Home: {
-        marginLeft: 10,
-        marginRight: 10,
+        display: "flex",
+        flexDirection: "column"
+    },
+    homeMid: {
+        flex:2
+    },
+    homeFooter: {
+        flex:1
+    },
+    centerImageContainer: {
+        display: "flex",
+        flexDirection: "row"
+    },
+    centerImage: {
+        flex: 1
     },
     textInput: {
         borderColor: "#A9A8A8",

@@ -4,6 +4,7 @@ import {
     Text,
     Image
 } from 'react-native';
+import { header } from '../../Misc/Strings';
 import { styles } from './style';
 
 const Header = ()=>{
@@ -13,8 +14,8 @@ const Header = ()=>{
                 <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />
             </View>
             <View style={ styles.headerTextContainer}>
-                <Text style={ styles.headerText }>Curricu-Dumb</Text>
-                <Text style = { styles.subHeaderText }>What your teacher cant tell you</Text>
+                <Text style={ styles.headerText }>{ header.headerText }</Text>
+                <Text style = { styles.subHeaderText }>{ header.subHeaderText }</Text>
             </View>
         </View>
     )
