@@ -51,8 +51,6 @@ class Author extends React.Component {
 
   render(){
 
-    console.log(this.props);
-
     let {
       navigation
     } = this.props;
@@ -91,12 +89,6 @@ class Author extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
-    //console.log(state)
-  return {
-    userEmail: state.userEmail
-  }
-}
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -106,4 +98,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Author);
+export default connect(mapDispatchToProps)(Author);

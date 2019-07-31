@@ -5,7 +5,7 @@
  * @format
  * @flow
  */
-import React  from 'react';
+import React from 'react';
 import {
   View,
   Image
@@ -13,7 +13,6 @@ import {
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
-
 
 class Home extends React.Component {
 

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jul 31 12:54:31 EAT 2019
+#Wed Jul 31 19:44:40 EAT 2019
 60.set=NATIVE_RESOURCE
 52.set=NATIVE_RESOURCE
 53.base=/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
