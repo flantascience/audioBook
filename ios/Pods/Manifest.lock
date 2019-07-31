@@ -1,6 +1,29 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
+  - Firebase/Analytics (6.5.0):
+    - Firebase/Core
+  - Firebase/Core (6.5.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 6.0.4)
+  - Firebase/CoreOnly (6.5.0):
+    - FirebaseCore (= 6.1.0)
+  - FirebaseAnalytics (6.0.4):
+    - FirebaseCore (~> 6.1)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.0.4)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (6.1.0):
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/Logger (~> 6.0)
+  - FirebaseInstanceID (4.2.2):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -11,6 +34,35 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
+  - GoogleAppMeasurement (6.0.4):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (6.2.3):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.2.3)
+  - GoogleUtilities/Logger (6.2.3):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.2.3):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.2.3):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.2.3)"
+  - GoogleUtilities/Reachability (6.2.3):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.2.3):
+    - GoogleUtilities/Logger
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
   - React (0.60.4):
     - React-Core (= 0.60.4)
     - React-DevSupport (= 0.60.4)
@@ -83,10 +135,13 @@ PODS:
     - React-fishhook (= 0.60.4)
   - RNGestureHandler (1.3.0):
     - React
+  - RNVectorIcons (6.6.0):
+    - React
   - yoga (0.60.4.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Firebase/Analytics
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - React (from `../node_modules/react-native/`)
@@ -108,11 +163,19 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - React-RCTWebSocket (from `../node_modules/react-native/Libraries/WebSocket`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - nanopb
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -159,14 +222,23 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/WebSocket"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
+  FirebaseAnalytics: 3fb375bc9d13779add4039716f868d233a473fad
+  FirebaseCore: aecf02fb2274ec361b9bebeac112f5daa18273bd
+  FirebaseInstanceID: 662b8108a09fe9ed01aafdedba100fde8536b0f6
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
+  GoogleAppMeasurement: 183bd916af7f80deb67c01888368f1108d641832
+  GoogleUtilities: d2b0e277a95962e09bb27f5cd42f5f0b6a506c7d
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   React: ff7ee2ae5ee1c1d9ae2183b4111045b25294bb01
   React-Core: 8e0ea421cae5609d2562850f98421b15030476fa
   React-cxxreact: 326880209990151a7182a813311054e9772ba510
@@ -186,8 +258,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: 0bea40cd51bd089bd591a8f74c86e91fdf2666c5
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
+  RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: 00dd2961bc0b1a1cee6a6c5fde55b7b04ce03396
+PODFILE CHECKSUM: 661adcacceb003c997cb9f419ce7834f743114a4
 
 COCOAPODS: 1.7.5

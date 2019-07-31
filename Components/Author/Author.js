@@ -64,25 +64,24 @@ class Author extends React.Component {
           </View>
           <Text style = {styles.name}>{ author.name }</Text>
           <View style={ styles.introContainer }>
-              <Text style={ styles.introText }>{ author.intro }</Text>
+            <Text style={ styles.introText }>{ author.intro }</Text>
           </View>
           <View style={ styles.actionContainer }>
-              <Text style={ styles.callToAction}>{ author.callToAction }</Text>
-              <TextInput
-                style={ styles.emailInput }
-                autoCompleteType={'email'}
-                textContentType={'emailAddress'}
-                placeholder={ author.emailPlaceHolder }
-                onChangeText={ this.tempSave }
+            <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+            <TextInput
+              style={ styles.emailInput }
+              autoCompleteType={'email'}
+              textContentType={'emailAddress'}
+              placeholder={ author.emailPlaceHolder }
+              onChangeText={ this.tempSave }
+            />
+            <View style = { styles.buttonContainer }>
+              <Button 
+                color={ Platform.OS === "android"?'#C7C6C6':'#888787' } 
+                title={ author.buttonText } 
+                onPress={ this.onPress } 
               />
-              <View style = { styles.buttonContainer }>
-                <Button 
-                    color={ Platform.OS === "android"?'#C7C6C6':'#888787' } 
-                    title={ author.buttonText } 
-                    onPress={ this.onPress } 
-                />
-              </View>
-              
+            </View>
           </View>
         </ScrollView>
         <View style = { styles.homeFooter }>
@@ -102,7 +101,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     store: (input) => {
-        dispatch(storeInput(input))
+      dispatch(storeInput(input))
     }
   }
 }

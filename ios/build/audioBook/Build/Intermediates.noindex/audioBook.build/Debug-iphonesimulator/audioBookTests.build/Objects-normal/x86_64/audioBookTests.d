@@ -1,5 +1,6 @@
 dependencies: \
   /Users/muganwas/Documents/Github/audioBook/ios/audioBookTests/audioBookTests.m \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
