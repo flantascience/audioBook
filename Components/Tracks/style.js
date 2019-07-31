@@ -64,4 +64,40 @@ export const styles = StyleSheet.create({
         paddingRight: 12,
         textAlign: 'right',
     },
+    trackContainer: {
+        paddingTop: 5
+    },
+    track: {
+        borderBottomColor: "#C7C6C6",
+        borderBottomWidth: 1,
+        display: "flex",
+        flexDirection: "row",
+        alignContent: "center",
+        justifyContent: "center",
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 20,
+        paddingBottom: 20
+    },
+    trackIcon: {
+        flex: 1,
+        alignContent: "center",
+        justifyContent: "center",
+        textAlign: "center"
+    },
+    trackTextWrapper: {
+        display: "flex",
+        minHeight: 50,
+        flexDirection: "column",
+        flex: 5
+    },
+    trackTitle: {
+        flex: 1,
+        fontWeight: "bold",
+        fontSize: 18
+    },
+    trackLength: {
+        flex: 1,
+        fontSize: 14
+    }
 });
