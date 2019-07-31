@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "317961772265",
+    "firebase_url": "https://audiobook-cac7d.firebaseio.com",
+    "project_id": "audiobook-cac7d",
+    "storage_bucket": "audiobook-cac7d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317961772265:android:c6e8703ca7041532",
+        "android_client_info": {
+          "package_name": "com.audiobook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317961772265-vbctugaefrgsen3hk2m71mlccmqqmo7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.audiobook",
+            "certificate_hash": "27c0850be8b859a6c00ace3bc6cf81a2b169120f"
+          }
+        },
+        {
+          "client_id": "317961772265-k2ai2r833mljrsn5tuondbh253vb1k2t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPX8VoOfhVxIYPhqobIXYJgcFYYljsgjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317961772265-k2ai2r833mljrsn5tuondbh253vb1k2t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

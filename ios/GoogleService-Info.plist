@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>317961772265-6bvn4j06l845i9avlgku7p1d1de7qkn0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.317961772265-6bvn4j06l845i9avlgku7p1d1de7qkn0</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>317961772265-vbctugaefrgsen3hk2m71mlccmqqmo7k.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB9WkOADL1JZitZkzPm9huzam8mFEvd5uo</string>
+	<key>GCM_SENDER_ID</key>
+	<string>317961772265</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>org.reactjs.native.example.audioBook</string>
+	<key>PROJECT_ID</key>
+	<string>audiobook-cac7d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>audiobook-cac7d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:317961772265:ios:19e08a463dab81ee</string>
+	<key>DATABASE_URL</key>
+	<string>https://audiobook-cac7d.firebaseio.com</string>
+</dict>
+</plist>
