@@ -99,5 +99,8 @@ export const styles = StyleSheet.create({
     trackLength: {
         flex: 1,
         fontSize: 14
+    },
+    audioElement: {
+        minHeight: 50
     }
 });

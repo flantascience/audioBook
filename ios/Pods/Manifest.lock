@@ -1,6 +1,7 @@
 PODS:
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
+  - DVAssetLoaderDelegate (0.3.3)
   - Firebase/Analytics (6.5.0):
     - Firebase/Core
   - Firebase/Core (6.5.0):
@@ -109,6 +110,13 @@ PODS:
     - React-cxxreact (= 0.60.4)
     - React-jsi (= 0.60.4)
   - React-jsinspector (0.60.4)
+  - react-native-video/Video (5.0.0):
+    - React
+  - react-native-video/VideoCaching (5.0.0):
+    - DVAssetLoaderDelegate (~> 0.3.1)
+    - React
+    - react-native-video/Video
+    - SPTPersistentCache (~> 1.1.0)
   - React-RCTActionSheet (0.60.4):
     - React-Core (= 0.60.4)
   - React-RCTAnimation (0.60.4):
@@ -137,6 +145,7 @@ PODS:
     - React
   - RNVectorIcons (6.6.0):
     - React
+  - SPTPersistentCache (1.1.0)
   - yoga (0.60.4.React)
 
 DEPENDENCIES:
@@ -152,6 +161,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-video/VideoCaching (from `../node_modules/react-native-video/react-native-video.podspec`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -169,6 +179,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
+    - DVAssetLoaderDelegate
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -176,6 +187,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - nanopb
+    - SPTPersistentCache
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -200,6 +212,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-video:
+    :path: "../node_modules/react-native-video/react-native-video.podspec"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -230,6 +244,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  DVAssetLoaderDelegate: 0caec20e4e08b8560b691131539e9180024d4bce
   Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
   FirebaseAnalytics: 3fb375bc9d13779add4039716f868d233a473fad
   FirebaseCore: aecf02fb2274ec361b9bebeac112f5daa18273bd
@@ -247,6 +262,7 @@ SPEC CHECKSUMS:
   React-jsi: 21d3153b1153fbf6510a92b6b11e33e725cb7432
   React-jsiexecutor: 7549641e48bafae7bfee3f3ea19bf4901639c5de
   React-jsinspector: 73f24a02fa684ed6a2b828ba116874a2191ded88
+  react-native-video: 6555881252c8ca039760e1cd6df28ac28ffb2baf
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa
@@ -259,8 +275,9 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: 163873f4cdd5f1058a9483443404fc3801581cb6
   RNGestureHandler: 5329a942fce3d41c68b84c2c2276ce06a696d8b0
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
+  SPTPersistentCache: df36ea46762d7cf026502bbb86a8b79d0080dff4
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: 661adcacceb003c997cb9f419ce7834f743114a4
+PODFILE CHECKSUM: 1b7f53c34be78e2e4582f5a6be9e13a7ba71bbce
 
 COCOAPODS: 1.7.5

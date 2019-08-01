@@ -15,10 +15,10 @@ import com.audiobook.R;
 
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
-// react-native-track-player
-import com.guichaguri.trackplayer.TrackPlayer;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
+// react-native-video
+import com.brentvatne.react.ReactVideoPackage;
 
 public class PackageList {
   private Application application;
@@ -53,8 +53,8 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
       new RNGestureHandlerPackage(),
-      new TrackPlayer(),
-      new VectorIconsPackage()
+      new VectorIconsPackage(),
+      new ReactVideoPackage()
     ));
   }
 }
