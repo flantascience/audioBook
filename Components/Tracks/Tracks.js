@@ -20,32 +20,28 @@ import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons'
 import * as firebase from 'firebase';
 import 'firebase/database';
+import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
 import '../../Misc/helpers';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { storeMedia } from '../../Actions/mediaFiles';
-import claps from './tracks/sample_claps.mp3'
-import noise from './tracks/sample_noise.mp3'
-
-const storage = firebase.storage();
-const storageRef = storage.ref();
+import claps from './tracks/sample_claps.mp3';
+import noise from './tracks/sample_noise.mp3';
 
 
 class Tracks extends React.Component {
 
-  constructor(){
-    super()
-    this.state = {
-      mediaFiles: [],
-      selectedTrack: 0,
-      currentlyPlaying: undefined,
+  constructor(props){
+    super(props)
+    this.state = { 
+      ...props,
       audioFiles: [
         {
           name: "Sample 1 local",
           url: claps,
-          duration: "00.28",
+          duration: "00:27",
           type: "local"
         }, 
         {
@@ -56,23 +52,17 @@ class Tracks extends React.Component {
         },
         {
           name: "Sample 3 cloud",
-          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2Fsample_claps.mp3?alt=media&token=e2c76d56-9a86-42f6-95ba-990c22d85e12",
-          duration: "00.28",
+          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2F10%20Calico.mp3?alt=media&token=a14104e0-8909-4ae8-80bf-dbf590b82af2",
+          duration: "-",
           type: "cloud"
         }, 
         {
           name: "Sample 4 cloud",
-          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2Fsample_noise.mp3?alt=media&token=f7536158-8277-4e4c-95fc-fb4c3a380b36",
-          duration: "00:45",
+          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2FEp%2006%20-%20Education_mixdown.mp3?alt=media&token=95cebb59-b254-4f3e-87ae-36c7c18a54e1",
+          duration: "-",
           type: "cloud"
         }
-      ],
-      loaded: false,
-      paused: true,
-      totalLength: 1,
-      currentPosition: 0,
-      repeatOn: false,
-      shuffleOn: false,
+      ]
     }
   }
 
@@ -118,155 +108,38 @@ class Tracks extends React.Component {
     });
   }*/
 
-  fetchFiles = ()=>{
-    return new Promise((resolve, reject)=>{
-      let audioFiles = storageRef.child('/audioFiles');
-      audioFiles.list().then(res=>{
-        resolve(res);
-      }).catch(err=>{
-        reject(err);
-      });
-    });
-  }
-
-  initializeMediaState = (currentlyPlaying, pos)=>{
-    //console.log(currentlyPlaying + " " + pos);
-    return new Promise((resolve)=>{
-      //console.log( currentlyPlaying );
-      if( currentlyPlaying && currentlyPlaying !== pos){
-        //console.log("first option");
-        this.setState({
-          currentlyPlaying: undefined,
-          selectedTrack: 0,
-          paused: true
-        });
-        this.forceUpdate();
-        resolve('done');
-      }else if( currentlyPlaying && currentlyPlaying === pos){
-        //console.log("second option");
-        this.setState({
-          currentlyPlaying: undefined,
-          selectedTrack: 0,
-          paused: true
-        });
-        resolve('playing');
-      }else{
-        //console.log("last option");
-        resolve("not")
-      }
-    });
-  }
-
-
-  toggleTrack = (pos)=>{
-    let { currentlyPlaying } = this.state;
-    this.initializeMediaState(currentlyPlaying, pos).then(res=>{
-      //console.log(res)
-      if(res==="done" || res==="not"){
-        this.setState({
-          paused: false,
-          currentlyPlaying: pos,
-          selectedTrack: pos
-        });
-      }
-    });
-  }
-
-  setDuration = (data)=>{
-    // console.log(totalLength);
-    this.setState({totalLength: Math.floor(data.duration)});
-  }
-
-  setTime = (data)=>{
-    //console.log(data);
-    this.setState({currentPosition: Math.floor(data.currentTime)});
-  }
-
-  seek = (time)=>{
-    time = Math.round(time);
-    this.refs.audioElement && this.refs.audioElement.seek(time);
+  toggleNowPlaying = (pos) => {
+    let { audioFiles } = this.state;
     this.setState({
-      currentPosition: time,
-      paused: false,
+      selectedTrack: pos,
+      currentlyPlayingName: audioFiles[pos].name,
+      initCurrentlyPlaying: true
     });
-  }
-
-  onBack = ()=> {
-    if (this.state.currentPosition < 10 && this.state.selectedTrack > 0) {
-      this.refs.audioElement && this.refs.audioElement.seek(0);
-      this.setState({ isChanging: true });
-      setTimeout(() => this.setState({
-        currentPosition: 0,
-        paused: false,
-        totalLength: 1,
-        isChanging: false,
-        selectedTrack: this.state.selectedTrack - 1,
-      }), 0);
-    } else {
-      this.refs.audioElement.seek(0);
-      this.setState({
-        currentPosition: 0,
-      });
-    }
-  }
-
-  onForward = ()=> {
-    if (this.state.selectedTrack < this.props.tracks.length - 1) {
-      this.refs.audioElement && this.refs.audioElement.seek(0);
-      this.setState({ isChanging: true });
-      setTimeout(() => this.setState({
-        currentPosition: 0,
-        totalLength: 1,
-        paused: false,
-        isChanging: false,
-        selectedTrack: this.state.selectedTrack + 1,
-      }), 0);
-    }
-  }
-
-  videoError = (err) =>{
-    console.log(err)
-    console.log("there was an error")
-  }
-
-  onEnd = ()=>{
-
-  }
-
-  loadStart = ()=>{
-
   }
 
   render(){
+    let { navigation, currentlyPlaying, loaded, mediaFiles } = this.props;
     let {
-      navigation
-    } = this.props;
-    let {
-      mediaFiles,
-      loaded,
-      currentlyPlaying,
       selectedTrack,
+      initCurrentlyPlaying,
       audioFiles,
-      repeatOn,
-      paused
+      currentlyPlayingName
     } = this.state;
     if(loaded){
       console.log(mediaFiles);
     }
-    //console.log(paused)
-    const video = this.state.isChanging ? null : 
-      <Video source={ audioFiles[selectedTrack].type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url} } // Can be a URL or a local file.
-        ref="audioElement"
-        paused={paused}               // Pauses playback entirely.
-        resizeMode="cover"           // Fill the whole screen at aspect ratio.
-        repeat={repeatOn}
-        playInBackground={true}                // Repeat forever.
-        onLoadStart={this.loadStart} // Callback when video starts to load
-        onLoad={this.setDuration}    // Callback when video loads
-        onProgress={this.setTime}    // Callback every ~250ms with currentTime
-        onEnd={this.onEnd}           // Callback when playback finishes
-        onError={this.videoError}    // Callback when video cannot be loaded
-        style={styles.audioElement} />;
+    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
+
+    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    const playing = !this.state.isChanging?
+      <Audio
+        audioSource={ audioSource } // Can be a URL or a local file
+        audioFiles={audioFiles}
+        pos={ selectedTrack }
+        initCurrentlyPlaying = { initCurrentlyPlaying }
+        style={styles.audioElement}
+        currentlyPlayingName={ currentlyPlayingName }
+      />: null;
 
     return (
       <View style={ styles.Home }>
@@ -274,14 +147,33 @@ class Tracks extends React.Component {
           <ScrollView>{ Object.keys(audioFiles).map(key=>{
             let { name, url, type, duration } = audioFiles[key];
             let playIcon = key !== currentlyPlaying?type === "local"?"play-circle":"cloud-download":"pause";
+            let audioSource = type === "local" ? url : {uri: url};
             return(
               <View key={key} style={ styles.trackContainer }>
                 <View style={ styles.track }>
                   <View style={ styles.trackTextWrapper }>
                     <Text style={ styles.trackTitle }>{ name }</Text>
                     <Text style={ styles.trackLength }>{ duration }</Text>
+                    <Video
+                      source={ audioSource }
+                      paused={true}
+                      type={ type }
+                      audioOnly={ true }
+                      onLoad={(data)=>{
+                          // console.log(totalLength);
+                          let trackLength = Math.floor(data.duration);
+                          let audioFiles = { ...this.state.audioFiles };
+                          if(type !== "local"){
+                            audioFiles[key].duration = trackLength;
+                            this.setState({
+                              audioFiles
+                            });
+                          }
+                        }
+                      }
+                    />
                   </View>
-                  <TouchableOpacity onPress={ ()=>this.toggleTrack(key) } style={ styles.trackIcon }>
+                  <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                     <Icon
                       name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                       size={ 35 }
@@ -292,7 +184,7 @@ class Tracks extends React.Component {
             )
           }) }</ScrollView>
         </View>
-        {video}
+        {playing}
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
@@ -301,10 +193,11 @@ class Tracks extends React.Component {
   }
 }
 
-
 const mapStateToProps = state => {
   return{
-    mediaFiles: state.mediaFiles
+    selectedTrack: state.selectedTrack,
+    currentlyPlayingName: state.currentlyPlayingName,
+    initCurrentlyPlaying: state.initCurrentlyPlaying,
   }
 }
 
