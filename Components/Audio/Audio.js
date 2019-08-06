@@ -95,11 +95,13 @@ class Audio extends React.Component{
         this.props.store(newState);
     }
 
-    seek = (time)=>{
-        time = Math.round(time);
+    seek = (nextTime)=>{
+        time = Math.round(nextTime);
+        let { currentPosition, currentTime } = this.props;
         this.refs.audioElement && this.refs.audioElement.seek(time);
         let newState = {
-            currentPosition: time,
+            currentPosition: currentPosition + time,
+            currentTime: currentTime + time,
             paused: false,
         };
         this.props.store(newState)
@@ -178,6 +180,7 @@ class Audio extends React.Component{
             initCurrentlyPlaying,
             pos,
             currentPosition,
+            currentTime,
             currentlyPlaying,
             paused,
             selectedTrack,
@@ -209,7 +212,7 @@ class Audio extends React.Component{
                                 <Text>{ trackDuration }</Text>
                             </View>
                             <View style={ styles.buttonGroup }>
-                                <TouchableOpacity disabled={ !buttonsActive } style={ styles.groupedButtons }>
+                                <TouchableOpacity onPress = { ()=>this.seek(parseFloat(-10))} disabled={ !buttonsActive } style={ styles.groupedButtons }>
                                     <Icon
                                         name={ Platform.OS === "ios" ? `ios-rewind` : `md-rewind`}
                                         size={ 25 }
@@ -221,7 +224,7 @@ class Audio extends React.Component{
                                         size={ 25 }
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity  disabled={ !buttonsActive }  style={ styles.groupedButtons }>
+                                <TouchableOpacity onPress = { ()=>this.seek(parseFloat(15))} disabled={ !buttonsActive }  style={ styles.groupedButtons }>
                                     <Icon
                                         name={ Platform.OS === "ios" ? `ios-fastforward` : `md-fastforward`}
                                         size={ 25 }
@@ -242,6 +245,8 @@ class Audio extends React.Component{
                             resizeMode="cover" // Fill the whole screen at aspect ratio.
                             repeat={ repeatOn }
                             audioOnly = { true }
+                            seekTime = { currentPosition }
+                            currentTime = { currentTime }
                             playInBackground={ true } // Repeat forever.
                             onLoadStart={ this.onLoadStart } // Callback when video starts to load
                             onLoad={ this.setInfo } // Callback when video loads
