@@ -6,12 +6,14 @@
  * @flow
  */
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   View,
   Image
 } from 'react-native';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 
 class Home extends React.Component {
@@ -30,8 +32,14 @@ class Home extends React.Component {
     },
   });
 
-  render(){
+  componentDidMount(){
+    let newState = {
+      screen: "Home"
+    };
+    this.props.store(newState);
+  }
 
+  render(){
     let {
       navigation
     } = this.props;
@@ -50,4 +58,18 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => {
+  return{
+    screen: state.media.screen
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    store: (media) => {
+      dispatch(storeMedia(media));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

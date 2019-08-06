@@ -1,4 +1,0 @@
-#Sun Jul 28 22:46:20 EAT 2019
-base.0=/System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/dexMerger/debug/2
-path.0=classes.dex
-renamed.0=classes.dex

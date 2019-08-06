@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons'
-import * as firebase from 'firebase';
 import 'firebase/database';
 import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
@@ -27,44 +26,9 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { storeMedia } from '../../Actions/mediaFiles';
-import claps from './tracks/sample_claps.mp3';
-import noise from './tracks/sample_noise.mp3';
 
 
 class Tracks extends React.Component {
-
-  constructor(props){
-    super(props)
-    this.state = { 
-      ...props,
-      audioFiles: [
-        {
-          name: "Sample 1 local",
-          url: claps,
-          duration: "00:27",
-          type: "local"
-        }, 
-        {
-          name: "Sample 2 local",
-          url: noise,
-          duration: "00:45",
-          type: "local"
-        },
-        {
-          name: "Sample 3 cloud",
-          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2F10%20Calico.mp3?alt=media&token=a14104e0-8909-4ae8-80bf-dbf590b82af2",
-          duration: "-",
-          type: "cloud"
-        }, 
-        {
-          name: "Sample 4 cloud",
-          url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2FEp%2006%20-%20Education_mixdown.mp3?alt=media&token=95cebb59-b254-4f3e-87ae-36c7c18a54e1",
-          duration: "-",
-          type: "cloud"
-        }
-      ]
-    }
-  }
 
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -108,30 +72,44 @@ class Tracks extends React.Component {
     });
   }*/
 
+  componentDidMount(){
+    let newState = { screen: "Tracks" };
+    this.props.store(newState);
+  }
+
   toggleNowPlaying = (pos) => {
-    let { audioFiles } = this.state;
-    this.setState({
+    let { audioFiles } = this.props;
+    let newState = {
       selectedTrack: pos,
+      currentPostion: 0,
+      currentTime:0,
+      currentlyPlaying: null,
       currentlyPlayingName: audioFiles[pos].name,
-      initCurrentlyPlaying: true
-    });
+      paused: true,
+      initCurrentlyPlaying: true,
+      buttonsActive: true
+    };
+    this.props.store(newState);
   }
 
   render(){
-    let { navigation, currentlyPlaying, loaded, mediaFiles } = this.props;
     let {
+      navigation, 
+      currentlyPlaying, 
+      loaded, 
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
-      currentlyPlayingName
-    } = this.state;
+      currentlyPlayingName,
+      isChanging
+    } = this.props;
     if(loaded){
-      console.log(mediaFiles);
+      console.log(audioFiles);
     }
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
-    const playing = !this.state.isChanging?
+    const playing = !isChanging?
       <Audio
         audioSource={ audioSource } // Can be a URL or a local file
         audioFiles={audioFiles}
@@ -162,12 +140,12 @@ class Tracks extends React.Component {
                       onLoad={(data)=>{
                           // console.log(totalLength);
                           let trackLength = Math.floor(data.duration);
-                          let audioFiles = { ...this.state.audioFiles };
-                          if(type !== "local"){
+                          if(parseInt(trackLength) > 0){
                             audioFiles[key].duration = trackLength;
-                            this.setState({
+                            let newState = {
                               audioFiles
-                            });
+                            };
+                            this.props.store(newState);
                           }
                         }
                       }
@@ -183,8 +161,8 @@ class Tracks extends React.Component {
               </View>
             )
           }) }</ScrollView>
+          { playing }
         </View>
-        {playing}
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
@@ -195,9 +173,12 @@ class Tracks extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    selectedTrack: state.selectedTrack,
-    currentlyPlayingName: state.currentlyPlayingName,
-    initCurrentlyPlaying: state.initCurrentlyPlaying,
+    selectedTrack: state.media.selectedTrack,
+    currentlyPlayingName: state.media.currentlyPlayingName,
+    initCurrentlyPlaying: state.media.initCurrentlyPlaying,
+    screen: state.media.screen,
+    audioFiles: state.media.audioFiles,
+    buttonsActive: state.media.buttonsActive
   }
 }
 

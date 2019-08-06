@@ -1,6 +1,4 @@
 import { STORE_MEDIA } from '../Actions/types';
-import claps from '../Components/Tracks/tracks/sample_claps.mp3';
-import noise from '../Components/Tracks/tracks/sample_noise.mp3';
 
 const initialState = {
   mediaFiles: [],
@@ -11,14 +9,14 @@ const initialState = {
   audioFiles: [
     {
       name: "Sample 1 local",
-      url: claps,
-      duration: "00:27",
+      url: require("../Components/Tracks/tracks/sample_claps.mp3"),
+      duration: "27",
       type: "local"
     }, 
     {
       name: "Sample 2 local",
-      url: noise,
-      duration: "00:45",
+      url: require("../Components/Tracks/tracks/sample_noise.mp3"),
+      duration: "45",
       type: "local"
     },
     {
@@ -40,7 +38,9 @@ const initialState = {
   currentPosition: 0,
   currentTime: 0,
   repeatOn: false,
-  shuffleOn: false
+  shuffleOn: false,
+  screen: null,
+  buttonsActive: false
 };
 
 const mediaReducer = (state = initialState, action) => {
@@ -48,7 +48,7 @@ const mediaReducer = (state = initialState, action) => {
     case STORE_MEDIA:
       return {
         ...state,
-        mediaFiles: action.payload,
+        ...action.payload,
       };
     default:
       return state;

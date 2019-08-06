@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container:{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: 100,
         paddingTop: 10,
         paddingLeft: 40,
         paddingRight: 40,
@@ -15,6 +18,7 @@ export const styles = StyleSheet.create({
         flex: 1
     },
     controllerContainer: {
+        flex: 1,
         display: "flex",
         flexDirection: "row"
     },
@@ -27,6 +31,9 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     groupedButtons: {
+        flex: 1
+    },
+    slider: {
         flex: 1
     }
 });

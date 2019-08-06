@@ -21,8 +21,16 @@ import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
+import { storeMedia } from '../../Actions/mediaFiles';
 
 class Author extends React.Component {
+
+  componentDidMount(){
+    let newState = {
+      screen: "Author"
+    };
+    this.props.storeMediaInf(newState);
+  }
 
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -50,9 +58,9 @@ class Author extends React.Component {
   }
 
   render(){
-
     let {
-      navigation
+      navigation,
+      userEmail
     } = this.props;
     return (
       <View style={ styles.Home }>
@@ -68,6 +76,7 @@ class Author extends React.Component {
             <Text style={ styles.callToAction}>{ author.callToAction }</Text>
             <TextInput
               style={ styles.emailInput }
+              value = { userEmail }
               autoCompleteType={'email'}
               textContentType={'emailAddress'}
               placeholder={ author.emailPlaceHolder }
@@ -90,12 +99,22 @@ class Author extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    userEmail: state.input.userEmail,
+    screen: state.media.screen
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     store: (input) => {
       dispatch(storeInput(input))
+    },
+    storeMediaInf: (media) => {
+      dispatch(storeMedia(media))
     }
   }
 }
 
-export default connect(mapDispatchToProps)(Author);
+export default connect(mapStateToProps, mapDispatchToProps)(Author);

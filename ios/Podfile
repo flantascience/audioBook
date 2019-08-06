@@ -29,9 +29,6 @@ target 'audioBook' do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'Firebase/Analytics'
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
-  pod 'React', path: '../node_modules/react-native', subspecs: [
-  'ART',
-  ]
 
 
 
