@@ -1,12 +1,37 @@
-import * as firebase from "firebase/app";
+import firebase from "react-native-firebase";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyB2qWHICaGZMPO2PUT0LlUIL_O7VJavUfw",
-    authDomain: "audiobook-cac7d.firebaseapp.com",
-    databaseURL: "https://audiobook-cac7d.firebaseio.com",
-    projectId: "audiobook-cac7d",
-    storageBucket: "audiobook-cac7d.appspot.com",
-    messagingSenderId: "317961772265",
-    appId: "1:317961772265:web:b78012030cf493cc"
-};
-firebase.initializeApp(firebaseConfig);
+export const storageRef = firebase.storage().ref();
+
+export const formatTime = (inSeconds) => {
+    let time = Math.floor(parseInt(inSeconds)/60);
+    let rem = parseInt(inSeconds) % 60;
+    let formattedTime = "00:00";
+    if(time === 0 && rem > 0){
+        formattedTime =  "00:" + showTwoPlaces(rem);
+    }else if(time >= 1 && time <= 60){
+        let minutes = Math.floor(parseInt(inSeconds)/60);
+        let seconds = parseInt(inSeconds) % 60;
+        formattedTime = showTwoPlaces(minutes) + ":" + showTwoPlaces(seconds);
+    }else if(time > 60){
+        let hours = Math.floor(parseInt(inSeconds)/3600);
+        let minsNsecs = parseInt(inSeconds) % 3600;
+        let minutes = Math.floor(parseInt(minsNsecs)/60);
+        seconds = parseInt(minsNsecs) % 60;
+        formattedTime = showTwoPlaces(hours) + ":" + showTwoPlaces(minutes) + ":" + showTwoPlaces(seconds); 
+        
+    } 
+    return formattedTime;
+}
+
+export const showTwoPlaces = (num) => {
+    num = num.toString();
+    let numLen = num.length;
+    if(numLen == 2){
+        return(num);
+    }else if(numLen === 1){
+        num = "0"+ num;
+        return(num);
+    }else{
+        return("00");
+    }
+}

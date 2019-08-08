@@ -15,6 +15,8 @@ import com.audiobook.R;
 
 // @react-native-community/slider
 import com.reactnativecommunity.slider.ReactSliderPackage;
+// react-native-firebase
+import io.invertase.firebase.RNFirebasePackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-vector-icons
@@ -55,6 +57,7 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
       new ReactSliderPackage(),
+      new RNFirebasePackage(),
       new RNGestureHandlerPackage(),
       new VectorIconsPackage(),
       new ReactVideoPackage()

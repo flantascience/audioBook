@@ -16,6 +16,11 @@ export const styles = StyleSheet.create({
         flex:6,
         overflow: "hidden"
     },
+    overviewContainer: {
+        flex: 2,
+        overflow: "hidden",
+        marginBottom: 30
+    },
     homeFooter: {
         flex:1,
         padding: 5

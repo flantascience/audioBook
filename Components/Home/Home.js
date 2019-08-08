@@ -16,6 +16,7 @@ import Footer from '../Footer/Footer';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 
+
 class Home extends React.Component {
 
   static navigationOptions = ({navigation})=> ({

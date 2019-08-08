@@ -20,6 +20,27 @@ dependencies: \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Modules/module.modulemap \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Headers/FABAttributes.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Headers/Fabric.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Modules/module.modulemap \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/ANSCompatibility.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Answers.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSStackFrame.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSReport.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSLogging.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/CLSAttributes.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Crashlytics/iOS/Crashlytics.framework/Headers/Crashlytics.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageTaskSnapshot.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageUploadTask.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageReference.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageMetadata.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageTask.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageObservableTask.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageDownloadTask.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorageConstants.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FIRStorage.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseStorage/FirebaseStorage.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseInstanceID/FIRInstanceID.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseInstanceID/FirebaseInstanceID.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseCore/FIROptions.h \
@@ -27,4 +48,4 @@ dependencies: \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseCore/FIRConfiguration.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseCore/FIRApp.h \
   /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/FirebaseCore/FirebaseCore.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Firebase/CoreOnly/Sources/Firebase.h
+  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/Firebase/Firebase.h

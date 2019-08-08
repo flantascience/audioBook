@@ -27,10 +27,13 @@ target 'audioBook' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  pod 'Firebase/Analytics'
+  pod 'Firebase/Core', '~> 6.3.0'
+  pod 'Firebase/Storage'
   pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'
 
 
+
+  pod 'RNFirebase', :path => '../node_modules/react-native-firebase'
 
   target 'audioBookTests' do
     inherit! :search_paths

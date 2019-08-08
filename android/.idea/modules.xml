@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/audioBook.iml" filepath="$PROJECT_DIR$/audioBook.iml" />
+      <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-firebase/android/react-native-firebase.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-firebase/android/react-native-firebase.iml" />
       <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" />
       <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-vector-icons/android/react-native-vector-icons.iml" />
       <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-video/android/react-native-video.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/react-native-video/android/react-native-video.iml" />

@@ -2,31 +2,42 @@ import React from 'react';
 import Video from 'react-native-video';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
     TouchableOpacity,
     View,
+    Image,
     Text,
-    Platform
-} from 'react-native';
+    TextInput,
+    Platform,
+    Button,
+    ScrollView
+} from 'react-native'; 
+import { formatTime } from '../../Misc/helpers';
+import { posterURL } from '../../Misc/Strings';
 import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './styles';
+import VolumeUp from './images/volume_up.png';
+import VolumeDown from './images/volume_down.png';
 
 
 class Audio extends React.Component{
 
-    fetchFiles = ()=>{
-        return new Promise((resolve, reject)=>{
-          let audioFiles = storageRef.child('/audioFiles');
-          audioFiles.list().then(res=>{
-            resolve(res);
-          }).catch(err=>{
-            reject(err);
-          });
-        });
-    }
+    static navigationOptions = ({navigation})=> ({
+        headerLeft: <Header />,
+        headerTitleStyle :{
+            textAlign: 'center',
+            justifyContent: 'center',
+            color: '#FF6D00',
+            alignItems: 'center'
+        },
+        headerStyle:{
+            backgroundColor:'white',
+            height: 80,
+        },
+    });
 
     initializeMediaState = (currentlyPlaying, pos)=>{
         //console.log(currentlyPlaying + " " + pos);
@@ -69,7 +80,8 @@ class Audio extends React.Component{
                     loaded: true,
                     currentlyPlaying: pos,
                     selectedTrack: pos,
-                    currentlyPlayingName: name
+                    currentlyPlayingName: name,
+                    showTextinput: false
                 };
                 this.props.store(newSate);
             }
@@ -77,11 +89,12 @@ class Audio extends React.Component{
     }
 
     setInfo = (data)=>{
-        // console.log(totalLength);
+        //console.log(data.duration);
         let trackLength = Math.floor(data.duration);
-        let type = this.props.type;
-        if(type !== "local"){
+        //let type = this.props.type;
+        if(trackLength > 0){
             let newState = {
+                totalLengthFormatted: formatTime(trackLength),
                 totalLength: trackLength,
                 paused: true
             };
@@ -91,65 +104,23 @@ class Audio extends React.Component{
 
     setTime = (data)=>{
         //console.log(data);
-        let newState = {currentPosition: Math.floor(data.currentTime)};
+        let currT = Math.floor(data.currentTime);
+        let newState = {currentPosition: currT, currentTime: currT };
         this.props.store(newState);
     }
 
     seek = (nextTime)=>{
-        time = Math.round(nextTime);
-        let { currentPosition, currentTime } = this.props;
+        let time = Math.floor(Math.round(nextTime));
+        let { totalLength, currentTime } = this.props;
+        let newPos = parseFloat(parseInt(currentTime) + parseInt(time));
+        newPos = newPos <= totalLength && newPos > 0?newPos:currentTime;
         this.refs.audioElement && this.refs.audioElement.seek(time);
         let newState = {
-            currentPosition: currentPosition + time,
-            currentTime: currentTime + time,
-            paused: false,
+            currentPosition: newPos,
+            currentTime: newPos,
+            paused: newPos <= totalLength?false:true,
         };
-        this.props.store(newState)
-    }
-
-    onBack = ()=> {
-        let { currentPosition, selectedTrack } = this.props;
-        if (currentPosition < 10 && selectedTrack > 0) {
-            this.refs.audioElement && this.refs.audioElement.seek(0);
-            let newState = { isChanging: true };
-            this.props.store(newState);
-            setTimeout(() => {
-                let newSate = {
-                    currentPosition: 0,
-                    paused: false,
-                    totalLength: 1,
-                    isChanging: false,
-                    selectedTrack: selectedTrack - 1,
-                };
-                this.props.store(newSate);
-            }
-            , 0);
-        } else {
-            this.refs.audioElement.seek(0);
-            let newSate = {
-                currentPosition: 0,
-            };
-            this.props.store(newSate);
-        }
-    }
-
-    onForward = ()=> {
-        let { selectedTrack, tracks } = this.props;
-        if ( selectedTrack < tracks.length - 1) {
-            this.refs.audioElement && this.refs.audioElement.seek(0);
-            let newState = { isChanging: true };
-            this.props.store(newState)
-            setTimeout(() => {
-                let newState = {
-                    currentPosition: 0,
-                    totalLength: 1,
-                    paused: false,
-                    isChanging: false,
-                    selectedTrack: selectedTrack + 1,
-                }
-                this.props.store(newState);
-            }, 0);
-        }
+        this.props.store(newState);
     }
 
     videoError = (err) =>{
@@ -159,16 +130,22 @@ class Audio extends React.Component{
 
     onEnd = ()=>{
         let newState = {
-            paused: false,
-            currentlyPlaying: null,
-            selectedTrack: 0,
-            currentlyPlayingName: null
+            paused: true,
+            currentPosition: 0,
+            currentTime: 0,
+            showTextinput: true
         };
         this.props.store(newState);
     }
 
     loadStart = ()=>{
 
+    }
+
+    toggleOverview = ()=>{
+        const { showOverview } = this.props;
+        let newShowOverview = !showOverview;
+        this.props.store({ showOverview: newShowOverview });
     }
 
     render(){
@@ -186,65 +163,139 @@ class Audio extends React.Component{
             selectedTrack,
             repeatOn,
             isChanging,
-            buttonsActive
+            buttonsActive,
+            showOverview,
+            showTextinput,
+            volume,
         } = this.props;
-        console.log(buttonsActive)
         /** End reconfigure */
         //issue with pause button
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
         let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-        let playIcon = initCurrentlyPlaying && currentPosition && !paused ?"pause":currentlyPlaying !== selectedTrack || paused?type === "local"?"play-circle":"cloud-download":"pause";
+        let playIcon = initCurrentlyPlaying && currentPosition && !paused?
+        "pause":
+        currentlyPlaying !== selectedTrack || paused?
+        type === "local"?
+        "play-circle":
+        "cloud-download":
+        "pause";
         let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
+        const remainingTime = ( trackDuration - currentPosition );
+
+        const trackTimeSlider = <View style={ showOverview?styles.altTrackTimeContainer:styles.trackTimeContainer }>
+            <Slider 
+                style={ styles.slider }
+                value={ parseInt(currentPosition) }
+                onValueChange={ (val)=>{
+                    let time = Math.floor(parseFloat(val));
+                    console.log(time)
+                    this.refs.audioElement && this.refs.audioElement.seek(time);
+                    let newState = {
+                        currentPosition: time,
+                        currentTime: time,
+                        paused: false,
+                    };
+                    this.props.store(newState);
+                } }
+                maximumValue={ parseInt(trackDuration) || 10 } 
+                minimumValue={ 0 } 
+                disabled = { !buttonsActive }
+            />
+            <View style={ styles.trackTimeCounterContainer}>
+                    <View style= { styles.trackElapsedTime }>
+                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
+                    </View>
+                    <View style= { styles.trackRemainingTime}>
+                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
+                    </View>
+                </View>
+            </View>
+        const volumeRocker = <View style={ styles.volumeContainer }>
+                <Slider 
+                    style={ styles.volumeSlider }
+                    value={ parseFloat(volume) }
+                    onValueChange={ (val)=>{
+                        let newSate = {
+                            volume: val
+                        }
+                        this.props.store(newSate);
+                    } }
+                    maximumValue={ 1 } 
+                    minimumValue={ 0 }
+                />
+                <View style={ styles.volumeImagesContainer}>
+                    <View style= { styles.volumeDown }>
+                        <Image style = { styles.volumeImage } source={ VolumeDown } />
+                    </View>
+                    <View style= { styles.volumeUp}>
+                        <Image style = { styles.volumeImage }  source={ VolumeUp } />
+                    </View>
+                </View>
+            </View>
         return(
             <View style={ style }>
+                { showOverview?trackTimeSlider:null }
                 { !currentlyPlaying && isChanging?
                     null:
-                    <View style={ styles.container }>
-                        <View style={ styles.controllerContainer }>
-                            <TouchableOpacity style={ styles.toggleTrackDetail }>
-                                <Icon
-                                    name={ `ios-arrow-up`}
-                                    size={ 30 }
-                                />
-                            </TouchableOpacity>
-                            <View style={ styles.textDisplay }>
-                                <Text>{ currentlyPlayingName || "Select Track" }</Text>
-                                <Text>{ trackDuration }</Text>
-                            </View>
-                            <View style={ styles.buttonGroup }>
-                                <TouchableOpacity onPress = { ()=>this.seek(parseFloat(-10))} disabled={ !buttonsActive } style={ styles.groupedButtons }>
+                    <View style={ showOverview?styles.altContiner:styles.container }>
+                        <View style={ showOverview?styles.altControllerContainer:styles.controllerContainer }>
+                            { !showOverview?
+                                <TouchableOpacity 
+                                    disabled={ !buttonsActive } 
+                                    onPress={ this.toggleOverview } 
+                                    style={ styles.toggleTrackDetail }
+                                >
                                     <Icon
-                                        name={ Platform.OS === "ios" ? `ios-rewind` : `md-rewind`}
-                                        size={ 25 }
+                                        name={ `ios-arrow-up`}
+                                        size={ 30 }
+                                    />
+                                </TouchableOpacity>: 
+                            null }
+                            <View style={ showOverview?styles.altTextDisplay:styles.textDisplay }>
+                                <Text style={ showOverview?styles.altAudioTitle:styles.audioTitle }>
+                                    { currentlyPlayingName || "Select Track" }
+                                </Text>
+                            </View>
+                            <View style={ showOverview?styles.altButtonGroup:styles.buttonGroup }>
+                                <TouchableOpacity 
+                                    onPress = { ()=>this.seek(parseFloat(-10))} 
+                                    disabled={ !buttonsActive } 
+                                    style={ styles.altGroupedButtons }
+                                >
+                                    <Icon
+                                        name={ `ios-refresh` }
+                                        size={ !showOverview?25:35 }
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity  disabled={ !buttonsActive }  style={ styles.groupedButtons } onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }>
+                                <TouchableOpacity  
+                                    disabled={ !buttonsActive }  
+                                    style={ styles.groupedButtons } 
+                                    onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
+                                >
                                     <Icon
                                         name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                                        size={ 25 }
+                                        size={ !showOverview?25:35 }
                                     />
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress = { ()=>this.seek(parseFloat(15))} disabled={ !buttonsActive }  style={ styles.groupedButtons }>
+                                <TouchableOpacity 
+                                    onPress = { ()=>this.seek(parseFloat(15)) } 
+                                    disabled={ !buttonsActive }  
+                                    style={ styles.groupedButtons }
+                                >
                                     <Icon
-                                        name={ Platform.OS === "ios" ? `ios-fastforward` : `md-fastforward`}
-                                        size={ 25 }
+                                        name={ `ios-refresh` }
+                                        size={ !showOverview?25:35 }
                                     />
                                 </TouchableOpacity>
                             </View>
                         </View>
-                        <Slider 
-                            style={ styles.slider }
-                            value={ parseInt(currentPosition) } 
-                            step= { 1 }
-                            maximumValue={ parseInt(trackDuration) || 10 } 
-                            minimumValue={ 0 } 
-                            disabled = { !buttonsActive }
-                        />
+                        { showOverview?volumeRocker:trackTimeSlider }
                         <Video source={ audioSource || claps } // Can be a URL or a local file.
                             paused={ paused } // Pauses playback entirely.
                             resizeMode="cover" // Fill the whole screen at aspect ratio.
                             repeat={ repeatOn }
-                            audioOnly = { true }
+                            audioOnly = { false }
+                            poster= { posterURL }
                             seekTime = { currentPosition }
                             currentTime = { currentTime }
                             playInBackground={ true } // Repeat forever.
@@ -253,9 +304,24 @@ class Audio extends React.Component{
                             onProgress={ this.setTime } // Callback every ~250ms with currentTime
                             onEnd={ this.onEnd } // Callback when playback finishes
                             onError={ this.onError } // Callback when video cannot be loaded
+                            volume={ volume }
                         />
                     </View>
                     }
+                    <View style = { showOverview && !showTextinput?styles.spaceFiller:styles.altSpaceFiller }></View>
+                    { showTextinput?
+                        <ScrollView>
+                            <TextInput
+                                style={ styles.questionareText}
+                                placeholder={"Was anything confusing?"}
+                            />
+                            <TextInput
+                                style={ styles.questionareText}
+                                placeholder={"Do you have any questions?"}
+                            />
+                            <Button title={ "Submit" } />
+                        </ScrollView>:
+                    null }
             </View>
         )
     }
@@ -270,13 +336,17 @@ const mapStateToProps = state => {
       selectedTrack: state.media.selectedTrack,
       currentlyPlaying: state.media.currentlyPlaying,
       paused: state.media.paused,
-      totalLength: state.media.totalLength,
+      totalLengthFormatted: state.media.totalLengthFormatted,
       currentPosition: state.media.currentPosition,
       currentTime: state.media.currentTime,
       isChanging: state.media.isChanging,
       audioFiles: state.media.audioFiles,
       screen: state.media.screen,
-      buttonsActive: state.media.buttonsActive
+      buttonsActive: state.media.buttonsActive,
+      showOverview: state.media.showOverview,
+      showTextinput: state.media.showTextinput,
+      totalLength: state.media.totalLength,
+      volume: state.media.volume
     }
 }
 

@@ -12,14 +12,14 @@ import configureStore from './store';
 const store = configureStore();
 
 const screenConfig = {
-    duration: 10,
-    easing: Easing.out(Easing.poly(4))
+  duration: 1,
+  easing: Easing.out(Easing.poly(4))
 };
 
 const MainNavigator = createStackNavigator({
-    First: { screen: Home },
-    Second: { screen: Tracks },
-    Third: { screen: Author }
+  First: { screen: Home },
+  Second: { screen: Tracks },
+  Third: { screen: Author } 
 },  
 {
     initialRouteName: 'First',

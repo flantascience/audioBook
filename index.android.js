@@ -12,7 +12,7 @@ import configureStore from './store';
 const store = configureStore();
 
 const screenConfig = {
-    duration: 10,
+    duration: 1,
     easing: Easing.out(Easing.poly(4))
 };
 
