@@ -114,7 +114,7 @@ class Audio extends React.Component{
         let { totalLength, currentTime } = this.props;
         let newPos = parseFloat(parseInt(currentTime) + parseInt(time));
         newPos = newPos <= totalLength && newPos > 0?newPos:currentTime;
-        this.refs.audioElement && this.refs.audioElement.seek(time);
+        this.audioElement && this.audioElement.seek(time);
         let newState = {
             currentPosition: newPos,
             currentTime: newPos,
@@ -189,7 +189,7 @@ class Audio extends React.Component{
                 onValueChange={ (val)=>{
                     let time = Math.floor(parseFloat(val));
                     console.log(time)
-                    this.refs.audioElement && this.refs.audioElement.seek(time);
+                    this.audioElement && this.audioElement.seek(time);
                     let newState = {
                         currentPosition: time,
                         currentTime: time,
@@ -290,7 +290,9 @@ class Audio extends React.Component{
                             </View>
                         </View>
                         { showOverview?volumeRocker:trackTimeSlider }
-                        <Video source={ audioSource || claps } // Can be a URL or a local file.
+                        <Video 
+                            ref={audioElement =>{ this.audioElement = audioElement;}}
+                            source={ audioSource || claps } // Can be a URL or a local file.
                             paused={ paused } // Pauses playback entirely.
                             resizeMode="cover" // Fill the whole screen at aspect ratio.
                             repeat={ repeatOn }
