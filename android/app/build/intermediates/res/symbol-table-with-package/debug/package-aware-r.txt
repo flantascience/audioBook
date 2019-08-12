@@ -653,9 +653,11 @@ drawable components_audio_images_volume_up
 drawable components_author_images_author
 drawable components_header_images_crzyheadshottrans
 drawable components_home_images_samplebookcover
+drawable forward
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable misc_media_part2unschooling
+drawable next
 drawable node_modules_reactnative_libraries_newappscreen_components_logo
 drawable node_modules_reactnavigationstack_lib_module_views_assets_backicon
 drawable node_modules_reactnavigationstack_lib_module_views_assets_backiconmask
@@ -671,7 +673,12 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable pause
+drawable play
+drawable previous
 drawable redbox_top_border_background
+drawable rewind
+drawable stop
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -931,6 +938,8 @@ raw app
 raw components_tracks_tracks_sample_claps
 raw components_tracks_tracks_sample_noise
 raw node_modules_reactnativevectoricons_glyphmaps_ionicons
+raw sample_claps
+raw sample_noise
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

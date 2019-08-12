@@ -3263,27 +3263,34 @@ public final class R {
     public static final int components_author_images_author=0x7f060069;
     public static final int components_header_images_crzyheadshottrans=0x7f06006a;
     public static final int components_home_images_samplebookcover=0x7f06006b;
-    public static final int googleg_disabled_color_18=0x7f06006c;
-    public static final int googleg_standard_color_18=0x7f06006d;
-    public static final int misc_media_part2unschooling=0x7f06006e;
-    public static final int node_modules_reactnative_libraries_newappscreen_components_logo=0x7f06006f;
-    public static final int node_modules_reactnavigationstack_lib_module_views_assets_backicon=0x7f060070;
-    public static final int node_modules_reactnavigationstack_lib_module_views_assets_backiconmask=0x7f060071;
-    public static final int notification_action_background=0x7f060072;
-    public static final int notification_bg=0x7f060073;
-    public static final int notification_bg_low=0x7f060074;
-    public static final int notification_bg_low_normal=0x7f060075;
-    public static final int notification_bg_low_pressed=0x7f060076;
-    public static final int notification_bg_normal=0x7f060077;
-    public static final int notification_bg_normal_pressed=0x7f060078;
-    public static final int notification_icon_background=0x7f060079;
-    public static final int notification_template_icon_bg=0x7f06007a;
-    public static final int notification_template_icon_low_bg=0x7f06007b;
-    public static final int notification_tile_bg=0x7f06007c;
-    public static final int notify_panel_notification_icon_bg=0x7f06007d;
-    public static final int redbox_top_border_background=0x7f06007e;
-    public static final int tooltip_frame_dark=0x7f06007f;
-    public static final int tooltip_frame_light=0x7f060080;
+    public static final int forward=0x7f06006c;
+    public static final int googleg_disabled_color_18=0x7f06006d;
+    public static final int googleg_standard_color_18=0x7f06006e;
+    public static final int misc_media_part2unschooling=0x7f06006f;
+    public static final int next=0x7f060070;
+    public static final int node_modules_reactnative_libraries_newappscreen_components_logo=0x7f060071;
+    public static final int node_modules_reactnavigationstack_lib_module_views_assets_backicon=0x7f060072;
+    public static final int node_modules_reactnavigationstack_lib_module_views_assets_backiconmask=0x7f060073;
+    public static final int notification_action_background=0x7f060074;
+    public static final int notification_bg=0x7f060075;
+    public static final int notification_bg_low=0x7f060076;
+    public static final int notification_bg_low_normal=0x7f060077;
+    public static final int notification_bg_low_pressed=0x7f060078;
+    public static final int notification_bg_normal=0x7f060079;
+    public static final int notification_bg_normal_pressed=0x7f06007a;
+    public static final int notification_icon_background=0x7f06007b;
+    public static final int notification_template_icon_bg=0x7f06007c;
+    public static final int notification_template_icon_low_bg=0x7f06007d;
+    public static final int notification_tile_bg=0x7f06007e;
+    public static final int notify_panel_notification_icon_bg=0x7f06007f;
+    public static final int pause=0x7f060080;
+    public static final int play=0x7f060081;
+    public static final int previous=0x7f060082;
+    public static final int redbox_top_border_background=0x7f060083;
+    public static final int rewind=0x7f060084;
+    public static final int stop=0x7f060085;
+    public static final int tooltip_frame_dark=0x7f060086;
+    public static final int tooltip_frame_light=0x7f060087;
   }
   public static final class id {
     public static final int ALT=0x7f070000;
@@ -3551,6 +3558,8 @@ public final class R {
     public static final int components_tracks_tracks_sample_claps=0x7f0b0001;
     public static final int components_tracks_tracks_sample_noise=0x7f0b0002;
     public static final int node_modules_reactnativevectoricons_glyphmaps_ionicons=0x7f0b0003;
+    public static final int sample_claps=0x7f0b0004;
+    public static final int sample_noise=0x7f0b0005;
   }
   public static final class string {
     public static final int abc_action_bar_home_description=0x7f0c0000;
