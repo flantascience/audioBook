@@ -1,7 +1,10 @@
-#Mon Aug 12 13:58:33 EAT 2019
+#Tue Aug 13 15:50:02 EAT 2019
 base.2=/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/dexMerger/debug/10
 base.1=/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/dexMerger/debug/1
 base.0=/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/dexMerger/debug/0
+renamed.20=classes21.dex
+path.20=classes.dex
+base.20=/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/transforms/dexMerger/debug/20
 path.9=classes.dex
 path.8=classes.dex
 path.7=classes.dex

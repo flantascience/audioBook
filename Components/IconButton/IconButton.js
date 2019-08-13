@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from "react-native-vector-icons/Ionicons";
-import propTypes from 'prop-types';
 import {
     Platform,
     View,
@@ -19,14 +18,6 @@ const IconButton = ({name, onPress, ...props})=>{
             <Text style={ styles.iconText }>{ props.text }</Text>
         </TouchableOpacity>
     )
-}
-
-IconButton.defaultProps = {
-    size: 30
-}
-
-IconButton.propTypes = {
-    size: propTypes.number
 }
 
 export default IconButton;
