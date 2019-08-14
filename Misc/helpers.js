@@ -1,4 +1,5 @@
 import firebase from "react-native-firebase";
+import TrackPlayer from "react-native-track-player";
 
 export const storageRef = firebase.storage().ref();
 
@@ -21,6 +22,43 @@ export const formatTime = (inSeconds) => {
         
     } 
     return formattedTime;
+}
+
+export const getCurrentTrack = async ()=> {
+
+    let currentTrack = await TrackPlayer.getCurrentTrack();
+    return currentTrack;
+    
+}
+export const getTrack = async (trackId)=> {
+
+    let track = await TrackPlayer.getTrack(trackId);
+    return track;
+} 
+export const getPlayerState = async ()=> {
+
+    let state = await TrackPlayer.getState();
+    return state;
+
+}
+export const removeTrack = (id)=> {
+    return new Promise(resolve=>{
+        if(id){
+            TrackPlayer.remove(id).then(()=>{
+                resolve("removed")
+            }).catch(err=>{
+                resolve("There was an error.");
+            });
+        }else{
+            resolve("no id");
+        }
+        
+    })
+}
+
+export const getDuration = async ()=> {
+    let duration = await TrackPlayer.getDuration();
+    return duration;
 }
 
 export const showTwoPlaces = (num) => {

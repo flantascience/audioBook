@@ -2,6 +2,7 @@
  * @format
  */
 import React from 'react';
+import TrackPlayer from 'react-native-track-player';
 import { AppRegistry, Easing, Animated } from 'react-native';
 import { Home, Author, Tracks } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
@@ -9,6 +10,16 @@ import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 
+TrackPlayer.setupPlayer().then(()=>{
+  TrackPlayer.updateOptions({
+    capabilities: [
+      TrackPlayer.CAPABILITY_PLAY,
+      TrackPlayer.CAPABILITY_PAUSE,
+      TrackPlayer.CAPABILITY_SEEK_TO,
+      TrackPlayer.CAPABILITY_SKIP
+    ]
+  });
+});
 const store = configureStore();
 
 const screenConfig = {
@@ -58,3 +69,4 @@ const App = ()=>(
 );
 
 AppRegistry.registerComponent(appName, () => App);
+TrackPlayer.registerPlaybackService(()=>require('./service'));

@@ -1,5 +1,6 @@
 import React from 'react';
 import Video from 'react-native-video';
+import TrackPlayer from 'react-native-track-player';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,7 +14,13 @@ import {
     Button,
     ScrollView
 } from 'react-native'; 
-import { formatTime } from '../../Misc/helpers';
+import { 
+    formatTime, 
+    getCurrentTrack, 
+    getTrack, 
+    getPlayerState,
+    removeTrack
+} from '../../Misc/helpers';
 import { posterURL } from '../../Misc/Strings';
 import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
@@ -21,6 +28,7 @@ import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './styles';
 import VolumeUp from './images/volume_up.png';
 import VolumeDown from './images/volume_down.png';
+import ProgressBar from './ProgressBar';
 
 
 class Audio extends React.Component{
@@ -39,20 +47,32 @@ class Audio extends React.Component{
         },
     });
 
-    initializeMediaState = (currentlyPlaying, pos)=>{
+    toggleTrack = (pos)=>{
         //console.log(currentlyPlaying + " " + pos);
-        let { paused } = this.props;
+        let { audioFiles, paused, currentlyPlaying} = this.props;
+        let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
             //console.log( currentlyPlaying );
             if( currentlyPlaying && currentlyPlaying !== pos){
                 //console.log("first option");
-                let newState = {
-                    currentlyPlaying: pos,
-                    selectedTrack: 0,
-                    paused: true
-                };
-                this.props.store(newState);
-                resolve('done');
+                removeTrack().then(()=>{
+                    let stringPos = pos.toString();
+                    TrackPlayer.add([audioFiles[pos]]).then(()=>{
+                        let newState = {
+                            paused: false,
+                            loaded: true,
+                            currentlyPlaying: pos,
+                            selectedTrack: pos,
+                            selectedTrackId: stringPos,
+                            currentlyPlayingName: title,
+                            showTextinput: false
+                        };
+                        this.props.store(newState);
+                        TrackPlayer.play();
+                        resolve('done');
+                    })
+                    
+                }); 
             }else if( currentlyPlaying && currentlyPlaying === pos){
                 //console.log("second option");
                 let newState = {
@@ -62,28 +82,24 @@ class Audio extends React.Component{
                     paused: !paused
                 };
                 this.props.store(newState);
+                    if(paused)
+                        TrackPlayer.play();
+                    else
+                        TrackPlayer.pause();
+                resolve("same");
             }else{
-                //console.log("last option");
-                resolve("not");
-            }
-        });
-    }
-
-
-    toggleTrack = (pos)=>{
-        let { audioFiles, currentlyPlaying } = this.props;
-        let name = audioFiles[pos].name;
-        this.initializeMediaState(currentlyPlaying, pos).then(res=>{
-            if(res==="done" || res==="not"){
+                let stringPos = pos.toString();
                 let newSate = {
                     paused: false,
                     loaded: true,
                     currentlyPlaying: pos,
                     selectedTrack: pos,
-                    currentlyPlayingName: name,
+                    selectedTrackId: stringPos,
+                    currentlyPlayingName: title,
                     showTextinput: false
                 };
-                this.props.store(newSate);
+                TrackPlayer.play();
+                resolve("not");
             }
         });
     }
@@ -102,44 +118,28 @@ class Audio extends React.Component{
         }
     }
 
-    setTime = (data)=>{
+    getTime = async ()=>{
         //console.log(data);
-        let currT = Math.floor(data.currentTime);
-        let newState = {currentPosition: currT, currentTime: currT };
-        this.props.store(newState);
+        let currentTime = await TrackPlayer.getPosition();
+        return currentTime;
     }
 
-    seek = (nextTime)=>{
+    seekTo = (nextTime)=>{
         let time = Math.floor(Math.round(nextTime));
-        let { totalLength, currentTime } = this.props;
-        let newPos = parseFloat(parseInt(currentTime) + parseInt(time));
-        newPos = newPos <= totalLength && newPos > 0?newPos:currentTime;
-        this.audioElement && this.audioElement.seek(time);
-        let newState = {
-            currentPosition: newPos,
-            currentTime: newPos,
-            paused: newPos <= totalLength?false:true,
-        };
-        this.props.store(newState);
-    }
-
-    videoError = (err) =>{
-        console.log(err)
-        console.log("there was an error")
-    }
-
-    onEnd = ()=>{
-        let newState = {
-            paused: true,
-            currentPosition: 0,
-            currentTime: 0,
-            showTextinput: true
-        };
-        this.props.store(newState);
-    }
-
-    loadStart = ()=>{
-
+        let { totalLength } = this.props;
+        this.getTime().then(currentTime=>{
+            let newPos = parseFloat(parseInt(currentTime) + parseInt(time));
+            newPos = newPos <= totalLength && newPos > 0?newPos:currentTime;
+            console.log(newPos)
+            TrackPlayer.seekTo(newPos);
+            /*let newState = {
+                currentPosition: newPos,
+                currentTime: newPos,
+                paused: newPos <= totalLength?false:true,
+            };
+            this.props.store(newState);*/
+        });
+        
     }
 
     toggleOverview = ()=>{
@@ -183,38 +183,14 @@ class Audio extends React.Component{
         const remainingTime = ( trackDuration - currentPosition );
 
         const trackTimeSlider = <View style={ showOverview?styles.altTrackTimeContainer:styles.trackTimeContainer }>
-            <Slider 
-                style={ styles.slider }
-                value={ parseInt(currentPosition) }
-                onValueChange={ (val)=>{
-                    let time = Math.floor(parseFloat(val));
-                    console.log(time)
-                    this.audioElement && this.audioElement.seek(time);
-                    let newState = {
-                        currentPosition: time,
-                        currentTime: time,
-                        paused: false,
-                    };
-                    this.props.store(newState);
-                } }
-                maximumValue={ parseInt(trackDuration) || 10 } 
-                minimumValue={ 0 } 
-                disabled = { !buttonsActive }
-            />
-            <View style={ styles.trackTimeCounterContainer}>
-                    <View style= { styles.trackElapsedTime }>
-                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
-                    </View>
-                    <View style= { styles.trackRemainingTime}>
-                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
-                    </View>
-                </View>
+                <ProgressBar />
             </View>
         const volumeRocker = <View style={ styles.volumeContainer }>
                 <Slider 
                     style={ styles.volumeSlider }
                     value={ parseFloat(volume) }
                     onValueChange={ (val)=>{
+                        TrackPlayer.setVolume(val);
                         let newSate = {
                             volume: val
                         }
@@ -258,11 +234,22 @@ class Audio extends React.Component{
                             </View>
                             <View style={ showOverview?styles.altButtonGroup:styles.buttonGroup }>
                                 <TouchableOpacity 
-                                    onPress = { ()=>this.seek(parseFloat(-10))} 
-                                    disabled={ !buttonsActive } 
-                                    style={ styles.altGroupedButtons }
+                                    onPress = { ()=>{
+                                        TrackPlayer.getPosition().then(res=>{
+                                            let newPos = res + parseFloat(-10);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            TrackPlayer.seekTo(newPos);
+                                        });
+                                     }} 
+                                    disabled={ !buttonsActive }
+                                    style={ styles.altGroupedButtons } 
                                 >
                                     <Icon
+                                        style={ styles.reflection }
                                         name={ `ios-refresh` }
                                         size={ !showOverview?25:35 }
                                     />
@@ -278,7 +265,17 @@ class Audio extends React.Component{
                                     />
                                 </TouchableOpacity>
                                 <TouchableOpacity 
-                                    onPress = { ()=>this.seek(parseFloat(15)) } 
+                                    onPress = { ()=>{
+                                        TrackPlayer.getPosition().then(res=>{
+                                            let newPos = res + parseFloat(15);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            TrackPlayer.seekTo(newPos);
+                                        });
+                                     } } 
                                     disabled={ !buttonsActive }  
                                     style={ styles.groupedButtons }
                                 >
@@ -290,7 +287,7 @@ class Audio extends React.Component{
                             </View>
                         </View>
                         { showOverview?volumeRocker:trackTimeSlider }
-                        <Video 
+                        {/*<Video 
                             ref={audioElement =>{ this.audioElement = audioElement;}}
                             source={ audioSource || claps } // Can be a URL or a local file.
                             paused={ paused } // Pauses playback entirely.
@@ -307,7 +304,7 @@ class Audio extends React.Component{
                             onEnd={ this.onEnd } // Callback when playback finishes
                             onError={ this.onError } // Callback when video cannot be loaded
                             volume={ volume }
-                        />
+                        />*/}
                     </View>
                     }
                     <View style = { showOverview && !showTextinput?styles.spaceFiller:styles.altSpaceFiller }></View>

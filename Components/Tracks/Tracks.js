@@ -17,10 +17,11 @@ import {
   Button
 } from 'react-native';
 import { connect } from 'react-redux';
+import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
-import { formatTime } from '../../Misc/helpers';
+import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
@@ -48,17 +49,54 @@ class Tracks extends React.Component {
   componentDidMount(){
     let newState = { screen: "Tracks" };
     this.props.store(newState);
+    let { audioFiles } = this.props;
+
+    this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
+        
+      let palyerState = data.state;
+      console.log(palyerState)
+      if(palyerState === 1){
+        this.props.store({paused: true});
+      }
+      //const track = await TrackPlayer.getTrack(data.nextTrack);
+      //this.setState({trackTitle: track.title});
+      
+    });
+  }
+
+  componentWillUnmount() {
+      // Removes the event handler
+      this.onStateChange.remove();
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles, paused } = this.props;
+    let { audioFiles, paused, selectedTrackId } = this.props;
+    //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
+      removeTrack(selectedTrackId).then(res=>{
+        if(res === "removed" || "no id"){
+          let currPos = audioFiles[pos];
+          TrackPlayer.add([currPos]).then(res=>{
+            /*TrackPlayer.getDuration().then(res=>{
+              console.log(res);
+            });*/
+            getDuration().then(trackDuration=>{
+              let formattedDuration = formatTime(trackDuration);
+              this.props.store({trackDuration, totalLength: trackDuration, formattedDuration});
+              TrackPlayer.play();
+            })
+          }); 
+        }else{
+          console.log(res)
+        }
+      });
     let newState = {
       selectedTrack: pos,
       currentPostion: 0,
       currentTime:0,
-      currentlyPlaying: null,
-      currentlyPlayingName: audioFiles[pos].name,
-      paused: !paused,
+      selectedTrackId: audioFiles[pos].id,
+      currentlyPlaying: audioFiles[pos].id,
+      currentlyPlayingName: audioFiles[pos].title,
+      paused: false,
       initCurrentlyPlaying: true,
       buttonsActive: true,
       showOverview: true
@@ -99,35 +137,15 @@ class Tracks extends React.Component {
         { !showOverview?
             <View style = { styles.homeMid }>
               <ScrollView>{ Object.keys(audioFiles).map(key=>{
-                let { name, url, type, duration, formattedDuration } = audioFiles[key];
+                let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
                 let playIcon = key !== currentlyPlaying?type === "local"?"play-circle":"cloud-download":"pause";
                 let audioSource = type === "local" ? url : {uri: url};
                 return(
                   <View key={key} style={ styles.trackContainer }>
                     <View style={ styles.track }>
                       <View style={ styles.trackTextWrapper }>
-                        <Text style={ styles.trackTitle }>{ name }</Text>
+                        <Text style={ styles.trackTitle }>{ title }</Text>
                         <Text style={ styles.trackLength }>{ formattedDuration }</Text>
-                        <Video
-                          source={ audioSource }
-                          paused={true}
-                          type={ type }
-                          audioOnly={ true }
-                          onLoad={(data)=>{
-                              //console.log(data.duration);
-                              let trackLength = Math.floor(data.duration);
-                              //console.log(formatTime(trackLength));
-                              if(trackLength > 0){
-                                audioFiles[key].duration = trackLength;
-                                audioFiles[key].formattedDuration = formatTime(trackLength);
-                                let newState = {
-                                  audioFiles
-                                };
-                                this.props.store(newState);
-                              }
-                            }
-                          }
-                        />
                       </View>
                       <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                         <Icon
@@ -166,7 +184,8 @@ const mapStateToProps = state => {
     screen: state.media.screen,
     audioFiles: state.media.audioFiles,
     buttonsActive: state.media.buttonsActive,
-    showOverview: state.media.showOverview
+    showOverview: state.media.showOverview,
+    selectedTrackId: state.media.selectedTrackId
   }
 }
 

@@ -20,6 +20,7 @@ const Footer = ({ navigation, playing, ...props })=>{
                     onPress={ ()=>goTo(footer.home.place) }
                     name={'home'}
                     style = { styles.icon }
+                    size={ 35 }
                     text={ footer.home.text }
                 />
                 <IconButton
@@ -27,12 +28,14 @@ const Footer = ({ navigation, playing, ...props })=>{
                     name={'volume-high'}
                     place={ footer.tracks.place }
                     style = { styles.icon }
+                    size={ 35 }
                     text={ footer.tracks.text }
                 />
                 <IconButton
                     onPress={ ()=>goTo(footer.author.place) }
                     name={'person'}
                     place={ footer.author.place }
+                    size={ 35 }
                     style = { styles.icon }
                     text={ footer.author.text }
                 />

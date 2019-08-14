@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    reflection: {
+        transform: [{ scaleX: -1 }],
+    },
     container:{
         display: "flex",
         flexDirection: "column",
@@ -76,7 +79,6 @@ export const styles = StyleSheet.create({
     },
     altGroupedButtons: {
         flex: 1,
-        transform: [{ scaleX: -1 }],
         alignContent: "center",
         alignItems: "center",
         //justifyContent: "center"

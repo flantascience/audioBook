@@ -21,9 +21,21 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from './styles';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
+import { 
+  formatTime, 
+  getCurrentTrack, 
+  getTrack, 
+  getPlayerState 
+} from '../../Misc/helpers';
 import poster from '../../Misc/media/part2-unschooling.jpg';
 
 class MediaOverviews extends React.Component {
+
+  componentDidMount(){
+    getCurrentTrack().then(res=>{
+      console.log(res);
+    });
+  }
 
   toggleOverview = ()=>{
     const { showOverview } = this.props;

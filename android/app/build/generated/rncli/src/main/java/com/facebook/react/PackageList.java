@@ -19,6 +19,8 @@ import com.reactnativecommunity.slider.ReactSliderPackage;
 import io.invertase.firebase.RNFirebasePackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-track-player
+import com.guichaguri.trackplayer.TrackPlayer;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-video
@@ -59,6 +61,7 @@ public class PackageList {
       new ReactSliderPackage(),
       new RNFirebasePackage(),
       new RNGestureHandlerPackage(),
+      new TrackPlayer(),
       new VectorIconsPackage(),
       new ReactVideoPackage()
     ));
