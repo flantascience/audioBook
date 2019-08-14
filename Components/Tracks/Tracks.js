@@ -54,9 +54,8 @@ class Tracks extends React.Component {
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
         
       let palyerState = data.state;
-      console.log(palyerState)
       if(palyerState === 1){
-        this.props.store({paused: true});
+        this.props.store({paused: true, loaded: false});
       }
       //const track = await TrackPlayer.getTrack(data.nextTrack);
       //this.setState({trackTitle: track.title});
@@ -70,19 +69,29 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles, paused, selectedTrackId } = this.props;
+    let { audioFiles, paused, loaded, selectedTrackId } = this.props;
     //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
-      removeTrack(selectedTrackId).then(res=>{
-        if(res === "removed" || "no id"){
+      removeTrack().then(res=>{
+        console.log(res)
+        if(res === "removed"){
           let currPos = audioFiles[pos];
           TrackPlayer.add([currPos]).then(res=>{
             /*TrackPlayer.getDuration().then(res=>{
               console.log(res);
             });*/
             getDuration().then(trackDuration=>{
-              let formattedDuration = formatTime(trackDuration);
-              this.props.store({trackDuration, totalLength: trackDuration, formattedDuration});
-              TrackPlayer.play();
+              console.log(trackDuration)
+              if(trackDuration > 0){
+                let formattedDuration = formatTime(trackDuration);
+                this.props.store({trackDuration, paused: false, loaded: true, totalLength: trackDuration, formattedDuration});
+                TrackPlayer.play();
+              }else{
+                trackDuration = audioFiles[selectedTrackId].duration;
+                let formattedDuration = formatTime(trackDuration);
+                this.props.store({trackDuration, paused: false, loaded: true, totalLength: trackDuration, formattedDuration});
+                TrackPlayer.play();
+              }
+              
             })
           }); 
         }else{
@@ -96,7 +105,6 @@ class Tracks extends React.Component {
       selectedTrackId: audioFiles[pos].id,
       currentlyPlaying: audioFiles[pos].id,
       currentlyPlayingName: audioFiles[pos].title,
-      paused: false,
       initCurrentlyPlaying: true,
       buttonsActive: true,
       showOverview: true
@@ -116,9 +124,6 @@ class Tracks extends React.Component {
       isChanging,
       showOverview
     } = this.props;
-    if(loaded){
-      console.log(audioFiles);
-    }
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -185,7 +190,8 @@ const mapStateToProps = state => {
     audioFiles: state.media.audioFiles,
     buttonsActive: state.media.buttonsActive,
     showOverview: state.media.showOverview,
-    selectedTrackId: state.media.selectedTrackId
+    selectedTrackId: state.media.selectedTrackId,
+    loaded: state.media.loaded
   }
 }
 

@@ -27,16 +27,16 @@ const initialState = {
       id: "2",
       title: "Sample 3 cloud",
       url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2F10%20Calico.mp3?alt=media&token=a14104e0-8909-4ae8-80bf-dbf590b82af2",
-      formattedDuration: "00:00",
-      duration: "-",
+      formattedDuration: "04:10",
+      duration: 250,
       type: "cloud"
     }, 
     {
       id: "3",
       title: "Sample 4 cloud",
       url: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/audioFiles%2FEp%2006%20-%20Education_mixdown.mp3?alt=media&token=95cebb59-b254-4f3e-87ae-36c7c18a54e1",
-      formattedDuration: "00:00",
-      duration: "-",
+      formattedDuration: "01:55:25",
+      duration: 6950,
       type: "cloud"
     }
   ],

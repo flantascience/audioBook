@@ -124,24 +124,6 @@ class Audio extends React.Component{
         return currentTime;
     }
 
-    seekTo = (nextTime)=>{
-        let time = Math.floor(Math.round(nextTime));
-        let { totalLength } = this.props;
-        this.getTime().then(currentTime=>{
-            let newPos = parseFloat(parseInt(currentTime) + parseInt(time));
-            newPos = newPos <= totalLength && newPos > 0?newPos:currentTime;
-            console.log(newPos)
-            TrackPlayer.seekTo(newPos);
-            /*let newState = {
-                currentPosition: newPos,
-                currentTime: newPos,
-                paused: newPos <= totalLength?false:true,
-            };
-            this.props.store(newState);*/
-        });
-        
-    }
-
     toggleOverview = ()=>{
         const { showOverview } = this.props;
         let newShowOverview = !showOverview;
@@ -167,16 +149,18 @@ class Audio extends React.Component{
             showOverview,
             showTextinput,
             volume,
+            loaded
         } = this.props;
         /** End reconfigure */
         //issue with pause button
+        console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
         let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-        let playIcon = initCurrentlyPlaying && currentPosition && !paused?
+        let playIcon = initCurrentlyPlaying && currentPosition && !paused && loaded?
         "pause":
-        currentlyPlaying !== selectedTrack || paused?
-        type === "local"?
+        loaded && paused?
         "play-circle":
+        type === "cloud" && !loaded && paused?
         "cloud-download":
         "pause";
         let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
@@ -345,7 +329,8 @@ const mapStateToProps = state => {
       showOverview: state.media.showOverview,
       showTextinput: state.media.showTextinput,
       totalLength: state.media.totalLength,
-      volume: state.media.volume
+      volume: state.media.volume,
+      loaded: state.media.loaded
     }
 }
 
