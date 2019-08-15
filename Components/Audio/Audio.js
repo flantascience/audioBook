@@ -68,6 +68,8 @@ class Audio extends React.Component{
                             showTextinput: false
                         };
                         this.props.store(newState);
+                        let ready = TrackPlayer.STATE_READY;
+                        console.log(ready);
                         TrackPlayer.play();
                         resolve('done');
                     })
@@ -153,16 +155,19 @@ class Audio extends React.Component{
         } = this.props;
         /** End reconfigure */
         //issue with pause button
-        console.log(loaded)
+        //console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
         let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-        let playIcon = initCurrentlyPlaying && currentPosition && !paused && loaded?
-        "pause":
-        loaded && paused?
-        "play-circle":
-        type === "cloud" && !loaded && paused?
-        "cloud-download":
-        "pause";
+        let playIcon = "play-circle";
+        if(!initCurrentlyPlaying && paused && !loaded && type==="local"){
+            playIcon = "play-circle"
+        }else if(!initCurrentlyPlaying && paused && !loaded && type==="cloud"){
+            playIcon = "cloud-download"
+        }else if(paused && loaded){
+            playIcon = "play-circle";
+        }else if(!paused && loaded){
+            playIcon = "pause"
+        }
         let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
         const remainingTime = ( trackDuration - currentPosition );
 

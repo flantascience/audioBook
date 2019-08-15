@@ -4,6 +4,23 @@
             "outputFile": "/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml",
             "map": [
                 {
+                    "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/6a5358f3cf0cbb7d14487083e01d2d1a/res/values-fi/values-fi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5532",
+                        "endColumns": "100",
+                        "endOffsets": "5628"
+                    }
+                },
+                {
                     "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/1e86e1c77db1804e554dbc0fcd14621a/res/values-fi/values-fi.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
@@ -35,23 +52,6 @@
                         "startOffsets": "3943",
                         "endColumns": "208",
                         "endOffsets": "4147"
-                    }
-                },
-                {
-                    "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/e738af476a01d7def7aca77c0252efa8/res/values-fi/values-fi.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5532",
-                        "endColumns": "100",
-                        "endOffsets": "5628"
                     }
                 },
                 {

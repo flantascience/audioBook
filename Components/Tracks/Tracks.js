@@ -63,11 +63,6 @@ class Tracks extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-      // Removes the event handler
-      this.onStateChange.remove();
-  }
-
   toggleNowPlaying = (pos) => {
     let { audioFiles, paused, loaded, selectedTrackId } = this.props;
     //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
@@ -80,7 +75,7 @@ class Tracks extends React.Component {
               console.log(res);
             });*/
             getDuration().then(trackDuration=>{
-              console.log(trackDuration)
+              //console.log(trackDuration)
               if(trackDuration > 0){
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({trackDuration, paused: false, loaded: true, totalLength: trackDuration, formattedDuration});
@@ -191,7 +186,8 @@ const mapStateToProps = state => {
     buttonsActive: state.media.buttonsActive,
     showOverview: state.media.showOverview,
     selectedTrackId: state.media.selectedTrackId,
-    loaded: state.media.loaded
+    loaded: state.media.loaded,
+    currentPostion: state.media.currentPostion
   }
 }
 

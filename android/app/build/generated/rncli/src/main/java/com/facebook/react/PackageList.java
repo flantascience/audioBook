@@ -19,6 +19,8 @@ import com.reactnativecommunity.slider.ReactSliderPackage;
 import io.invertase.firebase.RNFirebasePackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-music-control
+import com.tanguyantoine.react.MusicControl;
 // react-native-track-player
 import com.guichaguri.trackplayer.TrackPlayer;
 // react-native-vector-icons
@@ -61,6 +63,7 @@ public class PackageList {
       new ReactSliderPackage(),
       new RNFirebasePackage(),
       new RNGestureHandlerPackage(),
+      new MusicControl(),
       new TrackPlayer(),
       new VectorIconsPackage(),
       new ReactVideoPackage()

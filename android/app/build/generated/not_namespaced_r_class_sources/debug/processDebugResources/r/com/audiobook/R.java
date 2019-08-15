@@ -3288,9 +3288,15 @@ public final class R {
     public static final int previous=0x7f060082;
     public static final int redbox_top_border_background=0x7f060083;
     public static final int rewind=0x7f060084;
-    public static final int stop=0x7f060085;
-    public static final int tooltip_frame_dark=0x7f060086;
-    public static final int tooltip_frame_light=0x7f060087;
+    public static final int skip_backward_10=0x7f060085;
+    public static final int skip_backward_30=0x7f060086;
+    public static final int skip_backward_5=0x7f060087;
+    public static final int skip_forward_10=0x7f060088;
+    public static final int skip_forward_30=0x7f060089;
+    public static final int skip_forward_5=0x7f06008a;
+    public static final int stop=0x7f06008b;
+    public static final int tooltip_frame_dark=0x7f06008c;
+    public static final int tooltip_frame_light=0x7f06008d;
   }
   public static final class id {
     public static final int ALT=0x7f070000;

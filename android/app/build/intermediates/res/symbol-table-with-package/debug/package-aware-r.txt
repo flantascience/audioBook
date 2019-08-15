@@ -678,6 +678,12 @@ drawable play
 drawable previous
 drawable redbox_top_border_background
 drawable rewind
+drawable skip_backward_10
+drawable skip_backward_30
+drawable skip_backward_5
+drawable skip_forward_10
+drawable skip_forward_30
+drawable skip_forward_5
 drawable stop
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
