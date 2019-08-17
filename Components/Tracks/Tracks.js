@@ -57,30 +57,27 @@ class Tracks extends React.Component {
       let palyerState = data.state;
       if(Platform.OS === "android"){
         if(palyerState === 1)
-          this.props.store({ paused: true, loaded: false, showTextinput: true });
+          this.props.store({ paused: true, showTextinput: true });
         else if(palyerState !== 1)
-          this.props.store({ paused: false, loaded: true, showTextinput: false });
+          this.props.store({ paused: false, showTextinput: false });
       }else if(Platform.OS === "ios"){
         if(palyerState === "paused")
-          this.props.store({ paused: true, loaded: false, showTextinput: true });
+          this.props.store({ paused: true, showTextinput: true });
         else if(palyerState === "playing")
-          this.props.store({ paused: false, loaded: true, showTextinput: false });
+          this.props.store({ paused: false, showTextinput: false });
       }
+
     });
   }
 
   toggleNowPlaying = (pos) => {
     let { audioFiles, paused, loaded, selectedTrackId } = this.props;
     //console.log(audioFiles[pos]);
-    //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
       removeTrack().then(res=>{
         //console.log(res)
         if(res === "removed"){
           let currPos = audioFiles[pos];
           TrackPlayer.add([currPos]).then(res=>{
-            /*TrackPlayer.getDuration().then(res=>{
-              console.log(res);
-            });*/
             getDuration().then(trackDuration=>{
               //console.log(trackDuration)
               if(trackDuration > 0){
