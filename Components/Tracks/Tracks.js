@@ -50,7 +50,7 @@ class Tracks extends React.Component {
   componentDidMount(){
     let newState = { screen: "Tracks" };
     this.props.store(newState);
-    let { audioFiles } = this.props;
+    let { audioFiles, paused } = this.props;
 
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
         
@@ -61,10 +61,11 @@ class Tracks extends React.Component {
         else if(palyerState !== 1)
           this.props.store({ paused: false, showTextinput: false });
       }else if(Platform.OS === "ios"){
-        if(palyerState === "paused")
+        if(palyerState === "paused"){
           this.props.store({ paused: true, showTextinput: true });
-        else if(palyerState === "playing")
+        }else if(palyerState === "playing"){
           this.props.store({ paused: false, showTextinput: false });
+        }
       }
 
     });

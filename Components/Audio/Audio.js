@@ -49,7 +49,7 @@ class Audio extends React.Component{
 
     toggleTrack = (pos)=>{
         //console.log(currentlyPlaying + " " + pos);
-        let { audioFiles, paused, currentlyPlaying} = this.props;
+        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
         let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
             //console.log( currentlyPlaying );
@@ -76,18 +76,38 @@ class Audio extends React.Component{
                     
                 }); 
             }else if( currentlyPlaying && currentlyPlaying === pos){
-                //console.log("second option");
-                let newState = {
-                    /*currentlyPlaying: null,
-                    selectedTrack: 0,
-                    currentPosition: 0,*/
-                    paused: !paused
-                };
-                this.props.store(newState);
+                let tpos = parseFloat(currentPosition);
+                let tdur = parseFloat(trackDuration);
+                //console.log(tpos + " " + tdur)
+               if( tpos === tdur){
+                    removeTrack().then(()=>{
+                        let stringPos = pos.toString();
+                        TrackPlayer.add([audioFiles[pos]]).then(()=>{
+                            let newState = {
+                                /*currentlyPlaying: null,
+                                selectedTrack: 0,*/
+                                currentlyPlaying: pos,
+                                selectedTrack: pos,
+                                selectedTrackId: stringPos,
+                                currentlyPlayingName: title,
+                                showTextinput: false,
+                                paused: false,
+                                loaded: true
+                            };
+                            this.props.store(newState);
+                            TrackPlayer.play();
+                        });
+                    });
+               }else{
+                   let newState = {
+                        paused: !paused
+                    };
+                    this.props.store(newState);
                     if(paused)
                         TrackPlayer.play();
                     else
                         TrackPlayer.pause();
+               }
                 resolve("same");
             }else{
                 let stringPos = pos.toString();
@@ -335,7 +355,8 @@ const mapStateToProps = state => {
       showTextinput: state.media.showTextinput,
       totalLength: state.media.totalLength,
       volume: state.media.volume,
-      loaded: state.media.loaded
+      loaded: state.media.loaded,
+      trackDuration: state.media.trackDuration
     }
 }
 
