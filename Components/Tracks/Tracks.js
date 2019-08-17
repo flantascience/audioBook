@@ -14,7 +14,8 @@ import {
   Image,
   Text,
   TextInput,
-  Button
+  Button,
+  Platform
 } from 'react-native';
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
@@ -54,14 +55,23 @@ class Tracks extends React.Component {
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
         
       let palyerState = data.state;
-      if(palyerState === 1)
-        this.props.store({paused: true, loaded: false});
-      
+      if(Platform.OS === "android"){
+        if(palyerState === 1)
+          this.props.store({ paused: true, loaded: false, showTextinput: true });
+        else if(palyerState !== 1)
+          this.props.store({ paused: false, loaded: true, showTextinput: false });
+      }else if(Platform.OS === "ios"){
+        if(palyerState === "paused")
+          this.props.store({ paused: true, loaded: false, showTextinput: true });
+        else if(palyerState === "playing")
+          this.props.store({ paused: false, loaded: true, showTextinput: false });
+      }
     });
   }
 
   toggleNowPlaying = (pos) => {
     let { audioFiles, paused, loaded, selectedTrackId } = this.props;
+    //console.log(audioFiles[pos]);
     //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
       removeTrack().then(res=>{
         //console.log(res)
@@ -75,12 +85,42 @@ class Tracks extends React.Component {
               //console.log(trackDuration)
               if(trackDuration > 0){
                 let formattedDuration = formatTime(trackDuration);
-                this.props.store({trackDuration, paused: false, loaded: true, totalLength: trackDuration, formattedDuration});
+                this.props.store({
+                  selectedTrack: pos,
+                  currentPostion: 0,
+                  currentTime:0,
+                  selectedTrackId: audioFiles[pos].id,
+                  currentlyPlaying: audioFiles[pos].id,
+                  currentlyPlayingName: audioFiles[pos].title,
+                  initCurrentlyPlaying: true,
+                  buttonsActive: true,
+                  showOverview: true,
+                  trackDuration, 
+                  paused: false, 
+                  loaded: true, 
+                  totalLength: trackDuration, 
+                  formattedDuration
+                });
                 TrackPlayer.play();
               }else{
-                trackDuration = audioFiles[selectedTrackId].duration;
+                trackDuration = audioFiles[pos].duration;
                 let formattedDuration = formatTime(trackDuration);
-                this.props.store({trackDuration, paused: false, loaded: true, totalLength: trackDuration, formattedDuration});
+                this.props.store({
+                  selectedTrack: pos,
+                  currentPostion: 0,
+                  currentTime:0,
+                  selectedTrackId: audioFiles[pos].id,
+                  currentlyPlaying: audioFiles[pos].id,
+                  currentlyPlayingName: audioFiles[pos].title,
+                  initCurrentlyPlaying: true,
+                  buttonsActive: true,
+                  showOverview: true,
+                  trackDuration, 
+                  paused: false, 
+                  loaded: true, 
+                  totalLength: trackDuration, 
+                  formattedDuration
+                });
                 TrackPlayer.play();
               }
               
@@ -90,18 +130,6 @@ class Tracks extends React.Component {
           console.log(res)
         }
       });
-    let newState = {
-      selectedTrack: pos,
-      currentPostion: 0,
-      currentTime:0,
-      selectedTrackId: audioFiles[pos].id,
-      currentlyPlaying: audioFiles[pos].id,
-      currentlyPlayingName: audioFiles[pos].title,
-      initCurrentlyPlaying: true,
-      buttonsActive: true,
-      showOverview: true
-    };
-    this.props.store(newState);
   }
 
   render(){
@@ -187,7 +215,8 @@ const mapStateToProps = state => {
     showOverview: state.media.showOverview,
     selectedTrackId: state.media.selectedTrackId,
     loaded: state.media.loaded,
-    currentPostion: state.media.currentPostion
+    currentPostion: state.media.currentPostion,
+    showTextinput: state.media.showTextinput
   }
 }
 

@@ -34,7 +34,9 @@ class MediaOverviews extends React.Component {
   componentDidMount(){
     getCurrentTrack().then(res=>{
       console.log(res);
-    });
+    }).catch(err=>{
+      console.log(err);
+    })
   }
 
   toggleOverview = ()=>{
