@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, Platform } from 'react-native'
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import { formatTime } from '../../Misc/helpers';
@@ -39,14 +39,19 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
                     minimumValue={0}
                     disabled={!buttonsActive}
                 />
-                <View style={styles.trackTimeCounterContainer}>
-                    <View style={styles.trackElapsedTime}>
-                        <Text style={styles.trackTime}>{formatTime(currentPosition)}</Text>
+                { Platform.OS ==="ios"?
+                <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
+                    <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left" } }>{ formatTime(currentPosition) }</Text>
+                    <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right" } }>{ "-" + formatTime(remainingTime) }</Text>
+                </View>:
+                <View style={ styles.trackTimeCounterContainer}>
+                    <View style= { styles.trackElapsedTime }>
+                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
                     </View>
-                    <View style={styles.trackRemainingTime}>
-                        <Text style={styles.trackTime}>{"-" + formatTime(remainingTime)}</Text>
+                    <View style= { styles.trackRemainingTime}>
+                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
                     </View>
-                </View>
+                </View> }
             </View>
         );
     }

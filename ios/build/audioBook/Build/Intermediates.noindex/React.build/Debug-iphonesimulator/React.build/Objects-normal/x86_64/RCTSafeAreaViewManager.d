@@ -1,0 +1,35 @@
+dependencies: \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewManager.m \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaViewManager.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTViewManager.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTDefines.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/DevSupport/RCTInspectorDevServerHelper.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTConvert.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTLog.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTAssert.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTUtils.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/muganwas/Documents/Github/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/include/yoga/YGValue.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTBridge.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/UIView+React.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTComponent.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaShadowView.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTShadowView.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTLayout.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Base/RCTRootView.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/SafeAreaView/RCTSafeAreaView.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Views/RCTView.h \
+  /System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Modules/RCTUIManager.h

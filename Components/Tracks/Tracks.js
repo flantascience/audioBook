@@ -54,11 +54,8 @@ class Tracks extends React.Component {
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
         
       let palyerState = data.state;
-      if(palyerState === 1){
+      if(palyerState === 1)
         this.props.store({paused: true, loaded: false});
-      }
-      //const track = await TrackPlayer.getTrack(data.nextTrack);
-      //this.setState({trackTitle: track.title});
       
     });
   }
@@ -67,7 +64,7 @@ class Tracks extends React.Component {
     let { audioFiles, paused, loaded, selectedTrackId } = this.props;
     //selectedTrackId?TrackPlayer.remove([selectedTrackId]):null;
       removeTrack().then(res=>{
-        console.log(res)
+        //console.log(res)
         if(res === "removed"){
           let currPos = audioFiles[pos];
           TrackPlayer.add([currPos]).then(res=>{
@@ -138,8 +135,11 @@ class Tracks extends React.Component {
             <View style = { styles.homeMid }>
               <ScrollView>{ Object.keys(audioFiles).map(key=>{
                 let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
-                let playIcon = key !== currentlyPlaying?type === "local"?"play-circle":"cloud-download":"pause";
-                let audioSource = type === "local" ? url : {uri: url};
+                let playIcon = key !== currentlyPlaying?
+                type === "local"?
+                "play-circle":
+                "cloud-download":"pause";
+                let audioSource = type === "local" ? url : { uri: url };
                 return(
                   <View key={key} style={ styles.trackContainer }>
                     <View style={ styles.track }>
