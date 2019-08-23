@@ -37,6 +37,7 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "center",
         fontSize: 25,
+        paddingBottom: 20,
         textTransform: "capitalize"
     },
     introContainer: {
@@ -46,6 +47,8 @@ export const styles = StyleSheet.create({
         borderTopWidth: 1,
         marginLeft: 40,
         marginRight: 40,
+        paddingTop: 20,
+        paddingBottom: 20,
         marginTop: 5,
     },
     introText: {
@@ -58,11 +61,13 @@ export const styles = StyleSheet.create({
         paddingRight: 5,
         textAlign: "center",
         fontSize: 25,
+        paddingTop: 20,
+        paddingBottom: 20,
         fontWeight: "200"
     },
     actionContainer: {
         alignContent: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     emailInput: {
         marginTop: 5,
@@ -76,5 +81,7 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 30,
         marginRight: 30,
+        paddingTop: 20,
+        paddingBottom: 20
     }
 });

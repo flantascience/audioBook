@@ -1,10 +1,3 @@
-/**
- * Sample React Native Home
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -14,7 +7,10 @@ import {
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { storeMedia } from '../../Actions/mediaFiles';
+import firebase from 'react-native-firebase';
 import { styles } from './style';
+
+const dbRef = firebase.database().ref("/tracks");
 
 
 class Home extends React.Component {
@@ -38,6 +34,13 @@ class Home extends React.Component {
       screen: "Home"
     };
     this.props.store(newState);
+    dbRef.once('value', data=>{
+      data.forEach(trackInf=>{
+        console.log(trackInf);
+        let track = trackInf.val();
+        console.log(track);
+      });
+    })
   }
 
   render(){

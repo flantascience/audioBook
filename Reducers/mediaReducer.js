@@ -1,6 +1,7 @@
 import { STORE_MEDIA } from '../Actions/types';
 
 const initialState = {
+  emails: undefined,
   mediaFiles: [],
   selectedTrack: null,
   currentlyPlaying: null,

@@ -1,10 +1,3 @@
-/**
- * Sample React Native Home
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
 import React  from 'react';
 import {
   View,
@@ -13,7 +6,8 @@ import {
   Image,
   Text,
   TextInput,
-  Button
+  Button,
+  ToastAndroid
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
@@ -23,8 +17,9 @@ import { styles } from './style';
 import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
+import { emailregex } from '../../Misc/Constants';
 
-const db = firebase.database();
+const dbRef = firebase.database().ref("/subscriptions");
 
 class Author extends React.Component {
 
@@ -33,6 +28,19 @@ class Author extends React.Component {
       screen: "Author"
     };
     this.props.storeMediaInf(newState);
+    //this.postSubscriber();
+  }
+
+  postSubscriber = ()=>{
+    let { userEmail } = this.props;
+    console.log("pressed")
+    console.log( userEmail )
+    if(userEmail.match(emailregex)){
+        dbRef.push(userEmail);
+        ToastAndroid.show('You successfully subscribed', ToastAndroid.SHORT);
+    }else
+      ToastAndroid.show('Wrong email format!', ToastAndroid.SHORT);
+
   }
 
   static navigationOptions = ({navigation})=> ({
@@ -48,10 +56,6 @@ class Author extends React.Component {
         height: 80,
     },
   });
-
-  onPress = ()=>{
-
-  }
 
   tempSave = (text)=>{
     if(text.trim() === '') {
@@ -79,7 +83,6 @@ class Author extends React.Component {
             <Text style={ styles.callToAction}>{ author.callToAction }</Text>
             <TextInput
               style={ styles.emailInput }
-              value = { userEmail }
               autoCompleteType={'email'}
               textContentType={'emailAddress'}
               placeholder={ author.emailPlaceHolder }
@@ -87,9 +90,9 @@ class Author extends React.Component {
             />
             <View style = { styles.buttonContainer }>
               <Button 
-                color={ Platform.OS === "android"?'#C7C6C6':'#888787' } 
+                color={ Platform.OS === "android"?'#349DD3':'#888787' } 
                 title={ author.buttonText } 
-                onPress={ this.onPress } 
+                onPress={ this.postSubscriber } 
               />
             </View>
           </View>
@@ -105,7 +108,8 @@ class Author extends React.Component {
 const mapStateToProps = state => {
   return {
     userEmail: state.input.userEmail,
-    screen: state.media.screen
+    screen: state.media.screen,
+    emails: state.media.emails
   }
 }
 
