@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.m \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FValidation.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Constants/FConstants.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FPriorityIndex.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FNodeFilter.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FIndexedFilter.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/Filter/FLimitedFilter.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FRangedFilter.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FSnapshotUtilities.h

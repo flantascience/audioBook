@@ -16,12 +16,15 @@ import {
   Button
 } from 'react-native';
 import { connect } from 'react-redux';
+import firebase from 'react-native-firebase';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
+
+const db = firebase.database();
 
 class Author extends React.Component {
 

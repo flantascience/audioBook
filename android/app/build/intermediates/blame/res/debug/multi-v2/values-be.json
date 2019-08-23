@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-be/values-be.xml",
+            "outputFile": "/Users/muganwas/Documents/GitHub/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-be/values-be.xml",
             "map": [
                 {
                     "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/85e257a6babe96d3b8085bcd76499598/appcompat-1.0.2/res/values-be/values-be.xml",

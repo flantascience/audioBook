@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.m \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FStorageEngine.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FCompoundWrite.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/Wrap-leveldb/APLevelDB.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FSnapshotUtilities.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FWriteRecord.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQuery.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FEmptyNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPruneForest.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPendingPut.h

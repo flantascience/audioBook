@@ -1,5 +1,4 @@
 import React from 'react';
-import Video from 'react-native-video';
 import TrackPlayer from 'react-native-track-player';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -296,24 +295,6 @@ class Audio extends React.Component{
                             </View>
                         </View>
                         { showOverview?volumeRocker:trackTimeSlider }
-                        {/*<Video 
-                            ref={audioElement =>{ this.audioElement = audioElement;}}
-                            source={ audioSource || claps } // Can be a URL or a local file.
-                            paused={ paused } // Pauses playback entirely.
-                            resizeMode="cover" // Fill the whole screen at aspect ratio.
-                            repeat={ repeatOn }
-                            audioOnly = { false }
-                            poster= { posterURL }
-                            seekTime = { currentPosition }
-                            currentTime = { currentTime }
-                            playInBackground={ true } // Repeat forever.
-                            onLoadStart={ this.onLoadStart } // Callback when video starts to load
-                            onLoad={ this.setInfo } // Callback when video loads
-                            onProgress={ this.setTime } // Callback every ~250ms with currentTime
-                            onEnd={ this.onEnd } // Callback when playback finishes
-                            onError={ this.onError } // Callback when video cannot be loaded
-                            volume={ volume }
-                        />*/}
                     </View>
                     }
                     <View style = { showOverview && !showTextinput?styles.spaceFiller:styles.altSpaceFiller }></View>

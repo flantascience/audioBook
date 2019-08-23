@@ -20,7 +20,6 @@
 		2DCD954D1E0B4F2C00145EB5 /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
 		8AAA866340A56920911CBCE9 /* libPods-audioBook-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A78C146608C83561D928CE0E /* libPods-audioBook-tvOS.a */; };
 		96CFAAAAB38818291DB7734F /* libPods-audioBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1B2ABA3C9A7F56F69CF1BB /* libPods-audioBook.a */; };
-		FAC2E0A62307CE7900D2098A /* libRNTrackPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC2E0A52307CE6600D2098A /* libRNTrackPlayer.a */; };
 		FAC2E0A92307CEA300D2098A /* audioBookSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */; };
 		FAC6C21E22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
 		FAC6C21F22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
@@ -104,132 +103,6 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "audioBook-tvOS";
 		};
-		FAC2E07E2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-		FAC2E0802307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2D2A28131D9B038B00D4039D;
-			remoteInfo = "React-tvOS";
-		};
-		FAC2E0822307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C059A1DE3340900C268FA;
-			remoteInfo = yoga;
-		};
-		FAC2E0842307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3C06751DE3340C00C268FA;
-			remoteInfo = "yoga-tvOS";
-		};
-		FAC2E0862307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9251DE5FBEC00167DC4;
-			remoteInfo = cxxreact;
-		};
-		FAC2E0882307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D3CD9321DE5FBEE00167DC4;
-			remoteInfo = "cxxreact-tvOS";
-		};
-		FAC2E08A2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BDC1FC498900052F4D5;
-			remoteInfo = jsinspector;
-		};
-		FAC2E08C2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EBF21BFA1FC4989A0052F4D5;
-			remoteInfo = "jsinspector-tvOS";
-		};
-		FAC2E08E2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7ECE1E25DB7D00323FB7;
-			remoteInfo = "third-party";
-		};
-		FAC2E0902307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D3C1EBD27B6005632C8;
-			remoteInfo = "third-party-tvOS";
-		};
-		FAC2E0922307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 139D7E881E25C6D100323FB7;
-			remoteInfo = "double-conversion";
-		};
-		FAC2E0942307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D383D621EBD27B9005632C8;
-			remoteInfo = "double-conversion-tvOS";
-		};
-		FAC2E0962307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EDEBC6D6214B3E7000DD5AC8;
-			remoteInfo = jsi;
-		};
-		FAC2E0982307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = EDEBC73B214B45A300DD5AC8;
-			remoteInfo = jsiexecutor;
-		};
-		FAC2E09A2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ED296FB6214C9A0900B7C4FE;
-			remoteInfo = "jsi-tvOS";
-		};
-		FAC2E09C2307CE1200D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
-			remoteInfo = "jsiexecutor-tvOS";
-		};
-		FAC2E09E2307CE1B00D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 83CBBA2D1A601D0E00E9B192;
-			remoteInfo = React;
-		};
-		FAC2E0A42307CE6600D2098A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAC2E0A02307CE6600D2098A /* RNTrackPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9B0E28291F07D76F00B71D2A;
-			remoteInfo = RNTrackPlayer;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -258,8 +131,6 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F06CEE63357B77F8177A2978 /* Pods-audioBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.release.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		F77145B02AB1A0A2DCFBEC68 /* Pods-audioBook-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		FAC2E06B2307CE1100D2098A /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../../../../../../System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		FAC2E0A02307CE6600D2098A /* RNTrackPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNTrackPlayer.xcodeproj; path = "../../../../../../System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer.xcodeproj"; sourceTree = "<group>"; };
 		FAC2E0A72307CEA300D2098A /* audioBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "audioBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = audioBookSwift.swift; path = ../../../../../../System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/ios/audioBookSwift.swift; sourceTree = "<group>"; };
 		FAC6C20E22F053BB00107D2E /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
@@ -296,7 +167,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC2E0A62307CE7900D2098A /* libRNTrackPlayer.a in Frameworks */,
 				96CFAAAAB38818291DB7734F /* libPods-audioBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,7 +238,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				FAC2E0A02307CE6600D2098A /* RNTrackPlayer.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -377,7 +246,6 @@
 			isa = PBXGroup;
 			children = (
 				FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */,
-				FAC2E06B2307CE1100D2098A /* React.xcodeproj */,
 				FAC6C20D22F053BB00107D2E /* Fonts */,
 				13B07FAE1A68108700A75B9A /* audioBook */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -416,37 +284,6 @@
 				F06CEE63357B77F8177A2978 /* Pods-audioBookTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		FAC2E06C2307CE1100D2098A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAC2E07F2307CE1200D2098A /* libReact.a */,
-				FAC2E0812307CE1200D2098A /* libReact.a */,
-				FAC2E0832307CE1200D2098A /* libyoga.a */,
-				FAC2E0852307CE1200D2098A /* libyoga.a */,
-				FAC2E0872307CE1200D2098A /* libcxxreact.a */,
-				FAC2E0892307CE1200D2098A /* libcxxreact.a */,
-				FAC2E08B2307CE1200D2098A /* libjsinspector.a */,
-				FAC2E08D2307CE1200D2098A /* libjsinspector-tvOS.a */,
-				FAC2E08F2307CE1200D2098A /* libthird-party.a */,
-				FAC2E0912307CE1200D2098A /* libthird-party.a */,
-				FAC2E0932307CE1200D2098A /* libdouble-conversion.a */,
-				FAC2E0952307CE1200D2098A /* libdouble-conversion.a */,
-				FAC2E0972307CE1200D2098A /* libjsi.a */,
-				FAC2E0992307CE1200D2098A /* libjsiexecutor.a */,
-				FAC2E09B2307CE1200D2098A /* libjsi-tvOS.a */,
-				FAC2E09D2307CE1200D2098A /* libjsiexecutor-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		FAC2E0A12307CE6600D2098A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FAC2E0A52307CE6600D2098A /* libRNTrackPlayer.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FAC6C20D22F053BB00107D2E /* Fonts */ = {
@@ -510,7 +347,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FAC2E09F2307CE1B00D2098A /* PBXTargetDependency */,
 			);
 			name = audioBook;
 			productName = audioBook;
@@ -601,16 +437,6 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FAC2E06C2307CE1100D2098A /* Products */;
-					ProjectRef = FAC2E06B2307CE1100D2098A /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = FAC2E0A12307CE6600D2098A /* Products */;
-					ProjectRef = FAC2E0A02307CE6600D2098A /* RNTrackPlayer.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* audioBook */,
@@ -620,128 +446,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FAC2E07F2307CE1200D2098A /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = FAC2E07E2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0812307CE1200D2098A /* libReact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libReact.a;
-			remoteRef = FAC2E0802307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0832307CE1200D2098A /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = FAC2E0822307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0852307CE1200D2098A /* libyoga.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libyoga.a;
-			remoteRef = FAC2E0842307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0872307CE1200D2098A /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = FAC2E0862307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0892307CE1200D2098A /* libcxxreact.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libcxxreact.a;
-			remoteRef = FAC2E0882307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E08B2307CE1200D2098A /* libjsinspector.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjsinspector.a;
-			remoteRef = FAC2E08A2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E08D2307CE1200D2098A /* libjsinspector-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsinspector-tvOS.a";
-			remoteRef = FAC2E08C2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E08F2307CE1200D2098A /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = FAC2E08E2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0912307CE1200D2098A /* libthird-party.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libthird-party.a";
-			remoteRef = FAC2E0902307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0932307CE1200D2098A /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = FAC2E0922307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0952307CE1200D2098A /* libdouble-conversion.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libdouble-conversion.a";
-			remoteRef = FAC2E0942307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0972307CE1200D2098A /* libjsi.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjsi.a;
-			remoteRef = FAC2E0962307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0992307CE1200D2098A /* libjsiexecutor.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libjsiexecutor.a;
-			remoteRef = FAC2E0982307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E09B2307CE1200D2098A /* libjsi-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsi-tvOS.a";
-			remoteRef = FAC2E09A2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E09D2307CE1200D2098A /* libjsiexecutor-tvOS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = "libjsiexecutor-tvOS.a";
-			remoteRef = FAC2E09C2307CE1200D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		FAC2E0A52307CE6600D2098A /* libRNTrackPlayer.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNTrackPlayer.a;
-			remoteRef = FAC2E0A42307CE6600D2098A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		00E356EC1AD99517003FC87E /* Resources */ = {
@@ -1095,11 +799,6 @@
 			isa = PBXTargetDependency;
 			target = 2D02E47A1E0B4A5D006451C7 /* audioBook-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
-		};
-		FAC2E09F2307CE1B00D2098A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = React;
-			targetProxy = FAC2E09E2307CE1B00D2098A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -25,8 +25,6 @@ import com.tanguyantoine.react.MusicControl;
 import com.guichaguri.trackplayer.TrackPlayer;
 // react-native-vector-icons
 import com.oblador.vectoricons.VectorIconsPackage;
-// react-native-video
-import com.brentvatne.react.ReactVideoPackage;
 
 public class PackageList {
   private Application application;
@@ -65,8 +63,7 @@ public class PackageList {
       new RNGestureHandlerPackage(),
       new MusicControl(),
       new TrackPlayer(),
-      new VectorIconsPackage(),
-      new ReactVideoPackage()
+      new VectorIconsPackage()
     ));
   }
 }

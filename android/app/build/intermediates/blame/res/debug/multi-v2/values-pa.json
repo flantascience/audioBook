@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/muganwas/Documents/Github/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pa/values-pa.xml",
+            "outputFile": "/Users/muganwas/Documents/GitHub/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pa/values-pa.xml",
             "map": [
                 {
                     "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/94fc3936aef28a4f7496284ef5e0be09/jetified-play-services-basement-17.0.0/res/values-pa/values.xml",

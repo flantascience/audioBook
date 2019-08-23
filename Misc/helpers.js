@@ -1,8 +1,6 @@
 import firebase from "react-native-firebase";
 import TrackPlayer from "react-native-track-player";
 
-//export const storageRef = firebase.storage().ref();
-
 export const formatTime = (inSeconds) => {
     let time = Math.floor(parseInt(inSeconds)/60);
     let rem = parseInt(inSeconds) % 60;

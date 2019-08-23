@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.m \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPersistenceManager.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FCompoundWrite.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FStorageEngine.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FCachePolicy.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/View/FCacheNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FLevelDBStorageEngine.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQueryManager.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FTrackedQuery.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Persistence/FPruneForest.h \
+  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h

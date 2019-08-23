@@ -21,7 +21,6 @@ import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Audio from '../Audio/Audio';
-import Video from 'react-native-video';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
