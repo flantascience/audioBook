@@ -12,7 +12,6 @@ import { styles } from './style';
 
 const dbRef = firebase.database().ref("/tracks");
 
-
 class Home extends React.Component {
 
   static navigationOptions = ({navigation})=> ({
@@ -30,17 +29,22 @@ class Home extends React.Component {
   });
 
   componentDidMount(){
+    let { audioFiles } = this.props;
+    let cloudAudio = [];
+    dbRef.once('value', data=>{
+      data.forEach(trackInf=>{
+        //console.log(trackInf);
+        let track = trackInf.val();
+        cloudAudio.push(track);
+      });
+      let newAudioFiles = audioFiles.concat(cloudAudio);
+      this.props.store({audioFiles: newAudioFiles});
+    });
     let newState = {
       screen: "Home"
     };
+    //console.log(audioFiles)
     this.props.store(newState);
-    dbRef.once('value', data=>{
-      data.forEach(trackInf=>{
-        console.log(trackInf);
-        let track = trackInf.val();
-        console.log(track);
-      });
-    })
   }
 
   render(){
@@ -64,7 +68,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    screen: state.media.screen
+    screen: state.media.screen,
+    audioFiles: state.media.audioFiles
   }
 }
 

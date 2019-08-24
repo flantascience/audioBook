@@ -6,14 +6,14 @@ import {
   Image,
   Text,
   TextInput,
-  Button,
-  ToastAndroid
+  Button
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
+import Toast from '../Toast/Toast';
 import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
@@ -28,19 +28,66 @@ class Author extends React.Component {
       screen: "Author"
     };
     this.props.storeMediaInf(newState);
-    //this.postSubscriber();
+    this.fetchSubscribers();
+  }
+
+  fetchSubscribers = ()=> {
+    dbRef.once('value', data=>{
+      let emails = [];
+      data.forEach(inf=>{
+        let email = inf.val();
+        emails.push(email);
+        console.log(email);
+      });
+      this.props.storeMediaInf({emails});
+    })
+  }
+
+  checkAvailability = userEmail=>{
+    return new Promise(resolve=>{
+      let { emails } = this.props;
+      //console.log(this.props)
+      if(emails.length > 0){
+        let available = true;
+        emails.map(email=>{
+          if(userEmail.toLowerCase() === email.toLowerCase()){
+            available = false;
+            //console.log(available);
+          }
+        });
+        resolve(available);
+      }
+    });
   }
 
   postSubscriber = ()=>{
     let { userEmail } = this.props;
-    console.log("pressed")
-    console.log( userEmail )
     if(userEmail.match(emailregex)){
-        dbRef.push(userEmail);
-        ToastAndroid.show('You successfully subscribed', ToastAndroid.SHORT);
-    }else
-      ToastAndroid.show('Wrong email format!', ToastAndroid.SHORT);
-
+        this.checkAvailability(userEmail).then(available=>{
+          if(available){
+            dbRef.push(userEmail);
+            let showToast = true;
+            this.props.storeMediaInf({showToast, toastText: "You successfully subscribed" });
+            setTimeout(()=>{
+              this.props.storeMediaInf({showToast: !showToast, toastText: null });
+            }, 800);
+            this.fetchSubscribers();
+          }else{
+            let showToast = true;
+            this.props.storeMediaInf({showToast, toastText: "You already subscribed!" });
+            setTimeout(()=>{
+              this.props.storeMediaInf({showToast: !showToast, toastText: null });
+            }, 800);
+          }
+        });
+        
+    }else{
+      let showToast = true;
+      this.props.storeMediaInf({showToast, toastText: 'Wrong email format!' });
+      setTimeout(()=>{
+        this.props.storeMediaInf({showToast: !showToast, toastText: null });
+      }, 800);
+    }
   }
 
   static navigationOptions = ({navigation})=> ({
@@ -67,7 +114,9 @@ class Author extends React.Component {
   render(){
     let {
       navigation,
-      userEmail
+      userEmail,
+      showToast,
+      toastText
     } = this.props;
     return (
       <View style={ styles.Home }>
@@ -81,6 +130,9 @@ class Author extends React.Component {
           </View>
           <View style={ styles.actionContainer }>
             <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+            { showToast?
+              <Toast text={ toastText } />:
+            null }
             <TextInput
               style={ styles.emailInput }
               autoCompleteType={'email'}
@@ -109,7 +161,9 @@ const mapStateToProps = state => {
   return {
     userEmail: state.input.userEmail,
     screen: state.media.screen,
-    emails: state.media.emails
+    emails: state.media.emails,
+    showToast: state.media.showToast,
+    toastText: state.media.toastText
   }
 }
 
