@@ -21,7 +21,7 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
         let { trackDuration, audioFiles, selectedTrack, buttonsActive } = this.props;
         const remainingTime = parseFloat(trackDuration) - currentPosition;
         return (
-            <View>
+            <View style={ styles.sliderContainer }>
                 <Slider
                     style={styles.slider}
                     value={currentPosition}

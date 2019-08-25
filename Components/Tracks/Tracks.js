@@ -126,7 +126,7 @@ class Tracks extends React.Component {
     let {
       navigation, 
       currentlyPlaying, 
-      loaded, 
+      loaded,
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
@@ -185,7 +185,7 @@ class Tracks extends React.Component {
           >
             <MediaOverview />
           </SimpleAnimation> }
-          { playing }
+          { selectedTrack? playing: null }
           <View style = { styles.homeFooter }>
             <Footer navigation={ navigation } />
           </View>
@@ -196,7 +196,6 @@ class Tracks extends React.Component {
 
 const mapStateToProps = state => {
   return{
-    selectedTrack: state.media.selectedTrack,
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     screen: state.media.screen,
@@ -205,6 +204,7 @@ const mapStateToProps = state => {
     showOverview: state.media.showOverview,
     selectedTrackId: state.media.selectedTrackId,
     loaded: state.media.loaded,
+    selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput
   }

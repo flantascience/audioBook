@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import IconButton from "../IconButton/IconButton";
 import {
     View,
@@ -6,12 +7,25 @@ import {
     Image
 } from 'react-native';
 import { footer } from '../../Misc/Strings';
+import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 
-const Footer = ({ navigation, playing, ...props })=>{
-    const { navigate } = navigation;
-    function goTo(place){
-        navigate(place);
+const Footer = (props)=>{
+    const { navigate } = props.navigation;
+    console.log(props)
+    const goTo = (place)=>{
+        toggleOverview().then(res=>{
+            if(res === "hidden")
+                navigate(place);
+        }); 
+    }
+
+    const toggleOverview = ()=>{
+        return new Promise(resolve=>{
+            props.store({ showOverview: false });
+            resolve('hidden');
+        })
+
     }
     return(
         <View>
@@ -44,4 +58,28 @@ const Footer = ({ navigation, playing, ...props })=>{
     )
 }
 
-export default Footer;
+const mapStateToProps = state => {
+    return{
+      screen: state.media.screen,
+      currentlyPlayingName: state.media.currentlyPlayingName,
+      initCurrentlyPlaying: state.media.initCurrentlyPlaying,
+      audioFiles: state.media.audioFiles,
+      buttonsActive: state.media.buttonsActive,
+      showOverview: state.media.showOverview,
+      selectedTrackId: state.media.selectedTrackId,
+      loaded: state.media.loaded,
+      selectedTrack: state.media.selectedTrack,
+      currentPostion: state.media.currentPostion,
+      showTextinput: state.media.showTextinput
+    }
+  }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        store: (media) => {
+            dispatch(storeMedia(media));
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Footer);

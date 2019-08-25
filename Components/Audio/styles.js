@@ -1,8 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+const showBorder = Platform.OS === "ios"?true:false;
 
 export const styles = StyleSheet.create({
     reflection: {
         transform: [{ scaleX: -1 }],
+    },
+    elContainer: {
+        //padding: 5
     },
     container:{
         display: "flex",
@@ -11,11 +15,13 @@ export const styles = StyleSheet.create({
         paddingTop: 10,
         paddingLeft: 10,
         paddingRight: 10,
-        paddingBottom: 10,
-        borderTopColor: "#C7C6C6",
-        borderTopWidth: 1,
-        borderBottomColor: "#7B7A7A",
-        borderBottomWidth: 1
+        borderColor: "#C7C6C6",
+        borderWidth: showBorder?1:0,
+        elevation: 2,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 0.5,
     },
     altContiner: {
         display: "flex",
@@ -108,7 +114,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         display: "flex",
         flexDirection: "column",
-        minHeight: 20,
+        //minHeight: 20,
         marginLeft: 10,
         marginRight: 10
     },
@@ -123,7 +129,11 @@ export const styles = StyleSheet.create({
     trackTimeCounterContainer: {
         flex: 1,
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        margin: 0
+    },
+    sliderContainer: {
+        color: "#000"
     },
     trackElapsedTime: {
         flex:1,

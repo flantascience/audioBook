@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     centerImage: {
-        flex: 1
+        flex: 1,
     },
     textInput: {
         borderColor: "#A9A8A8",
@@ -64,4 +64,9 @@ export const styles = StyleSheet.create({
         paddingRight: 12,
         textAlign: 'right',
     },
+    audioElement: {
+        minHeight: 50,
+        elevation: 10,
+        zIndex: 1000
+    }
 });

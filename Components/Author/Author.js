@@ -18,6 +18,9 @@ import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { emailregex } from '../../Misc/Constants';
+import { SimpleAnimation } from 'react-native-simple-animations';
+import Audio from '../Audio/Audio';
+import MediaOverview from '../MediaOverview/MediaOverview';
 
 const dbRef = firebase.database().ref("/subscriptions");
 
@@ -116,39 +119,71 @@ class Author extends React.Component {
       navigation,
       userEmail,
       showToast,
-      toastText
+      toastText,
+      currentlyPlaying, 
+      loaded,
+      selectedTrack,
+      initCurrentlyPlaying,
+      audioFiles,
+      currentlyPlayingName,
+      isChanging,
+      showOverview
     } = this.props;
+    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
+    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    const playing = !isChanging?
+      <Audio
+        audioSource={ audioSource } // Can be a URL or a local file
+        audioFiles={audioFiles}
+        pos={ selectedTrack }
+        initCurrentlyPlaying = { initCurrentlyPlaying }
+        style={styles.audioElement}
+        currentlyPlayingName={ currentlyPlayingName }
+      />: null;
     return (
       <View style={ styles.Home }>
-        <ScrollView style = { styles.homeMid }>
-          <View style = { styles.centerImageContainer }>
-            <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
-          </View>
-          <Text style = {styles.name}>{ author.name }</Text>
-          <View style={ styles.introContainer }>
-            <Text style={ styles.introText }>{ author.intro }</Text>
-          </View>
-          <View style={ styles.actionContainer }>
-            <Text style={ styles.callToAction}>{ author.callToAction }</Text>
-            { showToast?
-              <Toast text={ toastText } />:
-            null }
-            <TextInput
-              style={ styles.emailInput }
-              autoCompleteType={'email'}
-              textContentType={'emailAddress'}
-              placeholder={ author.emailPlaceHolder }
-              onChangeText={ this.tempSave }
-            />
-            <View style = { styles.buttonContainer }>
-              <Button 
-                color={ Platform.OS === "android"?'#349DD3':'#888787' } 
-                title={ author.buttonText } 
-                onPress={ this.postSubscriber } 
-              />
+        { !showOverview?
+        <View style = { styles.homeMid }>
+          <ScrollView>
+            <View style = { styles.centerImageContainer }>
+              <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
             </View>
-          </View>
-        </ScrollView>
+            <Text style = {styles.name}>{ author.name }</Text>
+            <View style={ styles.introContainer }>
+              <Text style={ styles.introText }>{ author.intro }</Text>
+            </View>
+            <View style={ styles.actionContainer }>
+              <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+              { showToast?
+                <Toast text={ toastText } />:
+              null }
+              <TextInput
+                style={ styles.emailInput }
+                autoCompleteType={'email'}
+                textContentType={'emailAddress'}
+                placeholder={ author.emailPlaceHolder }
+                onChangeText={ this.tempSave }
+              />
+              <View style = { styles.buttonContainer }>
+                <Button 
+                  color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                  title={ author.buttonText } 
+                  onPress={ this.postSubscriber } 
+                />
+              </View>
+            </View>
+          </ScrollView>
+        </View>:
+        <SimpleAnimation 
+            style={ styles.overviewContainer } 
+            direction={'up'} 
+            delay={100} 
+            duration={500} 
+            movementType={ 'slide' }
+          >
+            <MediaOverview />
+          </SimpleAnimation> }
+          { selectedTrack? playing: null }
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
@@ -163,7 +198,17 @@ const mapStateToProps = state => {
     screen: state.media.screen,
     emails: state.media.emails,
     showToast: state.media.showToast,
-    toastText: state.media.toastText
+    toastText: state.media.toastText,
+    currentlyPlayingName: state.media.currentlyPlayingName,
+    initCurrentlyPlaying: state.media.initCurrentlyPlaying,
+    audioFiles: state.media.audioFiles,
+    buttonsActive: state.media.buttonsActive,
+    showOverview: state.media.showOverview,
+    selectedTrackId: state.media.selectedTrackId,
+    loaded: state.media.loaded,
+    selectedTrack: state.media.selectedTrack,
+    currentPostion: state.media.currentPostion,
+    showTextinput: state.media.showTextinput
   }
 }
 

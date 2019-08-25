@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     navLogoConatiner: {
-        flex: 1
+        flex: 1,
     },
     navLogo: {
         marginLeft: 10,
         marginRight: 10,
-        height: 50,
+        height: 57,
         width: 50,
     },
     header: {

@@ -6,7 +6,10 @@ import {
 } from 'react-native';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
+import Audio from '../Audio/Audio';
+import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { styles } from './style';
 
@@ -49,15 +52,45 @@ class Home extends React.Component {
 
   render(){
     let {
-      navigation
+      navigation, 
+      currentlyPlaying, 
+      loaded,
+      selectedTrack,
+      initCurrentlyPlaying,
+      audioFiles,
+      currentlyPlayingName,
+      isChanging,
+      showOverview
     } = this.props;
+
+    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
+    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    const playing = !isChanging?
+      <Audio
+        audioSource={ audioSource } // Can be a URL or a local file
+        audioFiles={audioFiles}
+        pos={ selectedTrack }
+        initCurrentlyPlaying = { initCurrentlyPlaying }
+        style={styles.audioElement}
+        currentlyPlayingName={ currentlyPlayingName }
+      />: null;
     return (
       <View style={ styles.Home }>
-        <View style = { styles.homeMid }>
+        { !showOverview?<View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
             <Image style={ styles.centerImage } source={require('./images/sample-book-cover.jpg')} />
           </View>
-        </View>
+        </View>:
+        <SimpleAnimation 
+            style={ styles.overviewContainer } 
+            direction={'up'} 
+            delay={100} 
+            duration={500} 
+            movementType={ 'slide' }
+          >
+            <MediaOverview />
+          </SimpleAnimation> }
+          { selectedTrack? playing: null }
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
@@ -69,7 +102,16 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   return{
     screen: state.media.screen,
-    audioFiles: state.media.audioFiles
+    currentlyPlayingName: state.media.currentlyPlayingName,
+    initCurrentlyPlaying: state.media.initCurrentlyPlaying,
+    audioFiles: state.media.audioFiles,
+    buttonsActive: state.media.buttonsActive,
+    showOverview: state.media.showOverview,
+    selectedTrackId: state.media.selectedTrackId,
+    loaded: state.media.loaded,
+    selectedTrack: state.media.selectedTrack,
+    currentPostion: state.media.currentPostion,
+    showTextinput: state.media.showTextinput
   }
 }
 

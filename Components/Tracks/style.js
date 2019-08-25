@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
         overflow: "hidden"
     },
     overviewContainer: {
-        flex: 2,
+        flex: 3,
         overflow: "hidden",
         marginBottom: 30
     },
@@ -73,8 +73,8 @@ export const styles = StyleSheet.create({
         paddingTop: 5
     },
     track: {
-        borderBottomColor: "#C7C6C6",
-        borderBottomWidth: 1,
+        borderBottomColor: "rgba(0,0,0, 0.2)",
+        borderBottomWidth: 0.5,
         display: "flex",
         flexDirection: "row",
         alignContent: "center",
@@ -106,6 +106,7 @@ export const styles = StyleSheet.create({
         fontSize: 14
     },
     audioElement: {
-        minHeight: 50
+        minHeight: 50,
+        elevation: 10
     }
 });

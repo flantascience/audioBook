@@ -8,6 +8,10 @@ export const styles = StyleSheet.create({
         backgroundColor: Colors.lighter,
         marginBottom: 30
     },
+    homeMid: {
+        flex:6,
+        overflow: "hidden"
+    },
     container: {
         display: "flex",
         flexDirection: "column",

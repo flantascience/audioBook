@@ -217,100 +217,102 @@ class Audio extends React.Component{
                 </View>
             </View>
         return(
-            <View style={ style }>
-                { showOverview?trackTimeSlider:null }
-                { !currentlyPlaying && isChanging?
-                    null:
-                    <View style={ showOverview?styles.altContiner:styles.container }>
-                        <View style={ showOverview?styles.altControllerContainer:styles.controllerContainer }>
-                            { !showOverview?
-                                <TouchableOpacity 
-                                    disabled={ !buttonsActive } 
-                                    onPress={ this.toggleOverview } 
-                                    style={ styles.toggleTrackDetail }
-                                >
-                                    <Icon
-                                        name={ `ios-arrow-up`}
-                                        size={ 30 }
-                                    />
-                                </TouchableOpacity>: 
-                            null }
-                            <View style={ showOverview?styles.altTextDisplay:styles.textDisplay }>
-                                <Text style={ showOverview?styles.altAudioTitle:styles.audioTitle }>
-                                    { currentlyPlayingName || "Select Track" }
-                                </Text>
+            <View style={ styles.elContainer }>
+                <View style={ style }>
+                    { showOverview?trackTimeSlider:null }
+                    { !currentlyPlaying && isChanging?
+                        null:
+                        <View onTouchEnd={ !showOverview && selectedTrack ?this.toggleOverview:null } style={ showOverview?styles.altContiner:styles.container }>
+                            <View style={ showOverview?styles.altControllerContainer:styles.controllerContainer }>
+                                { /*!showOverview?
+                                    <TouchableOpacity 
+                                        disabled={ !buttonsActive } 
+                                    
+                                        style={ styles.toggleTrackDetail }
+                                    >
+                                        <Icon
+                                            name={ `ios-arrow-up`}
+                                            size={ 30 }
+                                        />
+                                    </TouchableOpacity>: 
+                                null */}
+                                <View style={ showOverview?styles.altTextDisplay:styles.textDisplay }>
+                                    <Text style={ showOverview?styles.altAudioTitle:styles.audioTitle }>
+                                        { currentlyPlayingName || "Select Track" }
+                                    </Text>
+                                </View>
+                                <View style={ showOverview?styles.altButtonGroup:styles.buttonGroup }>
+                                    <TouchableOpacity 
+                                        onPress = { ()=>{
+                                            TrackPlayer.getPosition().then(res=>{
+                                                let newPos = res + parseFloat(-15);
+                                                let newState = {
+                                                    currentPosition: newPos,
+                                                    currentTime: newPos
+                                                };
+                                                this.props.store(newState);
+                                                TrackPlayer.seekTo(newPos);
+                                            });
+                                        }} 
+                                        disabled={ !buttonsActive }
+                                        style={ styles.altGroupedButtons } 
+                                    >
+                                        <Icon
+                                            style={ styles.reflection }
+                                            name={ `ios-refresh` }
+                                            size={ !showOverview?25:35 }
+                                        />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity  
+                                        disabled={ !buttonsActive }  
+                                        style={ styles.groupedButtons } 
+                                        onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
+                                    >
+                                        <Icon
+                                            name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                                            size={ !showOverview?25:35 }
+                                        />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity 
+                                        onPress = { ()=>{
+                                            TrackPlayer.getPosition().then(res=>{
+                                                let newPos = res + parseFloat(15);
+                                                let newState = {
+                                                    currentPosition: newPos,
+                                                    currentTime: newPos
+                                                };
+                                                this.props.store(newState);
+                                                TrackPlayer.seekTo(newPos);
+                                            });
+                                        } } 
+                                        disabled={ !buttonsActive }  
+                                        style={ styles.groupedButtons }
+                                    >
+                                        <Icon
+                                            name={ `ios-refresh` }
+                                            size={ !showOverview?25:35 }
+                                        />
+                                    </TouchableOpacity>
+                                </View>
                             </View>
-                            <View style={ showOverview?styles.altButtonGroup:styles.buttonGroup }>
-                                <TouchableOpacity 
-                                    onPress = { ()=>{
-                                        TrackPlayer.getPosition().then(res=>{
-                                            let newPos = res + parseFloat(-10);
-                                            let newState = {
-                                                currentPosition: newPos,
-                                                currentTime: newPos
-                                            };
-                                            this.props.store(newState);
-                                            TrackPlayer.seekTo(newPos);
-                                        });
-                                     }} 
-                                    disabled={ !buttonsActive }
-                                    style={ styles.altGroupedButtons } 
-                                >
-                                    <Icon
-                                        style={ styles.reflection }
-                                        name={ `ios-refresh` }
-                                        size={ !showOverview?25:35 }
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity  
-                                    disabled={ !buttonsActive }  
-                                    style={ styles.groupedButtons } 
-                                    onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
-                                >
-                                    <Icon
-                                        name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                                        size={ !showOverview?25:35 }
-                                    />
-                                </TouchableOpacity>
-                                <TouchableOpacity 
-                                    onPress = { ()=>{
-                                        TrackPlayer.getPosition().then(res=>{
-                                            let newPos = res + parseFloat(15);
-                                            let newState = {
-                                                currentPosition: newPos,
-                                                currentTime: newPos
-                                            };
-                                            this.props.store(newState);
-                                            TrackPlayer.seekTo(newPos);
-                                        });
-                                     } } 
-                                    disabled={ !buttonsActive }  
-                                    style={ styles.groupedButtons }
-                                >
-                                    <Icon
-                                        name={ `ios-refresh` }
-                                        size={ !showOverview?25:35 }
-                                    />
-                                </TouchableOpacity>
-                            </View>
+                            { showOverview?volumeRocker:trackTimeSlider }
                         </View>
-                        { showOverview?volumeRocker:trackTimeSlider }
-                    </View>
-                    }
-                    <View style = { showOverview && !showTextinput?styles.spaceFiller:styles.altSpaceFiller }></View>
-                    { showTextinput?
-                        <ScrollView>
-                            <TextInput
-                                style={ styles.questionareText}
-                                placeholder={"Was anything confusing?"}
-                            />
-                            <TextInput
-                                style={ styles.questionareText}
-                                placeholder={"Do you have any questions?"}
-                            />
-                            <Button title={ "Submit" } />
-                        </ScrollView>:
-                    null }
+                        }
+                        { showOverview && !showTextinput?<View style = { styles.spaceFiller }></View>: null }
+                        { showTextinput?
+                            <ScrollView>
+                                <TextInput
+                                    style={ styles.questionareText}
+                                    placeholder={"Was anything confusing?"}
+                                />
+                                <TextInput
+                                    style={ styles.questionareText}
+                                    placeholder={"Do you have any questions?"}
+                                />
+                                <Button title={ "Submit" } />
+                            </ScrollView>:
+                        null }
+                </View>
             </View>
         )
     }

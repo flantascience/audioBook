@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
     },
     homeMid: {
         flex:6,
-        minHeight: "70%",
         overflow: "hidden"
     },
     homeFooter: {
@@ -83,5 +82,9 @@ export const styles = StyleSheet.create({
         marginRight: 30,
         paddingTop: 20,
         paddingBottom: 20
+    },
+    audioElement: {
+        minHeight: 50,
+        elevation: 10
     }
 });
