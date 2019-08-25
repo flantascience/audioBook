@@ -43,11 +43,6 @@ class Home extends React.Component {
       let newAudioFiles = audioFiles.concat(cloudAudio);
       this.props.store({audioFiles: newAudioFiles});
     });
-    let newState = {
-      screen: "Home"
-    };
-    //console.log(audioFiles)
-    this.props.store(newState);
   }
 
   render(){
@@ -67,6 +62,7 @@ class Home extends React.Component {
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
       <Audio
+        navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
         audioFiles={audioFiles}
         pos={ selectedTrack }
@@ -88,7 +84,7 @@ class Home extends React.Component {
             duration={500} 
             movementType={ 'slide' }
           >
-            <MediaOverview />
+            <MediaOverview navigate = { navigation.navigate } />
           </SimpleAnimation> }
           { selectedTrack? playing: null }
         <View style = { styles.homeFooter }>

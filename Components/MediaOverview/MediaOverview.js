@@ -47,26 +47,41 @@ class MediaOverviews extends React.Component {
 
   render(){
     let {
-      userEmail
+      userEmail,
+      paused
     } = this.props;
-    return (
-      <ScrollView style = { styles.scrollView }>
-        <View style={ styles.container }>
+    if(!paused){
+      return (
+        <ScrollView style = { styles.scrollView }>
+          <View style={ styles.container }>
+            <TouchableOpacity onPress={ this.toggleOverview } style={ styles.toggleTrackDetail }>
+                <Icon
+                    name={ `ios-arrow-down`}
+                    size={ 30 }
+                />
+            </TouchableOpacity>
+            <View style = { styles.posterContainer }>
+              <Image 
+                source={ poster }
+                style={ styles.poster } 
+              />
+            </View>
+          </View>
+        </ScrollView>
+      )
+    }else{
+      return (
+        <View style={ styles.altContainer }>
           <TouchableOpacity onPress={ this.toggleOverview } style={ styles.toggleTrackDetail }>
               <Icon
                   name={ `ios-arrow-down`}
                   size={ 30 }
               />
           </TouchableOpacity>
-          <View style = { styles.posterContainer }>
-            <Image 
-              source={ poster }
-              style={ styles.poster } 
-            />
-          </View>
         </View>
-      </ScrollView>
-    );
+      )
+    }
+    
   }
 }
 
@@ -76,7 +91,9 @@ const mapStateToProps = state => {
     screen: state.media.screen,
     showOverview: state.media.showOverview,
     showTextinput: state.media.showTextinput,
-    volume: state.media.volume
+    volume: state.media.volume,
+    paused: state.media.paused,
+    screen: state.media.screen
   }
 }
 

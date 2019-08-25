@@ -20,7 +20,9 @@ import {
     getPlayerState,
     removeTrack
 } from '../../Misc/helpers';
+import Toast from '../../Components/Toast/Toast';
 import { posterURL } from '../../Misc/Strings';
+import firebase from 'react-native-firebase';
 import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
 import { storeMedia } from '../../Actions/mediaFiles';
@@ -29,6 +31,7 @@ import VolumeUp from './images/volume_up.png';
 import VolumeDown from './images/volume_down.png';
 import ProgressBar from './ProgressBar';
 
+const dbRef = firebase.database().ref("/questionnaire");
 
 class Audio extends React.Component{
 
@@ -146,9 +149,49 @@ class Audio extends React.Component{
     }
 
     toggleOverview = ()=>{
-        const { showOverview } = this.props;
+        const { showOverview, screen } = this.props;
         let newShowOverview = !showOverview;
         this.props.store({ showOverview: newShowOverview });
+        if(screen !== "Tracks")
+            this.goToTracks();
+    }
+
+    goToTracks = ()=>{
+        let { navigate } = this.props;
+        navigate("Second");
+    }
+
+    sendQuestionnaire = ()=>{
+        let { questionnaire, currentlyPlayingName } = this.props;
+        //console.log(currentlyPlayingName);
+        questionnaire.trackName = currentlyPlayingName;
+        if(questionnaire.confusing || questionnaire.question){
+            dbRef.push(questionnaire).then(res=>{
+                let showToast = true;
+                this.props.store({showToast, toastText: "Your questions were successfully sent." });
+                setTimeout(()=>{
+                    this.props.store({
+                        showToast: !showToast, 
+                        toastText: null, 
+                        showTextinput: false, 
+                        questionnaire: { confusing: null, question: null } 
+                    });
+                }, 1000);
+            }).catch(err=>{
+                let showToast = true;
+                this.props.store({showToast, toastText: "Something went wront, try again!" });
+                setTimeout(()=>{
+                this.props.store({showToast: !showToast, toastText: null });
+                }, 1000);
+                console.log(err);
+            });
+        }else{
+            let showToast = true;
+            this.props.store({showToast, toastText: "Fill in a question first!" });
+            setTimeout(()=>{
+              this.props.store({showToast: !showToast, toastText: null });
+            }, 1000);
+        }
     }
 
     render(){
@@ -170,7 +213,9 @@ class Audio extends React.Component{
             showOverview,
             showTextinput,
             volume,
-            loaded
+            loaded,
+            showToast,
+            toastText
         } = this.props;
         /** End reconfigure */
         //issue with pause button
@@ -224,18 +269,6 @@ class Audio extends React.Component{
                         null:
                         <View onTouchEnd={ !showOverview && selectedTrack ?this.toggleOverview:null } style={ showOverview?styles.altContiner:styles.container }>
                             <View style={ showOverview?styles.altControllerContainer:styles.controllerContainer }>
-                                { /*!showOverview?
-                                    <TouchableOpacity 
-                                        disabled={ !buttonsActive } 
-                                    
-                                        style={ styles.toggleTrackDetail }
-                                    >
-                                        <Icon
-                                            name={ `ios-arrow-up`}
-                                            size={ 30 }
-                                        />
-                                    </TouchableOpacity>: 
-                                null */}
                                 <View style={ showOverview?styles.altTextDisplay:styles.textDisplay }>
                                     <Text style={ showOverview?styles.altAudioTitle:styles.audioTitle }>
                                         { currentlyPlayingName || "Select Track" }
@@ -300,16 +333,37 @@ class Audio extends React.Component{
                         }
                         { showOverview && !showTextinput?<View style = { styles.spaceFiller }></View>: null }
                         { showTextinput?
-                            <ScrollView>
+                            <ScrollView style={ styles.textContainer } >
+                                { showToast?
+                                    <Toast text={ toastText } />:
+                                null }
                                 <TextInput
+                                    id="confusing"
                                     style={ styles.questionareText}
                                     placeholder={"Was anything confusing?"}
+                                    onChangeText={ (text) =>{
+                                        let questionnaire = {...this.props.questionnaire};
+                                        questionnaire.confusing = text;
+                                        this.props.store({ questionnaire });
+                                        /*let questionnaire = {}
+                                        this.props.store({})*/
+                                    } }
                                 />
                                 <TextInput
+                                    id="question"
                                     style={ styles.questionareText}
                                     placeholder={"Do you have any questions?"}
+                                    onChangeText={
+                                        (text) =>{
+                                            let questionnaire = {...this.props.questionnaire};
+                                            questionnaire.question = text;
+                                            this.props.store({ questionnaire });
+                                            /*let questionnaire = {}
+                                            this.props.store({})*/
+                                        }
+                                    }
                                 />
-                                <Button title={ "Submit" } />
+                                <Button title={ "Submit" } onPress={ this.sendQuestionnaire } />
                             </ScrollView>:
                         null }
                 </View>
@@ -326,6 +380,7 @@ const mapStateToProps = state => {
     return{
       selectedTrack: state.media.selectedTrack,
       currentlyPlaying: state.media.currentlyPlaying,
+      currentlyPlayingName: state.media.currentlyPlayingName,
       paused: state.media.paused,
       totalLengthFormatted: state.media.totalLengthFormatted,
       currentPosition: state.media.currentPosition,
@@ -339,7 +394,10 @@ const mapStateToProps = state => {
       totalLength: state.media.totalLength,
       volume: state.media.volume,
       loaded: state.media.loaded,
-      trackDuration: state.media.trackDuration
+      trackDuration: state.media.trackDuration,
+      questionnaire: state.media.questionnaire,
+      showToast: state.media.showToast,
+      toastText: state.media.toastText
     }
 }
 

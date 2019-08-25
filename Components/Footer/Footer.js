@@ -12,7 +12,7 @@ import { styles } from './style';
 
 const Footer = (props)=>{
     const { navigate } = props.navigation;
-    console.log(props)
+    //console.log(props)
     const goTo = (place)=>{
         toggleOverview().then(res=>{
             if(res === "hidden")
@@ -22,23 +22,34 @@ const Footer = (props)=>{
 
     const toggleOverview = ()=>{
         return new Promise(resolve=>{
-            props.store({ showOverview: false });
+            props.store({ showOverview: false, showTextinput: false });
             resolve('hidden');
-        })
-
+        });
     }
     return(
         <View>
             <View style={ styles.container }>
                 <IconButton
-                    onPress={ ()=>goTo(footer.home.place) }
+                    onPress={ ()=>{
+                        let newState = {
+                            screen: "Home"
+                        };
+                        props.store(newState);
+                        goTo(footer.home.place);
+                    } }
                     name={'home'}
                     style = { styles.icon }
                     size={ 35 }
                     text={ footer.home.text }
                 />
                 <IconButton
-                    onPress={ ()=>goTo(footer.tracks.place) }
+                    onPress={ ()=>{
+                        let newState = {
+                            screen: "Tracks"
+                        };
+                        props.store(newState);
+                        goTo(footer.tracks.place);
+                    }}
                     name={'volume-high'}
                     place={ footer.tracks.place }
                     style = { styles.icon }
@@ -46,7 +57,13 @@ const Footer = (props)=>{
                     text={ footer.tracks.text }
                 />
                 <IconButton
-                    onPress={ ()=>goTo(footer.author.place) }
+                    onPress={ ()=>{
+                        let newState = {
+                            screen: "Author"
+                        };
+                        props.store(newState);
+                        goTo(footer.author.place); 
+                    }}
                     name={'person'}
                     place={ footer.author.place }
                     size={ 35 }

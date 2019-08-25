@@ -21,6 +21,11 @@ export const styles = StyleSheet.create({
         overflow: "hidden",
         marginBottom: 30
     },
+    altOverviewContainer: {
+        flex: 1,
+        overflow: "hidden",
+        marginBottom: 5
+    },
     homeFooter: {
         flex:1,
         padding: 5

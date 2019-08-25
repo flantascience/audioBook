@@ -21,6 +21,15 @@ export const styles = StyleSheet.create({
         paddingLeft: 10,
         paddingRight: 10
     },
+    altContainer: {
+        display: "flex",
+        flexDirection: "column",
+        height: 30,
+        overflow: "hidden",
+        paddingTop: 5,
+        paddingLeft: 10,
+        paddingRight: 10
+    },
     toggleTrackDetail: {
 
     },

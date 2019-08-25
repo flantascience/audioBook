@@ -43,7 +43,8 @@ const initialState = {
   showTextinput: false,
   volume: 0.5,
   showToast: false,
-  toastText: null
+  toastText: null,
+  questionnaire: { trackName: null, confusing: null, question: null  },
 };
 
 const mediaReducer = (state = initialState, action) => {

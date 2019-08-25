@@ -64,6 +64,9 @@ export const styles = StyleSheet.create({
     textDisplay: {
         flex: 5
     },
+    textContainer: {
+        height: 200
+    },
     altTextDisplay: {
         flex: 2
     },
@@ -73,7 +76,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     altButtonGroup: {
-        flex: 3,
+        flex: 2,
         display: "flex",
         flexDirection: "row"
     },
@@ -100,6 +103,8 @@ export const styles = StyleSheet.create({
         margin: 5,
         borderColor: "#E0E2E8",
         minHeight: 50,
+        paddingLeft: 5,
+        paddingRight: 5,
         fontSize: 15,
         color: "#000",
         borderWidth: 1

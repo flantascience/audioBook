@@ -40,12 +40,8 @@ class Tracks extends React.Component {
   });
 
   componentDidMount(){
-    let newState = { screen: "Tracks" };
-    this.props.store(newState);
     let { audioFiles, paused } = this.props;
-
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
-        
       let palyerState = data.state;
       if(Platform.OS === "android"){
         if(palyerState === 1)
@@ -132,13 +128,15 @@ class Tracks extends React.Component {
       audioFiles,
       currentlyPlayingName,
       isChanging,
-      showOverview
+      showOverview,
+      showTextinput
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
       <Audio
+        navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
         audioFiles={audioFiles}
         pos={ selectedTrack }
@@ -177,13 +175,13 @@ class Tracks extends React.Component {
               }) }</ScrollView>
             </View>:
           <SimpleAnimation 
-            style={ styles.overviewContainer } 
+            style={ showTextinput?styles.altOverviewContainer:styles.overviewContainer } 
             direction={'up'} 
             delay={100} 
             duration={500} 
             movementType={ 'slide' }
           >
-            <MediaOverview />
+            <MediaOverview navigate = { navigation.navigate } />
           </SimpleAnimation> }
           { selectedTrack? playing: null }
           <View style = { styles.homeFooter }>
