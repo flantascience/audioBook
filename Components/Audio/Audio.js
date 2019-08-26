@@ -54,7 +54,10 @@ class Audio extends React.Component{
         let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
         let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
-            //console.log( currentlyPlaying );
+            console.log( currentlyPlaying );
+            console.log( currentPosition );
+            console.log( pos );
+            console.log( paused );
             if( currentlyPlaying && currentlyPlaying !== pos){
                 //console.log("first option");
                 removeTrack().then(()=>{
@@ -71,7 +74,7 @@ class Audio extends React.Component{
                         };
                         this.props.store(newState);
                         let ready = TrackPlayer.STATE_READY;
-                        console.log(ready);
+                        //console.log(ready);
                         TrackPlayer.play();
                         resolve('done');
                     })
@@ -80,7 +83,7 @@ class Audio extends React.Component{
             }else if( currentlyPlaying && currentlyPlaying === pos){
                 let tpos = parseFloat(currentPosition);
                 let tdur = parseFloat(trackDuration);
-                //console.log(tpos + " " + tdur)
+                //console.log("just pause")
                if( tpos === tdur){
                     removeTrack().then(()=>{
                         let stringPos = pos.toString();
@@ -101,14 +104,21 @@ class Audio extends React.Component{
                         });
                     });
                }else{
-                   let newState = {
-                        paused: !paused
-                    };
-                    this.props.store(newState);
-                    if(paused)
+                    if(paused){
+                        let newState = {
+                            paused: false
+                        };
+                        this.props.store(newState);
                         TrackPlayer.play();
-                    else
+                    }    
+                    else{
+                        let newState = {
+                            paused: true
+                        };
+                        this.props.store(newState);
                         TrackPlayer.pause();
+                        //TrackPlayer.stop()
+                    }      
                }
                 resolve("same");
             }else{
@@ -237,6 +247,19 @@ class Audio extends React.Component{
 
         const trackTimeSlider = <View style={ showOverview?styles.altTrackTimeContainer:styles.trackTimeContainer }>
                 <ProgressBar />
+                { Platform.OS ==="ios"?
+                <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
+                    <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left" } }>{ formatTime(currentPosition) }</Text>
+                    <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right" } }>{ "-" + formatTime(remainingTime) }</Text>
+                </View>:
+                <View style={ styles.trackTimeCounterContainer}>
+                    <View style= { styles.trackElapsedTime }>
+                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
+                    </View>
+                    <View style= { styles.trackRemainingTime}>
+                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
+                    </View>
+                </View> }
             </View>
         const volumeRocker = <View style={ styles.volumeContainer }>
                 <Slider 

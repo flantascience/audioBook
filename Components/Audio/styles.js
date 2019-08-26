@@ -94,7 +94,8 @@ export const styles = StyleSheet.create({
     },
     slider: {
         flex: 1,
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
+        zIndex: 10000
     },
     volumeSlider: {
         flex: 1

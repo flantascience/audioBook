@@ -74,7 +74,11 @@ class Home extends React.Component {
       <View style={ styles.Home }>
         { !showOverview?<View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            <Image style={ styles.centerImage } source={require('./images/sample-book-cover.jpg')} />
+            <Image
+              resizeMode="stretch" 
+              style={ styles.centerImage } 
+              source={require('./images/sample-book-cover.jpg')} 
+            />
           </View>
         </View>:
         <SimpleAnimation 

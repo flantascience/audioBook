@@ -21,38 +21,25 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
         let { trackDuration, audioFiles, selectedTrack, buttonsActive } = this.props;
         const remainingTime = parseFloat(trackDuration) - currentPosition;
         return (
-            <View style={ styles.sliderContainer }>
-                <Slider
-                    style={styles.slider}
-                    value={currentPosition}
-                    onValueChange={(val) => {
-                        let currentTime = Math.floor(parseFloat(val));
-                        console.log(val)
-                        let newState = {
-                            currentPosition: currentTime,
-                            currentTime,
-                            paused: false,
-                        };
-                        this.props.store(newState);
-                    }}
-                    maximumValue={trackDuration || 10}
-                    minimumValue={0}
-                    disabled={!buttonsActive}
-                />
-                { Platform.OS ==="ios"?
-                <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
-                    <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left" } }>{ formatTime(currentPosition) }</Text>
-                    <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right" } }>{ "-" + formatTime(remainingTime) }</Text>
-                </View>:
-                <View style={ styles.trackTimeCounterContainer}>
-                    <View style= { styles.trackElapsedTime }>
-                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
-                    </View>
-                    <View style= { styles.trackRemainingTime}>
-                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
-                    </View>
-                </View> }
-            </View>
+            <Slider
+                style={styles.slider}
+                value={currentPosition}
+                onValueChange={(val) => {
+                    //console.log(val)
+                    let currentTime = Math.floor(parseFloat(val));
+                    //console.log(val)
+                    let newState = {
+                        currentPosition: currentTime,
+                        currentTime,
+                        paused: false,
+                    };
+                    this.props.store(newState);
+                    TrackPlayer.seekTo(val);
+                }}
+                maximumValue={trackDuration || 10}
+                minimumValue={0}
+                disabled={!buttonsActive}
+            />
         );
     }
 }

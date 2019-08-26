@@ -43,19 +43,19 @@ class Tracks extends React.Component {
     let { audioFiles, paused } = this.props;
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
+      //console.log(palyerState)
       if(Platform.OS === "android"){
-        if(palyerState === 1)
+        if(palyerState === 1 || palyerState === 2)
           this.props.store({ paused: true, showTextinput: true });
         else if(palyerState !== 1)
           this.props.store({ paused: false, showTextinput: false });
       }else if(Platform.OS === "ios"){
-        if(palyerState === "paused"){
+        if(palyerState === "paused" || palyerState === "idle"){
           this.props.store({ paused: true, showTextinput: true });
         }else if(palyerState === "playing"){
           this.props.store({ paused: false, showTextinput: false });
         }
       }
-
     });
   }
 

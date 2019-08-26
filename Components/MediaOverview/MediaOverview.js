@@ -27,13 +27,14 @@ import {
   getTrack, 
   getPlayerState 
 } from '../../Misc/helpers';
+import Toast from '../../Components/Toast/Toast'
 import poster from '../../Misc/media/part2-unschooling.jpg';
 
 class MediaOverviews extends React.Component {
 
   componentDidMount(){
     getCurrentTrack().then(res=>{
-      console.log(res);
+      //console.log(res);
     }).catch(err=>{
       console.log(err);
     })
@@ -48,9 +49,9 @@ class MediaOverviews extends React.Component {
   render(){
     let {
       userEmail,
-      paused
+      showTextinput
     } = this.props;
-    if(!paused){
+    if(!showTextinput){
       return (
         <ScrollView style = { styles.scrollView }>
           <View style={ styles.container }>
@@ -80,8 +81,7 @@ class MediaOverviews extends React.Component {
           </TouchableOpacity>
         </View>
       )
-    }
-    
+    } 
   }
 }
 
@@ -93,7 +93,9 @@ const mapStateToProps = state => {
     showTextinput: state.media.showTextinput,
     volume: state.media.volume,
     paused: state.media.paused,
-    screen: state.media.screen
+    screen: state.media.screen,
+    showToast: state.media.showToast,
+    toastText: state.media.toastText
   }
 }
 
