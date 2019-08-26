@@ -65,7 +65,8 @@ export const styles = StyleSheet.create({
         flex: 5
     },
     textContainer: {
-        height: 200
+        marginTop: 20,
+        height: "50%"
     },
     altTextDisplay: {
         flex: 2
@@ -100,8 +101,17 @@ export const styles = StyleSheet.create({
     volumeSlider: {
         flex: 1
     },
+    buttonContainer:{
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+        paddingTop: 20,
+        paddingBottom: 20
+    },
     questionareText: {
-        margin: 5,
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
         borderColor: "#E0E2E8",
         minHeight: 50,
         paddingLeft: 5,

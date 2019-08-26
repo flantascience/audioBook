@@ -921,12 +921,6 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 mipmap ic_launcher
 mipmap ic_launcher_round
-raw app
-raw components_tracks_tracks_sample_claps
-raw components_tracks_tracks_sample_noise
-raw node_modules_reactnativevectoricons_glyphmaps_ionicons
-raw sample_claps
-raw sample_noise
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

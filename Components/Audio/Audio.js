@@ -245,7 +245,7 @@ class Audio extends React.Component{
         let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
         const remainingTime = ( trackDuration - currentPosition );
 
-        const trackTimeSlider = <View style={ showOverview?styles.altTrackTimeContainer:styles.trackTimeContainer }>
+        const trackTimeSlider = <View style={ showOverview && !showTextinput?styles.altTrackTimeContainer:styles.trackTimeContainer }>
                 <ProgressBar />
                 { Platform.OS ==="ios"?
                 <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
@@ -287,17 +287,17 @@ class Audio extends React.Component{
         return(
             <View style={ styles.elContainer }>
                 <View style={ style }>
-                    { showOverview?trackTimeSlider:null }
+                    { showOverview && !showTextinput?trackTimeSlider:null }
                     { !currentlyPlaying && isChanging?
                         null:
-                        <View onTouchEnd={ !showOverview && selectedTrack ?this.toggleOverview:null } style={ showOverview?styles.altContiner:styles.container }>
-                            <View style={ showOverview?styles.altControllerContainer:styles.controllerContainer }>
-                                <View style={ showOverview?styles.altTextDisplay:styles.textDisplay }>
-                                    <Text style={ showOverview?styles.altAudioTitle:styles.audioTitle }>
+                        <View onTouchEnd={ !showOverview && selectedTrack ?this.toggleOverview:null } style={ showOverview && !showTextinput?styles.altContiner:styles.container }>
+                            <View style={ showOverview && !showTextinput?styles.altControllerContainer:styles.controllerContainer }>
+                                <View style={ showOverview && !showTextinput?styles.altTextDisplay:styles.textDisplay }>
+                                    <Text style={ showOverview && !showTextinput?styles.altAudioTitle:styles.audioTitle }>
                                         { currentlyPlayingName || "Select Track" }
                                     </Text>
                                 </View>
-                                <View style={ showOverview?styles.altButtonGroup:styles.buttonGroup }>
+                                <View style={ showOverview && !showTextinput?styles.altButtonGroup:styles.buttonGroup }>
                                     <TouchableOpacity 
                                         onPress = { ()=>{
                                             TrackPlayer.getPosition().then(res=>{
@@ -316,7 +316,7 @@ class Audio extends React.Component{
                                         <Icon
                                             style={ styles.reflection }
                                             name={ `ios-refresh` }
-                                            size={ !showOverview?25:35 }
+                                            size={ !showOverview || showTextinput?25:35 }
                                         />
                                     </TouchableOpacity>
                                     <TouchableOpacity  
@@ -326,7 +326,7 @@ class Audio extends React.Component{
                                     >
                                         <Icon
                                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                                            size={ !showOverview?25:35 }
+                                            size={ !showOverview || showTextinput?25:35 }
                                         />
                                     </TouchableOpacity>
                                     <TouchableOpacity 
@@ -346,17 +346,17 @@ class Audio extends React.Component{
                                     >
                                         <Icon
                                             name={ `ios-refresh` }
-                                            size={ !showOverview?25:35 }
+                                            size={ !showOverview || showTextinput?25:35 }
                                         />
                                     </TouchableOpacity>
                                 </View>
                             </View>
-                            { showOverview?volumeRocker:trackTimeSlider }
+                            { showOverview && !showTextinput?volumeRocker:trackTimeSlider }
                         </View>
                         }
                         { showOverview && !showTextinput?<View style = { styles.spaceFiller }></View>: null }
                         { showTextinput?
-                            <ScrollView style={ styles.textContainer } >
+                            <View style={ styles.textContainer } >
                                 { showToast?
                                     <Toast text={ toastText } />:
                                 null }
@@ -386,8 +386,14 @@ class Audio extends React.Component{
                                         }
                                     }
                                 />
-                                <Button title={ "Submit" } onPress={ this.sendQuestionnaire } />
-                            </ScrollView>:
+                                <View style = { styles.buttonContainer }>
+                                    <Button
+                                        color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                                        title={ "Submit" }
+                                        onPress={ this.sendQuestionnaire } 
+                                    />
+                                </View>
+                            </View>:
                         null }
                 </View>
             </View>
