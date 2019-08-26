@@ -17,14 +17,14 @@ export const styles = StyleSheet.create({
         overflow: "hidden"
     },
     overviewContainer: {
-        flex: 3,
+        flex: 6,
         overflow: "hidden",
         marginBottom: 30
     },
     altOverviewContainer: {
         flex: 1,
-        overflow: "hidden",
-        marginBottom: 5
+        //overflow: "hidden",
+        marginBottom: 30
     },
     homeFooter: {
         flex:1,

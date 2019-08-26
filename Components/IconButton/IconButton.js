@@ -13,7 +13,7 @@ const IconButton = ({name, onPress, ...props})=>{
             <Icon
                 name={ Platform.OS === "ios" ? `ios-${name}` : `md-${name}`}
                 size={ props.size }
-                style={ styles.icon }
+                style={ props.iconStyle }
             />
             <Text style={ styles.iconText }>{ props.text }</Text>
         </TouchableOpacity>

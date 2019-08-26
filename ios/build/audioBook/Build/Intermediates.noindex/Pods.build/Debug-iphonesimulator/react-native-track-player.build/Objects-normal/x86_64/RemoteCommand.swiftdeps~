@@ -1,0 +1,395 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "RemoteCommandHandler"
+- "RemoteCommandProtocol"
+- "PlayBackCommand"
+- "ChangePlaybackPositionCommand"
+- "SkipIntervalCommand"
+- "FeedbackCommand"
+- "RemoteCommand"
+provides-nominal:
+- "25react_native_track_player21RemoteCommandProtocolP"
+- "25react_native_track_player15PlayBackCommandV"
+- "25react_native_track_player29ChangePlaybackPositionCommandV"
+- "25react_native_track_player19SkipIntervalCommandV"
+- "25react_native_track_player15FeedbackCommandV"
+- "25react_native_track_player13RemoteCommandO"
+provides-member:
+- ["25react_native_track_player21RemoteCommandProtocolP", ""]
+- ["25react_native_track_player15PlayBackCommandV", ""]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", ""]
+- ["25react_native_track_player19SkipIntervalCommandV", ""]
+- ["25react_native_track_player15FeedbackCommandV", ""]
+- ["25react_native_track_player13RemoteCommandO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "ChangePlaybackPositionCommand"
+- "FeedbackCommand"
+- "KeyPath"
+- "MPChangePlaybackPositionCommand"
+- "MPFeedbackCommand"
+- "MPRemoteCommand"
+- "MPRemoteCommandCenter"
+- "MPRemoteCommandEvent"
+- "MPRemoteCommandHandlerStatus"
+- "MPSkipIntervalCommand"
+- "NSNumber"
+- "PlayBackCommand"
+- "RemoteCommand"
+- "RemoteCommandController"
+- "RemoteCommandHandler"
+- "RemoteCommandProtocol"
+- "SkipIntervalCommand"
+- "String"
+depends-member:
+- ["s7CVarArgP", "bookmarkCommand"]
+- ["s7CVarArgP", "changePlaybackPositionCommand"]
+- ["s7CVarArgP", "dislikeCommand"]
+- !private ["s7CVarArgP", "isActive"]
+- ["s7CVarArgP", "likeCommand"]
+- !private ["s7CVarArgP", "localizedShortTitle"]
+- !private ["s7CVarArgP", "localizedTitle"]
+- ["s7CVarArgP", "nextTrackCommand"]
+- ["s7CVarArgP", "pauseCommand"]
+- ["s7CVarArgP", "playCommand"]
+- !private ["s7CVarArgP", "preferredIntervals"]
+- ["s7CVarArgP", "previousTrackCommand"]
+- !private ["s7CVarArgP", "shared"]
+- ["s7CVarArgP", "skipBackwardCommand"]
+- ["s7CVarArgP", "skipForwardCommand"]
+- ["s7CVarArgP", "stopCommand"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s7CVarArgP", "togglePlayPauseCommand"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "ChangePlaybackPositionCommand"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "Command"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "KeyPath"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "MPChangePlaybackPositionCommand"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "MPRemoteCommandCenter"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "RemoteCommandController"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "RemoteCommandHandler"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "String"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "changePlaybackPosition"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "commandKeyPath"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "deinit"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "handlerKeyPath"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "id"]
+- ["25react_native_track_player29ChangePlaybackPositionCommandV", "init"]
+- ["s28CustomDebugStringConvertibleP", "bookmarkCommand"]
+- ["s28CustomDebugStringConvertibleP", "changePlaybackPositionCommand"]
+- ["s28CustomDebugStringConvertibleP", "dislikeCommand"]
+- !private ["s28CustomDebugStringConvertibleP", "isActive"]
+- ["s28CustomDebugStringConvertibleP", "likeCommand"]
+- !private ["s28CustomDebugStringConvertibleP", "localizedShortTitle"]
+- !private ["s28CustomDebugStringConvertibleP", "localizedTitle"]
+- ["s28CustomDebugStringConvertibleP", "nextTrackCommand"]
+- ["s28CustomDebugStringConvertibleP", "pauseCommand"]
+- ["s28CustomDebugStringConvertibleP", "playCommand"]
+- !private ["s28CustomDebugStringConvertibleP", "preferredIntervals"]
+- ["s28CustomDebugStringConvertibleP", "previousTrackCommand"]
+- !private ["s28CustomDebugStringConvertibleP", "shared"]
+- ["s28CustomDebugStringConvertibleP", "skipBackwardCommand"]
+- ["s28CustomDebugStringConvertibleP", "skipForwardCommand"]
+- ["s28CustomDebugStringConvertibleP", "stopCommand"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- ["s28CustomDebugStringConvertibleP", "togglePlayPauseCommand"]
+- ["s23CustomStringConvertibleP", "bookmarkCommand"]
+- ["s23CustomStringConvertibleP", "changePlaybackPositionCommand"]
+- ["s23CustomStringConvertibleP", "dislikeCommand"]
+- !private ["s23CustomStringConvertibleP", "isActive"]
+- ["s23CustomStringConvertibleP", "likeCommand"]
+- !private ["s23CustomStringConvertibleP", "localizedShortTitle"]
+- !private ["s23CustomStringConvertibleP", "localizedTitle"]
+- ["s23CustomStringConvertibleP", "nextTrackCommand"]
+- ["s23CustomStringConvertibleP", "pauseCommand"]
+- ["s23CustomStringConvertibleP", "playCommand"]
+- !private ["s23CustomStringConvertibleP", "preferredIntervals"]
+- ["s23CustomStringConvertibleP", "previousTrackCommand"]
+- !private ["s23CustomStringConvertibleP", "shared"]
+- ["s23CustomStringConvertibleP", "skipBackwardCommand"]
+- ["s23CustomStringConvertibleP", "skipForwardCommand"]
+- ["s23CustomStringConvertibleP", "stopCommand"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- ["s23CustomStringConvertibleP", "togglePlayPauseCommand"]
+- ["SQ", "bookmarkCommand"]
+- ["SQ", "changePlaybackPositionCommand"]
+- ["SQ", "dislikeCommand"]
+- !private ["SQ", "isActive"]
+- ["SQ", "likeCommand"]
+- !private ["SQ", "localizedShortTitle"]
+- !private ["SQ", "localizedTitle"]
+- ["SQ", "nextTrackCommand"]
+- ["SQ", "pauseCommand"]
+- ["SQ", "playCommand"]
+- !private ["SQ", "preferredIntervals"]
+- ["SQ", "previousTrackCommand"]
+- !private ["SQ", "shared"]
+- ["SQ", "skipBackwardCommand"]
+- ["SQ", "skipForwardCommand"]
+- ["SQ", "stopCommand"]
+- !private ["SQ", "subscript"]
+- ["SQ", "togglePlayPauseCommand"]
+- ["25react_native_track_player15FeedbackCommandV", "Bool"]
+- ["25react_native_track_player15FeedbackCommandV", "Command"]
+- ["25react_native_track_player15FeedbackCommandV", "FeedbackCommand"]
+- ["25react_native_track_player15FeedbackCommandV", "KeyPath"]
+- ["25react_native_track_player15FeedbackCommandV", "MPFeedbackCommand"]
+- ["25react_native_track_player15FeedbackCommandV", "MPRemoteCommandCenter"]
+- ["25react_native_track_player15FeedbackCommandV", "RemoteCommandController"]
+- ["25react_native_track_player15FeedbackCommandV", "RemoteCommandHandler"]
+- ["25react_native_track_player15FeedbackCommandV", "String"]
+- ["25react_native_track_player15FeedbackCommandV", "bookmark"]
+- ["25react_native_track_player15FeedbackCommandV", "commandKeyPath"]
+- ["25react_native_track_player15FeedbackCommandV", "deinit"]
+- ["25react_native_track_player15FeedbackCommandV", "dislike"]
+- ["25react_native_track_player15FeedbackCommandV", "handlerKeyPath"]
+- ["25react_native_track_player15FeedbackCommandV", "id"]
+- ["25react_native_track_player15FeedbackCommandV", "init"]
+- ["25react_native_track_player15FeedbackCommandV", "like"]
+- ["25react_native_track_player15FeedbackCommandV", "set"]
+- ["SH", "bookmarkCommand"]
+- ["SH", "changePlaybackPositionCommand"]
+- ["SH", "dislikeCommand"]
+- !private ["SH", "isActive"]
+- ["SH", "likeCommand"]
+- !private ["SH", "localizedShortTitle"]
+- !private ["SH", "localizedTitle"]
+- ["SH", "nextTrackCommand"]
+- ["SH", "pauseCommand"]
+- ["SH", "playCommand"]
+- !private ["SH", "preferredIntervals"]
+- ["SH", "previousTrackCommand"]
+- !private ["SH", "shared"]
+- ["SH", "skipBackwardCommand"]
+- ["SH", "skipForwardCommand"]
+- ["SH", "stopCommand"]
+- !private ["SH", "subscript"]
+- ["SH", "togglePlayPauseCommand"]
+- !private ["So17MPFeedbackCommandC", "isActive"]
+- !private ["So17MPFeedbackCommandC", "localizedShortTitle"]
+- !private ["So17MPFeedbackCommandC", "localizedTitle"]
+- !private ["So15MPRemoteCommandC", "isActive"]
+- !private ["So15MPRemoteCommandC", "localizedShortTitle"]
+- !private ["So15MPRemoteCommandC", "localizedTitle"]
+- !private ["So15MPRemoteCommandC", "preferredIntervals"]
+- ["So21MPRemoteCommandCenterC", "bookmarkCommand"]
+- ["So21MPRemoteCommandCenterC", "changePlaybackPositionCommand"]
+- ["So21MPRemoteCommandCenterC", "dislikeCommand"]
+- ["So21MPRemoteCommandCenterC", "likeCommand"]
+- ["So21MPRemoteCommandCenterC", "nextTrackCommand"]
+- ["So21MPRemoteCommandCenterC", "pauseCommand"]
+- ["So21MPRemoteCommandCenterC", "playCommand"]
+- ["So21MPRemoteCommandCenterC", "previousTrackCommand"]
+- !private ["So21MPRemoteCommandCenterC", "shared"]
+- ["So21MPRemoteCommandCenterC", "skipBackwardCommand"]
+- ["So21MPRemoteCommandCenterC", "skipForwardCommand"]
+- ["So21MPRemoteCommandCenterC", "stopCommand"]
+- !private ["So21MPRemoteCommandCenterC", "subscript"]
+- ["So21MPRemoteCommandCenterC", "togglePlayPauseCommand"]
+- !private ["So21MPSkipIntervalCommandC", "preferredIntervals"]
+- ["So8NSObjectC", "bookmarkCommand"]
+- ["So8NSObjectC", "changePlaybackPositionCommand"]
+- ["So8NSObjectC", "dislikeCommand"]
+- !private ["So8NSObjectC", "isActive"]
+- ["So8NSObjectC", "likeCommand"]
+- !private ["So8NSObjectC", "localizedShortTitle"]
+- !private ["So8NSObjectC", "localizedTitle"]
+- ["So8NSObjectC", "nextTrackCommand"]
+- ["So8NSObjectC", "pauseCommand"]
+- ["So8NSObjectC", "playCommand"]
+- !private ["So8NSObjectC", "preferredIntervals"]
+- ["So8NSObjectC", "previousTrackCommand"]
+- !private ["So8NSObjectC", "shared"]
+- ["So8NSObjectC", "skipBackwardCommand"]
+- ["So8NSObjectC", "skipForwardCommand"]
+- ["So8NSObjectC", "stopCommand"]
+- !private ["So8NSObjectC", "subscript"]
+- ["So8NSObjectC", "togglePlayPauseCommand"]
+- ["So8NSObjectP", "bookmarkCommand"]
+- ["So8NSObjectP", "changePlaybackPositionCommand"]
+- ["So8NSObjectP", "dislikeCommand"]
+- !private ["So8NSObjectP", "isActive"]
+- ["So8NSObjectP", "likeCommand"]
+- !private ["So8NSObjectP", "localizedShortTitle"]
+- !private ["So8NSObjectP", "localizedTitle"]
+- ["So8NSObjectP", "nextTrackCommand"]
+- ["So8NSObjectP", "pauseCommand"]
+- ["So8NSObjectP", "playCommand"]
+- !private ["So8NSObjectP", "preferredIntervals"]
+- ["So8NSObjectP", "previousTrackCommand"]
+- !private ["So8NSObjectP", "shared"]
+- ["So8NSObjectP", "skipBackwardCommand"]
+- ["So8NSObjectP", "skipForwardCommand"]
+- ["So8NSObjectP", "stopCommand"]
+- !private ["So8NSObjectP", "subscript"]
+- ["So8NSObjectP", "togglePlayPauseCommand"]
+- ["25react_native_track_player15PlayBackCommandV", "Command"]
+- ["25react_native_track_player15PlayBackCommandV", "KeyPath"]
+- ["25react_native_track_player15PlayBackCommandV", "MPRemoteCommand"]
+- ["25react_native_track_player15PlayBackCommandV", "MPRemoteCommandCenter"]
+- ["25react_native_track_player15PlayBackCommandV", "PlayBackCommand"]
+- ["25react_native_track_player15PlayBackCommandV", "RemoteCommandController"]
+- ["25react_native_track_player15PlayBackCommandV", "RemoteCommandHandler"]
+- ["25react_native_track_player15PlayBackCommandV", "String"]
+- ["25react_native_track_player15PlayBackCommandV", "commandKeyPath"]
+- ["25react_native_track_player15PlayBackCommandV", "deinit"]
+- ["25react_native_track_player15PlayBackCommandV", "handlerKeyPath"]
+- ["25react_native_track_player15PlayBackCommandV", "id"]
+- ["25react_native_track_player15PlayBackCommandV", "init"]
+- ["25react_native_track_player15PlayBackCommandV", "nextTrack"]
+- ["25react_native_track_player15PlayBackCommandV", "pause"]
+- ["25react_native_track_player15PlayBackCommandV", "play"]
+- ["25react_native_track_player15PlayBackCommandV", "previousTrack"]
+- ["25react_native_track_player15PlayBackCommandV", "stop"]
+- ["25react_native_track_player15PlayBackCommandV", "togglePlayPause"]
+- ["25react_native_track_player13RemoteCommandO", "Bool"]
+- ["25react_native_track_player13RemoteCommandO", "NSNumber"]
+- ["25react_native_track_player13RemoteCommandO", "RemoteCommand"]
+- ["25react_native_track_player13RemoteCommandO", "String"]
+- ["25react_native_track_player13RemoteCommandO", "all"]
+- ["25react_native_track_player13RemoteCommandO", "bookmark"]
+- ["25react_native_track_player13RemoteCommandO", "changePlaybackPosition"]
+- ["25react_native_track_player13RemoteCommandO", "dislike"]
+- ["25react_native_track_player13RemoteCommandO", "like"]
+- ["25react_native_track_player13RemoteCommandO", "next"]
+- ["25react_native_track_player13RemoteCommandO", "pause"]
+- ["25react_native_track_player13RemoteCommandO", "play"]
+- ["25react_native_track_player13RemoteCommandO", "previous"]
+- ["25react_native_track_player13RemoteCommandO", "skipBackward"]
+- ["25react_native_track_player13RemoteCommandO", "skipForward"]
+- ["25react_native_track_player13RemoteCommandO", "stop"]
+- ["25react_native_track_player13RemoteCommandO", "togglePlayPause"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleBookmarkCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleChangePlaybackPositionCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleDislikeCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleLikeCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleNextTrackCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePauseCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePlayCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePreviousTrackCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleSkipBackwardCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleSkipForwardCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleStopCommand"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleTogglePlayPauseCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "ChangePlaybackPositionCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "Command"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "FeedbackCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "KeyPath"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "MPRemoteCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "MPRemoteCommandCenter"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "PlayBackCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "RemoteCommandController"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "RemoteCommandHandler"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "SkipIntervalCommand"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "String"]
+- ["25react_native_track_player21RemoteCommandProtocolP", ""]
+- ["25react_native_track_player21RemoteCommandProtocolP", "commandKeyPath"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "handlerKeyPath"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "id"]
+- ["25react_native_track_player21RemoteCommandProtocolP", "init"]
+- ["25react_native_track_player19SkipIntervalCommandV", "Command"]
+- ["25react_native_track_player19SkipIntervalCommandV", "KeyPath"]
+- ["25react_native_track_player19SkipIntervalCommandV", "MPRemoteCommandCenter"]
+- ["25react_native_track_player19SkipIntervalCommandV", "MPSkipIntervalCommand"]
+- ["25react_native_track_player19SkipIntervalCommandV", "NSNumber"]
+- ["25react_native_track_player19SkipIntervalCommandV", "RemoteCommandController"]
+- ["25react_native_track_player19SkipIntervalCommandV", "RemoteCommandHandler"]
+- ["25react_native_track_player19SkipIntervalCommandV", "SkipIntervalCommand"]
+- ["25react_native_track_player19SkipIntervalCommandV", "String"]
+- ["25react_native_track_player19SkipIntervalCommandV", "commandKeyPath"]
+- ["25react_native_track_player19SkipIntervalCommandV", "deinit"]
+- ["25react_native_track_player19SkipIntervalCommandV", "handlerKeyPath"]
+- ["25react_native_track_player19SkipIntervalCommandV", "id"]
+- ["25react_native_track_player19SkipIntervalCommandV", "init"]
+- ["25react_native_track_player19SkipIntervalCommandV", "set"]
+- ["25react_native_track_player19SkipIntervalCommandV", "skipBackward"]
+- ["25react_native_track_player19SkipIntervalCommandV", "skipForward"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "bookmarkCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "changePlaybackPositionCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "dislikeCommand"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isActive"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "likeCommand"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedShortTitle"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localizedTitle"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "nextTrackCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "pauseCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "playCommand"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "preferredIntervals"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "previousTrackCommand"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "shared"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "skipBackwardCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "skipForwardCommand"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "stopCommand"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "subscript"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "togglePlayPauseCommand"]
+depends-nominal:
+- "s7CVarArgP"
+- "25react_native_track_player29ChangePlaybackPositionCommandV"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "SQ"
+- "25react_native_track_player15FeedbackCommandV"
+- "SH"
+- !private "So17MPFeedbackCommandC"
+- !private "So15MPRemoteCommandC"
+- "So21MPRemoteCommandCenterC"
+- !private "So21MPSkipIntervalCommandC"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "25react_native_track_player15PlayBackCommandV"
+- "25react_native_track_player13RemoteCommandO"
+- "25react_native_track_player23RemoteCommandControllerC"
+- "25react_native_track_player21RemoteCommandProtocolP"
+- "25react_native_track_player19SkipIntervalCommandV"
+- "10Foundation27_KeyValueCodingAndObservingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/MediaPlayer.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
+- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers/MediaPlayer.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "4a66af4f43190ff48fb312f927571022"

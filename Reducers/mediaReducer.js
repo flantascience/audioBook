@@ -37,7 +37,7 @@ const initialState = {
   currentTime: 0,
   repeatOn: false,
   shuffleOn: false,
-  screen: null,
+  screen: "Home",
   buttonsActive: false,
   showOverview: false,
   showTextinput: false,

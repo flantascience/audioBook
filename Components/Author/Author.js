@@ -170,17 +170,16 @@ class Author extends React.Component {
               </View>
             </View>
           </ScrollView>
-        </View>:
+        </View>: null}
         <SimpleAnimation 
-            style={ styles.overviewContainer } 
+            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
             direction={'up'} 
             delay={100} 
             duration={500} 
             movementType={ 'slide' }
           >
-            <MediaOverview navigate = { navigation.navigate } />
-          </SimpleAnimation> }
           { selectedTrack? playing: null }
+          </SimpleAnimation> 
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>

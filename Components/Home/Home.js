@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
   View,
-  Image
+  Image,
+  Text
 } from 'react-native';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -80,17 +81,16 @@ class Home extends React.Component {
               source={require('./images/sample-book-cover.jpg')} 
             />
           </View>
-        </View>:
+        </View>: null }
         <SimpleAnimation 
-            style={ styles.overviewContainer } 
+            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
             direction={'up'} 
             delay={100} 
             duration={500} 
             movementType={ 'slide' }
           >
-            <MediaOverview navigate = { navigation.navigate } />
-          </SimpleAnimation> }
-          { selectedTrack? playing: null }
+            { selectedTrack? playing: null }
+          </SimpleAnimation>
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>

@@ -14,7 +14,21 @@ export const styles = StyleSheet.create({
     },
     homeMid: {
         flex:6,
+        display: "flex",
+        flexDirection: "row",
+        alignContent: "center",
+        justifyContent: "center",
         overflow: "hidden"
+    },
+    overviewContainer: {
+        flex: 6,
+        overflow: "hidden",
+        marginBottom: 30
+    },
+    altOverviewContainer: {
+        flex: 1,
+        //overflow: "hidden",
+        marginBottom: 30
     },
     homeFooter: {
         flex:1,
@@ -22,10 +36,13 @@ export const styles = StyleSheet.create({
     },
     centerImageContainer: {
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "column",
+        flex:1,
+        alignContent: "center",
+        justifyContent: "center"
     },
     centerImage: {
-        flex: 1
+        width: "100%"
     },
     textInput: {
         borderColor: "#A9A8A8",

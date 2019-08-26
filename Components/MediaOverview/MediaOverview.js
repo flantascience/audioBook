@@ -51,16 +51,10 @@ class MediaOverviews extends React.Component {
       userEmail,
       showTextinput
     } = this.props;
-    if(!showTextinput){
+    /*if(!showTextinput){
       return (
         <ScrollView style = { styles.scrollView }>
           <View style={ styles.container }>
-            <TouchableOpacity onPress={ this.toggleOverview } style={ styles.toggleTrackDetail }>
-                <Icon
-                    name={ `ios-arrow-down`}
-                    size={ 30 }
-                />
-            </TouchableOpacity>
             <View style = { styles.posterContainer }>
               <Image 
                 source={ poster }
@@ -70,18 +64,22 @@ class MediaOverviews extends React.Component {
           </View>
         </ScrollView>
       )
-    }else{
+    }else{*/
       return (
         <View style={ styles.altContainer }>
-          <TouchableOpacity onPress={ this.toggleOverview } style={ styles.toggleTrackDetail }>
+          <Image 
+            source={ poster }
+            style={ styles.poster } 
+          />
+          {/*<TouchableOpacity onPress={ this.toggleOverview } style={ styles.toggleTrackDetail }>
               <Icon
                   name={ `ios-arrow-down`}
                   size={ 30 }
               />
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
         </View>
       )
-    } 
+    /**} */ 
   }
 }
 

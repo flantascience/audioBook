@@ -46,14 +46,14 @@ class Tracks extends React.Component {
       //console.log(palyerState)
       if(Platform.OS === "android"){
         if(palyerState === 1 || palyerState === 2)
-          this.props.store({ paused: true, showTextinput: true });
+          this.props.store({ paused: true });
         else if(palyerState !== 1)
-          this.props.store({ paused: false, showTextinput: false });
+          this.props.store({ paused: false});
       }else if(Platform.OS === "ios"){
         if(palyerState === "paused" || palyerState === "idle"){
-          this.props.store({ paused: true, showTextinput: true });
+          this.props.store({ paused: true });
         }else if(palyerState === "playing"){
-          this.props.store({ paused: false, showTextinput: false });
+          this.props.store({ paused: false });
         }
       }
     });
@@ -80,7 +80,6 @@ class Tracks extends React.Component {
                   currentlyPlayingName: audioFiles[pos].title,
                   initCurrentlyPlaying: true,
                   buttonsActive: true,
-                  showOverview: true,
                   trackDuration, 
                   paused: false, 
                   loaded: true, 
@@ -100,7 +99,6 @@ class Tracks extends React.Component {
                   currentlyPlayingName: audioFiles[pos].title,
                   initCurrentlyPlaying: true,
                   buttonsActive: true,
-                  showOverview: true,
                   trackDuration, 
                   paused: false, 
                   loaded: true, 
@@ -173,17 +171,16 @@ class Tracks extends React.Component {
                   </View>
                 )
               }) }</ScrollView>
-            </View>:
+            </View>:null}
           <SimpleAnimation 
-            style={ showTextinput?styles.altOverviewContainer:styles.overviewContainer } 
+            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
             direction={'up'} 
             delay={100} 
             duration={500} 
             movementType={ 'slide' }
           >
-            <MediaOverview navigate = { navigation.navigate } />
-          </SimpleAnimation> }
-          { selectedTrack? playing: null }
+            { selectedTrack? playing: null }
+          </SimpleAnimation> 
           <View style = { styles.homeFooter }>
             <Footer navigation={ navigation } />
           </View>

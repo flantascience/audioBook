@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         transform: [{ scaleX: -1 }],
     },
     elContainer: {
-        //padding: 5
+        flex:1
     },
     container:{
         display: "flex",
@@ -64,8 +64,12 @@ export const styles = StyleSheet.create({
     textDisplay: {
         flex: 5
     },
+    textScrollView: {
+        minHeight: 300,
+    },
     textContainer: {
         marginTop: 20,
+        paddingBottom: 20,
         height: "50%"
     },
     altTextDisplay: {
@@ -178,5 +182,8 @@ export const styles = StyleSheet.create({
     },
     trackTime: {
 
+    },
+    poster: {
+        height: 150
     }
 });

@@ -20,6 +20,16 @@ export const styles = StyleSheet.create({
         flex:1,
         padding: 5
     },
+    overviewContainer: {
+        flex: 6,
+        overflow: "hidden",
+        marginBottom: 30
+    },
+    altOverviewContainer: {
+        flex: 1,
+        //overflow: "hidden",
+        marginBottom: 30
+    },
     centerImageContainer: {
         display: "flex",
         alignContent: "center",

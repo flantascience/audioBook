@@ -12,6 +12,7 @@ import { styles } from './style';
 
 const Footer = (props)=>{
     const { navigate } = props.navigation;
+    let { screen } = props;
     //console.log(props)
     const goTo = (place)=>{
         toggleOverview().then(res=>{
@@ -39,6 +40,7 @@ const Footer = (props)=>{
                     } }
                     name={'home'}
                     style = { styles.icon }
+                    iconStyle = { screen === "Home"?styles.altIconText:styles.iconText }
                     size={ 35 }
                     text={ footer.home.text }
                 />
@@ -53,6 +55,7 @@ const Footer = (props)=>{
                     name={'volume-high'}
                     place={ footer.tracks.place }
                     style = { styles.icon }
+                    iconStyle = { screen === "Tracks"?styles.altIconText:styles.iconText }
                     size={ 35 }
                     text={ footer.tracks.text }
                 />
@@ -68,6 +71,7 @@ const Footer = (props)=>{
                     place={ footer.author.place }
                     size={ 35 }
                     style = { styles.icon }
+                    iconStyle = { screen === "Author"?styles.altIconText:styles.iconText }
                     text={ footer.author.text }
                 />
             </View>
