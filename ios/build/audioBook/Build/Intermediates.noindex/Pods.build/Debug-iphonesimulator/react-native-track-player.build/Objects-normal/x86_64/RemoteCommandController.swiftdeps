@@ -259,7 +259,6 @@ depends-member:
 - ["25react_native_track_player23RemoteCommandControllerC", "audioPlayer"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "center"]
 - ["25react_native_track_player23RemoteCommandControllerC", "commandTargetPointers"]
-- ["25react_native_track_player23RemoteCommandControllerC", "deinit"]
 - ["25react_native_track_player23RemoteCommandControllerC", "disable"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "disableCommand"]
 - ["25react_native_track_player23RemoteCommandControllerC", "enable"]
@@ -267,40 +266,40 @@ depends-member:
 - !private ["25react_native_track_player23RemoteCommandControllerC", "getRemoteCommandHandlerStatus"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleBookmarkCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleBookmarkCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleBookmarkCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleBookmarkCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleChangePlaybackPositionCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleChangePlaybackPositionCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleChangePlaybackPositionCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleChangePlaybackPositionCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleDislikeCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleDislikeCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleDislikeCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleDislikeCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleLikeCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleLikeCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleLikeCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleLikeCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleNextTrackCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleNextTrackCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleNextTrackCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleNextTrackCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handlePauseCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handlePauseCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handlePauseCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePauseCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handlePlayCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handlePlayCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handlePlayCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePlayCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handlePreviousTrackCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handlePreviousTrackCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handlePreviousTrackCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handlePreviousTrackCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleSkipBackwardCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleSkipBackwardCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleSkipBackwardDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleSkipBackwardDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleSkipForwardCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleSkipForwardCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleSkipForwardCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleSkipForwardCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleStopCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleStopCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleStopCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleStopCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "handleTogglePlayPauseCommand"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "handleTogglePlayPauseCommand.storage"]
-- !private ["25react_native_track_player23RemoteCommandControllerC", "handleTogglePlayPauseCommandDefault"]
+- ["25react_native_track_player23RemoteCommandControllerC", "handleTogglePlayPauseCommandDefault"]
 - ["25react_native_track_player23RemoteCommandControllerC", "init"]
 - !private ["25react_native_track_player23RemoteCommandControllerC", "subscript"]
 - !private ["25react_native_track_player21RemoteCommandProtocolP", "bookmark"]
@@ -451,18 +450,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
 - "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Users/muganwas/Library/Developer/Xcode/DerivedData/audioBook-awskvfkxwurilxdhotmvgtenorlt/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"

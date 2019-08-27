@@ -1,4 +1,5 @@
 dependencies: \
+  /Users/muganwas/Library/Developer/Xcode/DerivedData/audioBook-awskvfkxwurilxdhotmvgtenorlt/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap \
   /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/FIRDataSnapshot.m \
   /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
   /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDataSnapshot_Private.h \

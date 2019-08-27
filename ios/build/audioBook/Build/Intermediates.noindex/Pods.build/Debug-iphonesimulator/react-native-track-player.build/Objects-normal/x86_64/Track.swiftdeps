@@ -53,7 +53,6 @@ depends-member:
 - !private ["25react_native_track_player9AudioItemP", "genre"]
 - ["25react_native_track_player9AudioItemP", "getAlbumTitle"]
 - ["25react_native_track_player9AudioItemP", "getArtist"]
-- ["25react_native_track_player9AudioItemP", "getArtwork"]
 - ["25react_native_track_player9AudioItemP", "getHeaders"]
 - ["25react_native_track_player9AudioItemP", "getPitchAlgorithmType"]
 - ["25react_native_track_player9AudioItemP", "getSourceType"]
@@ -79,7 +78,6 @@ depends-member:
 - !private ["25react_native_track_player11AuthorizingP", "genre"]
 - ["25react_native_track_player11AuthorizingP", "getAlbumTitle"]
 - ["25react_native_track_player11AuthorizingP", "getArtist"]
-- ["25react_native_track_player11AuthorizingP", "getArtwork"]
 - ["25react_native_track_player11AuthorizingP", "getHeaders"]
 - ["25react_native_track_player11AuthorizingP", "getPitchAlgorithmType"]
 - ["25react_native_track_player11AuthorizingP", "getSourceType"]
@@ -106,7 +104,6 @@ depends-member:
 - !private ["s7CVarArgP", "genre"]
 - ["s7CVarArgP", "getAlbumTitle"]
 - ["s7CVarArgP", "getArtist"]
-- ["s7CVarArgP", "getArtwork"]
 - ["s7CVarArgP", "getHeaders"]
 - ["s7CVarArgP", "getPitchAlgorithmType"]
 - ["s7CVarArgP", "getSourceType"]
@@ -141,7 +138,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "genre"]
 - ["s28CustomDebugStringConvertibleP", "getAlbumTitle"]
 - ["s28CustomDebugStringConvertibleP", "getArtist"]
-- ["s28CustomDebugStringConvertibleP", "getArtwork"]
 - ["s28CustomDebugStringConvertibleP", "getHeaders"]
 - ["s28CustomDebugStringConvertibleP", "getPitchAlgorithmType"]
 - ["s28CustomDebugStringConvertibleP", "getSourceType"]
@@ -176,7 +172,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "genre"]
 - ["s23CustomStringConvertibleP", "getAlbumTitle"]
 - ["s23CustomStringConvertibleP", "getArtist"]
-- ["s23CustomStringConvertibleP", "getArtwork"]
 - ["s23CustomStringConvertibleP", "getHeaders"]
 - ["s23CustomStringConvertibleP", "getPitchAlgorithmType"]
 - ["s23CustomStringConvertibleP", "getSourceType"]
@@ -218,7 +213,6 @@ depends-member:
 - !private ["SQ", "genre"]
 - ["SQ", "getAlbumTitle"]
 - ["SQ", "getArtist"]
-- ["SQ", "getArtwork"]
 - ["SQ", "getHeaders"]
 - ["SQ", "getPitchAlgorithmType"]
 - ["SQ", "getSourceType"]
@@ -263,7 +257,6 @@ depends-member:
 - !private ["SH", "genre"]
 - ["SH", "getAlbumTitle"]
 - ["SH", "getArtist"]
-- ["SH", "getArtwork"]
 - ["SH", "getHeaders"]
 - ["SH", "getPitchAlgorithmType"]
 - ["SH", "getSourceType"]
@@ -352,7 +345,6 @@ depends-member:
 - !private ["So8NSObjectP", "genre"]
 - ["So8NSObjectP", "getAlbumTitle"]
 - ["So8NSObjectP", "getArtist"]
-- ["So8NSObjectP", "getArtwork"]
 - ["So8NSObjectP", "getHeaders"]
 - ["So8NSObjectP", "getPitchAlgorithmType"]
 - ["So8NSObjectP", "getSourceType"]
@@ -401,7 +393,6 @@ depends-member:
 - !private ["25react_native_track_player12TimePitchingP", "genre"]
 - ["25react_native_track_player12TimePitchingP", "getAlbumTitle"]
 - ["25react_native_track_player12TimePitchingP", "getArtist"]
-- ["25react_native_track_player12TimePitchingP", "getArtwork"]
 - ["25react_native_track_player12TimePitchingP", "getHeaders"]
 - ["25react_native_track_player12TimePitchingP", "getPitchAlgorithmType"]
 - ["25react_native_track_player12TimePitchingP", "getSourceType"]
@@ -483,7 +474,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "genre"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "getAlbumTitle"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "getArtist"]
-- ["10Foundation27_KeyValueCodingAndObservingP", "getArtwork"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "getHeaders"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "getPitchAlgorithmType"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "getSourceType"]
@@ -573,18 +563,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
-- "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
 - "/Users/muganwas/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Users/muganwas/Library/Developer/Xcode/DerivedData/audioBook-awskvfkxwurilxdhotmvgtenorlt/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator12.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"

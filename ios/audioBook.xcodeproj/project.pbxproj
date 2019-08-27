@@ -20,6 +20,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
 		8AAA866340A56920911CBCE9 /* libPods-audioBook-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A78C146608C83561D928CE0E /* libPods-audioBook-tvOS.a */; };
 		96CFAAAAB38818291DB7734F /* libPods-audioBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1B2ABA3C9A7F56F69CF1BB /* libPods-audioBook.a */; };
+		FAAE03CC23152C5C00E1F493 /* crzy-head-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */; };
 		FAC2E0A92307CEA300D2098A /* audioBookSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */; };
 		FAC6C21E22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
 		FAC6C21F22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
@@ -131,6 +132,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F06CEE63357B77F8177A2978 /* Pods-audioBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.release.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		F77145B02AB1A0A2DCFBEC68 /* Pods-audioBook-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot.png"; path = "../../../../../../System/Volumes/Data/Users/muganwas/Documents/Resources/crzy-head-shot.png"; sourceTree = "<group>"; };
 		FAC2E0A72307CEA300D2098A /* audioBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "audioBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = audioBookSwift.swift; path = ../../../../../../System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/ios/audioBookSwift.swift; sourceTree = "<group>"; };
 		FAC6C20E22F053BB00107D2E /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		13B07FAE1A68108700A75B9A /* audioBook */ = {
 			isa = PBXGroup;
 			children = (
+				FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */,
 				FAF3809B22F19E5300B47950 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -490,6 +493,7 @@
 				FAC6C22222F053BB00107D2E /* Octicons.ttf in Resources */,
 				FAC6C22E22F053BB00107D2E /* FontAwesome5_Brands.ttf in Resources */,
 				FAC6C23622F053BB00107D2E /* AntDesign.ttf in Resources */,
+				FAAE03CC23152C5C00E1F493 /* crzy-head-shot.png in Resources */,
 				FAC6C25A22F053BB00107D2E /* MaterialIcons.ttf in Resources */,
 				FAC6C24222F053BB00107D2E /* FontAwesome5_Solid.ttf in Resources */,
 				FAC6C23222F053BB00107D2E /* MaterialCommunityIcons.ttf in Resources */,
