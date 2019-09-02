@@ -31,6 +31,7 @@ import VolumeUp from './images/volume_up.png';
 import VolumeDown from './images/volume_down.png';
 import ProgressBar from './ProgressBar';
 import poster from '../../Misc/media/part2-unschooling.jpg';
+import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/questionnaire");
 
@@ -55,10 +56,6 @@ class Audio extends React.Component{
         let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
         let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
-            console.log( currentlyPlaying );
-            console.log( currentPosition );
-            console.log( pos );
-            console.log( paused );
             if( currentlyPlaying && currentlyPlaying !== pos){
                 //console.log("first option");
                 removeTrack().then(()=>{
@@ -162,7 +159,7 @@ class Audio extends React.Component{
     toggleOverview = ()=>{
         const { showOverview, screen } = this.props;
         let newShowOverview = !showOverview;
-        this.props.store({ showOverview: newShowOverview });
+        this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
         if(screen !== "Tracks")
             this.goToTracks();
     }
@@ -354,50 +351,57 @@ class Audio extends React.Component{
                             { trackTimeSlider }
                         </View>
                         }
-                        { showOverview?<View style = { styles.spaceFiller }></View>:null}
+                        { /*showOverview?<View style = { styles.spaceFiller }></View>:null*/}
                         { showOverview?
-                            <View style={ styles.textContainer } >
-                            
-                                { showToast?
-                                    <Toast text={ toastText } />:
-                                null }
-                                <ScrollView style = { styles.textScrollView }>
-                                    <TextInput
-                                        id="confusing"
-                                        style={ styles.questionareText}
-                                        placeholder={"Was anything confusing?"}
-                                        onChangeText={ (text) =>{
+                        <View style={ styles.textContainer } >
+                            { showToast?
+                                <Toast text={ toastText } />:
+                            null }
+                            <View style = { styles.textScrollView }>
+                                <TextInput
+                                    id="confusing"
+                                    style={ styles.questionareText}
+                                    placeholder={"Was anything confusing?"}
+                                    onChangeText={ (text) =>{
+                                        let questionnaire = {...this.props.questionnaire};
+                                        questionnaire.confusing = text;
+                                        this.props.store({ questionnaire });
+                                        /*let questionnaire = {}
+                                        this.props.store({})*/
+                                    } }
+                                />
+                                <TextInput
+                                    id="question"
+                                    style={ styles.questionareText}
+                                    placeholder={"Do you have any questions?"}
+                                    onChangeText={
+                                        (text) =>{
                                             let questionnaire = {...this.props.questionnaire};
-                                            questionnaire.confusing = text;
+                                            questionnaire.question = text;
                                             this.props.store({ questionnaire });
                                             /*let questionnaire = {}
                                             this.props.store({})*/
-                                        } }
-                                    />
-                                    <TextInput
-                                        id="question"
-                                        style={ styles.questionareText}
-                                        placeholder={"Do you have any questions?"}
-                                        onChangeText={
-                                            (text) =>{
-                                                let questionnaire = {...this.props.questionnaire};
-                                                questionnaire.question = text;
-                                                this.props.store({ questionnaire });
-                                                /*let questionnaire = {}
-                                                this.props.store({})*/
-                                            }
                                         }
+                                    }
+                                    onTouchStart = {()=>{
+                                        this.props.store({hideMenu: true});
+                                        }
+                                    }
+                                    onBlur = {()=>{
+                                          this.props.store({hideMenu: false});
+                                        }
+                                    } 
+                                />
+                                <View style = { styles.buttonContainer }>
+                                    <Button
+                                        color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                                        title={ "Submit" }
+                                        onPress={ this.sendQuestionnaire } 
                                     />
-                                    <View style = { styles.buttonContainer }>
-                                        <Button
-                                            color={ Platform.OS === "android"?'#349DD3':'#888787' } 
-                                            title={ "Submit" }
-                                            onPress={ this.sendQuestionnaire } 
-                                        />
-                                    </View>
-                                </ScrollView>
-                            </View>:
-                        null }
+                                </View>
+                            </View>
+                        </View>:
+                    null }
                 </View>
             </View>
         )
@@ -429,7 +433,8 @@ const mapStateToProps = state => {
       trackDuration: state.media.trackDuration,
       questionnaire: state.media.questionnaire,
       showToast: state.media.showToast,
-      toastText: state.media.toastText
+      toastText: state.media.toastText,
+      hideMenu: state.media.hideMenu
     }
 }
 

@@ -5,7 +5,7 @@ import {
 
 export const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: Colors.lighter,
+        marginBottom: 40
     },
     Home: {
         display: "flex",
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     altOverviewContainer: {
         flex: 1,
         //overflow: "hidden",
-        marginBottom: 30
+        marginBottom: 40
     },
     centerImageContainer: {
         display: "flex",
@@ -38,8 +38,8 @@ export const styles = StyleSheet.create({
     },
     authorImage: {
         marginTop: 5,
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 150,
         borderRadius: 100
     },
     name: {

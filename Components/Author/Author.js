@@ -21,6 +21,7 @@ import { emailregex } from '../../Misc/Constants';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import Audio from '../Audio/Audio';
 import MediaOverview from '../MediaOverview/MediaOverview';
+import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/subscriptions");
 
@@ -123,7 +124,8 @@ class Author extends React.Component {
       audioFiles,
       currentlyPlayingName,
       isChanging,
-      showOverview
+      showOverview,
+      hideMenu
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -138,38 +140,78 @@ class Author extends React.Component {
         currentlyPlayingName={ currentlyPlayingName }
       />: null;
     return (
-      <View style={ styles.Home }>
+      <View 
+        style={ styles.Home }
+      >
         { !showOverview?
         <View style = { styles.homeMid }>
-          <ScrollView>
-            <View style = { styles.centerImageContainer }>
-              <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
-            </View>
-            <Text style = {styles.name}>{ author.name }</Text>
-            <View style={ styles.introContainer }>
-              <Text style={ styles.introText }>{ author.intro }</Text>
-            </View>
-            <View style={ styles.actionContainer }>
-              <Text style={ styles.callToAction}>{ author.callToAction }</Text>
-              { showToast?
-                <Toast text={ toastText } />:
-              null }
-              <TextInput
-                style={ styles.emailInput }
-                autoCompleteType={'email'}
-                textContentType={'emailAddress'}
-                placeholder={ author.emailPlaceHolder }
-                onChangeText={ this.tempSave }
-              />
-              <View style = { styles.buttonContainer }>
-                <Button 
-                  color={ Platform.OS === "android"?'#349DD3':'#888787' } 
-                  title={ author.buttonText } 
-                  onPress={ this.postSubscriber } 
-                />
+          { Platform.OS === "ios"?<InputScrollView style = { styles.scrollView }>
+              <View style = { styles.centerImageContainer }>
+                <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
-            </View>
-          </ScrollView>
+              <Text style = {styles.name}>{ author.name }</Text>
+              <View style={ styles.introContainer }>
+                <Text style={ styles.introText }>{ author.intro }</Text>
+              </View>
+              <View style={ styles.actionContainer }>
+                <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+                { showToast?
+                  <Toast text={ toastText } />:
+                null }
+                  <TextInput
+                    style={ styles.emailInput }
+                    autoCompleteType={'email'}
+                    textContentType={'emailAddress'}
+                    placeholder={ author.emailPlaceHolder }
+                    onChangeText={ this.tempSave }
+                  />
+                  <View style = { styles.buttonContainer }>
+                    <Button 
+                      color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                      title={ author.buttonText } 
+                      onPress={ this.postSubscriber } 
+                    />
+                  </View>
+              </View>
+              </InputScrollView>:
+              <ScrollView style = { styles.scrollView }>
+              <View style = { styles.centerImageContainer }>
+                <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
+              </View>
+              <Text style = {styles.name}>{ author.name }</Text>
+              <View style={ styles.introContainer }>
+                <Text style={ styles.introText }>{ author.intro }</Text>
+              </View>
+              <View style={ styles.actionContainer }>
+                <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+                { showToast?
+                  <Toast text={ toastText } />:
+                null }
+                  <TextInput
+                    style={ styles.emailInput }
+                    autoCompleteType={'email'}
+                    onTouchStart = {()=>{
+                      this.props.storeMediaInf({hideMenu: true});
+                      }
+                    }
+                    onBlur = {()=>{
+                        this.props.storeMediaInf({hideMenu: false});
+                      }
+                    } 
+                    textContentType={'emailAddress'}
+                    placeholder={ author.emailPlaceHolder }
+                    onChangeText={ this.tempSave }
+                  />
+                  <View style = { styles.buttonContainer }>
+                    <Button 
+                      color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                      title={ author.buttonText } 
+                      onPress={ this.postSubscriber } 
+                    />
+                  </View>
+              </View>
+              </ScrollView>
+            }
         </View>: null}
         <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
@@ -180,9 +222,11 @@ class Author extends React.Component {
           >
           { selectedTrack? playing: null }
           </SimpleAnimation> 
+        { !hideMenu?
         <View style = { styles.homeFooter }>
           <Footer navigation={ navigation } />
-        </View>
+        </View>: 
+        null }
       </View>
     );
   }
@@ -204,7 +248,8 @@ const mapStateToProps = state => {
     loaded: state.media.loaded,
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
-    showTextinput: state.media.showTextinput
+    showTextinput: state.media.showTextinput,
+    hideMenu: state.media.hideMenu
   }
 }
 

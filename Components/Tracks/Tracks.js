@@ -129,7 +129,8 @@ class Tracks extends React.Component {
       currentlyPlayingName,
       isChanging,
       showOverview,
-      showTextinput
+      showTextinput,
+      hideMenu
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
@@ -183,9 +184,9 @@ class Tracks extends React.Component {
           >
             { selectedTrack? playing: null }
           </SimpleAnimation> 
-          <View style = { styles.homeFooter }>
+          { !hideMenu?<View style = { styles.homeFooter }>
             <Footer navigation={ navigation } />
-          </View>
+          </View>:null }
       </View>
     );
   }
@@ -203,7 +204,8 @@ const mapStateToProps = state => {
     loaded: state.media.loaded,
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
-    showTextinput: state.media.showTextinput
+    showTextinput: state.media.showTextinput,
+    hideMenu: state.media.hideMenu
   }
 }
 

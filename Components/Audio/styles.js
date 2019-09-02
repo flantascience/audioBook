@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         minHeight: 100,
-        paddingTop: 10,
+        paddingTop: 20,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#C7C6C6",
@@ -65,7 +65,9 @@ export const styles = StyleSheet.create({
         flex: 5
     },
     textScrollView: {
-        minHeight: 300,
+        flex: 6,
+        height: 500,
+        //overflow: "visible"
     },
     textContainer: {
         marginTop: 20,

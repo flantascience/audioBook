@@ -1,7 +1,7 @@
 export const posterURL = "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/images%2Fpart2-unschooling.jpg?alt=media&token=955a541e-cbcb-4388-a3cb-f4fc80a4939c";
 export const header = {
     headerText: "Curricu-Dumb",
-    subHeaderText: "What your teacher can't tell you"
+    subHeaderText: "What ur teacher can't tell you"
 }
 export const footer = {
     home: { text:"Home", place: "First" },
