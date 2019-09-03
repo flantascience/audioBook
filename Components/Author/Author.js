@@ -62,7 +62,8 @@ class Author extends React.Component {
 
   postSubscriber = ()=>{
     let { userEmail } = this.props;
-    if(userEmail.match(emailregex)){
+    if(userEmail.length > 0){
+      if(userEmail.match(emailregex)){
         this.checkAvailability(userEmail).then(available=>{
           if(available){
             dbRef.push(userEmail);
@@ -79,11 +80,17 @@ class Author extends React.Component {
               this.props.storeMediaInf({showToast: !showToast, toastText: null });
             }, 800);
           }
-        });
-        
+        }); 
+      }else{
+        let showToast = true;
+        this.props.storeMediaInf({showToast, toastText: 'Wrong email format!' });
+        setTimeout(()=>{
+          this.props.storeMediaInf({showToast: !showToast, toastText: null });
+        }, 800);
+      }
     }else{
       let showToast = true;
-      this.props.storeMediaInf({showToast, toastText: 'Wrong email format!' });
+      this.props.storeMediaInf({showToast, toastText: 'Fill in your email address!' });
       setTimeout(()=>{
         this.props.storeMediaInf({showToast: !showToast, toastText: null });
       }, 800);
@@ -145,7 +152,8 @@ class Author extends React.Component {
       >
         { !showOverview?
         <View style = { styles.homeMid }>
-          { Platform.OS === "ios"?<InputScrollView style = { styles.scrollView }>
+          { Platform.OS === "ios"?
+          <InputScrollView style = { styles.scrollView }>
               <View style = { styles.centerImageContainer }>
                 <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
@@ -165,16 +173,17 @@ class Author extends React.Component {
                     placeholder={ author.emailPlaceHolder }
                     onChangeText={ this.tempSave }
                   />
-                  <View style = { styles.buttonContainer }>
+                  <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
-                      color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                      color={ '#fff' } 
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
                   </View>
               </View>
-              </InputScrollView>:
-              <ScrollView style = { styles.scrollView }>
+              <View style={ styles.spacer }></View>
+            </InputScrollView>:
+            <ScrollView style = { styles.scrollView }>
               <View style = { styles.centerImageContainer }>
                 <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
@@ -204,7 +213,7 @@ class Author extends React.Component {
                   />
                   <View style = { styles.buttonContainer }>
                     <Button 
-                      color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                      color={ '#349DD3' } 
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />

@@ -129,6 +129,8 @@ PODS:
   - React-jsinspector (0.60.4)
   - react-native-music-control (0.10.5):
     - React
+  - react-native-netinfo (4.2.0):
+    - React
   - react-native-slider (2.0.0):
     - React
   - react-native-track-player (1.1.8):
@@ -188,6 +190,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-music-control (from `../node_modules/react-native-music-control`)
+  - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - react-native-track-player (from `../node_modules/react-native-track-player`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
@@ -248,6 +251,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-music-control:
     :path: "../node_modules/react-native-music-control"
+  react-native-netinfo:
+    :path: "../node_modules/@react-native-community/netinfo"
   react-native-slider:
     :path: "../node_modules/@react-native-community/slider"
   react-native-track-player:
@@ -309,6 +314,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 7549641e48bafae7bfee3f3ea19bf4901639c5de
   React-jsinspector: 73f24a02fa684ed6a2b828ba116874a2191ded88
   react-native-music-control: 700e53dc9b2ec7342f69705243609c1cd644fa44
+  react-native-netinfo: df39948777747f41363d6d57ed5ee1366b5b94cb
   react-native-slider: 40bdbfc1af0393922ac331bc1d95a6c5d5174fb6
   react-native-track-player: 6e4e91a246efe7121cdef5a43258659a062499db
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
@@ -326,6 +332,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: c95dc3613903a8665a7bda59f9a0b43c6a2f9e14
+PODFILE CHECKSUM: efe927e56c366a4b244c37796e88ab088e8189cf
 
 COCOAPODS: 1.7.5

@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.audiobook.BuildConfig;
 import com.audiobook.R;
 
+// @react-native-community/netinfo
+import com.reactnativecommunity.netinfo.NetInfoPackage;
 // @react-native-community/slider
 import com.reactnativecommunity.slider.ReactSliderPackage;
 // react-native-firebase
@@ -58,6 +60,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new NetInfoPackage(),
       new ReactSliderPackage(),
       new RNFirebasePackage(),
       new RNGestureHandlerPackage(),

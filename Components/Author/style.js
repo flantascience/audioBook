@@ -5,7 +5,7 @@ import {
 
 export const styles = StyleSheet.create({
     scrollView: {
-        marginBottom: 40
+        backgroundColor: "#fff"
     },
     Home: {
         display: "flex",
@@ -93,8 +93,19 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20
     },
+    altButtonContainer:{
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+        borderColor: "#C7C6C6",
+        backgroundColor: "#C7C6C6",
+        borderWidth: 1,
+    },
     audioElement: {
         minHeight: 50,
         elevation: 10
+    },
+    spacer: {
+        height: 50
     }
 });

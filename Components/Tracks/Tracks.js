@@ -10,8 +10,10 @@ import {
   Button,
   Platform
 } from 'react-native';
+import NetInfo from "@react-native-community/netinfo";
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
+import Toast from '../../Components/Toast/Toast';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Audio from '../Audio/Audio';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
@@ -64,57 +66,74 @@ class Tracks extends React.Component {
     //console.log(audioFiles[pos]);
       removeTrack().then(res=>{
         //console.log(res)
-        if(res === "removed"){
+        NetInfo.fetch().then(state=>{
+          let conType = state.type;
+          console.log(conType)
           let currPos = audioFiles[pos];
-          TrackPlayer.add([currPos]).then(res=>{
-            getDuration().then(trackDuration=>{
-              //console.log(trackDuration)
-              if(trackDuration > 0){
-                let formattedDuration = formatTime(trackDuration);
-                this.props.store({
-                  selectedTrack: pos,
-                  currentPostion: 0,
-                  currentTime:0,
-                  selectedTrackId: audioFiles[pos].id,
-                  currentlyPlaying: audioFiles[pos].id,
-                  currentlyPlayingName: audioFiles[pos].title,
-                  initCurrentlyPlaying: true,
-                  buttonsActive: true,
-                  showOverview: true,
-                  trackDuration, 
-                  paused: false, 
-                  loaded: true, 
-                  totalLength: trackDuration, 
-                  formattedDuration
-                });
-                TrackPlayer.play();
-              }else{
-                trackDuration = audioFiles[pos].duration;
-                let formattedDuration = formatTime(trackDuration);
-                this.props.store({
-                  selectedTrack: pos,
-                  currentPostion: 0,
-                  currentTime:0,
-                  selectedTrackId: audioFiles[pos].id,
-                  currentlyPlaying: audioFiles[pos].id,
-                  currentlyPlayingName: audioFiles[pos].title,
-                  initCurrentlyPlaying: true,
-                  buttonsActive: true,
-                  showOverview: true,
-                  trackDuration, 
-                  paused: false, 
-                  loaded: true, 
-                  totalLength: trackDuration, 
-                  formattedDuration
-                });
-                TrackPlayer.play();
-              }
-              
-            })
-          }); 
-        }else{
-          console.log(res)
-        }
+          let mediaType = audioFiles[pos].type;
+          /**If track is cloud based one needs an internet connection*/
+          console.log(currPos)
+          let playable = mediaType === "local"?true:mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?true: false;
+          if(res === "removed"){
+            if(playable){
+              this.props.store({hideMenu: true});
+              TrackPlayer.add([currPos]).then(res=>{
+                getDuration().then(trackDuration=>{
+                  //console.log(trackDuration)
+                  if(trackDuration > 0){
+                    let formattedDuration = formatTime(trackDuration);
+                    this.props.store({
+                      selectedTrack: pos,
+                      currentPostion: 0,
+                      currentTime:0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: true,
+                      trackDuration, 
+                      paused: false, 
+                      loaded: true, 
+                      totalLength: trackDuration, 
+                      formattedDuration
+                    });
+                    TrackPlayer.play();
+                  }else{
+                    trackDuration = audioFiles[pos].duration;
+                    let formattedDuration = formatTime(trackDuration);
+                    this.props.store({
+                      selectedTrack: pos,
+                      currentPostion: 0,
+                      currentTime:0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: true,
+                      trackDuration, 
+                      paused: false, 
+                      loaded: true, 
+                      totalLength: trackDuration, 
+                      formattedDuration
+                    });
+                    TrackPlayer.play();
+                  }
+                })
+              }); 
+            }else{
+              let showToast = true;
+              this.props.store({showToast, toastText: "You need to be online to play track!" });
+              setTimeout(()=>{
+              this.props.store({showToast: !showToast, toastText: null });
+              }, 1000);
+            }
+          }else{
+            console.log(res)
+          }
+        });
+        
       });
   }
 
@@ -130,7 +149,9 @@ class Tracks extends React.Component {
       isChanging,
       showOverview,
       showTextinput,
-      hideMenu
+      hideMenu,
+      toastText,
+      showToast
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
@@ -150,6 +171,7 @@ class Tracks extends React.Component {
       <View style={ styles.Home }>
         { !showOverview?
             <View style = { styles.homeMid }>
+              { showToast?<Toast text={ toastText } />: null }
               <ScrollView>{ Object.keys(audioFiles).map(key=>{
                 let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
                 let playIcon = key !== currentlyPlaying?
@@ -205,7 +227,9 @@ const mapStateToProps = state => {
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
-    hideMenu: state.media.hideMenu
+    hideMenu: state.media.hideMenu,
+    toastText: state.media.toastText,
+    showToast: state.media.showToast
   }
 }
 

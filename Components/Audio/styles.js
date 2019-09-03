@@ -114,6 +114,14 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20
     },
+    altButtonContainer:{
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+        borderColor: "#C7C6C6",
+        backgroundColor: "#C7C6C6",
+        borderWidth: 1,
+    },
     questionareText: {
         marginTop: 5,
         marginLeft: 30,

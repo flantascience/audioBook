@@ -157,9 +157,10 @@ class Audio extends React.Component{
     }
 
     toggleOverview = ()=>{
-        const { showOverview, screen } = this.props;
+        const { showOverview, screen, hideMenu } = this.props;
         let newShowOverview = !showOverview;
         this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
+        this.props.store({hideMenu: !hideMenu}); 
         if(screen !== "Tracks")
             this.goToTracks();
     }
@@ -383,18 +384,10 @@ class Audio extends React.Component{
                                             this.props.store({})*/
                                         }
                                     }
-                                    onTouchStart = {()=>{
-                                        this.props.store({hideMenu: true});
-                                        }
-                                    }
-                                    onBlur = {()=>{
-                                          this.props.store({hideMenu: false});
-                                        }
-                                    } 
                                 />
-                                <View style = { styles.buttonContainer }>
+                                <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                                     <Button
-                                        color={ Platform.OS === "android"?'#349DD3':'#888787' } 
+                                        color={ Platform.OS === "android"?'#349DD3':'#fff' } 
                                         title={ "Submit" }
                                         onPress={ this.sendQuestionnaire } 
                                     />
