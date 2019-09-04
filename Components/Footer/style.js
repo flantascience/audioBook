@@ -1,6 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    outerContainer: {
+        borderTopColor: "#C7C6C6",
+        borderTopWidth: 1,
+        backgroundColor: "#EBEAEA"
+    },
     container: {
         display: "flex",
         flexDirection: "row"

@@ -36,7 +36,7 @@ class Tracks extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'white',
+        backgroundColor:'#EBEAEA',
         height: 80,
     },
   });
@@ -59,6 +59,17 @@ class Tracks extends React.Component {
         }
       }
     });
+    NetInfo.fetch().then(state=>{
+      let conType = state.type;
+      console.log(conType)
+      if(conType !== "wifi" && conType !== "cellular"){
+        let showToast = true;
+        this.props.store({showToast, toastText: "You need to be online to see and play all tracks!" });
+        setTimeout(()=>{
+        this.props.store({showToast: !showToast, toastText: null });
+        }, 2000);
+      }
+    });
   }
 
   toggleNowPlaying = (pos) => {
@@ -68,7 +79,7 @@ class Tracks extends React.Component {
         //console.log(res)
         NetInfo.fetch().then(state=>{
           let conType = state.type;
-          console.log(conType)
+          //console.log(conType)
           let currPos = audioFiles[pos];
           let mediaType = audioFiles[pos].type;
           /**If track is cloud based one needs an internet connection*/
@@ -76,7 +87,7 @@ class Tracks extends React.Component {
           let playable = mediaType === "local"?true:mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?true: false;
           if(res === "removed"){
             if(playable){
-              this.props.store({hideMenu: true});
+              //this.props.store({hideMenu: true});
               TrackPlayer.add([currPos]).then(res=>{
                 getDuration().then(trackDuration=>{
                   //console.log(trackDuration)

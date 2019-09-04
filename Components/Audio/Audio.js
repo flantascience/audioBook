@@ -160,7 +160,7 @@ class Audio extends React.Component{
         const { showOverview, screen, hideMenu } = this.props;
         let newShowOverview = !showOverview;
         this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
-        this.props.store({hideMenu: !hideMenu}); 
+        //this.props.store({hideMenu: !hideMenu}); 
         if(screen !== "Tracks")
             this.goToTracks();
     }

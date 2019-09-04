@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     },
     homeFooter: {
         flex:1,
-        padding: 5
+        backgroundColor: "#EBEAEA"
     },
     overviewContainer: {
         flex: 6,
@@ -106,6 +106,6 @@ export const styles = StyleSheet.create({
         elevation: 10
     },
     spacer: {
-        height: 50
+        height: 70
     }
 });

@@ -27,7 +27,7 @@ class Home extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'white',
+        backgroundColor:'#EBEAEA',
         height: 80,
     },
   });

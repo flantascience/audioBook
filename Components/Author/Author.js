@@ -37,7 +37,7 @@ class Author extends React.Component {
       data.forEach(inf=>{
         let email = inf.val();
         emails.push(email);
-        console.log(email);
+        //console.log(email);
       });
       this.props.storeMediaInf({emails});
     })
@@ -106,7 +106,7 @@ class Author extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'white',
+        backgroundColor:'#EBEAEA',
         height: 80,
     },
   });
@@ -198,15 +198,7 @@ class Author extends React.Component {
                 null }
                   <TextInput
                     style={ styles.emailInput }
-                    autoCompleteType={'email'}
-                    onTouchStart = {()=>{
-                      this.props.storeMediaInf({hideMenu: true});
-                      }
-                    }
-                    onBlur = {()=>{
-                        this.props.storeMediaInf({hideMenu: false});
-                      }
-                    } 
+                    autoCompleteType={'email'} 
                     textContentType={'emailAddress'}
                     placeholder={ author.emailPlaceHolder }
                     onChangeText={ this.tempSave }

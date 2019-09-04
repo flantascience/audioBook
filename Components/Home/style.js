@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     Home: {
         display: "flex",
         flexDirection: "column",
-        height: "100%"
+        height: "100%",
     },
     homeMid: {
         flex:6,
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     },
     homeFooter: {
         flex:1,
-        padding: 5
+        backgroundColor: "#EBEAEA"
     },
     centerImageContainer: {
         display: "flex",

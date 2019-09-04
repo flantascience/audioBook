@@ -28,7 +28,7 @@ const Footer = (props)=>{
         });
     }
     return(
-        <View>
+        <View style= { styles.outerContainer }>
             <View style={ styles.container }>
                 <IconButton
                     onPress={ ()=>{

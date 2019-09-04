@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     homeFooter: {
         flex:1,
-        padding: 5
+        backgroundColor: "#EBEAEA"
     },
     centerImageContainer: {
         display: "flex",
