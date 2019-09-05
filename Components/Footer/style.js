@@ -6,7 +6,18 @@ export const styles = StyleSheet.create({
         borderTopWidth: 1,
         backgroundColor: "#EBEAEA"
     },
+    altOuterContainer: {
+        borderTopColor: "#C7C6C6",
+        borderTopWidth: 1,
+        backgroundColor: "#EBEAEA",
+        paddingBottom: 20
+    },
     container: {
+        display: "flex",
+        flexDirection: "row"
+    },
+    altContainer: {
+        paddingTop: 10,
         display: "flex",
         flexDirection: "row"
     },

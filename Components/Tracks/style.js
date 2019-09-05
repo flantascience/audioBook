@@ -113,5 +113,9 @@ export const styles = StyleSheet.create({
     audioElement: {
         minHeight: 50,
         elevation: 10
+    },
+    permanentMessage: {
+        padding: 10,
+        textAlign: "center"
     }
 });

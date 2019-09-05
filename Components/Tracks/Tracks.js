@@ -61,13 +61,25 @@ class Tracks extends React.Component {
     });
     NetInfo.fetch().then(state=>{
       let conType = state.type;
-      console.log(conType)
+      //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
-        let showToast = true;
-        this.props.store({showToast, toastText: "You need to be online to see and play all tracks!" });
-        setTimeout(()=>{
-        this.props.store({showToast: !showToast, toastText: null });
-        }, 2000);
+        let showMessage = true;
+        this.props.store({showMessage, message: "You need to be online to see and play all tracks." });
+      }else{
+        this.props.store({showMessage: false, message: null });
+      }
+    });
+  }
+
+  componentDidUpdate(){
+    NetInfo.fetch().then(state=>{
+      let conType = state.type;
+      //console.log(conType)
+      if(conType !== "wifi" && conType !== "cellular"){
+        let showMessage = true;
+        this.props.store({showMessage, message: "You need to be online to see and play all tracks." });
+      }else{
+        this.props.store({showMessage: false, message: null });
       }
     });
   }
@@ -162,7 +174,9 @@ class Tracks extends React.Component {
       showTextinput,
       hideMenu,
       toastText,
-      showToast
+      showToast,
+      showMessage,
+      message
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
 
@@ -182,7 +196,7 @@ class Tracks extends React.Component {
       <View style={ styles.Home }>
         { !showOverview?
             <View style = { styles.homeMid }>
-              { showToast?<Toast text={ toastText } />: null }
+              <View>{ showToast?<Toast text={ toastText } />: null }</View>
               <ScrollView>{ Object.keys(audioFiles).map(key=>{
                 let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
                 let playIcon = key !== currentlyPlaying?
@@ -206,7 +220,9 @@ class Tracks extends React.Component {
                     </View>
                   </View>
                 )
-              }) }</ScrollView>
+              }) }
+              { showMessage?<Text style={ styles.permanentMessage }>{ message }</Text>: null }
+              </ScrollView>
             </View>:null}
           <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
@@ -240,7 +256,9 @@ const mapStateToProps = state => {
     showTextinput: state.media.showTextinput,
     hideMenu: state.media.hideMenu,
     toastText: state.media.toastText,
-    showToast: state.media.showToast
+    showToast: state.media.showToast,
+    showMessage: state.media.showMessage,
+    message: state.media.message
   }
 }
 

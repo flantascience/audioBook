@@ -43,6 +43,8 @@ const initialState = {
   showTextinput: false,
   volume: 0.5,
   showToast: false,
+  showMessage: false,
+  message: "",
   toastText: null,
   hideMenu: false,
   questionnaire: { trackName: null, confusing: null, question: null  },

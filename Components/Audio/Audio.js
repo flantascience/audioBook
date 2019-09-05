@@ -51,6 +51,10 @@ class Audio extends React.Component{
         },
     });
 
+    componentDidMount(){
+        this.props.store({showToast: false, toastText: null });
+    }
+
     toggleTrack = (pos)=>{
         //console.log(currentlyPlaying + " " + pos);
         let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
@@ -350,9 +354,9 @@ class Audio extends React.Component{
                                 </View>
                             </View>
                             { trackTimeSlider }
+                            { !showOverview?<View style = { styles.spaceFiller }></View>:null }
                         </View>
                         }
-                        { /*showOverview?<View style = { styles.spaceFiller }></View>:null*/}
                         { showOverview?
                         <View style={ styles.textContainer } >
                             { showToast?

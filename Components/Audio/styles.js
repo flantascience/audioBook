@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 10
     },
     spaceFiller: {
-        flex: 6
+        height: 10
     },
     altSpaceFiller: {
         display: "none"

@@ -12,7 +12,9 @@ import { styles } from './style';
 
 const Footer = (props)=>{
     const { navigate } = props.navigation;
-    let { screen } = props;
+    let { screen, paused, currentlyPlayingName, showOverview } = props;
+    let currPlayingNameLen = currentlyPlayingName.length;
+    let hike = !showOverview && currPlayingNameLen > 1?true:false;
     //console.log(props)
     const goTo = (place)=>{
         toggleOverview().then(res=>{
@@ -28,8 +30,8 @@ const Footer = (props)=>{
         });
     }
     return(
-        <View style= { styles.outerContainer }>
-            <View style={ styles.container }>
+        <View style= { hike?styles.altOuterContainer:styles.outerContainer }>
+            <View style={ hike?styles.altContainer:styles.container }>
                 <IconButton
                     onPress={ ()=>{
                         let newState = {
@@ -41,7 +43,7 @@ const Footer = (props)=>{
                     name={'home'}
                     style = { styles.icon }
                     iconStyle = { screen === "Home"?styles.altIconText:styles.iconText }
-                    size={ 35 }
+                    size={ 30 }
                     text={ footer.home.text }
                 />
                 <IconButton
@@ -56,7 +58,7 @@ const Footer = (props)=>{
                     place={ footer.tracks.place }
                     style = { styles.icon }
                     iconStyle = { screen === "Tracks"?styles.altIconText:styles.iconText }
-                    size={ 35 }
+                    size={ 30 }
                     text={ footer.tracks.text }
                 />
                 <IconButton
@@ -69,7 +71,7 @@ const Footer = (props)=>{
                     }}
                     name={'person'}
                     place={ footer.author.place }
-                    size={ 35 }
+                    size={ 30 }
                     style = { styles.icon }
                     iconStyle = { screen === "Author"?styles.altIconText:styles.iconText }
                     text={ footer.author.text }
@@ -91,7 +93,8 @@ const mapStateToProps = state => {
       loaded: state.media.loaded,
       selectedTrack: state.media.selectedTrack,
       currentPostion: state.media.currentPostion,
-      showTextinput: state.media.showTextinput
+      showTextinput: state.media.showTextinput,
+      paused: state.media.paused
     }
   }
 
