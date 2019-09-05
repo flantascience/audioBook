@@ -116,6 +116,10 @@ export const styles = StyleSheet.create({
     },
     permanentMessage: {
         padding: 10,
-        textAlign: "center"
+        fontSize: 12,
+        textAlign: "center",
+        fontWeight: "bold",
+        backgroundColor: "#EBEAEA",
+        fontStyle: "italic"
     }
 });

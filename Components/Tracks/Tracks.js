@@ -64,7 +64,7 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play all tracks." });
+        this.props.store({showMessage, message: "You need to be online to see and play the rest of the tracks." });
       }else{
         this.props.store({showMessage: false, message: null });
       }
@@ -77,7 +77,7 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play all tracks." });
+        this.props.store({showMessage, message: "You need to be online to see and play the rest of the tracks." });
       }else{
         this.props.store({showMessage: false, message: null });
       }
@@ -147,7 +147,7 @@ class Tracks extends React.Component {
               }); 
             }else{
               let showToast = true;
-              this.props.store({showToast, toastText: "You need to be online to play track!" });
+              this.props.store({showToast, toastText: "You need to be online to see and play the rest of the tracks." });
               setTimeout(()=>{
               this.props.store({showToast: !showToast, toastText: null });
               }, 1000);
