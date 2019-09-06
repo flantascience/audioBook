@@ -14,7 +14,7 @@ const Footer = (props)=>{
     const { navigate } = props.navigation;
     let { screen, paused, currentlyPlayingName, showOverview } = props;
     let currPlayingNameLen = currentlyPlayingName.length;
-    let hike = !showOverview && currPlayingNameLen > 1?true:false;
+    let hike = currPlayingNameLen > 1?true:false;
     //console.log(props)
     const goTo = (place)=>{
         toggleOverview().then(res=>{
@@ -43,7 +43,7 @@ const Footer = (props)=>{
                     name={'home'}
                     style = { styles.icon }
                     iconStyle = { screen === "Home"?styles.altIconText:styles.iconText }
-                    size={ 30 }
+                    size={ 25 }
                     text={ footer.home.text }
                 />
                 <IconButton
@@ -58,7 +58,7 @@ const Footer = (props)=>{
                     place={ footer.tracks.place }
                     style = { styles.icon }
                     iconStyle = { screen === "Tracks"?styles.altIconText:styles.iconText }
-                    size={ 30 }
+                    size={ 25 }
                     text={ footer.tracks.text }
                 />
                 <IconButton
@@ -71,7 +71,7 @@ const Footer = (props)=>{
                     }}
                     name={'person'}
                     place={ footer.author.place }
-                    size={ 30 }
+                    size={ 25 }
                     style = { styles.icon }
                     iconStyle = { screen === "Author"?styles.altIconText:styles.iconText }
                     text={ footer.author.text }

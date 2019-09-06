@@ -6,13 +6,13 @@ export const styles = StyleSheet.create({
         transform: [{ scaleX: -1 }],
     },
     elContainer: {
-        flex:1
+        flex:2
     },
     container:{
         display: "flex",
         flexDirection: "column",
         minHeight: 100,
-        paddingTop: 20,
+        paddingTop: 10,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#C7C6C6",
@@ -26,11 +26,18 @@ export const styles = StyleSheet.create({
     altContiner: {
         display: "flex",
         flexDirection: "column",
-        minHeight: 300,
+        minHeight: 100,
         paddingTop: 10,
-        paddingLeft: 20,
-        paddingRight: 20,
-        paddingBottom: 10
+        paddingBottom: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderColor: "#C7C6C6",
+        borderWidth: showBorder?1:0,
+        elevation: 2,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 0.5,
     },
     spaceFiller: {
         height: 10

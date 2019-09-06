@@ -76,7 +76,7 @@ class Home extends React.Component {
         { !showOverview?<View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
             <Image
-              resizeMode="stretch" 
+              resizeMode="contain" 
               style={ styles.centerImage } 
               source={require('./images/sample-book-cover.jpg')} 
             />

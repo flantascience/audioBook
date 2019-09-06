@@ -4,22 +4,32 @@ export const styles = StyleSheet.create({
     outerContainer: {
         borderTopColor: "#C7C6C6",
         borderTopWidth: 1,
-        backgroundColor: "#EBEAEA"
+        paddingTop: 10,
+        paddingBottom: 10,
+        backgroundColor: "#EBEAEA",
+        alignContent: "center",
+        alignItems: "center"
     },
     altOuterContainer: {
         borderTopColor: "#C7C6C6",
         borderTopWidth: 1,
         backgroundColor: "#EBEAEA",
-        paddingBottom: 20
+        paddingBottom: 20,
+        alignContent: "center",
+        alignItems: "center"
     },
     container: {
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        alignContent: "center",
+        alignItems: "center"
     },
     altContainer: {
         paddingTop: 10,
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
+        alignContent: "center",
+        alignItems: "center"
     },
     iconText: {
         alignContent: "center",

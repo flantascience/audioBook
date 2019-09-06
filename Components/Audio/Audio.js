@@ -292,7 +292,7 @@ class Audio extends React.Component{
                 <View style={ style }>
                     { !currentlyPlaying && isChanging?
                         null:
-                        <View  style={ styles.container }>
+                        <View  style={ showOverview?styles.altContiner:styles.container }>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
                                     <Text style={ styles.audioTitle }>

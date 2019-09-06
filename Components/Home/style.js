@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
     overviewContainer: {
         flex: 6,
         overflow: "hidden",
-        marginBottom: 30
+        marginBottom: 40
     },
     altOverviewContainer: {
         flex: 1,
