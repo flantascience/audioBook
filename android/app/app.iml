@@ -163,12 +163,12 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:imagepipeline-okhttp3:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-collection:16.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
+    <orderEntry type="module" module-name="@react-native-community_netinfo" />
     <orderEntry type="module" module-name="@react-native-community_slider" />
     <orderEntry type="module" module-name="react-native-firebase" />
     <orderEntry type="module" module-name="react-native-track-player" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-music-control" />
     <orderEntry type="module" module-name="react-native-vector-icons" />
-    <orderEntry type="module" module-name="react-native-firebase" />
   </component>
 </module>

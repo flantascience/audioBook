@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     container:{
         display: "flex",
         flexDirection: "column",
-        minHeight: 100,
+        minHeight: 125,
         paddingTop: 10,
         paddingLeft: 10,
         paddingRight: 10,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     altContiner: {
         display: "flex",
         flexDirection: "column",
-        minHeight: 100,
+        minHeight: 125,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,
@@ -107,7 +107,7 @@ export const styles = StyleSheet.create({
         //justifyContent: "center"
     },
     slider: {
-        flex: 1,
+        height: 20,
         justifyContent: "flex-start",
         zIndex: 10000
     },
@@ -153,7 +153,8 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         //minHeight: 20,
         marginLeft: 10,
-        marginRight: 10
+        marginRight: 10,
+        zIndex: 10000
     },
     altTrackTimeContainer: {
         flex: 1,

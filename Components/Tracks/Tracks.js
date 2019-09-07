@@ -8,7 +8,8 @@ import {
   Text,
   TextInput,
   Button,
-  Platform
+  Platform,
+  Dimensions
 } from 'react-native';
 import NetInfo from "@react-native-community/netinfo";
 import { connect } from 'react-redux';
@@ -64,7 +65,7 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play the rest of the tracks." });
+        this.props.store({showMessage, message: "You need to be online to see and play tracks." });
       }else{
         this.props.store({showMessage: false, message: null });
       }
@@ -77,7 +78,7 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play the rest of the tracks." });
+        this.props.store({showMessage, message: "You need to be online to see and play tracks." });
       }else{
         this.props.store({showMessage: false, message: null });
       }
@@ -147,7 +148,7 @@ class Tracks extends React.Component {
               }); 
             }else{
               let showToast = true;
-              this.props.store({showToast, toastText: "You need to be online to see and play the rest of the tracks." });
+              this.props.store({showToast, toastText: "You need to be online to see and play tracks." });
               setTimeout(()=>{
               this.props.store({showToast: !showToast, toastText: null });
               }, 1000);
@@ -179,7 +180,7 @@ class Tracks extends React.Component {
       message
     } = this.props;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-
+    let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
       <Audio
@@ -225,17 +226,20 @@ class Tracks extends React.Component {
               </ScrollView>
             </View>:null}
           <SimpleAnimation 
-            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
+            style={ showOverview?styles.overviewContainer:
+              height < 570?styles.altAltOverviewContainer:
+              styles.altOverviewContainer 
+            }  
             direction={'up'} 
             delay={100} 
-            duration={500} 
+            duration={500}  
             movementType={ 'slide' }
           >
             { selectedTrack? playing: null }
           </SimpleAnimation> 
-          { !hideMenu?<View style = { styles.homeFooter }>
-            <Footer navigation={ navigation } />
-          </View>:null }
+            <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
+              <Footer navigation={ navigation } />
+            </View>
       </View>
     );
   }

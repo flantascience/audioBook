@@ -6,7 +6,8 @@ import {
   Image,
   Text,
   TextInput,
-  Button
+  Button,
+  Dimensions
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
@@ -134,6 +135,7 @@ class Author extends React.Component {
       showOverview,
       hideMenu
     } = this.props;
+    let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
@@ -215,7 +217,10 @@ class Author extends React.Component {
             }
         </View>: null}
         <SimpleAnimation 
-            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
+            style={ showOverview?styles.overviewContainer:
+              height < 570?styles.altAltOverviewContainer:
+              styles.altOverviewContainer 
+            } 
             direction={'up'} 
             delay={100} 
             duration={500} 
@@ -224,7 +229,7 @@ class Author extends React.Component {
           { selectedTrack? playing: null }
           </SimpleAnimation> 
         { !hideMenu?
-        <View style = { styles.homeFooter }>
+        <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>: 
         null }

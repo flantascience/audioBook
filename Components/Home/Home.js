@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   View,
   Image,
-  Text
+  Text,
+  Dimensions
 } from 'react-native';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -58,7 +59,8 @@ class Home extends React.Component {
       isChanging,
       showOverview
     } = this.props;
-
+    let height = Dimensions.get('window').height;
+    console.log(height)
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
@@ -83,7 +85,9 @@ class Home extends React.Component {
           </View>
         </View>: null }
         <SimpleAnimation 
-            style={ showOverview?styles.overviewContainer:styles.altOverviewContainer } 
+            style={ showOverview?styles.overviewContainer:
+              height < 570?styles.altAltOverviewContainer:
+              styles.altOverviewContainer } 
             direction={'up'} 
             delay={100} 
             duration={500} 
@@ -91,7 +95,7 @@ class Home extends React.Component {
           >
             { selectedTrack? playing: null }
           </SimpleAnimation>
-        <View style = { styles.homeFooter }>
+        <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>
       </View>

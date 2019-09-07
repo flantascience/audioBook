@@ -8,7 +8,7 @@ const initialState = {
   initCurrentlyPlaying: false,
   currentlyPlayingName: "",
   audioFiles: [
-    {
+    /*{
       id: "0",
       title: "Sample 1 local",
       url: require("../Components/Tracks/tracks/sample_claps.mp3"),
@@ -27,7 +27,7 @@ const initialState = {
       formattedDuration: "00:45",
       duration: 45,
       type: "local"
-    }
+    }*/
   ],
   loaded: false,
   paused: true,

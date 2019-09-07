@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$USER_HOME$/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/@react-native-community_netinfo.iml" filepath="$USER_HOME$/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/@react-native-community_netinfo.iml" />
       <module fileurl="file://$USER_HOME$/Documents/Github/audioBook/node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" filepath="$USER_HOME$/Documents/Github/audioBook/node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/audioBook.iml" filepath="$PROJECT_DIR$/audioBook.iml" />

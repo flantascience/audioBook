@@ -26,12 +26,21 @@ export const styles = StyleSheet.create({
         marginBottom: 40
     },
     altOverviewContainer: {
-        flex: 1,
+        flex: 2,
         //overflow: "hidden",
-        marginBottom: 40
+        //marginBottom: 30,
+    },
+    altAltOverviewContainer: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: 30,
     },
     homeFooter: {
         flex:1,
+        backgroundColor: "#EBEAEA"
+    },
+    altHomeFooter: {
+        height: 60,
         backgroundColor: "#EBEAEA"
     },
     centerImageContainer: {
