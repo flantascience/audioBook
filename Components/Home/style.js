@@ -35,6 +35,16 @@ export const styles = StyleSheet.create({
         //overflow: "hidden",
         marginBottom: 30,
     },
+    longAltOverviewContanier: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: -20,
+    },
+    longerAltOverviewContanier: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: -35,
+    },
     homeFooter: {
         flex:1,
         backgroundColor: "#EBEAEA"

@@ -236,7 +236,7 @@ class Audio extends React.Component{
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
         let type = selectedTrack?audioFiles[selectedTrack].type:"local";
         let playIcon = "play-circle";
-        if(!initCurrentlyPlaying && paused && !loaded && type==="local"){
+        if(!currentlyPlayingName && paused && !loaded && type==="local"){
             playIcon = "play-circle"
         }else if(!initCurrentlyPlaying && paused && !loaded && type==="cloud"){
             playIcon = "cloud-download"
@@ -289,6 +289,123 @@ class Audio extends React.Component{
             </View>
         return(
             <View style={ styles.elContainer }>
+                { showOverview?
+                <ScrollView style={{height: 300}}>
+                    <View style={ style }>
+                        { !currentlyPlaying && isChanging?
+                            null:
+                            <View  style={ showOverview?styles.altContiner:styles.container }>
+                                <View style={ styles.controllerContainer }>
+                                    <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
+                                        <Text style={ styles.audioTitle }>
+                                            { currentlyPlayingName || "Select Track" }
+                                        </Text>
+                                    </View>
+                                    <View style={ styles.buttonGroup }>
+                                        <TouchableOpacity 
+                                            onPress = { ()=>{
+                                                TrackPlayer.getPosition().then(res=>{
+                                                    let newPos = res + parseFloat(-15);
+                                                    let newState = {
+                                                        currentPosition: newPos,
+                                                        currentTime: newPos
+                                                    };
+                                                    this.props.store(newState);
+                                                    TrackPlayer.seekTo(newPos);
+                                                });
+                                            }} 
+                                            disabled={ !buttonsActive }
+                                            style={ styles.altGroupedButtons } 
+                                        >
+                                            <Icon
+                                                style={ styles.reflection }
+                                                name={ `ios-refresh` }
+                                                size={ 25 }
+                                            />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity  
+                                            disabled={ !buttonsActive }  
+                                            style={ styles.groupedButtons } 
+                                            onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
+                                        >
+                                            <Icon
+                                                name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                                                size={ 25 }
+                                            />
+                                        </TouchableOpacity>
+                                        <TouchableOpacity 
+                                            onPress = { ()=>{
+                                                TrackPlayer.getPosition().then(res=>{
+                                                    let newPos = res + parseFloat(15);
+                                                    let newState = {
+                                                        currentPosition: newPos,
+                                                        currentTime: newPos
+                                                    };
+                                                    this.props.store(newState);
+                                                    TrackPlayer.seekTo(newPos);
+                                                });
+                                            } } 
+                                            disabled={ !buttonsActive }  
+                                            style={ styles.groupedButtons }
+                                        >
+                                            <Icon
+                                                name={ `ios-refresh` }
+                                                size={ 25 }
+                                            />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                                { trackTimeSlider }
+                                { !showOverview?<View style = { styles.spaceFiller }></View>:null }
+                            </View>
+                            }
+                            { showOverview?
+                            <View style={ styles.textContainer } >
+                                { showToast?
+                                    <Toast text={ toastText } />:
+                                null }
+                                <InputScrollView style={{height: 350}}>
+                                    <View style = { styles.textScrollView }>
+                                        <TextInput
+                                            id="confusing"
+                                            style={ styles.questionareText}
+                                            placeholder={"Was anything confusing?"}
+                                            onChangeText={ (text) =>{
+                                                let questionnaire = {...this.props.questionnaire};
+                                                questionnaire.confusing = text;
+                                                this.props.store({ questionnaire });
+                                                /*let questionnaire = {}
+                                                this.props.store({})*/
+                                            } }
+                                        />
+                                        <TextInput
+                                            id="question"
+                                            style={ styles.questionareText}
+                                            placeholder={"Do you have any questions?"}
+                                            onChangeText={
+                                                (text) =>{
+                                                    let questionnaire = {...this.props.questionnaire};
+                                                    questionnaire.question = text;
+                                                    this.props.store({ questionnaire });
+                                                    /*let questionnaire = {}
+                                                    this.props.store({})*/
+                                                }
+                                            }
+                                        />
+                                        
+                                        <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
+                                            <Button
+                                                color={ Platform.OS === "android"?'#349DD3':'#fff' } 
+                                                title={ "Submit" }
+                                                onPress={ this.sendQuestionnaire } 
+                                            />
+                                        </View>
+                                    </View>
+                                </InputScrollView>
+                            </View>:
+                        null }
+                    </View>
+                </ScrollView>:
                 <View style={ style }>
                     { !currentlyPlaying && isChanging?
                         null:
@@ -362,44 +479,48 @@ class Audio extends React.Component{
                             { showToast?
                                 <Toast text={ toastText } />:
                             null }
-                            <View style = { styles.textScrollView }>
-                                <TextInput
-                                    id="confusing"
-                                    style={ styles.questionareText}
-                                    placeholder={"Was anything confusing?"}
-                                    onChangeText={ (text) =>{
-                                        let questionnaire = {...this.props.questionnaire};
-                                        questionnaire.confusing = text;
-                                        this.props.store({ questionnaire });
-                                        /*let questionnaire = {}
-                                        this.props.store({})*/
-                                    } }
-                                />
-                                <TextInput
-                                    id="question"
-                                    style={ styles.questionareText}
-                                    placeholder={"Do you have any questions?"}
-                                    onChangeText={
-                                        (text) =>{
+                            <InputScrollView style={{height: 350}}>
+                                <View style = { styles.textScrollView }>
+                                    <TextInput
+                                        id="confusing"
+                                        style={ styles.questionareText}
+                                        placeholder={"Was anything confusing?"}
+                                        onChangeText={ (text) =>{
                                             let questionnaire = {...this.props.questionnaire};
-                                            questionnaire.question = text;
+                                            questionnaire.confusing = text;
                                             this.props.store({ questionnaire });
                                             /*let questionnaire = {}
                                             this.props.store({})*/
-                                        }
-                                    }
-                                />
-                                <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
-                                    <Button
-                                        color={ Platform.OS === "android"?'#349DD3':'#fff' } 
-                                        title={ "Submit" }
-                                        onPress={ this.sendQuestionnaire } 
+                                        } }
                                     />
+                                    <TextInput
+                                        id="question"
+                                        style={ styles.questionareText}
+                                        placeholder={"Do you have any questions?"}
+                                        onChangeText={
+                                            (text) =>{
+                                                let questionnaire = {...this.props.questionnaire};
+                                                questionnaire.question = text;
+                                                this.props.store({ questionnaire });
+                                                /*let questionnaire = {}
+                                                this.props.store({})*/
+                                            }
+                                        }
+                                    />
+                                    
+                                    <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
+                                        <Button
+                                            color={ Platform.OS === "android"?'#349DD3':'#fff' } 
+                                            title={ "Submit" }
+                                            onPress={ this.sendQuestionnaire } 
+                                        />
+                                    </View>
                                 </View>
-                            </View>
+                            </InputScrollView>
                         </View>:
                     null }
                 </View>
+                }
             </View>
         )
     }

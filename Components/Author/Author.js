@@ -219,6 +219,8 @@ class Author extends React.Component {
         <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:
+              height > 700 && height < 800?styles.longAltOverviewContanier:
+              height > 800?styles.longerAltOverviewContanier:
               styles.altOverviewContainer 
             } 
             direction={'up'} 

@@ -96,7 +96,7 @@ class Tracks extends React.Component {
           let currPos = audioFiles[pos];
           let mediaType = audioFiles[pos].type;
           /**If track is cloud based one needs an internet connection*/
-          console.log(currPos)
+          //console.log(currPos)
           let playable = mediaType === "local"?true:mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?true: false;
           if(res === "removed"){
             if(playable){
@@ -195,51 +195,53 @@ class Tracks extends React.Component {
 
     return (
       <View style={ styles.Home }>
-        { !showOverview?
-            <View style = { styles.homeMid }>
-              <View>{ showToast?<Toast text={ toastText } />: null }</View>
-              <ScrollView>{ Object.keys(audioFiles).map(key=>{
-                let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
-                let playIcon = key !== currentlyPlaying?
-                type === "local"?
-                "play-circle":
-                "cloud-download":"pause";
-                let audioSource = type === "local" ? url : { uri: url };
-                return(
-                  <View key={key} style={ styles.trackContainer }>
-                    <View style={ styles.track }>
-                      <View style={ styles.trackTextWrapper }>
-                        <Text style={ styles.trackTitle }>{ title }</Text>
-                        <Text style={ styles.trackLength }>{ formattedDuration }</Text>
+          { !showOverview?
+              <View style = { styles.homeMid }>
+                <View>{ showToast?<Toast text={ toastText } />: null }</View>
+                <ScrollView>{ Object.keys(audioFiles).map(key=>{
+                  let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
+                  let playIcon = key !== currentlyPlaying?
+                  type === "local"?
+                  "play-circle":
+                  "cloud-download":"pause";
+                  let audioSource = type === "local" ? url : { uri: url };
+                  return(
+                    <View key={key} style={ styles.trackContainer }>
+                      <View style={ styles.track }>
+                        <View style={ styles.trackTextWrapper }>
+                          <Text style={ styles.trackTitle }>{ title }</Text>
+                          <Text style={ styles.trackLength }>{ formattedDuration }</Text>
+                        </View>
+                        <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
+                          <Icon
+                            name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                            size={ 35 }
+                          />
+                        </TouchableOpacity>
                       </View>
-                      <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
-                        <Icon
-                          name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                          size={ 35 }
-                        />
-                      </TouchableOpacity>
                     </View>
-                  </View>
-                )
-              }) }
-              { showMessage?<Text style={ styles.permanentMessage }>{ message }</Text>: null }
-              </ScrollView>
-            </View>:null}
+                  )
+                }) }
+                { showMessage?<Text style={ styles.permanentMessage }>{ message }</Text>: null }
+                </ScrollView>
+              </View>:null}
           <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:
+              height > 700 && height < 800?styles.longAltOverviewContanier:
+              height > 800?styles.longerAltOverviewContanier:
               styles.altOverviewContainer 
-            }  
+            } 
             direction={'up'} 
             delay={100} 
             duration={500}  
             movementType={ 'slide' }
           >
             { selectedTrack? playing: null }
-          </SimpleAnimation> 
-            <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
-              <Footer navigation={ navigation } />
-            </View>
+          </SimpleAnimation>
+          <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
+            <Footer navigation={ navigation } />
+          </View>
       </View>
     );
   }
