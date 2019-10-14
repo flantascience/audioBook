@@ -1,15 +1,14 @@
 dependencies: \
-  /Users/muganwas/Library/Developer/Xcode/DerivedData/audioBook-awskvfkxwurilxdhotmvgtenorlt/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/FIRStorageErrors.m \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageErrors.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageConstants_Private.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageReference_Private.h \
-  /Users/muganwas/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStoragePath.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/FIRStorageErrors.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageErrors.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageConstants_Private.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageReference.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageDownloadTask.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageObservableTask.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageTask.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageReference_Private.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStoragePath.h

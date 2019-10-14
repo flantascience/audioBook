@@ -7,6 +7,6 @@ module react_native_track_player {
 
 
 module react_native_track_player.Swift {
-  header "/Users/muganwas/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/Swift Compatibility Header/react_native_track_player-Swift.h"
+  header "/Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/Swift Compatibility Header/react_native_track_player-Swift.h"
   requires objc
 }

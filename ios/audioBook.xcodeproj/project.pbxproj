@@ -18,10 +18,10 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
+		6A326963235471CC00946C70 /* audioBookSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A326962235471CC00946C70 /* audioBookSwift.swift */; };
+		6A32696523547A5100946C70 /* crzy-head-shot-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A32696423547A5100946C70 /* crzy-head-shot-trans.png */; };
 		8AAA866340A56920911CBCE9 /* libPods-audioBook-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A78C146608C83561D928CE0E /* libPods-audioBook-tvOS.a */; };
 		96CFAAAAB38818291DB7734F /* libPods-audioBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1B2ABA3C9A7F56F69CF1BB /* libPods-audioBook.a */; };
-		FAAE03CC23152C5C00E1F493 /* crzy-head-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */; };
-		FAC2E0A92307CEA300D2098A /* audioBookSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */; };
 		FAC6C21E22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
 		FAC6C21F22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
 		FAC6C22022F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
@@ -125,6 +125,8 @@
 		41EE787446BACA631B905E78 /* libPods-audioBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1B2ABA3C9A7F56F69CF1BB /* libPods-audioBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		678774D2D08CC590AC230E9B /* libPods-audioBook-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A326962235471CC00946C70 /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioBookSwift.swift; sourceTree = "<group>"; };
+		6A32696423547A5100946C70 /* crzy-head-shot-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot-trans.png"; path = "../Components/Header/images/crzy-head-shot-trans.png"; sourceTree = "<group>"; };
 		7D3916424961B21B7AAA4388 /* Pods-audioBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A78C146608C83561D928CE0E /* libPods-audioBook-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E373A5CFAEAD1ED7F4E29A03 /* Pods-audioBook-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,9 +134,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F06CEE63357B77F8177A2978 /* Pods-audioBookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.release.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.release.xcconfig"; sourceTree = "<group>"; };
 		F77145B02AB1A0A2DCFBEC68 /* Pods-audioBook-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot.png"; path = "../../../../../../System/Volumes/Data/Users/muganwas/Documents/Resources/crzy-head-shot.png"; sourceTree = "<group>"; };
 		FAC2E0A72307CEA300D2098A /* audioBook-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "audioBook-Bridging-Header.h"; sourceTree = "<group>"; };
-		FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = audioBookSwift.swift; path = ../../../../../../System/Volumes/Data/Users/muganwas/Documents/Github/audioBook/ios/audioBookSwift.swift; sourceTree = "<group>"; };
 		FAC6C20E22F053BB00107D2E /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		FAC6C20F22F053BB00107D2E /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		FAC6C21022F053BB00107D2E /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		13B07FAE1A68108700A75B9A /* audioBook */ = {
 			isa = PBXGroup;
 			children = (
-				FAAE03CB23152C5C00E1F493 /* crzy-head-shot.png */,
+				6A32696423547A5100946C70 /* crzy-head-shot-trans.png */,
 				FAF3809B22F19E5300B47950 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -248,7 +248,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				FAC2E0A82307CEA300D2098A /* audioBookSwift.swift */,
+				6A326962235471CC00946C70 /* audioBookSwift.swift */,
 				FAC6C20D22F053BB00107D2E /* Fonts */,
 				13B07FAE1A68108700A75B9A /* audioBook */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -488,12 +488,12 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				FAC6C24E22F053BB00107D2E /* Zocial.ttf in Resources */,
 				FAC6C25622F053BB00107D2E /* SimpleLineIcons.ttf in Resources */,
+				6A32696523547A5100946C70 /* crzy-head-shot-trans.png in Resources */,
 				FAC6C22622F053BB00107D2E /* Feather.ttf in Resources */,
 				FAF3809C22F19E5300B47950 /* GoogleService-Info.plist in Resources */,
 				FAC6C22222F053BB00107D2E /* Octicons.ttf in Resources */,
 				FAC6C22E22F053BB00107D2E /* FontAwesome5_Brands.ttf in Resources */,
 				FAC6C23622F053BB00107D2E /* AntDesign.ttf in Resources */,
-				FAAE03CC23152C5C00E1F493 /* crzy-head-shot.png in Resources */,
 				FAC6C25A22F053BB00107D2E /* MaterialIcons.ttf in Resources */,
 				FAC6C24222F053BB00107D2E /* FontAwesome5_Solid.ttf in Resources */,
 				FAC6C23222F053BB00107D2E /* MaterialCommunityIcons.ttf in Resources */,
@@ -769,7 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				FAC2E0A92307CEA300D2098A /* audioBookSwift.swift in Sources */,
+				6A326963235471CC00946C70 /* audioBookSwift.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +876,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				INFOPLIST_FILE = audioBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -903,6 +904,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				INFOPLIST_FILE = audioBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
