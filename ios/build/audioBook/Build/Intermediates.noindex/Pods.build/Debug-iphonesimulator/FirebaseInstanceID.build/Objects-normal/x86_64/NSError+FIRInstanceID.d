@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.m \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.h

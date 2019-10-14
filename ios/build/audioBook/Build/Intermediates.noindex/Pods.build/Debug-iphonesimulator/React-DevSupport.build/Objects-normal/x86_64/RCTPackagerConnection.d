@@ -1,29 +1,29 @@
 dependencies: \
-  /Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Target\ Support\ Files/React-DevSupport/React-DevSupport-prefix.pch \
-  /Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTInspectorDevServerHelper.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTPackagerConnection.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBundleURLProvider.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/yoga/Yoga.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/yoga/YGEnums.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/yoga/YGMacros.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/yoga/YGValue.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTPackagerClient.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-RCTWebSocket/React/RCTReconnectingWebSocket.h \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Headers/Public/React-RCTWebSocket/React/RCTSRWebSocket.h
+  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/DevSupport/RCTPackagerConnection.mm \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-DevSupport/React-DevSupport-prefix.pch \
+  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/DevSupport/RCTPackagerConnection.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTInspectorDevServerHelper.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTPackagerConnection.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBundleURLProvider.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/Yoga.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGMacros.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGValue.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-DevSupport/React/RCTPackagerClient.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-RCTWebSocket/React/RCTReconnectingWebSocket.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-RCTWebSocket/React/RCTSRWebSocket.h

@@ -1,0 +1,5 @@
+version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+options: "b4e3a4ff2d1802cb454e76cd726c7774"
+build_time: [1571042346, 935217000]
+inputs:
+  "/Users/muganwa/Documents/GitHub/audioBook/ios/File.swift": [1571041656, 154415832]

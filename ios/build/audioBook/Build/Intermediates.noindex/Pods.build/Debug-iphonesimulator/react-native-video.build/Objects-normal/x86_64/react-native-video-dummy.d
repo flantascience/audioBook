@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Target\ Support\ Files/react-native-video/react-native-video-dummy.m \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Target\ Support\ Files/react-native-video/react-native-video-prefix.pch
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/react-native-video/react-native-video-dummy.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/react-native-video/react-native-video-prefix.pch

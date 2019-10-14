@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.m \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h

@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Modules/RCTRedBoxExtraDataViewController.m \
-  /Users/muganwas/Documents/Github/audioBook/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
-  /Users/muganwas/Documents/Github/audioBook/node_modules/react-native/React/Modules/RCTRedBoxExtraDataViewController.h
+  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Modules/RCTRedBoxExtraDataViewController.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
+  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Modules/RCTRedBoxExtraDataViewController.h
