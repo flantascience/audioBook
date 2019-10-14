@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/muganwas/Documents/GitHub/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
+            "outputFile": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "/Users/muganwas/.gradle/caches/transforms-2/files-2.1/85e257a6babe96d3b8085bcd76499598/appcompat-1.0.2/res/values-port/values-port.xml",
+                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/85e257a6babe96d3b8085bcd76499598/appcompat-1.0.2/res/values-port/values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
