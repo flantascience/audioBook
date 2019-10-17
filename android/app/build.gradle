@@ -212,6 +212,7 @@ dependencies {
     implementation "com.google.firebase:firebase-database:17.0.0"
     implementation "com.google.firebase:firebase-storage:17.0.0"
     implementation project(':react-native-track-player')
+    implementation project(':react-native-fs')
 
 
     if (enableHermes) {

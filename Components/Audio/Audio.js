@@ -1,12 +1,11 @@
 import React from 'react';
 import TrackPlayer from 'react-native-track-player';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
     TouchableOpacity,
     View,
-    Image,
     Text,
     TextInput,
     Platform,
@@ -15,27 +14,31 @@ import {
 } from 'react-native'; 
 import { 
     formatTime, 
-    getCurrentTrack, 
-    getTrack, 
-    getPlayerState,
     removeTrack
 } from '../../Misc/helpers';
 import Toast from '../../Components/Toast/Toast';
-import { posterURL } from '../../Misc/Strings';
+//import { posterURL } from '../../Misc/Strings';
 import firebase from 'react-native-firebase';
-import Slider from '@react-native-community/slider';
+//import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
 import { storeMedia } from '../../Actions/mediaFiles';
+import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
-import VolumeUp from './images/volume_up.png';
-import VolumeDown from './images/volume_down.png';
+//import VolumeUp from './images/volume_up.png';
+//import VolumeDown from './images/volume_down.png';
+import { audioOverview } from '../../Misc/Strings';
 import ProgressBar from './ProgressBar';
-import poster from '../../Misc/media/part2-unschooling.jpg';
+//import poster from '../../Misc/media/part2-unschooling.jpg';
+import Refs from './Refs';
 import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/questionnaire");
 
 class Audio extends React.Component{
+    state = {
+        referencesInfo: [],
+        lastTrackId: null
+    }
 
     static navigationOptions = ({navigation})=> ({
         headerLeft: <Header />,
@@ -52,16 +55,46 @@ class Audio extends React.Component{
     });
 
     componentDidMount(){
-        this.props.store({showToast: false, toastText: null });
+        let { currentlyPlaying, audioFiles, references } = this.props;
+        this.props.store({ showToast: false, toastText: null });
+        this.updateReferenceInfo(currentlyPlaying, audioFiles, references);
+        let newAudioFiles = [...audioFiles];
+        let lastTrackId = (newAudioFiles.pop()).id;
+        this.setState({lastTrackId});
+    }
+
+    updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
+        return new Promise(resolve=>{
+            let currentReferences = [];
+            let referencesInfo = [];
+            audioFiles.forEach(file=>{
+                let id = file.id;
+                if(id === currentlyPlaying){
+                    currentReferences = file.references;
+                }
+            });
+            if(currentReferences && currentReferences.length > 0){
+                currentReferences.forEach(ref=>{
+                    referencesInfo.push(references[ref]);
+                });
+                this.setState({referencesInfo});
+                resolve("has");
+            }else{
+                this.setState({referencesInfo: []});
+                resolve("doesnt");
+            }
+            this.forceUpdate();
+        });
     }
 
     toggleTrack = (pos)=>{
         //console.log(currentlyPlaying + " " + pos);
-        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
+        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, references } = this.props;
         let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
             if( currentlyPlaying && currentlyPlaying !== pos){
                 //console.log("first option");
+                this.props.updateShowRefs(false);
                 removeTrack().then(()=>{
                     let stringPos = pos.toString();
                     TrackPlayer.add([audioFiles[pos]]).then(()=>{
@@ -75,8 +108,7 @@ class Audio extends React.Component{
                             showTextinput: false
                         };
                         this.props.store(newState);
-                        let ready = TrackPlayer.STATE_READY;
-                        //console.log(ready);
+                        this.updateReferenceInfo(pos, audioFiles, references);
                         TrackPlayer.play();
                         resolve('done');
                     })
@@ -124,16 +156,6 @@ class Audio extends React.Component{
                }
                 resolve("same");
             }else{
-                let stringPos = pos.toString();
-                let newSate = {
-                    paused: false,
-                    loaded: true,
-                    currentlyPlaying: pos,
-                    selectedTrack: pos,
-                    selectedTrackId: stringPos,
-                    currentlyPlayingName: title,
-                    showTextinput: false
-                };
                 TrackPlayer.play();
                 resolve("not");
             }
@@ -161,10 +183,10 @@ class Audio extends React.Component{
     }
 
     toggleOverview = ()=>{
-        const { showOverview, screen, hideMenu } = this.props;
+        const { showOverview, screen } = this.props;
         let newShowOverview = !showOverview;
+        this.toggleReferencesView();
         this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
-        //this.props.store({hideMenu: !hideMenu}); 
         if(screen !== "Tracks")
             this.goToTracks();
     }
@@ -207,30 +229,42 @@ class Audio extends React.Component{
         }
     }
 
+    toggleReferencesView = () => {
+        let { currentlyPlaying, audioFiles, references } = this.props;
+        this.updateReferenceInfo(currentlyPlaying, audioFiles, references).then(res=>{
+            console.log(res)
+            let { showRefs } = this.props;
+            let newVal = !showRefs;
+            this.props.updateShowRefs(newVal);
+        });
+    }
+
     render(){
+        let { referencesInfo, lastTrackId } = this.state;
         let {
-            audioSource,
             audioFiles,
             style,
             currentlyPlayingName,
             initCurrentlyPlaying,
             pos,
             currentPosition,
-            currentTime,
             currentlyPlaying,
             paused,
             selectedTrack,
-            repeatOn,
             isChanging,
             buttonsActive,
             showOverview,
-            showTextinput,
-            volume,
             loaded,
             showToast,
-            toastText
+            toastText,
+            questionnaire: {
+                confusing,
+                question
+            }
         } = this.props;
         /** End reconfigure */
+
+        let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal } = audioOverview;
         //issue with pause button
         //console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
@@ -246,7 +280,7 @@ class Audio extends React.Component{
             playIcon = "pause"
         }
         let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
-        const remainingTime = ( trackDuration - currentPosition );
+        let remainingTime = ( trackDuration - currentPosition );
 
         const trackTimeSlider = <View style={ styles.trackTimeContainer }>
                 <ProgressBar />
@@ -263,30 +297,7 @@ class Audio extends React.Component{
                         <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
                     </View>
                 </View> }
-            </View>
-        const volumeRocker = <View style={ styles.volumeContainer }>
-                <Slider 
-                    style={ styles.volumeSlider }
-                    value={ parseFloat(volume) }
-                    onValueChange={ (val)=>{
-                        TrackPlayer.setVolume(val);
-                        let newSate = {
-                            volume: val
-                        }
-                        this.props.store(newSate);
-                    } }
-                    maximumValue={ 1 } 
-                    minimumValue={ 0 }
-                />
-                <View style={ styles.volumeImagesContainer}>
-                    <View style= { styles.volumeDown }>
-                        <Image style = { styles.volumeImage } source={ VolumeDown } />
-                    </View>
-                    <View style= { styles.volumeUp}>
-                        <Image style = { styles.volumeImage }  source={ VolumeUp } />
-                    </View>
-                </View>
-            </View>
+            </View>;
         return(
             <View style={ styles.elContainer }>
                 { showOverview?
@@ -364,12 +375,13 @@ class Audio extends React.Component{
                                 { showToast?
                                     <Toast text={ toastText } />:
                                 null }
-                                <InputScrollView style={{height: 350}}>
                                     <View style = { styles.textScrollView }>
                                         <TextInput
                                             id="confusing"
+                                            multiline = { selectedTrack === lastTrackId }
+                                            value={ confusing }
                                             style={ styles.questionareText}
-                                            placeholder={"Was anything confusing?"}
+                                            placeholder={ selectedTrack === lastTrackId?confusingFinal:confusing1 }
                                             onChangeText={ (text) =>{
                                                 let questionnaire = {...this.props.questionnaire};
                                                 questionnaire.confusing = text;
@@ -380,8 +392,10 @@ class Audio extends React.Component{
                                         />
                                         <TextInput
                                             id="question"
+                                            multiline = { selectedTrack === lastTrackId }
+                                            value={ question }
                                             style={ styles.questionareText}
-                                            placeholder={"Do you have any questions?"}
+                                            placeholder={ selectedTrack === lastTrackId?otherQuestionFinal:otherQuestion1 }
                                             onChangeText={
                                                 (text) =>{
                                                     let questionnaire = {...this.props.questionnaire};
@@ -401,7 +415,7 @@ class Audio extends React.Component{
                                             />
                                         </View>
                                     </View>
-                                </InputScrollView>
+                                <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} toggleRefsView={ this.toggleReferencesView } />
                             </View>:
                         null }
                     </View>
@@ -483,8 +497,9 @@ class Audio extends React.Component{
                                 <View style = { styles.textScrollView }>
                                     <TextInput
                                         id="confusing"
+                                        multiline = { selectedTrack === lastTrackId }
                                         style={ styles.questionareText}
-                                        placeholder={"Was anything confusing?"}
+                                        placeholder={ selectedTrack === lastTrackId?confusingFinal:confusing1 }
                                         onChangeText={ (text) =>{
                                             let questionnaire = {...this.props.questionnaire};
                                             questionnaire.confusing = text;
@@ -495,8 +510,9 @@ class Audio extends React.Component{
                                     />
                                     <TextInput
                                         id="question"
+                                        multiline = { selectedTrack === lastTrackId }
                                         style={ styles.questionareText}
-                                        placeholder={"Do you have any questions?"}
+                                        placeholder={ selectedTrack === lastTrackId?otherQuestionFinal:otherQuestion1 }
                                         onChangeText={
                                             (text) =>{
                                                 let questionnaire = {...this.props.questionnaire};
@@ -541,6 +557,8 @@ const mapStateToProps = state => {
       currentTime: state.media.currentTime,
       isChanging: state.media.isChanging,
       audioFiles: state.media.audioFiles,
+      references: state.refs.references,
+      showRefs: state.refs.showRefs,
       screen: state.media.screen,
       buttonsActive: state.media.buttonsActive,
       showOverview: state.media.showOverview,
@@ -560,6 +578,9 @@ const mapDispatchToProps = dispatch => {
     return {
       store: (media) => {
         dispatch(storeMedia(media));
+      },
+      updateShowRefs: (val) => {
+        dispatch(changeRefsView(val));
       }
     }
 }

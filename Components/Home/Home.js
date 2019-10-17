@@ -3,19 +3,20 @@ import { connect } from 'react-redux';
 import {
   View,
   Image,
-  Text,
   Dimensions
 } from 'react-native';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
+import { storeRefs } from '../../Actions/references';
 import Audio from '../Audio/Audio';
-import MediaOverview from '../MediaOverview/MediaOverview';
+//import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { styles } from './style';
 
-const dbRef = firebase.database().ref("/tracks");
+const tracksRef = firebase.database().ref("/tracks");
+const referencesRef = firebase.database().ref("/references");
 
 class Home extends React.Component {
 
@@ -34,24 +35,38 @@ class Home extends React.Component {
   });
 
   componentDidMount(){
+    this.fetchAndStoreMedia();
+    this.fetchAndStoreRefs();
+  }
+
+  fetchAndStoreMedia = () => {
     let { audioFiles } = this.props;
     let cloudAudio = [];
-    dbRef.once('value', data=>{
+    tracksRef.once('value', data=>{
       data.forEach(trackInf=>{
         //console.log(trackInf);
         let track = trackInf.val();
         cloudAudio.push(track);
       });
       let newAudioFiles = audioFiles.concat(cloudAudio);
-      this.props.store({audioFiles: newAudioFiles});
+      this.props.storeMedia({audioFiles: newAudioFiles});
+    });
+  }
+
+  fetchAndStoreRefs = () => {
+    let cloudRefs = [];
+    referencesRef.once('value', data=>{
+      data.forEach(refInfo=>{
+        let ref = refInfo.val();
+        cloudRefs.push(ref);
+      });
+      this.props.storeReferences(cloudRefs);
     });
   }
 
   render(){
     let {
-      navigation, 
-      currentlyPlaying, 
-      loaded,
+      navigation,
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
@@ -60,7 +75,6 @@ class Home extends React.Component {
       showOverview
     } = this.props;
     let height = Dimensions.get('window').height;
-    console.log(height)
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     const playing = !isChanging?
@@ -111,6 +125,7 @@ const mapStateToProps = state => {
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     audioFiles: state.media.audioFiles,
+    references: state.refs.references,
     buttonsActive: state.media.buttonsActive,
     showOverview: state.media.showOverview,
     selectedTrackId: state.media.selectedTrackId,
@@ -123,8 +138,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    store: (media) => {
+    storeMedia: (media) => {
       dispatch(storeMedia(media));
+    },
+    storeReferences: (refs) => {
+      dispatch(storeRefs(refs));
     }
   }
 }

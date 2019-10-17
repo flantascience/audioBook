@@ -21,7 +21,7 @@ import { storeMedia } from '../../Actions/mediaFiles';
 import { emailregex } from '../../Misc/Constants';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import Audio from '../Audio/Audio';
-import MediaOverview from '../MediaOverview/MediaOverview';
+//import MediaOverview from '../MediaOverview/MediaOverview';
 import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/subscriptions");
@@ -160,6 +160,7 @@ class Author extends React.Component {
                 <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
               <Text style = {styles.name}>{ author.name }</Text>
+              <Text style = {styles.authorTitle}>{ author.title }</Text>
               <View style={ styles.introContainer }>
                 <Text style={ styles.introText }>{ author.intro }</Text>
               </View>
@@ -230,11 +231,9 @@ class Author extends React.Component {
           >
           { selectedTrack? playing: null }
           </SimpleAnimation> 
-        { !hideMenu?
         <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
           <Footer navigation={ navigation } />
-        </View>: 
-        null }
+        </View>
       </View>
     );
   }

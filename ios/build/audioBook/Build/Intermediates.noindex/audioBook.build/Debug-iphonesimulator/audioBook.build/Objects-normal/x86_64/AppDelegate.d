@@ -8,8 +8,10 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-DevSupport/React/RCTInspectorDevServerHelper.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-DevSupport/React/RCTPackagerConnection.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react-native-background-downloader/RNBackgroundDownloader.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBundleURLProvider.h \

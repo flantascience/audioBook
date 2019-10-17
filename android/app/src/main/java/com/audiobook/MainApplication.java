@@ -3,17 +3,18 @@ package com.audiobook;
 import android.Manifest;
 import android.app.Application;
 import android.content.pm.PackageManager;
-import android.util.Log;
+//import android.util.Log;
 
 import com.facebook.react.PackageList;
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
-import com.facebook.react.bridge.JavaScriptExecutorFactory;
+//import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
+//import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
-import io.invertase.firebase.storage.RNFirebaseStoragePackage;
+//import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 
-import com.guichaguri.trackplayer.TrackPlayer;
+//RN file downloader package
+import com.rnfs.RNFSPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -35,7 +36,8 @@ public class MainApplication extends Application implements ReactApplication {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage())'
-      if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+      if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED &&
+              checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
         // TODO: Consider calling
         //    Activity#requestPermissions
         // here to request the missing permissions, and then overriding
@@ -43,7 +45,7 @@ public class MainApplication extends Application implements ReactApplication {
         //                                          int[] grantResults)
         // to handle the case where the user grants the permission. See the documentation
         // for Activity#requestPermissions for more details.
-        packages.add(new RNFirebaseStoragePackage());
+        packages.add(new RNFSPackage());
       }
 
       packages.add(new RNFirebaseDatabasePackage());

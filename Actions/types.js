@@ -1,2 +1,4 @@
 export const STORE_INPUT = 'STORE_INPUT';
 export const STORE_MEDIA = 'STORE_MEDIA';
+export const STORE_REFERENCES = 'STORE_REFERENCES';
+export const TOGGLE_REFS_VIEW = 'TOGGLE_REFS_VIEW';

@@ -19,6 +19,8 @@ import com.reactnativecommunity.netinfo.NetInfoPackage;
 import com.reactnativecommunity.slider.ReactSliderPackage;
 // react-native-firebase
 import io.invertase.firebase.RNFirebasePackage;
+// react-native-fs
+import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-music-control
@@ -63,6 +65,7 @@ public class PackageList {
       new NetInfoPackage(),
       new ReactSliderPackage(),
       new RNFirebasePackage(),
+      new RNFSPackage(),
       new RNGestureHandlerPackage(),
       new MusicControl(),
       new TrackPlayer(),

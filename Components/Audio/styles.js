@@ -39,6 +39,29 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
     },
+    refsContainer: {
+        flex: 6,
+        marginTop: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        display: "flex",
+        alignItems: "flex-start",
+        alignContent: "flex-start",
+        flexDirection: "column"
+    },
+    refsAccordionHeader: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "row",
+        padding: 5,
+        borderColor: "#C7C6C6",
+        borderWidth: 1,
+        alignItems: "center"
+    },
+    refsBody: {
+        flex: 20,
+        padding: 10
+    },
     spaceFiller: {
         height: 10
     },
@@ -72,11 +95,13 @@ export const styles = StyleSheet.create({
         flex: 5
     },
     textScrollView: {
-        flex: 6,
-        height: 500,
-        //overflow: "visible"
+        flex:1,
+        overflow: "hidden"
     },
     textContainer: {
+        display: "flex",
+        flexDirection: "column",
+        alignContent: "flex-start",
         marginTop: 20,
         paddingBottom: 20,
         height: "50%"

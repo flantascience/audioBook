@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     navLogoConatiner: {
-        flex: 1,
+        flex: 2,
+        alignItems: "flex-end"
     },
     navLogo: {
         marginLeft: 10,
@@ -16,15 +17,19 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     headerTextContainer: {
-        flex: 3
+        flex: 4,
+        alignContent: "center",
+        justifyContent: "center"
     },
     headerText:{
         textTransform: "uppercase",
         fontSize: 20,
+        textAlign: "center",
         fontWeight: "bold",
     },
     subHeaderText: {
         fontSize: 16,
+        textAlign: "center",
         fontWeight: "500",
     }
 });

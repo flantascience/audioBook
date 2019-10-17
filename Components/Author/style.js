@@ -56,16 +56,20 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     authorImage: {
-        marginTop: 5,
+        marginTop: 30,
         height: 150,
         width: 150,
         borderRadius: 100
+    },
+    authorTitle: {
+        textAlign: "center",
+        fontSize: 14,
+        paddingBottom: 20
     },
     name: {
         fontWeight: "bold",
         textAlign: "center",
         fontSize: 25,
-        paddingBottom: 20,
         textTransform: "capitalize"
     },
     introContainer: {

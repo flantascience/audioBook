@@ -110,9 +110,9 @@ export const styles = StyleSheet.create({
     },
     trackIcon: {
         flex: 1,
-        alignContent: "center",
-        justifyContent: "center",
-        textAlign: "center"
+        alignContent: "flex-end",
+        justifyContent: "flex-end",
+        alignItems: "flex-end"
     },
     trackTextWrapper: {
         display: "flex",

@@ -3,11 +3,7 @@ import {
   View,
   ScrollView,
   TouchableOpacity,
-  Slider,
-  Image,
   Text,
-  TextInput,
-  Button,
   Platform,
   Dimensions
 } from 'react-native';
@@ -17,18 +13,35 @@ import TrackPlayer from 'react-native-track-player';
 import Toast from '../../Components/Toast/Toast';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Audio from '../Audio/Audio';
+import ProgressCircle from 'react-native-progress-circle'
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { SimpleAnimation } from 'react-native-simple-animations';
-import MediaOverview from '../MediaOverview/MediaOverview';
 import { storeMedia } from '../../Actions/mediaFiles';
 
 
 class Tracks extends React.Component {
 
-  static navigationOptions = ({navigation})=> ({
+  constructor(props){
+    super(props);
+    let { audioFiles } = props;
+    let currentAction = [];
+    audioFiles.forEach(file=>{
+      let { id } = file;
+      currentAction.push({ 
+        id, 
+        action: "stop", 
+        percentage: 10 
+      });
+    });
+    this.state = {
+      currentAction
+    }
+  }
+
+  static navigationOptions = ()=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -86,7 +99,7 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles, paused, loaded, selectedTrackId } = this.props;
+    let { audioFiles } = this.props;
     //console.log(audioFiles[pos]);
       removeTrack().then(res=>{
         //console.log(res)
@@ -161,19 +174,20 @@ class Tracks extends React.Component {
       });
   }
 
+  downloadTrack = (pos) => {
+  }
+
+
   render(){
     let {
       navigation, 
       currentlyPlaying, 
-      loaded,
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
       isChanging,
       showOverview,
-      showTextinput,
-      hideMenu,
       toastText,
       showToast,
       showMessage,
@@ -199,25 +213,46 @@ class Tracks extends React.Component {
               <View style = { styles.homeMid }>
                 <View>{ showToast?<Toast text={ toastText } />: null }</View>
                 <ScrollView>{ Object.keys(audioFiles).map(key=>{
-                  let { id, title, url, type, duration, formattedDuration } = audioFiles[key];
+                  let { title, type, formattedDuration } = audioFiles[key];
+                  let { currentAction } = this.state;
+                  let action = currentAction[key].action;
+                  let percentage = currentAction[key].percentage;
                   let playIcon = key !== currentlyPlaying?
-                  type === "local"?
-                  "play-circle":
-                  "cloud-download":"pause";
-                  let audioSource = type === "local" ? url : { uri: url };
+                  "play-circle":"pause";
+                  let downlaodIcon = "cloud-download";
                   return(
                     <View key={key} style={ styles.trackContainer }>
-                      <View style={ styles.track }>
+                      <View style={ styles.track }> 
                         <View style={ styles.trackTextWrapper }>
                           <Text style={ styles.trackTitle }>{ title }</Text>
                           <Text style={ styles.trackLength }>{ formattedDuration }</Text>
                         </View>
-                        <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
+                        { type === "local" || action !== "stop"?<TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                           <Icon
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                            size={ 35 }
+                            size={ 30 }
                           />
-                        </TouchableOpacity>
+                        </TouchableOpacity>: null}
+                        { type === "cloud" && action !== "stop" ?
+                        <TouchableOpacity onPress={ ()=>this.downloadTrack(key)} style={ styles.trackIcon }>
+                          <Icon 
+                            name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
+                            size={ 25 }
+                          />
+                        </TouchableOpacity>:
+                        type === "cloud" && action === "stop"?
+                        <ProgressCircle
+                          percent={percentage}
+                          radius={14}
+                          borderWidth={2}
+                          color="#3399FF"
+                          shadowColor="#999"
+                          bgColor="#fff"
+                        >
+                          <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
+                        </ProgressCircle>:
+                        null
+                  }
                       </View>
                     </View>
                   )

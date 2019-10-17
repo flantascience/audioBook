@@ -17,6 +17,7 @@ const Header = ()=>{
                 <Text style={ styles.headerText }>{ header.headerText }</Text>
                 <Text style = { styles.subHeaderText }>{ header.subHeaderText }</Text>
             </View>
+            <View style={{flex:1}}></View>
         </View>
     )
 }
