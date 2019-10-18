@@ -98,7 +98,7 @@ class Author extends React.Component {
     }
   }
 
-  static navigationOptions = ({navigation})=> ({
+  static navigationOptions = () => ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -122,18 +122,14 @@ class Author extends React.Component {
   render(){
     let {
       navigation,
-      userEmail,
       showToast,
       toastText,
-      currentlyPlaying, 
-      loaded,
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
       isChanging,
-      showOverview,
-      hideMenu
+      showOverview
     } = this.props;
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";

@@ -1,4 +1,4 @@
-import { STORE_MEDIA } from '../Actions/types';
+import { STORE_MEDIA, UPDATE_AUDIO_FILES } from '../Actions/types';
 
 const initialState = {
   emails: undefined,
@@ -8,7 +8,7 @@ const initialState = {
   initCurrentlyPlaying: false,
   currentlyPlayingName: "",
   audioFiles: [
-    {
+    /*{
       id: "0",
       title: "Sample 1 local",
       url: require("../Components/Tracks/tracks/sample_claps.mp3"),
@@ -29,7 +29,7 @@ const initialState = {
       references: [],
       duration: 45,
       type: "local"
-    }
+    }*/
   ],
   loaded: false,
   paused: true,
@@ -59,6 +59,11 @@ const mediaReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
+    case UPDATE_AUDIO_FILES:
+      return {
+        ...state,
+        audioFiles: [...action.payload]
+      }
     default:
       return state;
   }

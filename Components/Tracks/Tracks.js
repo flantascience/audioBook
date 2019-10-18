@@ -7,20 +7,21 @@ import {
   Platform,
   Dimensions
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import NetInfo from "@react-native-community/netinfo";
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Toast from '../../Components/Toast/Toast';
 import Icon from 'react-native-vector-icons/Ionicons'
 import Audio from '../Audio/Audio';
-import ProgressCircle from 'react-native-progress-circle'
+import ProgressCircle from 'react-native-progress-circle';
+import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { SimpleAnimation } from 'react-native-simple-animations';
-import { storeMedia } from '../../Actions/mediaFiles';
-
+import { storeMedia, updateAudio } from '../../Actions/mediaFiles';
 
 class Tracks extends React.Component {
 
@@ -33,7 +34,8 @@ class Tracks extends React.Component {
       currentAction.push({ 
         id, 
         action: "stop", 
-        percentage: 10 
+        percentage: 1,
+        error: null
       });
     });
     this.state = {
@@ -52,11 +54,10 @@ class Tracks extends React.Component {
     headerStyle:{
         backgroundColor:'#EBEAEA',
         height: 80,
-    },
+    }
   });
 
   componentDidMount(){
-    let { audioFiles, paused } = this.props;
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
       //console.log(palyerState)
@@ -100,6 +101,7 @@ class Tracks extends React.Component {
 
   toggleNowPlaying = (pos) => {
     let { audioFiles } = this.props;
+    let { currentAction } = this.state;
     //console.log(audioFiles[pos]);
       removeTrack().then(res=>{
         //console.log(res)
@@ -110,7 +112,11 @@ class Tracks extends React.Component {
           let mediaType = audioFiles[pos].type;
           /**If track is cloud based one needs an internet connection*/
           //console.log(currPos)
-          let playable = mediaType === "local"?true:mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?true: false;
+          let playable = mediaType === "local"?
+          true:
+          mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?
+          true:
+          false;
           if(res === "removed"){
             if(playable){
               //this.props.store({hideMenu: true});
@@ -157,6 +163,8 @@ class Tracks extends React.Component {
                     });
                     TrackPlayer.play();
                   }
+                  //alert that track is streaming
+                  currentAction[pos].action = "streaming";
                 })
               }); 
             }else{
@@ -167,7 +175,7 @@ class Tracks extends React.Component {
               }, 1000);
             }
           }else{
-            console.log(res)
+            console.log(res);
           }
         });
         
@@ -175,7 +183,58 @@ class Tracks extends React.Component {
   }
 
   downloadTrack = (pos) => {
+    let { audioFiles } = this.props;
+    let { currentAction } = this.state;
+    let { url, id } = audioFiles[pos];
+    let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
+    console.log(path)
+    let DownloadFileOptions = {
+      fromUrl: url,
+      toFile: path,
+      //headers: Headers,
+      background: true,
+      cacheable: true,
+      progressDivider: 1,
+      discretionary: true,
+      begin: res=>{ 
+        let { statusCode } = res;
+        if(statusCode !== 200){
+          currentAction[pos].action = "stop";
+          currentAction[pos].error = true;
+          this.setState({currentAction});
+        }else{
+          currentAction[pos].action = "downloading";
+          this.setState({currentAction});
+        }
+      },
+      progress: prog=>{
+        let { bytesWritten, contentLength } = prog;
+        let percentage = (bytesWritten/contentLength)*100;
+        currentAction[pos].percentage = percentage
+        this.setState({currentAction});
+      }
+    };
+    if(currentAction.length > 0){
+      RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
+        let newPath = Platform.OS === 'ios'?"file:////" + path:path;
+        currentAction[pos].action = "downloaded";
+        audioFiles[pos].url = newPath;
+        audioFiles[pos].type = "local";
+        //console.log(audioFiles);
+        this._storeData(audioFiles);
+        this.setState({currentAction});
+      });
+    }
   }
+
+  _storeData = async (audioFiles) => {
+    try {
+      let stringAudioFiles = JSON.stringify(audioFiles);
+      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   render(){
@@ -215,8 +274,10 @@ class Tracks extends React.Component {
                 <ScrollView>{ Object.keys(audioFiles).map(key=>{
                   let { title, type, formattedDuration } = audioFiles[key];
                   let { currentAction } = this.state;
-                  let action = currentAction[key].action;
-                  let percentage = currentAction[key].percentage;
+                  /**Set default action */
+                  let action = currentAction[key]?currentAction[key].action:"stop";
+                  /**set default percentage */
+                  let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
                   let playIcon = key !== currentlyPlaying?
                   "play-circle":"pause";
                   let downlaodIcon = "cloud-download";
@@ -227,20 +288,22 @@ class Tracks extends React.Component {
                           <Text style={ styles.trackTitle }>{ title }</Text>
                           <Text style={ styles.trackLength }>{ formattedDuration }</Text>
                         </View>
-                        { type === "local" || action !== "stop"?<TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
+                        { type === "local" || type === "cloud" && (action === "streaming" || action === "stop" || action === "downloaded")?
+                        <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                           <Icon
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                             size={ 30 }
                           />
                         </TouchableOpacity>: null}
-                        { type === "cloud" && action !== "stop" ?
-                        <TouchableOpacity onPress={ ()=>this.downloadTrack(key)} style={ styles.trackIcon }>
+                        { type === "cloud" && action !== "streaming"?
+                          type === "cloud" && action === "stop"?
+                        <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
                           <Icon 
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
                             size={ 25 }
                           />
                         </TouchableOpacity>:
-                        type === "cloud" && action === "stop"?
+                        type === "cloud" && action === "downloading"?
                         <ProgressCircle
                           percent={percentage}
                           radius={14}
@@ -251,6 +314,7 @@ class Tracks extends React.Component {
                         >
                           <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
                         </ProgressCircle>:
+                        null:
                         null
                   }
                       </View>
@@ -305,8 +369,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    store: (media) => {
+    store: media => {
       dispatch(storeMedia(media));
+    },
+    updateAudioFiles: files => {
+      dispatch(updateAudio(files));
     }
   }
 }

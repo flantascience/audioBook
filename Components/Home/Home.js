@@ -5,6 +5,7 @@ import {
   Image,
   Dimensions
 } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { SimpleAnimation } from 'react-native-simple-animations';
@@ -48,19 +49,36 @@ class Home extends React.Component {
         let track = trackInf.val();
         cloudAudio.push(track);
       });
-      let newAudioFiles = audioFiles.concat(cloudAudio);
-      this.props.storeMedia({audioFiles: newAudioFiles});
+      this._getStoredData("audioFiles").then(res=>{
+        if(res){
+          let storedAudioFiles = JSON.parse(res);
+          this.props.storeMedia({audioFiles: storedAudioFiles});
+        }else{
+          let newAudioFiles = audioFiles.concat(cloudAudio);
+          this.props.storeMedia({audioFiles: newAudioFiles});
+        }
+      });
     });
   }
 
   fetchAndStoreRefs = () => {
     let cloudRefs = [];
+    this._getStoredData("audioFiles");
     referencesRef.once('value', data=>{
       data.forEach(refInfo=>{
         let ref = refInfo.val();
         cloudRefs.push(ref);
       });
       this.props.storeReferences(cloudRefs);
+    });
+  }
+
+  _getStoredData = (key) => {
+    return new Promise( async resolve=>{
+      await AsyncStorage.getItem(key).then(res=>{
+        //console.log(res)
+        resolve(res);
+      });
     });
   }
 

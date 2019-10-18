@@ -15,7 +15,7 @@ const Refs = props => {
             { referencesInfo.length > 0 && showRefs?
                 Object.keys(referencesInfo).map(ref=>{
                     if(referencesInfo[ref])
-                        return(<Text key={ref}>{String(parseInt(ref) + 1) + " - " + referencesInfo[ref]}</Text>)
+                        return(<Text key={ref}>{"\u2022 " + referencesInfo[ref]}</Text>)
                     else
                         return 
                 }):

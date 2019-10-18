@@ -33,6 +33,8 @@ target 'audioBook' do
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
   target 'audioBookTests' do
     inherit! :search_paths
     # Pods for testing

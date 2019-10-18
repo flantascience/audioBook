@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import com.audiobook.BuildConfig;
 import com.audiobook.R;
 
+// @react-native-community/async-storage
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 // @react-native-community/netinfo
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 // @react-native-community/slider
@@ -62,6 +64,7 @@ public class PackageList {
   public ArrayList<ReactPackage> getPackages() {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(),
+      new AsyncStoragePackage(),
       new NetInfoPackage(),
       new ReactSliderPackage(),
       new RNFirebasePackage(),
