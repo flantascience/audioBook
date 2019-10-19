@@ -231,12 +231,12 @@ class Audio extends React.Component{
 
     toggleReferencesView = () => {
         let { currentlyPlaying, audioFiles, references } = this.props;
-        this.updateReferenceInfo(currentlyPlaying, audioFiles, references).then(res=>{
+        //this.updateReferenceInfo(currentlyPlaying, audioFiles, references).then(res=>{
             //console.log(res)
             let { showRefs } = this.props;
             let newVal = !showRefs;
             this.props.updateShowRefs(newVal);
-        });
+        //});
     }
 
     render(){

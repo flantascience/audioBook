@@ -283,7 +283,7 @@ class Tracks extends React.Component {
                   key === selectedTrack && !paused?"pause":
                   "play-circle";
                   let downlaodIcon = "cloud-download";
-
+                  console.log(action + " " + type);
                   return(
                     <View key={key} style={ styles.trackContainer }>
                       <View style={ styles.track }> 
@@ -298,7 +298,8 @@ class Tracks extends React.Component {
                             size={ 30 }
                           />
                         </TouchableOpacity>: null}
-                        { type === "cloud" && action !== "dowloading"?
+
+                        { type === "cloud" && action !== "downloading"?
                         <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
                           <Icon 
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
@@ -315,9 +316,7 @@ class Tracks extends React.Component {
                           bgColor="#fff"
                         >
                           <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
-                        </ProgressCircle>:
-                        null
-                  }
+                        </ProgressCircle>: null }
                       </View>
                     </View>
                   )
