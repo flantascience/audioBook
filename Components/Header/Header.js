@@ -10,14 +10,15 @@ import { styles } from './style';
 const Header = ()=>{
     return(
         <View style={ styles.header }>
-            <View style={ styles.navLogoConatiner }>
-                <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />
+            <View style={ styles.headerElementsContainer}>
+                <View style={ styles.navLogoConatiner }>
+                    <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />
+                </View>
+                <View style={ styles.textContainer }>
+                    <Text style={ styles.headerText }>{ header.headerText }</Text>
+                    <Text style = { styles.subHeaderText }>{ header.subHeaderText }</Text>
+                </View>
             </View>
-            <View style={ styles.headerTextContainer}>
-                <Text style={ styles.headerText }>{ header.headerText }</Text>
-                <Text style = { styles.subHeaderText }>{ header.subHeaderText }</Text>
-            </View>
-            <View style={{flex:1}}></View>
         </View>
     )
 }

@@ -102,6 +102,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         alignContent: "center",
+        alignItems: "center",
         justifyContent: "center",
         paddingLeft: 20,
         paddingRight: 20,
@@ -123,11 +124,11 @@ export const styles = StyleSheet.create({
     trackTitle: {
         flex: 1,
         fontWeight: "bold",
-        fontSize: 18
+        fontSize: 16
     },
     trackLength: {
         flex: 1,
-        fontSize: 14
+        fontSize: 13
     },
     audioElement: {
         minHeight: 50,

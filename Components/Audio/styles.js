@@ -228,5 +228,11 @@ export const styles = StyleSheet.create({
     },
     poster: {
         height: 150
+    },
+    link: {
+        fontStyle: 'italic',
+        color: "#2055D4",
+        textDecorationLine: "underline",
+        textDecorationStyle: "solid"
     }
 });

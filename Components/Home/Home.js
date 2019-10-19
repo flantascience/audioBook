@@ -66,8 +66,9 @@ class Home extends React.Component {
     this._getStoredData("audioFiles");
     referencesRef.once('value', data=>{
       data.forEach(refInfo=>{
+        let key = refInfo.key;
         let ref = refInfo.val();
-        cloudRefs.push(ref);
+        cloudRefs[key] = ref;
       });
       this.props.storeReferences(cloudRefs);
     });
@@ -107,7 +108,8 @@ class Home extends React.Component {
       />: null;
     return (
       <View style={ styles.Home }>
-        { !showOverview?<View style = { styles.homeMid }>
+        { !showOverview?
+        <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
             <Image
               resizeMode="contain" 
@@ -115,7 +117,8 @@ class Home extends React.Component {
               source={require('./images/sample-book-cover.jpg')} 
             />
           </View>
-        </View>: null }
+        </View>: 
+        null }
         <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:

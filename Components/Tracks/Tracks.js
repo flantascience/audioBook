@@ -240,7 +240,7 @@ class Tracks extends React.Component {
   render(){
     let {
       navigation, 
-      currentlyPlaying, 
+      paused, 
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
@@ -278,9 +278,12 @@ class Tracks extends React.Component {
                   let action = currentAction[key]?currentAction[key].action:"stop";
                   /**set default percentage */
                   let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
-                  let playIcon = key !== currentlyPlaying?
-                  "play-circle":"pause";
+                  let playIcon = key !== selectedTrack?
+                  "play-circle": 
+                  key === selectedTrack && !paused?"pause":
+                  "play-circle";
                   let downlaodIcon = "cloud-download";
+
                   return(
                     <View key={key} style={ styles.trackContainer }>
                       <View style={ styles.track }> 
@@ -295,8 +298,7 @@ class Tracks extends React.Component {
                             size={ 30 }
                           />
                         </TouchableOpacity>: null}
-                        { type === "cloud" && action !== "streaming"?
-                          type === "cloud" && action === "stop"?
+                        { type === "cloud" && action !== "dowloading"?
                         <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
                           <Icon 
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
@@ -314,7 +316,6 @@ class Tracks extends React.Component {
                         >
                           <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
                         </ProgressCircle>:
-                        null:
                         null
                   }
                       </View>
@@ -356,6 +357,7 @@ const mapStateToProps = state => {
     showOverview: state.media.showOverview,
     selectedTrackId: state.media.selectedTrackId,
     loaded: state.media.loaded,
+    paused: state.media.paused,
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,

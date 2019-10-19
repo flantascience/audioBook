@@ -3,33 +3,38 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     navLogoConatiner: {
         flex: 2,
-        alignItems: "flex-end"
+        alignItems: "flex-end",
+        justifyContent: "flex-end"
     },
     navLogo: {
-        marginLeft: 10,
-        marginRight: 10,
         height: 57,
         width: 50,
     },
     header: {
-        width: 350,
-        display: "flex",
-        flexDirection: "row"
+        width: 300
     },
-    headerTextContainer: {
-        flex: 4,
-        alignContent: "center",
-        justifyContent: "center"
+    headerElementsContainer: {
+        display: "flex",
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    textContainer: {
+        flex: 3,
+        display: "flex",
+        flexDirection: "column"
     },
     headerText:{
         textTransform: "uppercase",
-        fontSize: 20,
+        fontSize: 18,
         textAlign: "center",
+        alignItems: "center",
         fontWeight: "bold",
     },
     subHeaderText: {
-        fontSize: 16,
+        fontSize: 14,
         textAlign: "center",
+        alignItems: "center",
         fontWeight: "500",
     }
 });

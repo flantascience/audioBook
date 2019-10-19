@@ -1,10 +1,22 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
+import { styles } from './styles';
 
 const Refs = props => {
     let { styles, referencesInfo, toggleRefsView, showRefs } = props;
+    console.log(referencesInfo);
+    const goTo = (url) => {
+        Linking.canOpenURL(url).then(supported => {
+            if(supported)
+                Linking.openURL(url).catch(error=>{
+                    console.log(error);
+                });
+            else
+                console.log("unsupported");
+        })
+    }
     return(
         <View style={ styles.refsContainer }>
            <TouchableOpacity onPress = { ()=>toggleRefsView() } style={ styles.refsAccordionHeader }>
@@ -14,8 +26,16 @@ const Refs = props => {
             <View style = { styles.refsBody }>
             { referencesInfo.length > 0 && showRefs?
                 Object.keys(referencesInfo).map(ref=>{
+                    let text = referencesInfo[ref].text;
+                    let url = referencesInfo[ref].url || "";
+                    let urlLength = url.length;
+                    let number = referencesInfo[ref].number;
                     if(referencesInfo[ref])
-                        return(<Text key={ref}>{"\u2022 " + referencesInfo[ref]}</Text>)
+                        return(
+                        <View key={ref}>
+                            <Text>{ " - " + number + ". " + text }</Text>
+                            { urlLength>1?<TouchableOpacity onPress={ ()=>goTo(url) }><Text style={ styles.link }>( Link )</Text></TouchableOpacity>:null }
+                        </View>)
                     else
                         return 
                 }):
