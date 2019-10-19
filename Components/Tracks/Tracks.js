@@ -187,7 +187,6 @@ class Tracks extends React.Component {
     let { currentAction } = this.state;
     let { url, id } = audioFiles[pos];
     let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
-    console.log(path)
     let DownloadFileOptions = {
       fromUrl: url,
       toFile: path,
@@ -283,7 +282,6 @@ class Tracks extends React.Component {
                   key === selectedTrack && !paused?"pause":
                   "play-circle";
                   let downlaodIcon = "cloud-download";
-                  console.log(action + " " + type);
                   return(
                     <View key={key} style={ styles.trackContainer }>
                       <View style={ styles.track }> 
