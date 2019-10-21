@@ -1,8 +1,10 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Dimensions } from 'react-native';
+const headerWidth = Dimensions.get('window').width;
+const imageContainerFlex = headerWidth < 330?2:2;
+const textContainerFlex = headerWidth < 330?5:4;
 export const styles = StyleSheet.create({
     navLogoConatiner: {
-        flex: 2,
+        flex: imageContainerFlex,
         alignItems: "flex-end",
         justifyContent: "flex-end"
     },
@@ -11,7 +13,12 @@ export const styles = StyleSheet.create({
         width: 50,
     },
     header: {
-        width: 300
+        display: "flex",
+        flexDirection: "row",
+        width: headerWidth,
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center"
     },
     headerElementsContainer: {
         display: "flex",
@@ -20,21 +27,21 @@ export const styles = StyleSheet.create({
         alignItems: "center",
     },
     textContainer: {
-        flex: 3,
+        flex: textContainerFlex,
         display: "flex",
         flexDirection: "column"
     },
     headerText:{
         textTransform: "uppercase",
         fontSize: 18,
+        width: 180,
         textAlign: "center",
-        alignItems: "center",
         fontWeight: "bold",
     },
     subHeaderText: {
         fontSize: 14,
+        width: 180,
         textAlign: "center",
-        alignItems: "center",
         fontWeight: "500",
     }
 });

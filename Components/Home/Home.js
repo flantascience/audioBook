@@ -52,7 +52,8 @@ class Home extends React.Component {
       this._getStoredData("audioFiles").then(res=>{
         if(res){
           let storedAudioFiles = JSON.parse(res);
-          this.props.storeMedia({audioFiles: storedAudioFiles});
+          let newAudioFiles = audioFiles.concat(cloudAudio);
+          this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
         }else{
           let newAudioFiles = audioFiles.concat(cloudAudio);
           this.props.storeMedia({audioFiles: newAudioFiles});

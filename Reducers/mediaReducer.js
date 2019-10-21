@@ -31,6 +31,7 @@ const initialState = {
       type: "local"
     }*/
   ],
+  audioFilesCloud: [],
   loaded: false,
   paused: true,
   totalLength: 1,

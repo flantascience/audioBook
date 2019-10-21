@@ -18,8 +18,7 @@ export const styles = StyleSheet.create({
     },
     overviewContainer: {
         flex: 6,
-        overflow: "hidden",
-        marginBottom: 40
+        overflow: "hidden"
     },
     altOverviewContainer: {
         flex: 2,
@@ -92,6 +91,9 @@ export const styles = StyleSheet.create({
         padding: 4,
         paddingRight: 12,
         textAlign: 'right',
+    },
+    toastContainer: {
+        zIndex: 100000
     },
     trackContainer: {
         paddingTop: 5

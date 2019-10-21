@@ -30,7 +30,7 @@ import { audioOverview } from '../../Misc/Strings';
 import ProgressBar from './ProgressBar';
 //import poster from '../../Misc/media/part2-unschooling.jpg';
 import Refs from './Refs';
-import InputScrollView from 'react-native-input-scroll-view';
+//import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/questionnaire");
 
@@ -273,117 +273,113 @@ class Audio extends React.Component{
                 <ScrollView style={{height: 300}}>
                     <View style={ style }>
                         { !currentlyPlaying && isChanging?
-                            null:
-                            <View  style={ styles.altContiner }>
-                                <View style={ styles.controllerContainer }>
-                                    <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
-                                        <Text style={ styles.audioTitle }>
-                                            { currentlyPlayingName || "Select Track" }
-                                        </Text>
-                                    </View>
-                                    <View style={ styles.buttonGroup }>
-                                        <TouchableOpacity 
-                                            onPress = { ()=>{
-                                                TrackPlayer.getPosition().then(res=>{
-                                                    let newPos = res + parseFloat(-15);
-                                                    let newState = {
-                                                        currentPosition: newPos,
-                                                        currentTime: newPos
-                                                    };
-                                                    this.props.store(newState);
-                                                    TrackPlayer.seekTo(newPos);
-                                                });
-                                            }} 
-                                            disabled={ !buttonsActive }
-                                            style={ styles.altGroupedButtons } 
-                                        >
-                                            <Icon
-                                                style={ styles.reflection }
-                                                name={ `ios-refresh` }
-                                                size={ 25 }
-                                            />
-                                        </TouchableOpacity>
-                                        <TouchableOpacity  
-                                            disabled={ !buttonsActive }  
-                                            style={ styles.groupedButtons } 
-                                            onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
-                                        >
-                                            <Icon
-                                                name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                                                size={ 25 }
-                                            />
-                                        </TouchableOpacity>
-                                        <TouchableOpacity 
-                                            onPress = { ()=>{
-                                                TrackPlayer.getPosition().then(res=>{
-                                                    let newPos = res + parseFloat(15);
-                                                    let newState = {
-                                                        currentPosition: newPos,
-                                                        currentTime: newPos
-                                                    };
-                                                    this.props.store(newState);
-                                                    TrackPlayer.seekTo(newPos);
-                                                });
-                                            } } 
-                                            disabled={ !buttonsActive }  
-                                            style={ styles.groupedButtons }
-                                        >
-                                            <Icon
-                                                name={ `ios-refresh` }
-                                                size={ 25 }
-                                            />
-                                        </TouchableOpacity>
+                        null:
+                        <View  style={ styles.altContiner }>
+                            <View style={ styles.controllerContainer }>
+                                <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
+                                    <Text style={ styles.audioTitle }>
+                                        { currentlyPlayingName || "Select Track" }
+                                    </Text>
+                                </View>
+                                <View style={ styles.buttonGroup }>
+                                    <TouchableOpacity 
+                                        onPress = { ()=>{
+                                            TrackPlayer.getPosition().then(res=>{
+                                                let newPos = res + parseFloat(-15);
+                                                let newState = {
+                                                    currentPosition: newPos,
+                                                    currentTime: newPos
+                                                };
+                                                this.props.store(newState);
+                                                TrackPlayer.seekTo(newPos);
+                                            });
+                                        }} 
+                                        disabled={ !buttonsActive }
+                                        style={ styles.altGroupedButtons } 
+                                    >
+                                        <Icon
+                                            style={ styles.reflection }
+                                            name={ `ios-refresh` }
+                                            size={ 25 }
+                                        />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity  
+                                        disabled={ !buttonsActive }  
+                                        style={ styles.groupedButtons } 
+                                        onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
+                                    >
+                                        <Icon
+                                            name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                                            size={ 25 }
+                                        />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity 
+                                        onPress = { ()=>{
+                                            TrackPlayer.getPosition().then(res=>{
+                                                let newPos = res + parseFloat(15);
+                                                let newState = {
+                                                    currentPosition: newPos,
+                                                    currentTime: newPos
+                                                };
+                                                this.props.store(newState);
+                                                TrackPlayer.seekTo(newPos);
+                                            });
+                                        } } 
+                                        disabled={ !buttonsActive }  
+                                        style={ styles.groupedButtons }
+                                    >
+                                        <Icon
+                                            name={ `ios-refresh` }
+                                            size={ 25 }
+                                        />
+                                    </TouchableOpacity>
+                                </View>
+                            </View>
+                            { trackTimeSlider }
+                        </View>
+                        }
+                        <View style={ styles.textContainer } >
+                            { showToast?
+                                <Toast text={ toastText } />:
+                            null }
+                                <View style = { styles.textScrollView }>
+                                    <TextInput
+                                        id="confusing"
+                                        multiline = { multiLine }
+                                        value={ confusing }
+                                        style={ styles.questionareText}
+                                        placeholder={ realConfusing }
+                                        onChangeText={ (text) =>{
+                                            let questionnaire = {...this.props.questionnaire};
+                                            questionnaire.confusing = text;
+                                            this.props.store({ questionnaire });
+                                        } }
+                                    />
+                                    <TextInput
+                                        id="question"
+                                        multiline = { multiLine }
+                                        value={ question }
+                                        style={ styles.questionareText}
+                                        placeholder={ realOtherQuestion }
+                                        onChangeText={
+                                            (text) =>{
+                                                let questionnaire = {...this.props.questionnaire};
+                                                questionnaire.question = text;
+                                                this.props.store({ questionnaire });
+                                            }
+                                        }
+                                    />
+                                    
+                                    <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
+                                        <Button
+                                            color={ Platform.OS === "android"?'#349DD3':'#fff' } 
+                                            title={ "Submit" }
+                                            onPress={ this.sendQuestionnaire } 
+                                        />
                                     </View>
                                 </View>
-                                { trackTimeSlider }
-                            </View>
-                            }
-                            <View style={ styles.textContainer } >
-                                { showToast?
-                                    <Toast text={ toastText } />:
-                                null }
-                                    <View style = { styles.textScrollView }>
-                                        <TextInput
-                                            id="confusing"
-                                            multiline = { multiLine }
-                                            value={ confusing }
-                                            style={ styles.questionareText}
-                                            placeholder={ realConfusing }
-                                            onChangeText={ (text) =>{
-                                                let questionnaire = {...this.props.questionnaire};
-                                                questionnaire.confusing = text;
-                                                this.props.store({ questionnaire });
-                                                /*let questionnaire = {}
-                                                this.props.store({})*/
-                                            } }
-                                        />
-                                        <TextInput
-                                            id="question"
-                                            multiline = { multiLine }
-                                            value={ question }
-                                            style={ styles.questionareText}
-                                            placeholder={ realOtherQuestion }
-                                            onChangeText={
-                                                (text) =>{
-                                                    let questionnaire = {...this.props.questionnaire};
-                                                    questionnaire.question = text;
-                                                    this.props.store({ questionnaire });
-                                                    /*let questionnaire = {}
-                                                    this.props.store({})*/
-                                                }
-                                            }
-                                        />
-                                        
-                                        <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
-                                            <Button
-                                                color={ Platform.OS === "android"?'#349DD3':'#fff' } 
-                                                title={ "Submit" }
-                                                onPress={ this.sendQuestionnaire } 
-                                            />
-                                        </View>
-                                    </View>
-                                <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} toggleRefsView={ this.toggleReferencesView } />
-                            </View>
+                            <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} toggleRefsView={ this.toggleReferencesView } />
+                        </View>
                     </View>
                 </ScrollView>:
                 <View style={ style }>
