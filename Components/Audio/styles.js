@@ -56,7 +56,8 @@ export const styles = StyleSheet.create({
         padding: 5,
         borderColor: "#C7C6C6",
         borderWidth: 1,
-        alignItems: "center"
+        alignItems: "center",
+        zIndex: 100000
     },
     refsBody: {
         flex: 20,

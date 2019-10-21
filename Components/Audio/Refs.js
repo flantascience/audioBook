@@ -2,11 +2,9 @@ import React from 'react';
 import { View, Text, TouchableOpacity, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
-import { styles } from './styles';
 
 const Refs = props => {
     let { styles, referencesInfo, toggleRefsView, showRefs } = props;
-    console.log(referencesInfo);
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
             if(supported)
@@ -19,9 +17,9 @@ const Refs = props => {
     }
     return(
         <View style={ styles.refsContainer }>
-           <TouchableOpacity onPress = { ()=>toggleRefsView() } style={ styles.refsAccordionHeader }>
-               <Text style={{ flex: 8, textAlign: "center", fontWeight: "bold" }}>References and Links</Text>
-               <Icon style={{ flex:1 }} name="ios-arrow-dropdown" size={25} />
+            <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { toggleRefsView } >
+                <Text style={{ flex: 8, textAlign: "center", fontWeight: "bold" }}>References and Links</Text>
+                <Icon style={{ flex:1 }} name="ios-arrow-dropdown" size={25} />
             </TouchableOpacity>
             <View style = { styles.refsBody }>
             { referencesInfo.length > 0 && showRefs?

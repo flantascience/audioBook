@@ -39,7 +39,8 @@ class Tracks extends React.Component {
       });
     });
     this.state = {
-      currentAction
+      currentAction,
+      referencesInfo: []
     }
   }
 
@@ -100,7 +101,7 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles } = this.props;
+    let { audioFiles, references } = this.props;
     let { currentAction } = this.state;
     //console.log(audioFiles[pos]);
       removeTrack().then(res=>{
@@ -120,6 +121,7 @@ class Tracks extends React.Component {
           if(res === "removed"){
             if(playable){
               //this.props.store({hideMenu: true});
+              this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
               TrackPlayer.add([currPos]).then(res=>{
                 getDuration().then(trackDuration=>{
                   //console.log(trackDuration)
@@ -226,6 +228,29 @@ class Tracks extends React.Component {
     }
   }
 
+  updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
+    return new Promise(resolve=>{
+        let currentReferences = [];
+        let referencesInfo = [];
+        audioFiles.forEach(file=>{
+            let id = file.id;
+            if(id === currentlyPlaying){
+                currentReferences = file.references;
+            }
+        });
+        if(currentReferences && currentReferences.length > 0){
+            currentReferences.forEach(ref=>{
+                referencesInfo.push(references[ref]);
+            });
+            this.setState({referencesInfo});
+            resolve("has");
+        }else{
+            this.setState({referencesInfo: []});
+            resolve("doesnt");
+        }
+    });
+}
+
   _storeData = async (audioFiles) => {
     try {
       let stringAudioFiles = JSON.stringify(audioFiles);
@@ -251,6 +276,7 @@ class Tracks extends React.Component {
       showMessage,
       message
     } = this.props;
+    let { referencesInfo } = this.state;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -258,6 +284,7 @@ class Tracks extends React.Component {
       <Audio
         navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
+        referencesInfo={ referencesInfo }
         audioFiles={audioFiles}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }
@@ -355,6 +382,7 @@ const mapStateToProps = state => {
     selectedTrackId: state.media.selectedTrackId,
     loaded: state.media.loaded,
     paused: state.media.paused,
+    references: state.refs.references,
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
