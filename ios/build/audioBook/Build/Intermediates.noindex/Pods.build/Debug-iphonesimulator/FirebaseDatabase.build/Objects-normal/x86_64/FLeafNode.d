@@ -1,5 +1,4 @@
 dependencies: \
-  /Users/muganwa/Library/Developer/Xcode/DerivedData/audioBook-bduplvmvzlrigdceaflysxpimkwl/Build/Intermediates.noindex/ArchiveIntermediates/audioBook/BuildProductsPath/Release-iphoneos/react-native-track-player/react_native_track_player.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FLeafNode.m \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FLeafNode.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \

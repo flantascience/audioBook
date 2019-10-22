@@ -342,43 +342,47 @@ class Audio extends React.Component{
                             { showToast?
                                 <Toast text={ toastText } />:
                             null }
-                                <View style = { styles.textScrollView }>
-                                    <TextInput
-                                        id="confusing"
-                                        multiline = { multiLine }
-                                        value={ confusing }
-                                        style={ styles.questionareText}
-                                        placeholder={ realConfusing }
-                                        onChangeText={ (text) =>{
+                            <View style = { styles.textScrollView }>
+                                <TextInput
+                                    id="confusing"
+                                    multiline = { multiLine }
+                                    value={ confusing }
+                                    style={ styles.questionareText}
+                                    placeholder={ realConfusing }
+                                    onChangeText={ (text) =>{
+                                        let questionnaire = {...this.props.questionnaire};
+                                        questionnaire.confusing = text;
+                                        this.props.store({ questionnaire });
+                                    } }
+                                />
+                                <TextInput
+                                    id="question"
+                                    multiline = { multiLine }
+                                    value={ question }
+                                    style={ styles.questionareText}
+                                    placeholder={ realOtherQuestion }
+                                    onChangeText={
+                                        (text) =>{
                                             let questionnaire = {...this.props.questionnaire};
-                                            questionnaire.confusing = text;
+                                            questionnaire.question = text;
                                             this.props.store({ questionnaire });
-                                        } }
-                                    />
-                                    <TextInput
-                                        id="question"
-                                        multiline = { multiLine }
-                                        value={ question }
-                                        style={ styles.questionareText}
-                                        placeholder={ realOtherQuestion }
-                                        onChangeText={
-                                            (text) =>{
-                                                let questionnaire = {...this.props.questionnaire};
-                                                questionnaire.question = text;
-                                                this.props.store({ questionnaire });
-                                            }
                                         }
+                                    }
+                                />
+                                
+                                <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
+                                    <Button
+                                        color={ Platform.OS === "android"?'#349DD3':'#fff' } 
+                                        title={ "Submit" }
+                                        onPress={ this.sendQuestionnaire } 
                                     />
-                                    
-                                    <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
-                                        <Button
-                                            color={ Platform.OS === "android"?'#349DD3':'#fff' } 
-                                            title={ "Submit" }
-                                            onPress={ this.sendQuestionnaire } 
-                                        />
-                                    </View>
                                 </View>
-                            <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} toggleRefsView={ this.toggleReferencesView } />
+                            </View>
+                            <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { this.toggleReferencesView } >
+                                <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold" }}>References and Links</Text>
+                                <Icon style={{ flex:1, zIndex: 1 }} name="ios-arrow-dropdown" size={25} />
+                            </TouchableOpacity>
+                            <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
                         </View>
                     </View>
                 </ScrollView>:

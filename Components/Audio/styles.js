@@ -42,9 +42,10 @@ export const styles = StyleSheet.create({
     refsContainer: {
         flex: 6,
         marginTop: 10,
-        marginLeft: 30,
-        marginRight: 30,
+        paddingLeft: 30,
+        paddingRight: 30,
         display: "flex",
+        zIndex: 0,
         alignItems: "flex-start",
         alignContent: "flex-start",
         flexDirection: "column"
@@ -53,14 +54,18 @@ export const styles = StyleSheet.create({
         flex: 1,
         display: "flex",
         flexDirection: "row",
-        padding: 5,
+        padding: 10,
+        marginTop: 10,
+        marginLeft: 30,
+        marginRight: 30,
         borderColor: "#C7C6C6",
         borderWidth: 1,
         alignItems: "center",
-        zIndex: 100000
+        zIndex: 100
     },
     refsBody: {
         flex: 20,
+        zIndex: 1,
         padding: 10
     },
     spaceFiller: {
@@ -105,7 +110,7 @@ export const styles = StyleSheet.create({
         alignContent: "flex-start",
         marginTop: 20,
         paddingBottom: 20,
-        height: "50%"
+        height: "60%"
     },
     altTextDisplay: {
         flex: 2
