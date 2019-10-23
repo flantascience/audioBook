@@ -240,5 +240,13 @@ export const styles = StyleSheet.create({
         color: "#2055D4",
         textDecorationLine: "underline",
         textDecorationStyle: "solid"
+    },
+    refRowContainer: {
+    },
+    refText: {
+        alignSelf: "flex-start"
+    },
+    refLink: {
+        alignSelf: "flex-start"
     }
 });

@@ -25,9 +25,11 @@ const Refs = props => {
                     let number = referencesInfo[ref].number;
                     if(referencesInfo[ref])
                         return(
-                        <View key={ref}>
-                            <Text>{ " - " + number + ". " + text }</Text>
-                            { urlLength>1?<TouchableOpacity onPress={ ()=>goTo(url) }><Text style={ styles.link }>( Link )</Text></TouchableOpacity>:null }
+                        <View style={ styles.refRowContainer } key={ref}>
+                            <Text styles={ styles.refText }>
+                                { " - " + number + ". " + text }
+                                { urlLength>1?<Text onPress={ ()=>goTo(url) } style={ styles.link }>( Link )</Text>:null }
+                            </Text>
                         </View>)
                     else
                         return 

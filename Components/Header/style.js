@@ -34,13 +34,13 @@ export const styles = StyleSheet.create({
     headerText:{
         textTransform: "uppercase",
         fontSize: 18,
-        width: 180,
+        width: 190,
         textAlign: "center",
         fontWeight: "bold",
     },
     subHeaderText: {
         fontSize: 14,
-        width: 180,
+        width: 190,
         textAlign: "center",
         fontWeight: "500",
     }

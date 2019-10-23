@@ -101,9 +101,10 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles, audioFilesCloud, references } = this.props;
+    let { audioFiles, selectedTrack, audioFilesCloud, references } = this.props;
     let { currentAction } = this.state;
     //console.log(audioFiles[pos]);
+    if(pos !== selectedTrack){
       removeTrack().then(res=>{
         //console.log(res)
         NetInfo.fetch().then(state=>{
@@ -173,13 +174,26 @@ class Tracks extends React.Component {
                       })
                     });
                   }else{
-                    let showToast = true;
-                    this.props.store({showToast, toastText: "You need to re-download this track."});
-                    setTimeout(()=>{
-                      this.props.store({showToast: !showToast, toastText: null });
-                    }, 1500);
-                    audioFiles[pos] = audioFilesCloud[pos];
-                    this.props.store({audioFiles});
+                    //check for connectivity again
+                    NetInfo.fetch().then(state=>{
+                      let conType = state.type;
+                      let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+                      if(haveNet){
+                        let showToast = true;
+                        this.props.store({showToast, toastText: "You need to re-download this track."});
+                        setTimeout(()=>{
+                          this.props.store({showToast: !showToast, toastText: null });
+                        }, 1500);
+                        audioFiles[pos] = audioFilesCloud[pos];
+                        this.props.store({audioFiles});
+                      }else{
+                        let showToast = true;
+                        this.props.store({showToast, toastText: "You need to re-download this track."});
+                        setTimeout(()=>{
+                          this.props.store({showToast: !showToast, toastText: null });
+                        }, 1500);
+                      }
+                    });
                   }
                 });
               }else{
@@ -233,7 +247,7 @@ class Tracks extends React.Component {
                 }
             }else{
               let showToast = true;
-              this.props.store({showToast, toastText: "You need to be online to see and play tracks." });
+              this.props.store({showToast, toastText: "You cannot stream without an active internet connection." });
               setTimeout(()=>{
               this.props.store({showToast: !showToast, toastText: null });
               }, 1000);
@@ -244,50 +258,73 @@ class Tracks extends React.Component {
         });
         
       });
+    }else{
+      let showOverview = !this.props.showOverview;
+      this.props.store({showOverview});
+    }
   }
 
   downloadTrack = (pos) => {
-    let { audioFiles } = this.props;
-    let { currentAction } = this.state;
-    let { url, id } = audioFiles[pos];
-    let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
-    let DownloadFileOptions = {
-      fromUrl: url,
-      toFile: path,
-      //headers: Headers,
-      background: true,
-      cacheable: true,
-      progressDivider: 1,
-      discretionary: true,
-      begin: res=>{ 
-        let { statusCode } = res;
-        if(statusCode !== 200){
-          currentAction[pos].action = "stop";
-          currentAction[pos].error = true;
-          this.setState({currentAction});
-        }else{
-          currentAction[pos].action = "downloading";
-          this.setState({currentAction});
+    NetInfo.fetch().then(state=>{
+      let conType = state.type;
+      let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+      if(haveNet){
+        let { audioFiles } = this.props;
+        let { currentAction } = this.state;
+        let { url, id } = audioFiles[pos];
+        let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
+        let DownloadFileOptions = {
+          fromUrl: url,
+          toFile: path,
+          //headers: Headers,
+          background: true,
+          cacheable: true,
+          progressDivider: 1,
+          discretionary: true,
+          begin: res=>{ 
+            let { statusCode } = res;
+            if(statusCode !== 200){
+              currentAction[pos].action = "stop";
+              currentAction[pos].error = true;
+              this.setState({currentAction});
+            }else{
+              currentAction[pos].action = "downloading";
+              this.setState({currentAction});
+            }
+          },
+          progress: prog=>{
+            let { bytesWritten, contentLength } = prog;
+            let percentage = (bytesWritten/contentLength)*100;
+            currentAction[pos].percentage = percentage
+            this.setState({currentAction});
+          }
+        };
+        if(currentAction.length > 0){
+          RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
+            let newPath = Platform.OS === 'ios'?"file:////" + path:path;
+            currentAction[pos].action = "downloaded";
+            audioFiles[pos].url = newPath;
+            audioFiles[pos].type = "local";
+            //console.log(audioFiles);
+            this._storeData(audioFiles);
+            this.setState({currentAction});
+          }).catch(err=>{
+            console.log(err);
+            let showToast = true;
+            this.props.store({showToast, toastText: "Something went wrong, please restart app and try again." });
+            setTimeout(()=>{
+              this.props.store({showToast: !showToast, toastText: null });
+            }, 1500);
+          });
         }
-      },
-      progress: prog=>{
-        let { bytesWritten, contentLength } = prog;
-        let percentage = (bytesWritten/contentLength)*100;
-        currentAction[pos].percentage = percentage
-        this.setState({currentAction});
+      }else{
+        let showToast = true;
+        this.props.store({showToast, toastText: "You cannot download a track without an active internet connection." });
+        setTimeout(()=>{
+        this.props.store({showToast: !showToast, toastText: null });
+        }, 1000);
       }
-    };
-    if(currentAction.length > 0){
-      RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
-        let newPath = Platform.OS === 'ios'?"file:////" + path:path;
-        currentAction[pos].action = "downloaded";
-        audioFiles[pos].url = newPath;
-        audioFiles[pos].type = "local";
-        //console.log(audioFiles);
-        this._storeData(audioFiles);
-        this.setState({currentAction});
-      });
-    }
+    });
   }
 
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
@@ -384,10 +421,11 @@ class Tracks extends React.Component {
                         </View>
                         { type === "local" || type === "cloud" && (action === "streaming" || action === "stop" || action === "downloaded")?
                         <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
-                          <Icon
+                          { playIcon !== "pause"?<Icon
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                             size={ 30 }
-                          />
+                          />:
+                          <Text style={ styles.nowPlayingText }>...</Text> }
                         </TouchableOpacity>: null}
 
                         { type === "cloud" && action !== "downloading"?

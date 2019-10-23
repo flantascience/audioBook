@@ -88,9 +88,8 @@ class Audio extends React.Component{
                     
                 }); 
             }else if( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) === parseInt(pos)){
-                let tpos = parseFloat(currentPosition);
-                let tdur = parseFloat(trackDuration);
-                //console.log("just pause")
+                let tpos = Math.floor(parseFloat(currentPosition));
+                let tdur = Math.floor(parseFloat(trackDuration));
                if( tpos === tdur){
                     removeTrack().then(()=>{
                         let stringPos = pos.toString();
@@ -158,7 +157,6 @@ class Audio extends React.Component{
     toggleOverview = ()=>{
         const { showOverview, screen } = this.props;
         let newShowOverview = !showOverview;
-        this.toggleReferencesView();
         this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
         if(screen !== "Tracks")
             this.goToTracks();

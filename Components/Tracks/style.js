@@ -143,5 +143,8 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         backgroundColor: "#EBEAEA",
         fontStyle: "italic"
+    },
+    nowPlayingText: {
+        fontSize: 12
     }
 });

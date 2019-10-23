@@ -1,15 +1,15 @@
 import React from 'react';
-import { View, Text, Platform } from 'react-native'
+//import { View, Text, Platform } from 'react-native'
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
-import { formatTime } from '../../Misc/helpers';
+//import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
 import { styles } from './styles';
 import { storeMedia } from '../../Actions/mediaFiles';
 
 class ProgressBar extends TrackPlayer.ProgressComponent {
 
-    componentDidUpdate(nextProps){
+    componentDidUpdate(){
         let { position } = this.state;
         let currentPosition = Math.floor(parseFloat(position));
         this.props.store({currentPosition, currentTime: currentPosition});
@@ -18,8 +18,7 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
     render() {
         let { position } = this.state;
         let currentPosition = Math.floor(parseFloat(position));
-        let { trackDuration, audioFiles, selectedTrack, buttonsActive } = this.props;
-        const remainingTime = parseFloat(trackDuration) - currentPosition;
+        let { trackDuration, buttonsActive } = this.props;
         return (
             <Slider
                 style={styles.slider}

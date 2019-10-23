@@ -8,6 +8,7 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import NetInfo from "@react-native-community/netinfo";
 import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
@@ -43,22 +44,37 @@ class Home extends React.Component {
   fetchAndStoreMedia = () => {
     let { audioFiles } = this.props;
     let cloudAudio = [];
-    tracksRef.once('value', data=>{
-      data.forEach(trackInf=>{
-        //console.log(trackInf);
-        let track = trackInf.val();
-        cloudAudio.push(track);
-      });
-      this._getStoredData("audioFiles").then(res=>{
-        if(res){
-          let storedAudioFiles = JSON.parse(res);
-          let newAudioFiles = audioFiles.concat(cloudAudio);
-          this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
-        }else{
-          let newAudioFiles = audioFiles.concat(cloudAudio);
-          this.props.storeMedia({audioFiles: newAudioFiles});
-        }
-      });
+    NetInfo.fetch().then(state=>{
+      let conType = state.type;
+      let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+      if(haveNet){
+        tracksRef.once('value', data=>{
+          data.forEach(trackInf=>{
+            //console.log(trackInf);
+            let track = trackInf.val();
+            cloudAudio.push(track);
+          });
+          this._getStoredData("audioFiles").then(res=>{
+            if(res){
+              let storedAudioFiles = JSON.parse(res);
+              let newAudioFiles = audioFiles.concat(cloudAudio);
+              this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
+            }else{
+              let newAudioFiles = audioFiles.concat(cloudAudio);
+              this.props.storeMedia({audioFiles: newAudioFiles});
+            }
+          });
+        }).catch(err=>{
+          console.log(err);
+        })
+      }else{
+        this._getStoredData("audioFiles").then(res=>{
+          if(res){
+            let storedAudioFiles = JSON.parse(res);
+            this.props.storeMedia({audioFiles: storedAudioFiles});
+          }
+        });
+      }
     });
   }
 
