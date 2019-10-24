@@ -61,7 +61,7 @@ class Tracks extends React.Component {
   componentDidMount(){
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
-      console.log(palyerState)
+      //console.log(palyerState)
       if(Platform.OS === "android"){
         if(palyerState === 0 || palyerState === 1 || palyerState === 2)
           this.props.store({ paused: true });
