@@ -1,4 +1,3 @@
-import firebase from "react-native-firebase";
 import TrackPlayer from "react-native-track-player";
 
 export const formatTime = (inSeconds) => {
