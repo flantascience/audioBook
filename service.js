@@ -20,6 +20,9 @@ module.exports = async data=> {
           console.log(err)
         })
       });
+      this.onRemoteStop = TrackPlayer.addEventListener('remote-stop', async data=> {
+        TrackPlayer.stop();
+      });
       this.onRemoteFastForward = TrackPlayer.addEventListener('remote-jump-forward', async data=> {
         TrackPlayer.getPosition().then(res=>{
           let currPos = Math.floor(parseFloat(res));
