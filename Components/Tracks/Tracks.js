@@ -61,9 +61,9 @@ class Tracks extends React.Component {
   componentDidMount(){
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
-      //console.log(palyerState)
+      console.log(palyerState)
       if(Platform.OS === "android"){
-        if(palyerState === 1 || palyerState === 2)
+        if(palyerState === 0 || palyerState === 1 || palyerState === 2)
           this.props.store({ paused: true });
         else if(palyerState !== 1)
           this.props.store({ paused: false});
@@ -455,7 +455,6 @@ class Tracks extends React.Component {
                     </View>
                   )
                 }) }
-                { showMessage?<Text style={ styles.permanentMessage }>{ message }</Text>: null }
                 </ScrollView>
               </View>:null}
           <SimpleAnimation 
