@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, Linking } from 'react-native';
 import PropTypes from 'prop-types';
 
 const Refs = props => {
@@ -19,11 +19,11 @@ const Refs = props => {
             <View style = { styles.refsBody }>
             { referencesInfo.length > 0 && showRefs?
                 Object.keys(referencesInfo).map(ref=>{
-                    let text = referencesInfo[ref].text;
-                    let url = referencesInfo[ref].url || "";
-                    let urlLength = url.length;
-                    let number = referencesInfo[ref].number;
-                    if(referencesInfo[ref])
+                    if(referencesInfo[ref]){
+                        let text = referencesInfo[ref].text;
+                        let url = referencesInfo[ref].url || "";
+                        let urlLength = url.length;
+                        let number = referencesInfo[ref].number;
                         return(
                         <View style={ styles.refRowContainer } key={ref}>
                             <Text styles={ styles.refText }>
@@ -31,7 +31,7 @@ const Refs = props => {
                                 { urlLength>1?<Text onPress={ ()=>goTo(url) } style={ styles.link }>( Link )</Text>:null }
                             </Text>
                         </View>)
-                    else
+                    }else
                         return 
                 }):
                 null

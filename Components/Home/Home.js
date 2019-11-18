@@ -18,6 +18,7 @@ import firebase from 'react-native-firebase';
 import { styles } from './style';
 
 const tracksRef = firebase.database().ref("/tracks");
+const versionsRef = firebase.database().ref("versions");
 const referencesRef = firebase.database().ref("/references");
 
 class Home extends React.Component {
@@ -41,32 +42,61 @@ class Home extends React.Component {
     this.fetchAndStoreRefs();
   }
 
+  fetchTracksVersion = () => {
+    return new Promise(resolve=>{
+      let newVersion = false;
+      let oldVersion;
+      AsyncStorage.getItem("tracks-version").then(val=>{
+        oldVersion = val;
+      });
+      //version control to keep track of the track updates
+      versionsRef.once('value', data=>{
+        data.forEach(spec=>{
+          let key = spec.key;
+          let value = spec.val();
+          if(key === "tracks" && parseInt(oldVersion) !== parseInt(value)){
+            newVersion = true;
+            AsyncStorage.setItem("tracks-version", value);
+            //resolve(newVersion);
+          }
+          resolve(newVersion);
+        });
+      }).catch(error=>{
+        console.log(error)
+      });
+    });
+  }
+
   fetchAndStoreMedia = () => {
     let { audioFiles } = this.props;
     let cloudAudio = [];
+    
     NetInfo.fetch().then(state=>{
       let conType = state.type;
-      let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+      let haveNet = conType === "wifi" || conType === "cellular"? true : false;
       if(haveNet){
-        tracksRef.once('value', data=>{
-          data.forEach(trackInf=>{
-            //console.log(trackInf);
-            let track = trackInf.val();
-            cloudAudio.push(track);
+        this.fetchTracksVersion().then(newVersion=>{
+          tracksRef.once('value', data=>{
+            data.forEach(trackInf=>{
+              //console.log(trackInf);
+              let track = trackInf.val();
+              cloudAudio.push(track);
+            });
+            this._getStoredData("audioFiles").then(res=>{
+              if(!res || newVersion){
+                let newAudioFiles = audioFiles.concat(cloudAudio);
+                this.props.storeMedia({audioFiles: newAudioFiles});
+              }else{
+                let storedAudioFiles = JSON.parse(res);
+                //console.log(storedAudioFiles);
+                let newAudioFiles = audioFiles.concat(cloudAudio);
+                this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
+              }
+            });
+          }).catch(err=>{
+            console.log(err);
           });
-          this._getStoredData("audioFiles").then(res=>{
-            if(res){
-              let storedAudioFiles = JSON.parse(res);
-              let newAudioFiles = audioFiles.concat(cloudAudio);
-              this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
-            }else{
-              let newAudioFiles = audioFiles.concat(cloudAudio);
-              this.props.storeMedia({audioFiles: newAudioFiles});
-            }
-          });
-        }).catch(err=>{
-          console.log(err);
-        })
+        });
       }else{
         this._getStoredData("audioFiles").then(res=>{
           if(res){
@@ -80,7 +110,7 @@ class Home extends React.Component {
 
   fetchAndStoreRefs = () => {
     let cloudRefs = [];
-    this._getStoredData("audioFiles");
+    //this._getStoredData("audioFiles");
     referencesRef.once('value', data=>{
       data.forEach(refInfo=>{
         let key = refInfo.key;
