@@ -1,5 +1,6 @@
 dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/FIRDataSnapshot.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/module.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDataSnapshot_Private.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \

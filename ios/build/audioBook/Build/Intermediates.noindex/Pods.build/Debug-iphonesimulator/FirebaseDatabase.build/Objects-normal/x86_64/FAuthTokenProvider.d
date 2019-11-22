@@ -1,19 +1,25 @@
 dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Login/FAuthTokenProvider.m \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/module.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Login/FAuthTokenProvider.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseAuthInterop/FIRAuthInterop.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRAppInternal.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRErrors.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRErrorCode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponentContainer.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponentType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLibrary.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponent.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/FirebaseAuthInterop/FIRAuthInterop.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/module.modulemap \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAppInternal.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIROptions.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FirebaseCore.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRLoggerLevel.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRConfiguration.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRApp.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/FirebaseCore/FirebaseCore-umbrella.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRErrors.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRErrorCode.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentContainer.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentType.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRLibrary.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponent.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRLogger.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \

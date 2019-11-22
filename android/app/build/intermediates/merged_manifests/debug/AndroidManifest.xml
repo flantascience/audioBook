@@ -89,6 +89,12 @@
             </intent-filter>
         </receiver>
 
+        <provider
+            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+            android:authorities="com.audiobook.crashlyticsinitprovider"
+            android:exported="false"
+            android:initOrder="90" />
+
         <service
             android:name="com.tanguyantoine.react.MusicControlNotification$NotificationService"
             android:stopWithTask="true" />

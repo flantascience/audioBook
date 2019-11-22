@@ -45,24 +45,25 @@ class Home extends React.Component {
   fetchTracksVersion = () => {
     return new Promise(resolve=>{
       let newVersion = false;
-      let oldVersion;
-      AsyncStorage.getItem("tracks-version").then(val=>{
-        oldVersion = val;
-      });
-      //version control to keep track of the track updates
-      versionsRef.once('value', data=>{
-        data.forEach(spec=>{
-          let key = spec.key;
-          let value = spec.val();
-          if(key === "tracks" && parseInt(oldVersion) !== parseInt(value)){
-            newVersion = true;
-            AsyncStorage.setItem("tracks-version", value);
-            //resolve(newVersion);
-          }
-          resolve(newVersion);
+      this._getStoredData("versions").then(val=>{
+        let oldVersion = val;
+        console.log(oldVersion);
+        //version control to keep track of the track updates
+        versionsRef.once('value', data=>{
+          data.forEach(spec=>{
+            let key = spec.key;
+            let value = spec.val();
+            //check if data versions match
+            if(key === "tracks" && oldVersion !== value){
+              newVersion = true;
+              AsyncStorage.setItem("versions", value);
+              //resolve(newVersion);
+            }
+            resolve(newVersion);
+          });
+        }).catch(error=>{
+          console.log(error)
         });
-      }).catch(error=>{
-        console.log(error)
       });
     });
   }
@@ -86,6 +87,7 @@ class Home extends React.Component {
               if(!res || newVersion){
                 let newAudioFiles = audioFiles.concat(cloudAudio);
                 this.props.storeMedia({audioFiles: newAudioFiles});
+                this._storeAudioFilesData(newAudioFiles);
               }else{
                 let storedAudioFiles = JSON.parse(res);
                 //console.log(storedAudioFiles);
@@ -129,6 +131,16 @@ class Home extends React.Component {
       });
     });
   }
+
+  _storeAudioFilesData = async (audioFiles) => {
+    try {
+      let stringAudioFiles = JSON.stringify(audioFiles);
+      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+      this.props.storeMedia({audioFiles});
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   render(){
     let {

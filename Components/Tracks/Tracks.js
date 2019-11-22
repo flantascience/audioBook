@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Text,
   Platform,
-  Dimensions
+  Dimensions,
+  ActivityIndicator
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import NetInfo from "@react-native-community/netinfo";
@@ -375,14 +376,13 @@ class Tracks extends React.Component {
       isChanging,
       showOverview,
       toastText,
-      showToast,
-      showMessage,
-      message
+      showToast
     } = this.props;
     let { referencesInfo } = this.state;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    let loading = audioFiles.length === 0;
     const playing = !isChanging?
       <Audio
         navigate = { navigation.navigate }
@@ -404,6 +404,7 @@ class Tracks extends React.Component {
                     <Toast text={ toastText } /></View>: 
                   null
                 }
+                { !loading?
                 <ScrollView>{ Object.keys(audioFiles).map(key=>{
                   let { title, type, formattedDuration } = audioFiles[key];
                   let { currentAction } = this.state;
@@ -455,8 +456,14 @@ class Tracks extends React.Component {
                     </View>
                   )
                 }) }
-                </ScrollView>
-              </View>:null}
+                </ScrollView>:
+                <ActivityIndicator 
+                  size="large" 
+                  color="#D4D4D4"
+                  style={{ marginTop: "10%" }}
+                />
+                }
+              </View>: null }
           <SimpleAnimation 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:
