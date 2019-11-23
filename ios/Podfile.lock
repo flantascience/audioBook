@@ -135,7 +135,12 @@ PODS:
     - React
   - react-native-slider (2.0.0):
     - React
-  - react-native-track-player (1.1.8):
+  - react-native-track-player (1.1.7):
+    - React
+  - react-native-video (5.0.2):
+    - React
+    - react-native-video/Video (= 5.0.2)
+  - react-native-video/Video (5.0.2):
     - React
   - React-RCTActionSheet (0.60.4):
     - React-Core (= 0.60.4)
@@ -202,6 +207,7 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - react-native-track-player (from `../node_modules/react-native-track-player`)
+  - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -268,6 +274,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/slider"
   react-native-track-player:
     :path: "../node_modules/react-native-track-player"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -331,7 +339,8 @@ SPEC CHECKSUMS:
   react-native-music-control: 700e53dc9b2ec7342f69705243609c1cd644fa44
   react-native-netinfo: df39948777747f41363d6d57ed5ee1366b5b94cb
   react-native-slider: 40bdbfc1af0393922ac331bc1d95a6c5d5174fb6
-  react-native-track-player: 6e4e91a246efe7121cdef5a43258659a062499db
+  react-native-track-player: add33099d922b1ed46f1d9e63c95a1a512c7c2db
+  react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
   React-RCTActionSheet: 9f71d7ae3e8fb10e08d162cbf14c621349dbfab3
   React-RCTAnimation: 981d8c95b0e30918a9832ccac32af83562a27fae
   React-RCTBlob: 21e73d1020a302a75fed30dbaee9f15287b80baa
@@ -349,6 +358,6 @@ SPEC CHECKSUMS:
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: c2c050f6ae6e222534760cc82f559b89214b67e2
 
-PODFILE CHECKSUM: 134612c90ce9c2b078b9ca3913cc858fed423349
+PODFILE CHECKSUM: c85462d93c006d72ce085bc8a486f83324e23eda
 
 COCOAPODS: 1.8.3

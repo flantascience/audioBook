@@ -354,15 +354,15 @@ class Tracks extends React.Component {
     });
 }
 
-  _storeData = async (audioFiles) => {
-    try {
-      let stringAudioFiles = JSON.stringify(audioFiles);
-      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-      this.props.store({audioFiles});
-    } catch (error) {
-      console.log(error);
-    }
-  };
+_storeData = async (audioFiles) => {
+  try {
+    let stringAudioFiles = JSON.stringify(audioFiles);
+    await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+    this.props.store({audioFiles});
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 
   render(){

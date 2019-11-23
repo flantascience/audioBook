@@ -172,6 +172,7 @@
     <orderEntry type="module" module-name="@react-native-community_netinfo" />
     <orderEntry type="module" module-name="@react-native-community_slider" />
     <orderEntry type="module" module-name="react-native-firebase" />
+    <orderEntry type="module" module-name="react-native-video" />
     <orderEntry type="module" module-name="@react-native-community_async-storage" />
     <orderEntry type="module" module-name="react-native-track-player" />
     <orderEntry type="module" module-name="react-native-fs" />

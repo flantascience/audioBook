@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
   View,
-  Image,
   Dimensions
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -13,15 +12,21 @@ import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
 import Audio from '../Audio/Audio';
+import Video from 'react-native-video';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { styles } from './style';
 
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
+const videoRef = firebase.database().ref("videos");
 const referencesRef = firebase.database().ref("/references");
 
 class Home extends React.Component {
+
+  state = {
+    introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639"
+  }
 
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -152,6 +157,7 @@ class Home extends React.Component {
       isChanging,
       showOverview
     } = this.props;
+    let { introVideo } = this.state;
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -170,10 +176,18 @@ class Home extends React.Component {
         { !showOverview?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            <Image
-              resizeMode="contain" 
-              style={ styles.centerImage } 
-              source={require('./images/sample-book-cover.jpg')} 
+            <Video
+              source={{uri: introVideo}}   // Can be a URL or a local file.
+              ref={(ref) => {
+                this.player = ref
+              }}
+              fullscreen = { false }
+              resizeMode = { "cover" }
+              playInBackground = { false }
+              playWhenInactive = { false }
+              paused = { true }
+              controls = { true }
+              style = { styles.IntroductionVideo }
             />
           </View>
         </View>: 

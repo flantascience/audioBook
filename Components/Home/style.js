@@ -1,7 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import {
     Colors
-  } from 'react-native/Libraries/NewAppScreen';
+} from 'react-native/Libraries/NewAppScreen';
+
+const os = Platform.OS;
 
 export const styles = StyleSheet.create({
     scrollView: {
@@ -24,6 +26,14 @@ export const styles = StyleSheet.create({
         flex: 6,
         overflow: "hidden",
         marginBottom: 40
+    },
+    IntroductionVideo: {
+        position: "absolute",
+        backgroundColor: "#000",
+        bottom:0,
+        left:0,
+        right:0,
+        top:0
     },
     altOverviewContainer: {
         flex: 2,
