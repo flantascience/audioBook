@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {
   View,
-  Dimensions
+  Dimensions,
+  Image
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
@@ -19,7 +20,6 @@ import { styles } from './style';
 
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
-const videoRef = firebase.database().ref("videos");
 const referencesRef = firebase.database().ref("/references");
 
 class Home extends React.Component {
@@ -27,7 +27,6 @@ class Home extends React.Component {
   state = {
     introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639"
   }
-
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
@@ -181,11 +180,12 @@ class Home extends React.Component {
               ref={(ref) => {
                 this.player = ref
               }}
+              poster = { Image.resolveAssetSource(require('./images/backgroundImage.jpg')).uri }
+              paused = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
               playInBackground = { false }
               playWhenInactive = { false }
-              paused = { true }
               controls = { true }
               style = { styles.IntroductionVideo }
             />
