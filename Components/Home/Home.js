@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import {
   View,
   Dimensions,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
@@ -25,7 +26,10 @@ const referencesRef = firebase.database().ref("/references");
 class Home extends React.Component {
 
   state = {
-    introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639"
+    introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639",
+    loaded: false,
+    showVid: false,
+    paused: true
   }
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
@@ -156,7 +160,7 @@ class Home extends React.Component {
       isChanging,
       showOverview
     } = this.props;
-    let { introVideo } = this.state;
+    let { introVideo, loaded, showVid, paused } = this.state;
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -175,19 +179,41 @@ class Home extends React.Component {
         { !showOverview?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
+            {!loaded?<Image
+              source={ require('./images/backgroundImage.jpg')}
+              style={ styles.thumb }
+            />:null}
+            {
+              loaded && !showVid?
+              <TouchableOpacity
+                onPress={ ()=>{
+                  this.setState({showVid:true, paused: false})
+                }}
+              >
+                <Image
+                  source={ require('./images/backgroundImage2.jpg')}
+                  style={ styles.thumb }
+                />
+              </TouchableOpacity>:
+              null
+            }
             <Video
               source={{uri: introVideo}}   // Can be a URL or a local file.
               ref={(ref) => {
                 this.player = ref
               }}
               poster = { Image.resolveAssetSource(require('./images/backgroundImage.jpg')).uri }
-              paused = { true }
+              posterResizeMode = { "contain" }
+              paused = { paused }
+              onLoad = { ()=> {
+                this.setState({loaded:true});
+              }}
               fullscreen = { false }
               resizeMode = { "cover" }
               playInBackground = { false }
               playWhenInactive = { false }
               controls = { true }
-              style = { styles.IntroductionVideo }
+              style = { !showVid?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
             />
           </View>
         </View>: 

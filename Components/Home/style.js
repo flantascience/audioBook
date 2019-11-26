@@ -27,13 +27,20 @@ export const styles = StyleSheet.create({
         overflow: "hidden",
         marginBottom: 40
     },
+    IntroductionVideoBeforeLoad: {
+        display: "none",
+    },
     IntroductionVideo: {
         position: "absolute",
         backgroundColor: "#000",
         bottom:0,
-        left:0,
+        left: 0,
         right:0,
         top:0
+    },
+    thumb: {
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width
     },
     altOverviewContainer: {
         flex: 2,
