@@ -4,7 +4,8 @@ import {
   View,
   Dimensions,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  AppState
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
@@ -17,6 +18,7 @@ import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
+import { withNavigationFocus } from 'react-navigation'
 import { styles } from './style';
 
 const tracksRef = firebase.database().ref("/tracks");
@@ -29,6 +31,7 @@ class Home extends React.Component {
     introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639",
     loaded: false,
     showVid: false,
+    secondaryHide: false,
     paused: true
   }
   static navigationOptions = ({navigation})=> ({
@@ -46,8 +49,16 @@ class Home extends React.Component {
   });
 
   componentDidMount(){
+    AppState.addEventListener("change", this._handleAppStateChange);
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
+  }
+
+  _handleAppStateChange = (nextState) => {
+    let player = this.player;
+    if(nextState === "background" || nextState === "inactive" && player){
+      this.setState({paused: true});
+    }
   }
 
   fetchTracksVersion = () => {
@@ -161,6 +172,8 @@ class Home extends React.Component {
       showOverview
     } = this.props;
     let { introVideo, loaded, showVid, paused } = this.state;
+    let isFocused = navigation.isFocused();
+    console.log(isFocused)
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -187,7 +200,7 @@ class Home extends React.Component {
               loaded && !showVid?
               <TouchableOpacity
                 onPress={ ()=>{
-                  this.setState({showVid:true, paused: false})
+                  this.setState({showVid:true, paused: false, secondaryHide:false})
                 }}
               >
                 <Image
@@ -203,14 +216,14 @@ class Home extends React.Component {
                 this.player = ref
               }}
               poster = { Image.resolveAssetSource(require('./images/backgroundImage.jpg')).uri }
-              posterResizeMode = { "contain" }
-              paused = { paused }
+              posterResizeMode = { "cover" }
+              paused = { !paused&&isFocused?false:true }
               onLoad = { ()=> {
                 this.setState({loaded:true});
               }}
+              disableFocus = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
-              playInBackground = { false }
               playWhenInactive = { false }
               controls = { true }
               style = { !showVid?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
@@ -267,4 +280,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(Home));

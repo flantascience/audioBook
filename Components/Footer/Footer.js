@@ -2,9 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import IconButton from "../IconButton/IconButton";
 import {
-    View,
-    Text,
-    Image
+    View
 } from 'react-native';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
@@ -12,7 +10,7 @@ import { styles } from './style';
 
 const Footer = (props)=>{
     const { navigate } = props.navigation;
-    let { screen, paused, currentlyPlayingName, showOverview } = props;
+    let { screen, currentlyPlayingName } = props;
     let currPlayingNameLen = currentlyPlayingName.length;
     let hike = currPlayingNameLen > 1?true:false;
     //console.log(props)
