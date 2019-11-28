@@ -173,7 +173,11 @@ class Home extends React.Component {
     } = this.props;
     let { introVideo, loaded, showVid, paused } = this.state;
     let isFocused = navigation.isFocused();
-    console.log(isFocused)
+
+    if(!isFocused && !paused){
+      this.setState({paused:true});
+    }
+
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -211,7 +215,7 @@ class Home extends React.Component {
               null
             }
             <Video
-              source={{uri: introVideo}}   // Can be a URL or a local file.
+              source={{uri: introVideo}}// Can be a URL or a local file.
               ref={(ref) => {
                 this.player = ref
               }}
@@ -226,7 +230,7 @@ class Home extends React.Component {
               resizeMode = { "cover" }
               playWhenInactive = { false }
               controls = { true }
-              style = { !showVid?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
+              style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
             />
           </View>
         </View>: 
