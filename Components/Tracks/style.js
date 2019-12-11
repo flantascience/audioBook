@@ -112,7 +112,7 @@ export const styles = StyleSheet.create({
         paddingBottom: 20
     },
     trackIcon: {
-        flex: 1,
+        flex: 2,
         alignContent: "flex-end",
         justifyContent: "flex-end",
         alignItems: "flex-end"
@@ -121,7 +121,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         minHeight: 50,
         flexDirection: "column",
-        flex: 5
+        flex: 6
     },
     trackTitle: {
         flex: 1,

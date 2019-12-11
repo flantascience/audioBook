@@ -20,6 +20,7 @@ import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './style';
+import dempIntro from "../../Misc/media/demoIntro.mp4";
 
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
@@ -28,7 +29,7 @@ const referencesRef = firebase.database().ref("/references");
 class Home extends React.Component {
 
   state = {
-    introVideo: "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/videoFiles%2FDemo%20Intro%20Video%20-%206min41sec%20-%20low%20bit%20rate.mp4?alt=media&token=0037ef42-2f30-44be-973c-f587d34de639",
+    introVideo: "../../Misc/media/demo-intro.mp4",
     loaded: false,
     showVid: false,
     secondaryHide: false,
@@ -215,7 +216,7 @@ class Home extends React.Component {
               null
             }
             <Video
-              source={{uri: introVideo}}// Can be a URL or a local file.
+              source={dempIntro}// Can be a URL or a local file.
               ref={(ref) => {
                 this.player = ref
               }}

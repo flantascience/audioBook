@@ -68,6 +68,25 @@ export const styles = StyleSheet.create({
         zIndex: 1,
         padding: 10
     },
+    refText: {
+        fontSize: 12
+    },
+    noRefsText: {
+        fontWeight: "bold",
+        fontStyle: "italic"
+    },
+    transparencyStatementContainer: {
+        padding: 4
+    },
+    transparencyStatementTitle: {
+        fontWeight: "bold",
+        fontSize: 10,
+        fontStyle: "italic"
+    },
+    transparencyStatementText: {
+        fontSize: 10,
+        fontStyle: "italic"
+    },
     spaceFiller: {
         height: 10
     },

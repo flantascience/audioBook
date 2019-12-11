@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Linking } from 'react-native';
+import { refsStrings } from '../../Misc/Strings';
 import PropTypes from 'prop-types';
 
 const Refs = props => {
@@ -17,7 +18,20 @@ const Refs = props => {
     return(
         <View style={ styles.refsContainer }>
             <View style = { styles.refsBody }>
-            { referencesInfo.length > 0 && showRefs?
+            {   showRefs && referencesInfo.length > 0?
+                <View style={ styles.transparencyStatementContainer } >
+                    <Text style={ styles.transparencyStatementTitle }>
+                        { refsStrings.transparencyStatementTitle }
+                    </Text>
+                    <Text style={ styles.transparencyStatementText }>
+                        { refsStrings.transparencyStatementText }
+                    </Text>
+                </View>:
+                null
+            }
+            { 
+                showRefs?
+                referencesInfo.length > 0?
                 Object.keys(referencesInfo).map(ref=>{
                     if(referencesInfo[ref]){
                         let text = referencesInfo[ref].text;
@@ -26,7 +40,7 @@ const Refs = props => {
                         let number = referencesInfo[ref].number;
                         return(
                         <View style={ styles.refRowContainer } key={ref}>
-                            <Text styles={ styles.refText }>
+                            <Text style={ styles.refText }>
                                 { " - " + number + ". " + text }
                                 { urlLength>1?<Text onPress={ ()=>goTo(url) } style={ styles.link }>( Link )</Text>:null }
                             </Text>
@@ -34,6 +48,11 @@ const Refs = props => {
                     }else
                         return 
                 }):
+                <View style={ styles.refRowContainer } >
+                    <Text style={ styles.noRefsText }>
+                        { refsStrings.noRefs }
+                    </Text>
+                </View>:
                 null
             }
             </View>

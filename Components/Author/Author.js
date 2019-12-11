@@ -204,6 +204,7 @@ class Author extends React.Component {
                   />
                   <View style = { styles.buttonContainer }>
                     <Button 
+                      buttonStyle={ styles.button }
                       color={ '#349DD3' } 
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 

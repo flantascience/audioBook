@@ -427,7 +427,7 @@ _storeData = async (audioFiles) => {
                         <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                           { playIcon !== "pause"?<Icon
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                            size={ 30 }
+                            size={ 40 }
                           />:
                           <Text style={ styles.nowPlayingText }>...</Text> }
                         </TouchableOpacity>
@@ -436,7 +436,7 @@ _storeData = async (audioFiles) => {
                         <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
                           <Icon 
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
-                            size={ 25 }
+                            size={ 35 }
                           />
                         </TouchableOpacity>:
                         type === "cloud" && action === "downloading"?

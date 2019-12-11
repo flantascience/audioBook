@@ -63,12 +63,12 @@ class Audio extends React.Component{
 
     toggleTrack = (pos)=>{
         //console.log(currentlyPlaying + " " + pos);
-        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration } = this.props;
+        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
         let title = audioFiles[pos].title;
         return new Promise((resolve)=>{
             if( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)){
                 //console.log("first option");
-                this.props.updateShowRefs(false);
+                updateShowRefs(false);
                 removeTrack().then(()=>{
                     let stringPos = pos.toString();
                     TrackPlayer.add([audioFiles[pos]]).then(()=>{

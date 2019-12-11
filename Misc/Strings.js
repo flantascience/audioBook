@@ -25,6 +25,12 @@ export const audioOverview = {
   otherQuestionFinal: "Are there any questions that are still unanswered?"
 }
 
+export const refsStrings = {
+  noRefs: "There are no references or links for this track",
+  transparencyStatementTitle: "Transparency statement",
+  transparencyStatementText: "I receive a 5% commission on anything purchased through links to Amazon"
+}
+
 export const initFilesState = [
     {
       name: "Introduction",

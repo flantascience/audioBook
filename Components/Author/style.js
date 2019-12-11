@@ -72,6 +72,7 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         textTransform: "capitalize"
     },
+    
     introContainer: {
         borderTopColor: "#C7C6C6",
         borderBottomColor: "#C7C6C6",
@@ -123,6 +124,9 @@ export const styles = StyleSheet.create({
         borderColor: "#C7C6C6",
         backgroundColor: "#C7C6C6",
         borderWidth: 1,
+    },
+    button: {
+        backgroundColor:'#000',
     },
     audioElement: {
         minHeight: 50,
