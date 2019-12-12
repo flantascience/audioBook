@@ -1,13 +1,6 @@
 dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIRDatabaseReference.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/module.modulemap \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/module.modulemap \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIROptions.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FirebaseCore.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRLoggerLevel.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRConfiguration.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRApp.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/FirebaseCore/FirebaseCore-umbrella.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseReference.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseQuery.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
@@ -16,8 +9,10 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRMutableData.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRTransactionResult.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRServerValue.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRLogger.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLogger.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLoggerLevel.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \

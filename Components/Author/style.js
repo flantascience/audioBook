@@ -1,7 +1,4 @@
 import { StyleSheet } from 'react-native';
-import {
-    Colors
-  } from 'react-native/Libraries/NewAppScreen';
 
 export const styles = StyleSheet.create({
     scrollView: {
@@ -126,7 +123,9 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
     },
     button: {
-        backgroundColor:'#000',
+        backgroundColor: "#000",
+        padding: 10,
+        borderRadius: 3
     },
     audioElement: {
         minHeight: 50,

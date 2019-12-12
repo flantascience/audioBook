@@ -9,7 +9,6 @@ import {
     Text,
     TextInput,
     Platform,
-    Button,
     ScrollView
 } from 'react-native'; 
 import { 
@@ -21,12 +20,13 @@ import Toast from '../../Components/Toast/Toast';
 import firebase from 'react-native-firebase';
 //import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
-import { storeMedia } from '../../Actions/mediaFiles';
+import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 //import VolumeUp from './images/volume_up.png';
 //import VolumeDown from './images/volume_down.png';
 import { audioOverview } from '../../Misc/Strings';
+import Questionnaire from './Questionnaire';
 import ProgressBar from './ProgressBar';
 //import poster from '../../Misc/media/part2-unschooling.jpg';
 import Refs from './Refs';
@@ -180,7 +180,7 @@ class Audio extends React.Component{
                         showToast: !showToast, 
                         toastText: null, 
                         showTextinput: false, 
-                        questionnaire: { confusing: null, question: null } 
+                        questionnaire: { confusing: null, question: null, comment:null } 
                     });
                 }, 1000);
             }).catch(err=>{
@@ -206,6 +206,12 @@ class Audio extends React.Component{
         this.props.updateShowRefs(newVal);
     }
 
+    toggleQuestionnaireView = () => {
+        let { showQuestionnaire } = this.props;
+        let newVal = !showQuestionnaire;
+        this.props.updateShowQuestionnaire(newVal);
+    }
+
     render(){
         let { lastTrackId } = this.state;
         let {
@@ -226,11 +232,13 @@ class Audio extends React.Component{
             toastText,
             questionnaire: {
                 confusing,
-                question
-            }
+                question,
+                comment
+            },
+            showQuestionnaire
         } = this.props;
         /** End reconfigure */
-        let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal } = audioOverview;
+        let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
         //issue with pause button
         let realConfusing = lastTrackId === currentlyPlaying?confusingFinal:confusing1;
         let realOtherQuestion = lastTrackId === currentlyPlaying?otherQuestionFinal:otherQuestion1;
@@ -246,7 +254,7 @@ class Audio extends React.Component{
         }else if(!paused && loaded){
             playIcon = "pause"
         }
-        let trackDuration = selectedTrack?audioFiles[selectedTrack].duration:"";
+        let trackDuration = selectedTrack? audioFiles[selectedTrack].duration: "";
         let remainingTime = ( trackDuration - currentPosition );
 
         const trackTimeSlider = <View style={ styles.trackTimeContainer }>
@@ -340,42 +348,24 @@ class Audio extends React.Component{
                             { showToast?
                                 <Toast text={ toastText } />:
                             null }
-                            <View style = { styles.textScrollView }>
-                                <TextInput
-                                    id="confusing"
-                                    multiline = { multiLine }
-                                    value={ confusing }
-                                    style={ styles.questionareText}
-                                    placeholder={ realConfusing }
-                                    onChangeText={ (text) =>{
-                                        let questionnaire = {...this.props.questionnaire};
-                                        questionnaire.confusing = text;
-                                        this.props.store({ questionnaire });
-                                    } }
-                                />
-                                <TextInput
-                                    id="question"
-                                    multiline = { multiLine }
-                                    value={ question }
-                                    style={ styles.questionareText}
-                                    placeholder={ realOtherQuestion }
-                                    onChangeText={
-                                        (text) =>{
-                                            let questionnaire = {...this.props.questionnaire};
-                                            questionnaire.question = text;
-                                            this.props.store({ questionnaire });
-                                        }
-                                    }
-                                />
-                                
-                                <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
-                                    <Button
-                                        color={ Platform.OS === "android"?'#349DD3':'#fff' } 
-                                        title={ "Submit" }
-                                        onPress={ this.sendQuestionnaire } 
-                                    />
-                                </View>
-                            </View>
+                            <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { this.toggleQuestionnaireView } >
+                                <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold" }}>Give Feedback on This Track</Text>
+                                <Icon style={{ flex:1, zIndex: 1 }} name="ios-arrow-dropdown" size={25} />
+                            </TouchableOpacity>
+                            { showQuestionnaire? <Questionnaire
+                                store = { this.props.store }
+                                styles = { styles }
+                                multiLine = { multiLine }
+                                confusing = { confusing }
+                                realConfusing = { realConfusing }
+                                realOtherQuestion = { realOtherQuestion }
+                                question = { question }
+                                titleText = { titleText }
+                                comment = { comment }
+                                anythingElse = { anythingElse }
+                                questionnaire = { this.props.questionnaire }
+                                sendQuestionnaire = { this.sendQuestionnaire }
+                            />: null }
                             <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { this.toggleReferencesView } >
                                 <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold" }}>References and Links</Text>
                                 <Icon style={{ flex:1, zIndex: 1 }} name="ios-arrow-dropdown" size={25} />
@@ -475,6 +465,7 @@ const mapStateToProps = state => {
       isChanging: state.media.isChanging,
       audioFiles: state.media.audioFiles,
       references: state.refs.references,
+      showQuestionnaire: state.media.showQuestionnaire,
       showRefs: state.refs.showRefs,
       screen: state.media.screen,
       buttonsActive: state.media.buttonsActive,
@@ -493,11 +484,14 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      store: (media) => {
+      store: media => {
         dispatch(storeMedia(media));
       },
-      updateShowRefs: (val) => {
+      updateShowRefs: val => {
         dispatch(changeRefsView(val));
+      },
+      updateShowQuestionnaire: val => {
+          dispatch(changeQuestionnaireVew(val));
       }
     }
 }

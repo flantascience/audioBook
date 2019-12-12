@@ -27,9 +27,9 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/Likely.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/Traits.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/detail/RangeCommon.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/glog/glog.framework/Headers/logging.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/glog/glog.framework/Headers/log_severity.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/glog/glog.framework/Headers/vlog_is_on.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/glog/glog/logging.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/glog/glog/log_severity.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/glog/glog/vlog_is_on.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/detail/RangeSse42.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/container/F14Map.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/functional/ApplyTuple.h \
@@ -64,8 +64,8 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/lang/ColdClass.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/dynamic-inl.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/Conv.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/double-conversion.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/utils.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/DoubleConversion/double-conversion/double-conversion.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/DoubleConversion/double-conversion/utils.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/Demangle.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/FBString.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/portability/Math.h \

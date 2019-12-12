@@ -6,7 +6,6 @@ import {
   Image,
   Text,
   TextInput,
-  Button,
   Dimensions
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -22,6 +21,7 @@ import { emailregex } from '../../Misc/Constants';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import Audio from '../Audio/Audio';
 //import MediaOverview from '../MediaOverview/MediaOverview';
+import Button from '../Button/Button';
 import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/subscriptions");
@@ -174,7 +174,7 @@ class Author extends React.Component {
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
-                      color={ '#fff' } 
+                      style={ styles.button } 
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
@@ -204,8 +204,7 @@ class Author extends React.Component {
                   />
                   <View style = { styles.buttonContainer }>
                     <Button 
-                      buttonStyle={ styles.button }
-                      color={ '#349DD3' } 
+                      style={ styles.button }
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />

@@ -1,4 +1,4 @@
-import { STORE_MEDIA, UPDATE_AUDIO_FILES } from '../Actions/types';
+import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from '../Actions/types';
 
 const initialState = {
   emails: undefined,
@@ -50,7 +50,8 @@ const initialState = {
   message: "",
   toastText: null,
   hideMenu: false,
-  questionnaire: { trackName: null, confusing: null, question: null  },
+  showQuestionnaire: false,
+  questionnaire: { trackName: null, confusing: null, question: null, comment: null },
 };
 
 const mediaReducer = (state = initialState, action) => {
@@ -64,6 +65,11 @@ const mediaReducer = (state = initialState, action) => {
       return {
         ...state,
         audioFiles: [...action.payload]
+      };
+    case TOGGLE_QUESTIONNAIRE:
+      return {
+        ...state,
+        showQuestionnaire: action.payload
       }
     default:
       return state;

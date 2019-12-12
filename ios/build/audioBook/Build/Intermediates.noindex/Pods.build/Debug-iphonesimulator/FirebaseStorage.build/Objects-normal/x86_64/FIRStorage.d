@@ -1,6 +1,5 @@
 dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/FIRStorage.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/module.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorage.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageConstants.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageComponent.h \
@@ -14,26 +13,18 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageMetadata.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Public/FIRStorageUploadTask.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageTokenAuthorizer.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/module.modulemap \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GTMSessionFetcher/Source/GTMSessionUploadFetcher.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GTMSessionFetcher/Source/GTMSessionFetcherService.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GTMSessionFetcher/Source/GTMSessionFetcherLogging.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GTMSessionFetcher/Source/GTMSessionFetcher.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/GTMSessionFetcher/GTMSessionFetcher-umbrella.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/GTMSessionFetcher/GTMSessionFetcherService.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/GTMSessionFetcher/GTMSessionFetcher.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorageUtils.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseStorage/Firebase/Storage/Private/FIRStorage_Private.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/FirebaseAuthInterop/FIRAuthInterop.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/module.modulemap \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAppInternal.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIROptions.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FirebaseCore.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRLoggerLevel.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRConfiguration.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Public/FIRApp.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/FirebaseCore/FirebaseCore-umbrella.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRErrors.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRErrorCode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentContainer.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRLibrary.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRComponent.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseAuthInterop/FIRAuthInterop.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRAppInternal.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRApp.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRErrors.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRErrorCode.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponentContainer.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponentType.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRLibrary.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIRComponent.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseCore/FIROptions.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/GTMSessionFetcher/GTMSessionFetcherLogging.h

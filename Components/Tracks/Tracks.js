@@ -18,14 +18,15 @@ import Audio from '../Audio/Audio';
 import ProgressCircle from 'react-native-progress-circle';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
+import { tracks } from '../../Misc/Strings';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 import { SimpleAnimation } from 'react-native-simple-animations';
-import { storeMedia, updateAudio } from '../../Actions/mediaFiles';
+import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
+import { changeRefsView } from '../../Actions/references';
 
 class Tracks extends React.Component {
-
   constructor(props){
     super(props);
     let { audioFiles } = props;
@@ -81,7 +82,7 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play tracks." });
+        this.props.store({showMessage, message: tracks.noInternetConnection });
       }else{
         this.props.store({showMessage: false, message: null });
       }
@@ -94,17 +95,25 @@ class Tracks extends React.Component {
       //console.log(conType)
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
-        this.props.store({showMessage, message: "You need to be online to see and play tracks." });
+        this.props.store({showMessage, message: tracks.noInternetConnection });
       }else{
         this.props.store({showMessage: false, message: null });
       }
     });
   }
 
+  foldAccordions = () => {
+    const { updateShowRefs, updateShowQuestionnaire } = this.props;
+    let val = false;
+    updateShowRefs(val);
+    updateShowQuestionnaire(val);
+  }
+
   toggleNowPlaying = (pos) => {
     let { audioFiles, selectedTrack, audioFilesCloud, references } = this.props;
     let { currentAction } = this.state;
     //console.log(audioFiles[pos]);
+    this.foldAccordions();
     if(pos !== selectedTrack){
         //console.log(res)
         NetInfo.fetch().then(state=>{
@@ -181,7 +190,7 @@ class Tracks extends React.Component {
                         let haveNet = conType === "wifi" || conType === "cellular"?true:false;
                         if(haveNet){
                           let showToast = true;
-                          this.props.store({showToast, toastText: "You need to re-download this track."});
+                          this.props.store({showToast, toastText: tracks.redownloadTrack });
                           setTimeout(()=>{
                             this.props.store({showToast: !showToast, toastText: null });
                           }, 1500);
@@ -190,7 +199,7 @@ class Tracks extends React.Component {
                           this.forceUpdate();
                         }else{
                           let showToast = true;
-                          this.props.store({showToast, toastText: "You need to re-download this track."});
+                          this.props.store({showToast, toastText: tracks.redownloadTrack });
                           setTimeout(()=>{
                             this.props.store({showToast: !showToast, toastText: null });
                           }, 1500);
@@ -253,9 +262,9 @@ class Tracks extends React.Component {
               });
             }else{
               let showToast = true;
-              this.props.store({showToast, toastText: "You cannot stream without an active internet connection." });
+              this.props.store({showToast, toastText: tracks.noInternetConnection });
               setTimeout(()=>{
-              this.props.store({showToast: !showToast, toastText: null });
+                this.props.store({showToast: !showToast, toastText: null });
               }, 1000);
             }
         }).catch(err=>{
@@ -315,7 +324,7 @@ class Tracks extends React.Component {
           }).catch(err=>{
             console.log(err);
             let showToast = true;
-            this.props.store({showToast, toastText: "Something went wrong, please restart app and try again." });
+            this.props.store({showToast, toastText: tracks.restartApp });
             setTimeout(()=>{
               this.props.store({showToast: !showToast, toastText: null });
             }, 1500);
@@ -323,7 +332,7 @@ class Tracks extends React.Component {
         }
       }else{
         let showToast = true;
-        this.props.store({showToast, toastText: "You cannot download a track without an active internet connection." });
+        this.props.store({showToast, toastText: tracks.noInternetConnection });
         setTimeout(()=>{
         this.props.store({showToast: !showToast, toastText: null });
         }, 1000);
@@ -405,7 +414,8 @@ _storeData = async (audioFiles) => {
                   null
                 }
                 { !loading?
-                <ScrollView>{ Object.keys(audioFiles).map(key=>{
+                <ScrollView>{ 
+                  Object.keys(audioFiles).map(key=>{
                   let { title, type, formattedDuration } = audioFiles[key];
                   let { currentAction } = this.state;
                   /**Set default action */
@@ -517,6 +527,12 @@ const mapDispatchToProps = dispatch => {
     },
     updateAudioFiles: files => {
       dispatch(updateAudio(files));
+    },
+    updateShowRefs: val => {
+      dispatch(changeRefsView(val));
+    },
+    updateShowQuestionnaire: val => {
+        dispatch(changeQuestionnaireVew(val));
     }
   }
 }

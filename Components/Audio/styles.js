@@ -267,5 +267,18 @@ export const styles = StyleSheet.create({
     },
     refLink: {
         alignSelf: "flex-start"
+    },
+    questionnaireTitle: {
+        fontWeight: "bold",
+        fontSize: 17,
+        marginLeft: 30,
+        marginRight: 30,
+        padding: 5,
+        textAlign: "center"
+    },
+    questionnaireLabel: {
+        marginLeft: 30,
+        marginRight: 30,
+        padding: 5
     }
 });

@@ -1,9 +1,16 @@
-import { STORE_MEDIA, UPDATE_AUDIO_FILES } from './types';
+import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from './types';
 
 export const storeMedia = media => {
   return {
     type: STORE_MEDIA,
     payload: media
+  }
+}
+
+export const changeQuestionnaireVew  = payload => {
+  return {
+    type: TOGGLE_QUESTIONNAIRE,
+    payload
   }
 }
 

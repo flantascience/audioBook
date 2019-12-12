@@ -138,7 +138,6 @@ depends-member:
 - ["25react_native_track_player11AudioPlayerC5EventC", "Invoker"]
 - !private ["25react_native_track_player11AudioPlayerC5EventC", "actionQueue"]
 - ["25react_native_track_player11AudioPlayerC5EventC", "addListener"]
-- ["25react_native_track_player11AudioPlayerC5EventC", "deinit"]
 - ["25react_native_track_player11AudioPlayerC5EventC", "emit"]
 - !private ["25react_native_track_player11AudioPlayerC5EventC", "eventQueue"]
 - ["25react_native_track_player11AudioPlayerC5EventC", "init"]
