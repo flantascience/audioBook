@@ -117,15 +117,14 @@ export const styles = StyleSheet.create({
     altButtonContainer:{
         marginTop: 5,
         marginLeft: 30,
-        marginRight: 30,
-        borderColor: "#C7C6C6",
-        backgroundColor: "#C7C6C6",
-        borderWidth: 1,
+        marginRight: 30
     },
     button: {
-        backgroundColor: "#000",
+        marginTop: 10,
+        marginBottom: 5,
         padding: 10,
-        borderRadius: 3
+        backgroundColor: "#000",
+        borderRadius: 2
     },
     audioElement: {
         minHeight: 50,

@@ -14,13 +14,11 @@ const Questionnaire = props => {
         realOtherQuestion, 
         sendQuestionnaire,
         store,
-        titleText,
         anythingElse,
         comment
     } = props;
     return (
         <View style = { styles.textScrollView }>
-            <Text style={ styles.questionnaireTitle }>{ titleText }</Text>
             <Text style={ styles.questionnaireLabel }>{ realConfusing }</Text>
             <TextInput
                 id="confusing"

@@ -20,11 +20,13 @@ const Refs = props => {
             <View style = { styles.refsBody }>
             {   showRefs && referencesInfo.length > 0?
                 <View style={ styles.transparencyStatementContainer } >
-                    <Text style={ styles.transparencyStatementTitle }>
-                        { refsStrings.transparencyStatementTitle }
-                    </Text>
-                    <Text style={ styles.transparencyStatementText }>
-                        { refsStrings.transparencyStatementText }
+                    <Text>
+                        <Text style={ styles.transparencyStatementTitle }>
+                            { refsStrings.transparencyStatementTitle }
+                        </Text>
+                        <Text style={ styles.transparencyStatementText }>
+                            { refsStrings.transparencyStatementText }
+                        </Text>
                     </Text>
                 </View>:
                 null
@@ -48,7 +50,7 @@ const Refs = props => {
                     }else
                         return 
                 }):
-                <View style={ styles.refRowContainer } >
+                <View style={ styles.refRowContainer }>
                     <Text style={ styles.noRefsText }>
                         { refsStrings.noRefs }
                     </Text>

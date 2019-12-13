@@ -36,7 +36,7 @@ export const audioOverview = {
 
 export const refsStrings = {
   noRefs: "There are no references or links for this track",
-  transparencyStatementTitle: "Transparency statement",
+  transparencyStatementTitle: "Transparency statement: ",
   transparencyStatementText: "I receive a 5% commission on anything purchased through links to Amazon"
 }
 

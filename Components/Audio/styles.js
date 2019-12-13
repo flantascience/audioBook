@@ -72,11 +72,16 @@ export const styles = StyleSheet.create({
         fontSize: 12
     },
     noRefsText: {
+        flex: 1,
+        paddingLeft: 10,
+        paddingRight: 10,
         fontWeight: "bold",
-        fontStyle: "italic"
+        fontStyle: "italic",
+        textAlign: "center"
     },
     transparencyStatementContainer: {
-        padding: 4
+        padding: 4,
+        marginBottom: 10
     },
     transparencyStatementTitle: {
         fontWeight: "bold",
@@ -121,7 +126,10 @@ export const styles = StyleSheet.create({
     },
     textScrollView: {
         flex:1,
-        overflow: "hidden"
+        overflow: "hidden",
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginBottom: 10,
     },
     textContainer: {
         display: "flex",
@@ -174,10 +182,7 @@ export const styles = StyleSheet.create({
     altButtonContainer:{
         marginTop: 5,
         marginLeft: 30,
-        marginRight: 30,
-        borderColor: "#C7C6C6",
-        backgroundColor: "#C7C6C6",
-        borderWidth: 1,
+        marginRight: 30
     },
     questionareText: {
         marginTop: 5,
@@ -261,6 +266,8 @@ export const styles = StyleSheet.create({
         textDecorationStyle: "solid"
     },
     refRowContainer: {
+        alignContent: "center",
+        justifyContent: "center"
     },
     refText: {
         alignSelf: "flex-start"
@@ -279,6 +286,7 @@ export const styles = StyleSheet.create({
     questionnaireLabel: {
         marginLeft: 30,
         marginRight: 30,
+        marginTop: 20,
         padding: 5
     }
 });
