@@ -146,7 +146,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.audiobook"
+        applicationId "com.curricu_dumb_audio_book"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

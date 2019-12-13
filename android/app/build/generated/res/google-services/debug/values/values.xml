@@ -4,7 +4,7 @@
     <string name="firebase_database_url" translatable="false">https://audiobook-cac7d.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">317961772265</string>
     <string name="google_api_key" translatable="false">AIzaSyDPX8VoOfhVxIYPhqobIXYJgcFYYljsgjQ</string>
-    <string name="google_app_id" translatable="false">1:317961772265:android:c6e8703ca7041532</string>
+    <string name="google_app_id" translatable="false">1:317961772265:android:8d6c8e222f6cb8ec30e478</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDPX8VoOfhVxIYPhqobIXYJgcFYYljsgjQ</string>
     <string name="google_storage_bucket" translatable="false">audiobook-cac7d.appspot.com</string>
     <string name="project_id" translatable="false">audiobook-cac7d</string>

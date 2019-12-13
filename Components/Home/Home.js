@@ -20,7 +20,7 @@ import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './style';
-import dempIntro from "../../Misc/media/demoIntro.mp4";
+import demoIntro from "../../Misc/media/demoIntro.mp4";
 
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
@@ -172,7 +172,7 @@ class Home extends React.Component {
       isChanging,
       showOverview
     } = this.props;
-    let { introVideo, loaded, showVid, paused } = this.state;
+    let { loaded, showVid, paused } = this.state;
     let isFocused = navigation.isFocused();
 
     if(!isFocused && !paused){
@@ -216,7 +216,7 @@ class Home extends React.Component {
               null
             }
             <Video
-              source={dempIntro}// Can be a URL or a local file.
+              source={demoIntro}// Can be a URL or a local file.
               ref={(ref) => {
                 this.player = ref
               }}
@@ -226,6 +226,13 @@ class Home extends React.Component {
               onLoad = { ()=> {
                 this.setState({loaded:true});
               }}
+              onEnd = { ()=>{
+                this.setState({
+                  paused: true, 
+                  showVid: false
+                });
+              }}
+              repeat = { true }
               disableFocus = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
