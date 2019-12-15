@@ -10,8 +10,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-import com.curricu_dumb_audio_book.BuildConfig;
-import com.curricu_dumb_audio_book.R;
+import com.curricu_dumb_audiobook.BuildConfig;
+import com.curricu_dumb_audiobook.R;
 
 // @react-native-community/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;

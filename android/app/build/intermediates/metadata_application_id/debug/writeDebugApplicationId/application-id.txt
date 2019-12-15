@@ -1,1 +1,1 @@
-com.curricu_dumb_audio_book
+com.curricu_dumb_audiobook
