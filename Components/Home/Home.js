@@ -67,7 +67,6 @@ class Home extends React.Component {
       let newVersion = false;
       this._getStoredData("versions").then(val=>{
         let oldVersion = val;
-        console.log(oldVersion);
         //version control to keep track of the track updates
         versionsRef.once('value', data=>{
           data.forEach(spec=>{

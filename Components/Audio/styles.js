@@ -172,12 +172,19 @@ export const styles = StyleSheet.create({
     volumeSlider: {
         flex: 1
     },
+    button: {
+        marginTop: 10,
+        marginBottom: 5,
+        padding: 10,
+        backgroundColor: "#000",
+        borderRadius: 2
+    },
     buttonContainer:{
         marginTop: 5,
         marginLeft: 30,
         marginRight: 30,
-        paddingTop: 20,
-        paddingBottom: 20
+        paddingTop: 5,
+        paddingBottom: 5
     },
     altButtonContainer:{
         marginTop: 5,

@@ -202,7 +202,7 @@ class Author extends React.Component {
                     placeholder={ author.emailPlaceHolder }
                     onChangeText={ this.tempSave }
                   />
-                  <View style = { styles.buttonContainer }>
+                  <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
                       style={ styles.button }
                       title={ author.buttonText } 

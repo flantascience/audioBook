@@ -111,8 +111,8 @@ export const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 30,
         marginRight: 30,
-        paddingTop: 20,
-        paddingBottom: 20
+        paddingTop: 5,
+        paddingBottom: 5
     },
     altButtonContainer:{
         marginTop: 5,

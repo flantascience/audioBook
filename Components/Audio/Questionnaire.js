@@ -60,6 +60,7 @@ const Questionnaire = props => {
             
             <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                 <Button
+                    style={ styles.button }
                     title={ "Submit" }
                     onPress={ sendQuestionnaire } 
                 />
