@@ -78,7 +78,7 @@ class Author extends React.Component {
             let showToast = true;
             this.props.storeMediaInf({showToast, toastText: "You already subscribed!" });
             setTimeout(()=>{
-              this.props.storeMediaInf({showToast: !showToast, toastText: null });
+              this.props.storeMediaInf({showToast: !showToast, toastText: null});
             }, 800);
           }
         }); 
@@ -174,7 +174,6 @@ class Author extends React.Component {
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
-                      style={ styles.button } 
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
@@ -204,7 +203,6 @@ class Author extends React.Component {
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
-                      style={ styles.button }
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
