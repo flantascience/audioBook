@@ -42,6 +42,7 @@ buck-out
 # Android
 .idea
 .gradle
+/android/app/google-services.json
 local.properties
 *.iml
 /android/
