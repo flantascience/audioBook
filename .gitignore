@@ -45,7 +45,9 @@ buck-out
 local.properties
 *.iml
 /android/
-
+#env
+.env
+.env.development
 # Node
 node_modules
 *.log
