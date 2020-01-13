@@ -4,15 +4,25 @@ import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 //import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
+import firebase from 'react-native-firebase';
 import { styles } from './styles';
 import { storeMedia } from '../../Actions/mediaFiles';
+
+const Analytics = firebase.analytics();
 
 class ProgressBar extends TrackPlayer.ProgressComponent {
 
     componentDidUpdate(){
         let { position } = this.state;
+        let { trackDuration, currentlyPlaying, reached90, toggleReached90, closeMiniPlayer } = this.props;
         let currentPosition = Math.floor(parseFloat(position));
         this.props.store({currentPosition, currentTime: currentPosition});
+        const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
+        if (percentage >= 90 && !reached90) {
+            Analytics.logEvent('track_at90', {track: currentlyPlaying});
+            toggleReached90();
+        }
+        if (currentPosition === trackDuration) closeMiniPlayer();
     }
 
     render() {

@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>32E67182-8014-42C4-BF74-69B1E384FFD6</key>
+		<key>8412D5D1-4C4E-49F1-B951-ACF24DF03BD0</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>32E67182-8014-42C4-BF74-69B1E384FFD6.xcactivitylog</string>
+			<string>8412D5D1-4C4E-49F1-B951-ACF24DF03BD0.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,15 +32,15 @@
 			<key>signature</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>598342025.06904399</real>
+			<real>600603293.50439298</real>
 			<key>timeStoppedRecording</key>
-			<real>598342027.22884905</real>
+			<real>600603298.21838605</real>
 			<key>title</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>32E67182-8014-42C4-BF74-69B1E384FFD6</string>
+			<string>8412D5D1-4C4E-49F1-B951-ACF24DF03BD0</string>
 		</dict>
-		<key>C45B66B3-3A4C-4A1F-A763-325B3BBFC5ED</key>
+		<key>E430D823-94F8-4EB9-8188-829D6B580A93</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -49,7 +49,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>C45B66B3-3A4C-4A1F-A763-325B3BBFC5ED.xcactivitylog</string>
+			<string>E430D823-94F8-4EB9-8188-829D6B580A93.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -66,13 +66,13 @@
 			<key>signature</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>596107584.21008301</real>
+			<real>600615856.09927797</real>
 			<key>timeStoppedRecording</key>
-			<real>596107592.14485395</real>
+			<real>600615869.37641704</real>
 			<key>title</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>C45B66B3-3A4C-4A1F-A763-325B3BBFC5ED</string>
+			<string>E430D823-94F8-4EB9-8188-829D6B580A93</string>
 		</dict>
 	</dict>
 </dict>

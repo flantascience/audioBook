@@ -5,7 +5,8 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  AppState
+  AppState,
+  Text
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
@@ -25,6 +26,7 @@ import demoIntro from "../../Misc/media/demoIntro.mp4";
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
 const referencesRef = firebase.database().ref("/references");
+const Analytics = firebase.analytics();
 
 class Home extends React.Component {
 
@@ -33,6 +35,7 @@ class Home extends React.Component {
     loaded: false,
     showVid: false,
     secondaryHide: false,
+    introPlayed: false,
     paused: true
   }
   static navigationOptions = ({navigation})=> ({
@@ -171,7 +174,7 @@ class Home extends React.Component {
       isChanging,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused } = this.state;
+    let { loaded, showVid, paused, introPlayed } = this.state;
     let isFocused = navigation.isFocused();
 
     if(!isFocused && !paused){
@@ -181,6 +184,7 @@ class Home extends React.Component {
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    console.log(selectedTrack)
     const playing = !isChanging?
       <Audio
         navigate = { navigation.navigate }
@@ -222,16 +226,23 @@ class Home extends React.Component {
               poster = { Image.resolveAssetSource(require('./images/backgroundImage.jpg')).uri }
               posterResizeMode = { "cover" }
               paused = { !paused&&isFocused?false:true }
-              onLoad = { ()=> {
+              onLoad = { () => {
                 this.setState({loaded:true});
               }}
-              onEnd = { ()=>{
+              onEnd = {() => {
                 this.setState({
                   paused: true, 
                   showVid: false
                 });
               }}
-              repeat = { true }
+              onProgress = { () => {
+                if (!introPlayed) {
+                  this.setState({introPlayed:true});
+                  Analytics.setCurrentScreen('Home');
+                  Analytics.logEvent('select_content', {introPlayed: 'true'});
+                }
+              }}
+              repeat = { false }
               disableFocus = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
@@ -240,21 +251,17 @@ class Home extends React.Component {
               style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
             />
           </View>
-        </View>: 
-        null }
-        <SimpleAnimation 
+        </View>: null }
+        { selectedTrack ? <View 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:
               height > 700 && height < 800?styles.longAltOverviewContanier:
               height > 800?styles.longerAltOverviewContanier:
-              styles.altOverviewContainer } 
-            direction={'up'} 
-            delay={100} 
-            duration={500} 
-            movementType={ 'slide' }
+              styles.altOverviewContainer 
+            }
           >
-            { selectedTrack? playing: null }
-          </SimpleAnimation>
+            { playing }
+          </View>: null }
         <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>

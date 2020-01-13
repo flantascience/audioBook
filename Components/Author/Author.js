@@ -24,11 +24,14 @@ import Audio from '../Audio/Audio';
 import Button from '../Button/Button';
 import InputScrollView from 'react-native-input-scroll-view';
 
+const Analytics = firebase.analytics();
+
 const dbRef = firebase.database().ref("/subscriptions");
 
 class Author extends React.Component {
 
   componentDidMount(){
+    Analytics.setCurrentScreen('Author');
     this.fetchSubscribers();
   }
 
@@ -211,20 +214,17 @@ class Author extends React.Component {
               </ScrollView>
             }
         </View>: null}
-        <SimpleAnimation 
-            style={ showOverview?styles.overviewContainer:
-              height < 570?styles.altAltOverviewContainer:
-              height > 700 && height < 800?styles.longAltOverviewContanier:
-              height > 800?styles.longerAltOverviewContanier:
-              styles.altOverviewContainer 
-            } 
-            direction={'up'} 
-            delay={100} 
-            duration={500} 
-            movementType={ 'slide' }
-          >
-          { selectedTrack? playing: null }
-          </SimpleAnimation> 
+        { selectedTrack?
+        <View 
+          style={ showOverview?styles.overviewContainer:
+            height < 570?styles.altAltOverviewContainer:
+            height > 700 && height < 800?styles.longAltOverviewContanier:
+            height > 800?styles.longerAltOverviewContanier:
+            styles.altOverviewContainer 
+          } 
+        >
+        { playing }
+        </View>: null } 
         <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
           <Footer navigation={ navigation } />
         </View>

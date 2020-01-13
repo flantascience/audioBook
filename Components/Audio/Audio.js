@@ -32,10 +32,12 @@ import Refs from './Refs';
 //import InputScrollView from 'react-native-input-scroll-view';
 
 const dbRef = firebase.database().ref("/questionnaire");
+const Analytics = firebase.analytics();
 
 class Audio extends React.Component{
     state = {
-        lastTrackId: null
+        lastTrackId: null,
+        reached90: false
     }
 
     static navigationOptions = ({navigation})=> ({
@@ -58,6 +60,30 @@ class Audio extends React.Component{
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({lastTrackId});
+
+        TrackPlayer.addEventListener('remote-jump-backward', async ()=> {
+            TrackPlayer.getPosition().then(res=>{
+                let newPos = res + parseFloat(-15);
+                let newState = {
+                    currentPosition: newPos,
+                    currentTime: newPos
+                };
+                this.props.store(newState);
+                TrackPlayer.seekTo(newPos);
+            });
+          });
+
+          TrackPlayer.addEventListener('remote-jump-forward', async ()=> {
+            TrackPlayer.getPosition().then(res=>{
+                let newPos = res + parseFloat(15);
+                let newState = {
+                    currentPosition: newPos,
+                    currentTime: newPos
+                };
+                this.props.store(newState);
+                TrackPlayer.seekTo(newPos);
+            });
+          });
     }
 
     toggleTrack = (pos)=>{
@@ -127,6 +153,7 @@ class Audio extends React.Component{
                 resolve("same");
             }else{
                 //console.log("other")
+                Analytics.logEvent('select_content', {playTrack: pos});
                 TrackPlayer.play();
                 resolve("not");
             }
@@ -167,8 +194,9 @@ class Audio extends React.Component{
     }
 
     sendQuestionnaire = ()=>{
-        let { questionnaire, currentlyPlayingName } = this.props;
+        let { questionnaire, currentlyPlayingName, selectedTrack } = this.props;
         //console.log(currentlyPlayingName);
+        Analytics.logEvent('select_content', {submittedQuestionnaire: selectedTrack});
         questionnaire.trackName = currentlyPlayingName;
         if(questionnaire.confusing || questionnaire.question){
             dbRef.push(questionnaire).then(res=>{
@@ -211,8 +239,23 @@ class Audio extends React.Component{
         this.props.updateShowQuestionnaire(newVal);
     }
 
+    toggleReached90 = () => {
+        this.setState({reached90: !this.state.reached90});
+    }
+
+    closeMiniPlayer = () => {
+        TrackPlayer.stop();
+        this.props.store({
+            selectedTrack: null,
+            currentlyPlaying: null,
+            loaded: false,
+            showOverview: false,
+            currentPosition: 0
+        });
+    }
+
     render(){
-        let { lastTrackId } = this.state;
+        let { lastTrackId, reached90 } = this.state;
         let {
             audioFiles,
             referencesInfo = [],
@@ -257,7 +300,7 @@ class Audio extends React.Component{
         let remainingTime = ( trackDuration - currentPosition );
 
         const trackTimeSlider = <View style={ styles.trackTimeContainer }>
-                <ProgressBar />
+                <ProgressBar closeMiniPlayer={this.closeMiniPlayer} toggleReached90={this.toggleReached90} reached90={reached90} />
                 { Platform.OS ==="ios"?
                 <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
                     <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left" } }>{ formatTime(currentPosition) }</Text>

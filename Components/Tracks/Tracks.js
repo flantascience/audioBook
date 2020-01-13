@@ -13,9 +13,10 @@ import NetInfo from "@react-native-community/netinfo";
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Toast from '../../Components/Toast/Toast';
-import Icon from 'react-native-vector-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
 import Audio from '../Audio/Audio';
 import ProgressCircle from 'react-native-progress-circle';
+import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import { tracks } from '../../Misc/Strings';
@@ -25,6 +26,8 @@ import { styles } from './style';
 import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
+
+const Analytics = firebase.analytics();
 
 class Tracks extends React.Component {
   constructor(props){
@@ -61,6 +64,8 @@ class Tracks extends React.Component {
   });
 
   componentDidMount(){
+    let { audioFilesCloud } = this.props;
+    Analytics.setCurrentScreen('Tracks');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
       //console.log(palyerState)
@@ -77,6 +82,27 @@ class Tracks extends React.Component {
         }
       }
     });
+
+    TrackPlayer.addEventListener('remote-previous', async ()=> {
+      TrackPlayer.getCurrentTrack().then(res => {
+        const newTrackId = parseInt(res)-1;
+        const newTrack = audioFilesCloud[newTrackId];
+        if (newTrack) {
+          this.toggleNowPlaying(newTrackId)
+        }
+      })
+    });
+
+    TrackPlayer.addEventListener('remote-next', async ()=> {
+      TrackPlayer.getCurrentTrack().then(res => {
+        const newTrackId = parseInt(res)+1;
+        const newTrack = audioFilesCloud[newTrackId];
+        if (newTrack) {
+          this.toggleNowPlaying(newTrackId)
+        }
+      })
+    });
+
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       //console.log(conType)
@@ -129,6 +155,7 @@ class Tracks extends React.Component {
           true:
           false;
           if(playable){
+              if (mediaType === "cloud") Analytics.logEvent('select_content', {stream: pos});
               removeTrack().then(res=>{
               //this.props.store({hideMenu: true});
               if(res === "removed"){
@@ -277,6 +304,7 @@ class Tracks extends React.Component {
   }
 
   downloadTrack = (pos) => {
+    Analytics.logEvent('select_content', {download: pos});
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       let haveNet = conType === "wifi" || conType === "cellular"?true:false;
@@ -392,6 +420,7 @@ _storeData = async (audioFiles) => {
     let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     let loading = audioFiles.length === 0;
+    console.log(selectedTrack)
     const playing = !isChanging?
       <Audio
         navigate = { navigation.navigate }
@@ -474,20 +503,17 @@ _storeData = async (audioFiles) => {
                 />
                 }
               </View>: null }
-          <SimpleAnimation 
-            style={ showOverview?styles.overviewContainer:
-              height < 570?styles.altAltOverviewContainer:
-              height > 700 && height < 800?styles.longAltOverviewContanier:
-              height > 800?styles.longerAltOverviewContanier:
-              styles.altOverviewContainer 
-            } 
-            direction={'up'} 
-            delay={100} 
-            duration={500}  
-            movementType={ 'slide' }
-          >
-            { selectedTrack? playing: null }
-          </SimpleAnimation>
+            { selectedTrack?
+            <View 
+              style={ showOverview?styles.overviewContainer:
+                height < 570?styles.altAltOverviewContainer:
+                height > 700 && height < 800?styles.longAltOverviewContanier:
+                height > 800?styles.longerAltOverviewContanier:
+                styles.altOverviewContainer 
+              } 
+            >
+            { playing }
+            </View>: null }
           <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
             <Footer navigation={ navigation } />
           </View>

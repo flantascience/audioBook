@@ -12,12 +12,14 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 
 TrackPlayer.setupPlayer().then(()=>{
-  TrackPlayer.updateOptions({
+ TrackPlayer.updateOptions({
     capabilities: [
       TrackPlayer.CAPABILITY_PLAY,
       TrackPlayer.CAPABILITY_PAUSE,
       TrackPlayer.CAPABILITY_SEEK_TO,
       TrackPlayer.CAPABILITY_JUMP_FORWARD,
+      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
       TrackPlayer.CAPABILITY_JUMP_BACKWARD,
       TrackPlayer.CAPABILITY_STOP
     ],
@@ -25,9 +27,12 @@ TrackPlayer.setupPlayer().then(()=>{
       TrackPlayer.CAPABILITY_PLAY,
       TrackPlayer.CAPABILITY_PAUSE,
       TrackPlayer.CAPABILITY_JUMP_FORWARD,
+      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
       TrackPlayer.CAPABILITY_JUMP_BACKWARD,
+      TrackPlayer.CAPABILITY_SEEK_TO,
       TrackPlayer.CAPABILITY_STOP
-  ]
+    ]
   });
 });
 const store = configureStore();
