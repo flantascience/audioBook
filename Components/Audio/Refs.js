@@ -1,16 +1,21 @@
 import React from 'react';
 import { View, Text, Linking } from 'react-native';
+import firebase from 'react-native-firebase';
 import { refsStrings } from '../../Misc/Strings';
 import PropTypes from 'prop-types';
 
+const Analytics = firebase.analytics();
+
 const Refs = props => {
-    let { styles, referencesInfo, showRefs } = props;
+    let { styles, referencesInfo, showRefs, currentlyPlayingName } = props;
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
-            if(supported)
+            if(supported){
+                Analytics.logEvent('references_clicked', {tracks: currentlyPlayingName, urls: url});
                 Linking.openURL(url).catch(error=>{
                     console.log(error);
                 });
+            }
             else
                 console.log("unsupported");
         })
@@ -44,7 +49,7 @@ const Refs = props => {
                         <View style={ styles.refRowContainer } key={ref}>
                             <Text style={ styles.refText }>
                                 { " - " + number + ". " + text }
-                                { urlLength>1?<Text onPress={ ()=>goTo(url) } style={ styles.link }>( Link )</Text>:null }
+                                { urlLength > 1 ? <Text onPress={ () => goTo(url) } style={ styles.link }>( Link )</Text>:null }
                             </Text>
                         </View>)
                     }else

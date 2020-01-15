@@ -9,6 +9,7 @@ import {
   Dimensions
 } from 'react-native';
 import { connect } from 'react-redux';
+import NetInfo from "@react-native-community/netinfo";
 import firebase from 'react-native-firebase';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -18,7 +19,7 @@ import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { emailregex } from '../../Misc/Constants';
-import { SimpleAnimation } from 'react-native-simple-animations';
+// import { SimpleAnimation } from 'react-native-simple-animations';
 import Audio from '../Audio/Audio';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import Button from '../Button/Button';
@@ -51,7 +52,7 @@ class Author extends React.Component {
     return new Promise(resolve=>{
       let { emails } = this.props;
       //console.log(this.props)
-      if(emails.length > 0){
+      if(emails && emails.length > 0){
         let available = true;
         emails.map(email=>{
           if(userEmail.toLowerCase() === email.toLowerCase()){
@@ -60,6 +61,12 @@ class Author extends React.Component {
           }
         });
         resolve(available);
+      }else{
+        let showToast = true;
+        this.props.storeMediaInf({showToast, toastText: "Please try later." });
+        setTimeout(()=>{
+          this.props.storeMediaInf({showToast: !showToast, toastText: null });
+        }, 800);
       }
     });
   }
@@ -70,13 +77,26 @@ class Author extends React.Component {
       if(userEmail.match(emailregex)){
         this.checkAvailability(userEmail).then(available=>{
           if(available){
-            dbRef.push(userEmail);
-            let showToast = true;
-            this.props.storeMediaInf({showToast, toastText: "You successfully subscribed" });
-            setTimeout(()=>{
-              this.props.storeMediaInf({showToast: !showToast, toastText: null });
-            }, 800);
-            this.fetchSubscribers();
+            NetInfo.fetch().then(state=>{
+              let conType = state.type;
+              //console.log(conType)
+              if(conType !== "wifi" && conType !== "cellular"){
+                let showToast = true;
+                this.props.storeMediaInf({showToast, toastText: "No internet connection" });
+                setTimeout(()=>{
+                  this.props.storeMediaInf({showToast: !showToast, toastText: null });
+                }, 800);
+              }else{
+                dbRef.push(userEmail);
+                let showToast = true;
+                this.props.storeMediaInf({showToast, toastText: "You successfully subscribed" });
+                setTimeout(()=>{
+                  this.props.storeMediaInf({showToast: !showToast, toastText: null });
+                }, 800);
+                Analytics.logEvent('subscribed_users', {emailAddress: userEmail});
+                this.fetchSubscribers();
+              }
+            });
           }else{
             let showToast = true;
             this.props.storeMediaInf({showToast, toastText: "You already subscribed!" });

@@ -164,6 +164,30 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         //justifyContent: "center"
     },
+    closePlayerContainer: {
+        position: "absolute",
+        left: 1,
+        borderWidth: 0,
+        backgroundColor: "#fff",
+        top: showBorder?-30:-24,
+        borderColor: "#C7C6C6",
+        borderBottomColor: "#fff",
+        borderWidth: showBorder?1:0,
+        elevation: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.2,
+        shadowRadius: 0.2,
+        display: "flex",
+        alignItems: "center",
+        paddingTop: 2,
+        paddingBottom: 2,
+        paddingLeft: 15,
+        paddingRight: 15
+    },
+    closePlayer: {
+        fontSize: 20
+    },
     slider: {
         height: 20,
         justifyContent: "flex-start",

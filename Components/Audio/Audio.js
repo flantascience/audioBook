@@ -107,6 +107,7 @@ class Audio extends React.Component{
                             showTextinput: false
                         };
                         this.props.store(newState);
+                        Analytics.logEvent('tracks_played', {tracks: title});
                         TrackPlayer.play();
                         resolve('done');
                     })
@@ -153,7 +154,6 @@ class Audio extends React.Component{
                 resolve("same");
             }else{
                 //console.log("other")
-                Analytics.logEvent('select_content', {playTrack: pos});
                 TrackPlayer.play();
                 resolve("not");
             }
@@ -194,9 +194,9 @@ class Audio extends React.Component{
     }
 
     sendQuestionnaire = ()=>{
-        let { questionnaire, currentlyPlayingName, selectedTrack } = this.props;
+        let { questionnaire, currentlyPlayingName } = this.props;
         //console.log(currentlyPlayingName);
-        Analytics.logEvent('select_content', {submittedQuestionnaire: selectedTrack});
+        Analytics.logEvent('select_content', {submittedQuestionnaire: currentlyPlayingName});
         questionnaire.trackName = currentlyPlayingName;
         if(questionnaire.confusing || questionnaire.question){
             dbRef.push(questionnaire).then(res=>{
@@ -420,6 +420,9 @@ class Audio extends React.Component{
                     { !currentlyPlaying && isChanging?
                         null:
                         <View  style={ styles.container }>
+                            <TouchableOpacity style={ styles.closePlayerContainer } onPress={this.closeMiniPlayer}>
+                                <Text style={ styles.closePlayer }>X</Text>
+                            </TouchableOpacity>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
                                     <Text style={ styles.audioTitle }>

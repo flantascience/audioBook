@@ -184,7 +184,6 @@ class Home extends React.Component {
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
-    console.log(selectedTrack)
     const playing = !isChanging?
       <Audio
         navigate = { navigation.navigate }
@@ -239,7 +238,7 @@ class Home extends React.Component {
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
                   Analytics.setCurrentScreen('Home');
-                  Analytics.logEvent('select_content', {introPlayed: 'true'});
+                  Analytics.logEvent('select_content', {introductionVideo: 'Played'});
                 }
               }}
               repeat = { false }

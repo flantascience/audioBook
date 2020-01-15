@@ -155,7 +155,10 @@ class Tracks extends React.Component {
           true:
           false;
           if(playable){
-              if (mediaType === "cloud") Analytics.logEvent('select_content', {stream: pos});
+              console.log(audioFiles[pos].title)
+              //log streamed audio
+              if (mediaType === "cloud") Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
+
               removeTrack().then(res=>{
               //this.props.store({hideMenu: true});
               if(res === "removed"){
@@ -304,7 +307,6 @@ class Tracks extends React.Component {
   }
 
   downloadTrack = (pos) => {
-    Analytics.logEvent('select_content', {download: pos});
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       let haveNet = conType === "wifi" || conType === "cellular"?true:false;
@@ -321,13 +323,15 @@ class Tracks extends React.Component {
           cacheable: true,
           progressDivider: 1,
           discretionary: true,
-          begin: res=>{ 
+          begin: res => { 
             let { statusCode } = res;
             if(statusCode !== 200){
               currentAction[pos].action = "stop";
               currentAction[pos].error = true;
               this.setState({currentAction});
             }else{
+              console.log(audioFiles[pos].title)
+              Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
               currentAction[pos].action = "downloading";
               this.setState({currentAction});
             }
@@ -420,7 +424,6 @@ _storeData = async (audioFiles) => {
     let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
     let loading = audioFiles.length === 0;
-    console.log(selectedTrack)
     const playing = !isChanging?
       <Audio
         navigate = { navigation.navigate }

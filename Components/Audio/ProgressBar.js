@@ -14,15 +14,16 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
 
     componentDidUpdate(){
         let { position } = this.state;
-        let { trackDuration, currentlyPlaying, reached90, toggleReached90, closeMiniPlayer } = this.props;
+        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90/*, closeMiniPlayer*/ } = this.props;
         let currentPosition = Math.floor(parseFloat(position));
         this.props.store({currentPosition, currentTime: currentPosition});
         const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
         if (percentage >= 90 && !reached90) {
-            Analytics.logEvent('track_at90', {track: currentlyPlaying});
+            console.log(audioFiles[currentlyPlaying].title)
+            Analytics.logEvent('tracks_completed', {tracks: audioFiles[currentlyPlaying].title});
             toggleReached90();
         }
-        if (currentPosition === trackDuration) closeMiniPlayer();
+        // if (currentPosition === trackDuration) closeMiniPlayer();
     }
 
     render() {
