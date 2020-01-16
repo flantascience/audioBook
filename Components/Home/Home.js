@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import NetInfo from "@react-native-community/netinfo";
-import { SimpleAnimation } from 'react-native-simple-animations';
+// import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
 import Audio from '../Audio/Audio';
@@ -172,7 +172,8 @@ class Home extends React.Component {
       audioFiles,
       currentlyPlayingName,
       isChanging,
-      showOverview
+      showOverview, 
+      currentlyPlaying
     } = this.props;
     let { loaded, showVid, paused, introPlayed } = this.state;
     let isFocused = navigation.isFocused();
@@ -272,6 +273,7 @@ class Home extends React.Component {
 const mapStateToProps = state => {
   return{
     screen: state.media.screen,
+    currentlyPlaying: state.media.currentlyPlaying,
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     audioFiles: state.media.audioFiles,

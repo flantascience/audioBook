@@ -23,7 +23,8 @@ import { tracks } from '../../Misc/Strings';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
-import { SimpleAnimation } from 'react-native-simple-animations';
+import Video from 'react-native-video';
+// import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 
@@ -81,6 +82,21 @@ class Tracks extends React.Component {
           this.props.store({ paused: false });
         }
       }
+    });
+
+    TrackPlayer.addEventListener('remote-play', async ()=> {
+      TrackPlayer.play();
+      this.props.store({ paused: false });
+    });
+
+    TrackPlayer.addEventListener('remote-pause', async ()=> {
+      TrackPlayer.pause();
+      this.props.store({ paused: true });
+    });
+
+    TrackPlayer.addEventListener('remote-stop', async ()=> {
+      TrackPlayer.stop();
+      this.props.store({ paused: true, currentlyPlaying: null, currentlyPlayingName: null });
     });
 
     TrackPlayer.addEventListener('remote-previous', async ()=> {
@@ -228,6 +244,7 @@ class Tracks extends React.Component {
                           this.props.store({audioFiles});
                           this.forceUpdate();
                         }else{
+                          console.log("no internet")
                           let showToast = true;
                           this.props.store({showToast, toastText: tracks.redownloadTrack });
                           setTimeout(()=>{
@@ -363,6 +380,7 @@ class Tracks extends React.Component {
           });
         }
       }else{
+        console.log('no interent')
         let showToast = true;
         this.props.store({showToast, toastText: tracks.noInternetConnection });
         setTimeout(()=>{
