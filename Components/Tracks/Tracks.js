@@ -171,11 +171,8 @@ class Tracks extends React.Component {
           true:
           false;
           if(playable){
-              console.log(audioFiles[pos].title)
-              //log streamed audio
-              if (mediaType === "cloud") Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
-
-              removeTrack().then(res=>{
+              // console.log(audioFiles[pos].title)
+            removeTrack().then(res=>{
               //this.props.store({hideMenu: true});
               if(res === "removed"){
                 this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
@@ -298,6 +295,8 @@ class Tracks extends React.Component {
                           });
                           TrackPlayer.play();
                         }
+                        //log streamed audio
+                        Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
                         //alert that track is streaming
                         currentAction[pos].action = "streaming";
                       })
