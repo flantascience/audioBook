@@ -27,6 +27,7 @@ import Video from 'react-native-video';
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
+import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 
@@ -50,7 +51,7 @@ class Tracks extends React.Component {
     }
   }
 
-  static navigationOptions = ()=> ({
+  static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -59,13 +60,14 @@ class Tracks extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
         height: 80,
-    }
+    },
   });
 
   componentDidMount(){
     let { audioFilesCloud } = this.props;
+
     Analytics.setCurrentScreen('Tracks');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
@@ -440,6 +442,9 @@ _storeData = async (audioFiles) => {
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let height = Dimensions.get('window').height;
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+
+    let mode = eventEmitter.currentMode;
+
     let loading = audioFiles.length === 0;
     const playing = !isChanging?
       <Audio
@@ -534,7 +539,10 @@ _storeData = async (audioFiles) => {
             >
             { playing }
             </View>: null }
-          <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
+          <View style = { currentlyPlayingName && height < 570 ? 
+            mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
+            mode === 'light' ? styles.homeFooter : styles.homeFooterDark
+          }>
             <Footer navigation={ navigation } />
           </View>
       </View>

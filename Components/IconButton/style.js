@@ -7,9 +7,15 @@ export const styles = StyleSheet.create({
         textAlign: "center"
     },
     iconText: {
-        fontWeight: "100",
+        fontWeight: "500",
         fontSize: 14,
         textAlign: "center",
         color: "#747373"
+    },
+    iconTextActive: {
+        fontWeight: "500",
+        fontSize: 14,
+        textAlign: "center",
+        color: "#fff"
     }
 });

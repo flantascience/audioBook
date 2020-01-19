@@ -24,6 +24,7 @@ import Audio from '../Audio/Audio';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import Button from '../Button/Button';
 import InputScrollView from 'react-native-input-scroll-view';
+import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 
@@ -121,7 +122,7 @@ class Author extends React.Component {
     }
   }
 
-  static navigationOptions = () => ({
+  static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -130,7 +131,7 @@ class Author extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
         height: 80,
     },
   });
@@ -154,6 +155,9 @@ class Author extends React.Component {
       isChanging,
       showOverview
     } = this.props;
+
+    let mode = eventEmitter.currentMode;
+    
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
@@ -245,7 +249,11 @@ class Author extends React.Component {
         >
         { playing }
         </View>: null } 
-        <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
+        <View 
+          style = { currentlyPlayingName && height < 570 ? 
+            mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
+            mode === 'light' ? styles.homeFooter : styles.homeFooterDark
+          }>
           <Footer navigation={ navigation } />
         </View>
       </View>

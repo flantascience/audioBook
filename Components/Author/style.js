@@ -42,9 +42,17 @@ export const styles = StyleSheet.create({
         flex:1,
         backgroundColor: "#EBEAEA"
     },
+    homeFooterDark: {
+        flex:1,
+        backgroundColor: "#000"
+    },
     altHomeFooter: {
         height: 60,
         backgroundColor: "#EBEAEA"
+    },
+    altHomeFooterDark: {
+        height: 60,
+        backgroundColor: "#000"
     },
     centerImageContainer: {
         display: "flex",

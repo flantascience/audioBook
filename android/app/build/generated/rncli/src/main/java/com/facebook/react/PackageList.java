@@ -19,6 +19,8 @@ import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.reactnativecommunity.netinfo.NetInfoPackage;
 // @react-native-community/slider
 import com.reactnativecommunity.slider.ReactSliderPackage;
+// react-native-dark-mode
+import com.codemotionapps.reactnativedarkmode.DarkModePackage;
 // react-native-firebase
 import io.invertase.firebase.RNFirebasePackage;
 // react-native-fs
@@ -69,6 +71,7 @@ public class PackageList {
       new AsyncStoragePackage(),
       new NetInfoPackage(),
       new ReactSliderPackage(),
+      new DarkModePackage(),
       new RNFirebasePackage(),
       new RNFSPackage(),
       new RNGestureHandlerPackage(),

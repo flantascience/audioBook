@@ -1,17 +1,20 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 const showBorder = Platform.OS === "ios"?true:false;
+const height = Math.round(Dimensions.get('window').height);
+console.log(height)
 
 export const styles = StyleSheet.create({
     reflection: {
         transform: [{ scaleX: -1 }],
     },
     elContainer: {
-        flex:2
+        flex:2,
+        display: 'flex'
     },
     container:{
         display: "flex",
         flexDirection: "column",
-        minHeight: 125,
+        minHeight: height < 813? 125 : 155,
         paddingTop: 10,
         paddingLeft: 10,
         paddingRight: 10,
@@ -26,7 +29,7 @@ export const styles = StyleSheet.create({
     altContiner: {
         display: "flex",
         flexDirection: "column",
-        minHeight: 125,
+        minHeight: height < 813? 125 : 155,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,

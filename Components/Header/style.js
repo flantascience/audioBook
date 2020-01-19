@@ -38,9 +38,24 @@ export const styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "bold",
     },
+    headerTextAlt:{
+        textTransform: "uppercase",
+        fontSize: 18,
+        width: 190,
+        color: '#fff',
+        textAlign: "center",
+        fontWeight: "bold",
+    },
     subHeaderText: {
         fontSize: 14,
         width: 190,
+        textAlign: "center",
+        fontWeight: "500",
+    },
+    subHeaderTextAlt: {
+        fontSize: 14,
+        width: 190,
+        color: '#fff',
         textAlign: "center",
         fontWeight: "500",
     }

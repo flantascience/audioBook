@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import IconButton from "../IconButton/IconButton";
 import {
@@ -7,6 +7,7 @@ import {
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
+import { eventEmitter } from 'react-native-dark-mode'
 
 const Footer = (props)=>{
     const { navigate } = props.navigation;
@@ -27,9 +28,25 @@ const Footer = (props)=>{
             resolve('hidden');
         });
     }
+
+    const [mode = 'light', changeMode] = useState();
+
+    useEffect(()=>{
+        let currentMode = eventEmitter.currentMode;
+        changeMode(currentMode);
+        eventEmitter.on('currentModeChanged', newMode => {
+            changeMode(newMode);
+            console.log('Switched to', newMode, 'mode')
+        }) 
+    }, [])
+
     return(
-        <View style= { hike?styles.altOuterContainer:styles.outerContainer }>
-            <View style={ hike?styles.altContainer:styles.container }>
+        <View 
+        style= { hike ? 
+            mode === 'light'? styles.altOuterContainer : styles.altOuterContainerDark :
+            mode === 'light'? styles.outerContainer : styles.outerContainerDark
+        }>
+            <View style={ hike ? styles.altContainer : styles.container }>
                 <IconButton
                     onPress={ ()=>{
                         let newState = {
@@ -38,9 +55,12 @@ const Footer = (props)=>{
                         props.store(newState);
                         goTo(footer.home.place);
                     } }
+                    active = { screen === 'Home' }
                     name={'home'}
                     style = { styles.icon }
-                    iconStyle = { screen === "Home"?styles.altIconText:styles.iconText }
+                    iconStyle = { screen === "Home" ? 
+                    mode === 'light' ? styles.altIconText : styles.altIconTextDark :
+                    mode === 'light' ? styles.iconText : styles.iconTextDark }
                     size={ 25 }
                     text={ footer.home.text }
                 />
@@ -52,10 +72,13 @@ const Footer = (props)=>{
                         props.store(newState);
                         goTo(footer.tracks.place);
                     }}
+                    active = { screen === 'Tracks' }
                     name={'volume-high'}
                     place={ footer.tracks.place }
                     style = { styles.icon }
-                    iconStyle = { screen === "Tracks"?styles.altIconText:styles.iconText }
+                    iconStyle = { screen === "Tracks" ? 
+                    mode === 'light' ? styles.altIconText : styles.altIconTextDark :
+                    mode === 'light' ? styles.iconText : styles.iconTextDark }
                     size={ 25 }
                     text={ footer.tracks.text }
                 />
@@ -70,8 +93,11 @@ const Footer = (props)=>{
                     name={'person'}
                     place={ footer.author.place }
                     size={ 25 }
+                    active = { screen === 'Author' }
                     style = { styles.icon }
-                    iconStyle = { screen === "Author"?styles.altIconText:styles.iconText }
+                    iconStyle = { screen === "Author" ? 
+                    mode === 'light' ? styles.altIconText : styles.altIconTextDark :
+                    mode === 'light' ? styles.iconText : styles.iconTextDark }
                     text={ footer.author.text }
                 />
             </View>

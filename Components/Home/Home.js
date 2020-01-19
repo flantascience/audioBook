@@ -22,6 +22,7 @@ import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './style';
 import demoIntro from "../../Misc/media/demoIntro.mp4";
+import { eventEmitter } from 'react-native-dark-mode';
 
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("versions");
@@ -38,6 +39,7 @@ class Home extends React.Component {
     introPlayed: false,
     paused: true
   }
+
   static navigationOptions = ({navigation})=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
@@ -47,7 +49,7 @@ class Home extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor:'#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
         height: 80,
     },
   });
@@ -56,6 +58,16 @@ class Home extends React.Component {
     AppState.addEventListener("change", this._handleAppStateChange);
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
+    eventEmitter.on('currentModeChanged', newMode => {
+      // console.log('Switched to', newMode, 'mode');
+      this.props.navigation.setParams({
+        headerStyle:{
+          backgroundColor: newMode === 'dark'? '#000' : '#EBEAEA',
+          height: 80,
+        }
+      });
+      this.forceUpdate();
+    });
   }
 
   _handleAppStateChange = (nextState) => {
@@ -172,11 +184,11 @@ class Home extends React.Component {
       audioFiles,
       currentlyPlayingName,
       isChanging,
-      showOverview, 
-      currentlyPlaying
+      showOverview
     } = this.props;
     let { loaded, showVid, paused, introPlayed } = this.state;
     let isFocused = navigation.isFocused();
+    let mode = eventEmitter.currentMode;
 
     if(!isFocused && !paused){
       this.setState({paused:true});
@@ -262,7 +274,11 @@ class Home extends React.Component {
           >
             { playing }
           </View>: null }
-        <View style = { currentlyPlayingName && height < 570?styles.altHomeFooter:styles.homeFooter }>
+        <View 
+          style = { currentlyPlayingName && height < 570 ? 
+            mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
+            mode === 'light' ? styles.homeFooter : styles.homeFooterDark
+          }>
           <Footer navigation={ navigation } />
         </View>
       </View>

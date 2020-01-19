@@ -10,6 +10,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
+import { DarkModeProvider } from 'react-native-dark-mode'
 
 TrackPlayer.setupPlayer().then(()=>{
   TrackPlayer.updateOptions({
@@ -77,7 +78,9 @@ const IniApp = createAppContainer(MainNavigator);
 
 const App = ()=>(
   <Provider store = { store }> 
-    <IniApp /> 
+    <DarkModeProvider>
+      <IniApp /> 
+    </DarkModeProvider>
   </Provider>
 );
 

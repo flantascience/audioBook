@@ -1,9 +1,7 @@
-import { StyleSheet, Platform, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import {
     Colors
 } from 'react-native/Libraries/NewAppScreen';
-
-const os = Platform.OS;
 
 export const styles = StyleSheet.create({
     scrollView: {
@@ -25,7 +23,8 @@ export const styles = StyleSheet.create({
     overviewContainer: {
         flex: 6,
         overflow: "hidden",
-        marginBottom: 40
+        marginBottom: 40,
+        backgroundColor: '#fff'
     },
     IntroductionVideoBeforeLoad: {
         display: "none",
@@ -46,29 +45,41 @@ export const styles = StyleSheet.create({
         flex: 2,
         //overflow: "hidden",
         //marginBottom: 30,
+        backgroundColor: '#fff'
     },
     altAltOverviewContainer: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: 30,
+        backgroundColor: '#fff'
     },
     longAltOverviewContanier: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: -20,
+        backgroundColor: '#fff'
     },
     longerAltOverviewContanier: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: -35,
+        backgroundColor: '#fff'
     },
     homeFooter: {
         flex:1,
         backgroundColor: "#EBEAEA"
     },
+    homeFooterDark: {
+        flex:1,
+        backgroundColor: "#000"
+    },
     altHomeFooter: {
         height: 60,
         backgroundColor: "#EBEAEA"
+    },
+    altHomeFooterDark: {
+        height: 60,
+        backgroundColor: "#000"
     },
     centerImageContainer: {
         display: "flex",

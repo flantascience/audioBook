@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from "react-native-vector-icons/Ionicons";
+import { eventEmitter } from 'react-native-dark-mode'
 import {
     Platform,
-    View,
     Text,
     TouchableOpacity
 } from 'react-native';
 import { styles } from './style';
-const IconButton = ({name, onPress, ...props})=>{
+const IconButton = ({name, active, onPress, ...props})=>{
+
     return(
         <TouchableOpacity onPress={ onPress } style={ props.style}>
             <Icon
@@ -15,7 +16,7 @@ const IconButton = ({name, onPress, ...props})=>{
                 size={ props.size }
                 style={ props.iconStyle }
             />
-            <Text style={ styles.iconText }>{ props.text }</Text>
+            <Text style={ active && eventEmitter.currentMode === 'dark' ? styles.iconTextActive : styles.iconText }>{ props.text }</Text>
         </TouchableOpacity>
     )
 }
