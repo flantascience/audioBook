@@ -122,7 +122,7 @@ class Author extends React.Component {
     }
   }
 
-  static navigationOptions = ({navigation})=> ({
+  static navigationOptions = ()=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -131,7 +131,7 @@ class Author extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -157,6 +157,7 @@ class Author extends React.Component {
     } = this.props;
 
     let mode = eventEmitter.currentMode;
+    let dark = mode === 'dark';
     
     let height = Dimensions.get('window').height;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
@@ -175,25 +176,24 @@ class Author extends React.Component {
       <View 
         style={ styles.Home }
       >
-        { !showOverview?
-        <View style = { styles.homeMid }>
+        <View style = { dark ? styles.homeMidDark : styles.homeMid }>
           { Platform.OS === "ios"?
-          <InputScrollView style = { styles.scrollView }>
+          <InputScrollView style = { dark ? styles.scrollViewDark : styles.scrollView }>
               <View style = { styles.centerImageContainer }>
                 <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
-              <Text style = {styles.name}>{ author.name }</Text>
-              <Text style = {styles.authorTitle}>{ author.title }</Text>
-              <View style={ styles.introContainer }>
-                <Text style={ styles.introText }>{ author.intro }</Text>
+              <Text style = {dark ? styles.nameDark : styles.name}>{ author.name }</Text>
+              <Text style = {dark ? styles.authorTitleDark : styles.authorTitle}>{ author.title }</Text>
+              <View style={ dark ? styles.introContainerDark : styles.introContainer }>
+                <Text style={ dark ? styles.introTextDark : styles.introText }>{ author.intro }</Text>
               </View>
               <View style={ styles.actionContainer }>
-                <Text style={ styles.callToAction}>{ author.callToAction }</Text>
+                <Text style={ dark ? styles.callToActionDark : styles.callToAction}>{ author.callToAction }</Text>
                 { showToast?
-                  <Toast text={ toastText } />:
+                  <Toast text={ toastText } /> :
                 null }
                   <TextInput
-                    style={ styles.emailInput }
+                    style={ dark ? styles.emailInputDark : styles.emailInput }
                     autoCompleteType={'email'}
                     textContentType={'emailAddress'}
                     placeholder={ author.emailPlaceHolder }
@@ -201,35 +201,38 @@ class Author extends React.Component {
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
+                      dark={dark}
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
                   </View>
               </View>
               <View style={ styles.spacer }></View>
-            </InputScrollView>:
-            <ScrollView style = { styles.scrollView }>
+            </InputScrollView> :
+            <ScrollView style = { dark ? styles.scrollViewDark : styles.scrollView }>
               <View style = { styles.centerImageContainer }>
                 <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
               </View>
-              <Text style = {styles.name}>{ author.name }</Text>
-              <View style={ styles.introContainer }>
-                <Text style={ styles.introText }>{ author.intro }</Text>
+              <Text style = {dark ? styles.nameDark : styles.name}>{ author.name }</Text>
+              <View style={ dark ? styles.introContainerDark : styles.introContainer }>
+                <Text style={ dark ? styles.introTextDark : styles.introText }>{ author.intro }</Text>
               </View>
               <View style={ styles.actionContainer }>
-                <Text style={ styles.callToAction}>{ author.callToAction }</Text>
-                { showToast?
-                  <Toast text={ toastText } />:
+                <Text style={ dark ? styles.callToActionDark : styles.callToAction}>{ author.callToAction }</Text>
+                { showToast ?
+                  <Toast text={ toastText } /> :
                 null }
                   <TextInput
-                    style={ styles.emailInput }
+                    style={ dark ? styles.emailInputDark : styles.emailInput }
                     autoCompleteType={'email'} 
                     textContentType={'emailAddress'}
                     placeholder={ author.emailPlaceHolder }
+                    placeholderTextColor={'#757575'}
                     onChangeText={ this.tempSave }
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                     <Button 
+                      dark={dark}
                       title={ author.buttonText } 
                       onPress={ this.postSubscriber } 
                     />
@@ -237,7 +240,7 @@ class Author extends React.Component {
               </View>
               </ScrollView>
             }
-        </View>: null}
+        </View>
         { selectedTrack?
         <View 
           style={ showOverview?styles.overviewContainer:

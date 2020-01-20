@@ -12,7 +12,7 @@ import { eventEmitter } from 'react-native-dark-mode'
 const Footer = (props)=>{
     const { navigate } = props.navigation;
     let { screen, currentlyPlayingName } = props;
-    let currPlayingNameLen = currentlyPlayingName.length;
+    let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
     let hike = currPlayingNameLen > 1?true:false;
     //console.log(props)
     const goTo = (place)=>{

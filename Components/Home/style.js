@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
     },
     homeFooterDark: {
         flex:1,
-        backgroundColor: "#000"
+        backgroundColor: "#212121"
     },
     altHomeFooter: {
         height: 60,
@@ -79,7 +79,7 @@ export const styles = StyleSheet.create({
     },
     altHomeFooterDark: {
         height: 60,
-        backgroundColor: "#000"
+        backgroundColor: "#212121"
     },
     centerImageContainer: {
         display: "flex",

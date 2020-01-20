@@ -14,7 +14,7 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
 
     componentDidUpdate(){
         let { position } = this.state;
-        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90/*, closeMiniPlayer*/ } = this.props;
+        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90/*, closeMiniPlayer*/} = this.props;
         let currentPosition = Math.floor(parseFloat(position));
         this.props.store({currentPosition, currentTime: currentPosition});
         const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
@@ -29,7 +29,7 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
     render() {
         let { position } = this.state;
         let currentPosition = Math.floor(parseFloat(position));
-        let { trackDuration, buttonsActive } = this.props;
+        let { trackDuration, buttonsActive, dark } = this.props;
         return (
             <Slider
                 style={styles.slider}
@@ -48,6 +48,8 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
                 }}
                 maximumValue={trackDuration || 10}
                 minimumValue={0}
+                minimumTrackTintColor={dark ? '#212121' : '#D4D4D4'}
+                maximumTrackTintColor={'#757575'}
                 disabled={!buttonsActive}
             />
         );

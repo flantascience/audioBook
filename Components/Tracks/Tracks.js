@@ -23,7 +23,6 @@ import { tracks } from '../../Misc/Strings';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
-import Video from 'react-native-video';
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
@@ -60,18 +59,20 @@ class Tracks extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
 
   componentDidMount(){
-    let { audioFilesCloud } = this.props;
-
+    let { audioFiles} = this.props;
     Analytics.setCurrentScreen('Tracks');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
       //console.log(palyerState)
+      TrackPlayer.getCurrentTrack().then(res => {
+        console.log(res)
+      })
       if(Platform.OS === "android"){
         if(palyerState === 0 || palyerState === 1 || palyerState === 2)
           this.props.store({ paused: true });
@@ -98,27 +99,47 @@ class Tracks extends React.Component {
 
     TrackPlayer.addEventListener('remote-stop', async ()=> {
       TrackPlayer.stop();
-      this.props.store({ paused: true, currentlyPlaying: null, currentlyPlayingName: null });
+      this.props.store({ paused: true });
     });
 
     TrackPlayer.addEventListener('remote-previous', async ()=> {
       TrackPlayer.getCurrentTrack().then(res => {
         const newTrackId = parseInt(res)-1;
-        const newTrack = audioFilesCloud[newTrackId];
-        if (newTrack) {
-          this.toggleNowPlaying(newTrackId)
-        }
+        const newTrack = audioFiles[newTrackId];
+        if (newTrack) this.toggleNowPlaying(newTrackId);
       })
     });
 
     TrackPlayer.addEventListener('remote-next', async ()=> {
       TrackPlayer.getCurrentTrack().then(res => {
         const newTrackId = parseInt(res)+1;
-        const newTrack = audioFilesCloud[newTrackId];
-        if (newTrack) {
-          this.toggleNowPlaying(newTrackId)
-        }
+        const newTrack = audioFiles[newTrackId];
+        if (newTrack) this.toggleNowPlaying(newTrackId);
       })
+    });
+
+    TrackPlayer.addEventListener('remote-jump-backward', async ()=> {
+      TrackPlayer.getPosition().then(res=>{
+          let newPos = res + parseFloat(-15);
+          let newState = {
+              currentPosition: newPos,
+              currentTime: newPos
+          };
+          this.props.store(newState);
+          TrackPlayer.seekTo(newPos);
+      });
+    });
+
+    TrackPlayer.addEventListener('remote-jump-forward', async ()=> {
+      TrackPlayer.getPosition().then(res=>{
+          let newPos = res + parseFloat(15);
+          let newState = {
+              currentPosition: newPos,
+              currentTime: newPos
+          };
+          this.props.store(newState);
+          TrackPlayer.seekTo(newPos);
+      });
     });
 
     NetInfo.fetch().then(state=>{
@@ -127,9 +148,9 @@ class Tracks extends React.Component {
       if(conType !== "wifi" && conType !== "cellular"){
         let showMessage = true;
         this.props.store({showMessage, message: tracks.noInternetConnection });
-      }else{
-        this.props.store({showMessage: false, message: null });
       }
+      else this.props.store({showMessage: false, message: null });
+
     });
   }
 
@@ -241,6 +262,7 @@ class Tracks extends React.Component {
                           }, 1500);
                           audioFiles[pos] = audioFilesCloud[pos];
                           this.props.store({audioFiles});
+                          this._storeData(audioFiles);
                           this.forceUpdate();
                         }else{
                           console.log("no internet")
@@ -444,6 +466,7 @@ _storeData = async (audioFiles) => {
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
 
     let mode = eventEmitter.currentMode;
+    let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;
     const playing = !isChanging?
@@ -461,7 +484,7 @@ _storeData = async (audioFiles) => {
     return (
       <View style={ styles.Home }>
           { !showOverview?
-              <View style = { styles.homeMid }>
+              <View style = { dark ? styles.homeMidDark : styles.homeMid }>
                 { showToast?
                   <View style={ styles.toastContainer }>
                     <Toast text={ toastText } /></View>: 
@@ -483,22 +506,25 @@ _storeData = async (audioFiles) => {
                   let downlaodIcon = "cloud-download";
                   return(
                     <View key={key} style={ styles.trackContainer }>
-                      <View style={ styles.track }> 
+                      <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
                         <View style={ styles.trackTextWrapper }>
-                          <Text style={ styles.trackTitle }>{ title }</Text>
-                          <Text style={ styles.trackLength }>{ formattedDuration }</Text>
+                          <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
+                          <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
                         </View>
                         <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
-                          { playIcon !== "pause"?<Icon
+                          { playIcon !== "pause" ? 
+                          <Icon
+                            color={ dark ? '#fff' : '#000' }
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                             size={ 40 }
-                          />:
-                          <Text style={ styles.nowPlayingText }>...</Text> }
+                          /> :
+                          <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
                         </TouchableOpacity>
 
                         { type === "cloud" && action !== "downloading"?
                         <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
                           <Icon 
+                            color={ dark ? '#fff' : '#000' }
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
                             size={ 35 }
                           />
@@ -516,7 +542,7 @@ _storeData = async (audioFiles) => {
                             <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
                           </ProgressCircle>
                         </View>: null }
-                      </View>
+                      </TouchableOpacity>
                     </View>
                   )
                 }) }

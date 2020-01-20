@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         borderTopWidth: 1,
         paddingTop: 10,
         paddingBottom: 10,
-        backgroundColor: "#000",
+        backgroundColor: "#212121",
         alignContent: "center",
         alignItems: "center"
     },
@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
     altOuterContainerDark: {
         borderTopColor: "#383838",
         borderTopWidth: 1,
-        backgroundColor: "#000",
+        backgroundColor: "#212121",
         paddingBottom: 20,
         alignContent: "center",
         alignItems: "center"

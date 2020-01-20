@@ -30,6 +30,7 @@ import ProgressBar from './ProgressBar';
 //import poster from '../../Misc/media/part2-unschooling.jpg';
 import Refs from './Refs';
 //import InputScrollView from 'react-native-input-scroll-view';
+import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
 const Analytics = firebase.analytics();
@@ -40,50 +41,12 @@ class Audio extends React.Component{
         reached90: false
     }
 
-    static navigationOptions = ({navigation})=> ({
-        headerLeft: <Header />,
-        headerTitleStyle :{
-            textAlign: 'center',
-            justifyContent: 'center',
-            color: '#FF6D00',
-            alignItems: 'center'
-        },
-        headerStyle:{
-            backgroundColor:'white',
-            height: 80,
-        },
-    });
-
     componentDidMount(){
         let { audioFiles } = this.props;
         this.props.store({ showToast: false, toastText: null });
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({lastTrackId});
-
-        TrackPlayer.addEventListener('remote-jump-backward', async ()=> {
-            TrackPlayer.getPosition().then(res=>{
-                let newPos = res + parseFloat(-15);
-                let newState = {
-                    currentPosition: newPos,
-                    currentTime: newPos
-                };
-                this.props.store(newState);
-                TrackPlayer.seekTo(newPos);
-            });
-          });
-
-          TrackPlayer.addEventListener('remote-jump-forward', async ()=> {
-            TrackPlayer.getPosition().then(res=>{
-                let newPos = res + parseFloat(15);
-                let newState = {
-                    currentPosition: newPos,
-                    currentTime: newPos
-                };
-                this.props.store(newState);
-                TrackPlayer.seekTo(newPos);
-            });
-          });
     }
 
     toggleTrack = (pos)=>{
@@ -298,34 +261,36 @@ class Audio extends React.Component{
         }
         let trackDuration = selectedTrack? audioFiles[selectedTrack].duration: "";
         let remainingTime = ( trackDuration - currentPosition );
+        let mode = eventEmitter.currentMode;
+        let dark = mode === 'dark';
 
         const trackTimeSlider = <View style={ styles.trackTimeContainer }>
-                <ProgressBar closeMiniPlayer={this.closeMiniPlayer} toggleReached90={this.toggleReached90} reached90={reached90} />
-                { Platform.OS ==="ios"?
+                <ProgressBar dark={dark} toggleReached90={this.toggleReached90} reached90={reached90} />
+                { Platform.OS ==="ios" ?
                 <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
-                    <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left" } }>{ formatTime(currentPosition) }</Text>
-                    <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right" } }>{ "-" + formatTime(remainingTime) }</Text>
+                    <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left", color: dark ? '#fff' : '#000' } }>{ formatTime(currentPosition) }</Text>
+                    <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right", color: dark ? '#fff' : '#000' } }>{ "-" + formatTime(remainingTime) }</Text>
                 </View>:
                 <View style={ styles.trackTimeCounterContainer }>
                     <View style= { styles.trackElapsedTime }>
-                        <Text style={ styles.trackTime }>{ formatTime(currentPosition) }</Text>
+                        <Text style={ dark ? styles.trackTimeDark : styles.trackTime }>{ formatTime(currentPosition) }</Text>
                     </View>
                     <View style= { styles.trackRemainingTime}>
-                        <Text style={ styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
-                    </View>
+                        <Text style={ dark ? styles.trackTimeDark : styles.trackTime }>{ "-" + formatTime(remainingTime) }</Text>
+                    </View> 
                 </View> }
             </View>;
         return(
-            <View style={ styles.elContainer }>
-                { showOverview?
+            <View style={ dark ? styles.elContainerDark : styles.elContainer }>
+                { showOverview ?
                 <ScrollView style={{height: 300}}>
                     <View style={ style }>
                         { !currentlyPlaying && isChanging?
-                        null:
-                        <View  style={ styles.altContiner }>
+                        null :
+                        <View  style={ dark ? styles.altContinerDark : styles.altContiner }>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
-                                    <Text style={ styles.audioTitle }>
+                                    <Text style={ dark ? styles.audioTitleDark : styles.audioTitle }>
                                         { currentlyPlayingName || "Select Track" }
                                     </Text>
                                 </View>
@@ -347,6 +312,7 @@ class Audio extends React.Component{
                                     >
                                         <Icon
                                             style={ styles.reflection }
+                                            color={ dark ? '#fff' : '#000' }
                                             name={ `ios-refresh` }
                                             size={ 25 }
                                         />
@@ -357,6 +323,7 @@ class Audio extends React.Component{
                                         onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
                                     >
                                         <Icon
+                                            color={ dark ? '#fff' : '#000' }
                                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                                             size={ 25 }
                                         />
@@ -377,6 +344,7 @@ class Audio extends React.Component{
                                         style={ styles.groupedButtons }
                                     >
                                         <Icon
+                                            color={ dark ? '#fff' : '#000' }
                                             name={ `ios-refresh` }
                                             size={ 25 }
                                         />
@@ -390,12 +358,24 @@ class Audio extends React.Component{
                             { showToast?
                                 <Toast text={ toastText } />:
                             null }
-                            <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { this.toggleQuestionnaireView } >
-                                <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold" }}>Give Feedback on This Track</Text>
-                                <Icon style={{ flex:1, zIndex: 1 }} name="ios-arrow-dropdown" size={25} />
+                            <TouchableOpacity 
+                                style={ dark ? styles.refsAccordionHeaderDark : styles.refsAccordionHeader } 
+                                onPress = { this.toggleQuestionnaireView } 
+                            >
+                                <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold", color: dark ? '#fff' : '#000' }}>
+                                    Give Feedback on This Track
+                                </Text>
+                                <Icon 
+                                    color={ dark ? '#fff' : '#000' }
+                                    style={{ flex:1, zIndex: 1 }} 
+                                    name="ios-arrow-dropdown" 
+                                    size={25} 
+                                />
                             </TouchableOpacity>
-                            { showQuestionnaire? <Questionnaire
+                            { showQuestionnaire ? 
+                            <Questionnaire
                                 store = { this.props.store }
+                                dark = { dark }
                                 styles = { styles }
                                 multiLine = { multiLine }
                                 confusing = { confusing }
@@ -408,24 +388,39 @@ class Audio extends React.Component{
                                 questionnaire = { this.props.questionnaire }
                                 sendQuestionnaire = { this.sendQuestionnaire }
                             />: null }
-                            <TouchableOpacity style={ styles.refsAccordionHeader } onPress = { this.toggleReferencesView } >
-                                <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold" }}>References and Links</Text>
-                                <Icon style={{ flex:1, zIndex: 1 }} name="ios-arrow-dropdown" size={25} />
+                            <TouchableOpacity 
+                                style={ dark ? styles.refsAccordionHeaderDark : styles.refsAccordionHeader } 
+                                onPress = { this.toggleReferencesView } 
+                            >
+                                <Text 
+                                    style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold", color: dark ? '#fff' : '#000' }}
+                                >
+                                    References and Links
+                                </Text>
+                                <Icon 
+                                    color={ dark ? '#fff' : '#000' }
+                                    style={{ flex:1, zIndex: 1 }} 
+                                    name="ios-arrow-dropdown" 
+                                    size={25} 
+                                />
                             </TouchableOpacity>
-                            <Refs styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
+                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
                         </View>
                     </View>
                 </ScrollView>:
                 <View style={ style }>
                     { !currentlyPlaying && isChanging?
                         null:
-                        <View  style={ styles.container }>
-                            <TouchableOpacity style={ styles.closePlayerContainer } onPress={this.closeMiniPlayer}>
-                                <Text style={ styles.closePlayer }>X</Text>
+                        <View  style={ dark ? styles.containerDark : styles.container }>
+                            <TouchableOpacity 
+                                style={ dark ? styles.closePlayerContainerDark : styles.closePlayerContainer } 
+                                onPress={this.closeMiniPlayer
+                            }>
+                                <Text style={ dark ? styles.closePlayerDark : styles.closePlayer }>X</Text>
                             </TouchableOpacity>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
-                                    <Text style={ styles.audioTitle }>
+                                    <Text style={ dark ? styles.audioTitleDark : styles.audioTitle }>
                                         { currentlyPlayingName || "Select Track" }
                                     </Text>
                                 </View>
@@ -446,6 +441,7 @@ class Audio extends React.Component{
                                         style={ styles.altGroupedButtons } 
                                     >
                                         <Icon
+                                            color={ dark ? '#fff' : '#000' }
                                             style={ styles.reflection }
                                             name={ `ios-refresh` }
                                             size={ 25 }
@@ -457,6 +453,7 @@ class Audio extends React.Component{
                                         onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
                                     >
                                         <Icon
+                                            color={ dark ? '#fff' : '#000' }
                                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                                             size={ 25 }
                                         />
@@ -477,6 +474,7 @@ class Audio extends React.Component{
                                         style={ styles.groupedButtons }
                                     >
                                         <Icon
+                                            color={ dark ? '#fff' : '#000' }
                                             name={ `ios-refresh` }
                                             size={ 25 }
                                         />

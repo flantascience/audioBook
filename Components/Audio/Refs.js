@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 
 const Analytics = firebase.analytics();
 
-const Refs = props => {
-    let { styles, referencesInfo, showRefs, currentlyPlayingName } = props;
+const Refs = ({ styles, referencesInfo, showRefs, currentlyPlayingName, dark }) => {
+
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
             if(supported){
@@ -26,10 +26,10 @@ const Refs = props => {
             {   showRefs && referencesInfo.length > 0?
                 <View style={ styles.transparencyStatementContainer } >
                     <Text>
-                        <Text style={ styles.transparencyStatementTitle }>
+                        <Text style={ dark ? styles.transparencyStatementTitleDark : styles.transparencyStatementTitle }>
                             { refsStrings.transparencyStatementTitle }
                         </Text>
-                        <Text style={ styles.transparencyStatementText }>
+                        <Text style={ dark ? styles.transparencyStatementTextDark : styles.transparencyStatementText }>
                             { refsStrings.transparencyStatementText }
                         </Text>
                     </Text>
@@ -47,16 +47,18 @@ const Refs = props => {
                         let number = referencesInfo[ref].number;
                         return(
                         <View style={ styles.refRowContainer } key={ref}>
-                            <Text style={ styles.refText }>
+                            <Text style={ dark ? styles.refTextDark : styles.refText }>
                                 { " - " + number + ". " + text }
-                                { urlLength > 1 ? <Text onPress={ () => goTo(url) } style={ styles.link }>( Link )</Text>:null }
+                                { urlLength > 1 ? 
+                                <Text onPress={ () => goTo(url) } style={ styles.link }> Go to website </Text> : 
+                                null }
                             </Text>
                         </View>)
                     }else
                         return 
-                }):
+                }) :
                 <View style={ styles.refRowContainer }>
-                    <Text style={ styles.noRefsText }>
+                    <Text style={ dark ? styles.noRefsTextDark : styles.noRefsText }>
                         { refsStrings.noRefs }
                     </Text>
                 </View>:

@@ -16,6 +16,11 @@ export const styles = StyleSheet.create({
         flex:6,
         overflow: "hidden"
     },
+    homeMidDark: {
+        flex:6,
+        overflow: "hidden",
+        backgroundColor: '#000'
+    },
     overviewContainer: {
         flex: 6,
         overflow: "hidden"
@@ -46,7 +51,7 @@ export const styles = StyleSheet.create({
     },
     homeFooterDark: {
         flex:1,
-        backgroundColor: "#000"
+        backgroundColor: "#212121"
     },
     altHomeFooter: {
         height: 60,
@@ -54,7 +59,7 @@ export const styles = StyleSheet.create({
     },
     altHomeFooterDark: {
         height: 60,
-        backgroundColor: "#000"
+        backgroundColor: "#212121"
     },
     centerImageContainer: {
         display: "flex",
@@ -119,6 +124,19 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20
     },
+    trackDark: {
+        borderBottomColor: "#212121",
+        borderBottomWidth: 0.5,
+        display: "flex",
+        flexDirection: "row",
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 20,
+        paddingBottom: 20
+    },
     trackIcon: {
         flex: 2,
         alignContent: "flex-end",
@@ -136,9 +154,20 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 16
     },
+    trackTitleDark: {
+        flex: 1,
+        fontWeight: "bold",
+        fontSize: 16,
+        color: '#fff'
+    },
     trackLength: {
         flex: 1,
         fontSize: 13
+    },
+    trackLengthDark: {
+        flex: 1,
+        fontSize: 13,
+        color: '#fff'
     },
     audioElement: {
         minHeight: 50,
@@ -154,5 +183,9 @@ export const styles = StyleSheet.create({
     },
     nowPlayingText: {
         fontSize: 12
+    },
+    nowPlayingTextDark: {
+        fontSize: 12,
+        color: '#fff'
     }
 });

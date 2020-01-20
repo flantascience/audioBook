@@ -5,8 +5,7 @@ import {
   Dimensions,
   Image,
   TouchableOpacity,
-  AppState,
-  Text
+  AppState
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
@@ -49,7 +48,7 @@ class Home extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark'? '#000' : '#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -62,7 +61,7 @@ class Home extends React.Component {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
         headerStyle:{
-          backgroundColor: newMode === 'dark'? '#000' : '#EBEAEA',
+          backgroundColor: newMode === 'dark'? '#212121' : '#EBEAEA',
           height: 80,
         }
       });
@@ -109,6 +108,13 @@ class Home extends React.Component {
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       let haveNet = conType === "wifi" || conType === "cellular"? true : false;
+
+      this._getStoredData("audioFiles").then(res=>{
+        if(res){
+          let storedAudioFiles = JSON.parse(res);
+          this.props.storeMedia({audioFiles: storedAudioFiles});
+        }
+      });
       if(haveNet){
         this.fetchTracksVersion().then(newVersion=>{
           tracksRef.once('value', data=>{
@@ -132,13 +138,6 @@ class Home extends React.Component {
           }).catch(err=>{
             console.log(err);
           });
-        });
-      }else{
-        this._getStoredData("audioFiles").then(res=>{
-          if(res){
-            let storedAudioFiles = JSON.parse(res);
-            this.props.storeMedia({audioFiles: storedAudioFiles});
-          }
         });
       }
     });
@@ -275,7 +274,7 @@ class Home extends React.Component {
             { playing }
           </View>: null }
         <View 
-          style = { currentlyPlayingName && height < 570 ? 
+            style = { currentlyPlayingName && height < 570 ? 
             mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
             mode === 'light' ? styles.homeFooter : styles.homeFooterDark
           }>

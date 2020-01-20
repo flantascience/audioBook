@@ -11,5 +11,12 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: "#000",
         borderRadius: 2
+    },
+    buttonStyleDark: {
+        marginTop: 20,
+        marginBottom: 5,
+        padding: 10,
+        backgroundColor: "#212121",
+        borderRadius: 2
     }
 });

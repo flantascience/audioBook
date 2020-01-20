@@ -1,0 +1,176 @@
+import { StyleSheet, Dimensions } from 'react-native';
+import {
+    Colors
+  } from 'react-native/Libraries/NewAppScreen';
+
+export const styles = StyleSheet.create({
+    scrollView: {
+        backgroundColor: Colors.lighter,
+    },
+    Home: {
+        display: "flex",
+        flexDirection: "column",
+        height: "100%"
+    },
+    homeMid: {
+        flex:6,
+        overflow: "hidden"
+    },
+    overviewContainer: {
+        flex: 6,
+        overflow: "hidden"
+    },
+    altOverviewContainer: {
+        flex: 2,
+        //overflow: "hidden",
+        //marginBottom: 30,
+    },
+    altAltOverviewContainer: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: 30,
+    },
+    longAltOverviewContanier: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: -20,
+    },
+    longerAltOverviewContanier: {
+        flex: 2,
+        //overflow: "hidden",
+        marginBottom: -35,
+    },
+    IntroductionVideoBeforeLoad: {
+      display: "none",
+    },
+    IntroductionVideo: {
+        position: "absolute",
+        backgroundColor: "#000",
+        bottom:0,
+        left: 0,
+        right:0,
+        top:0
+    },
+    thumb: {
+        height: Dimensions.get('window').height,
+        width: Dimensions.get('window').width
+    },
+    homeFooter: {
+        flex:1,
+        backgroundColor: "#EBEAEA"
+    },
+    homeFooterDark: {
+        flex:1,
+        backgroundColor: "#000"
+    },
+    altHomeFooter: {
+        height: 60,
+        backgroundColor: "#EBEAEA"
+    },
+    altHomeFooterDark: {
+        height: 60,
+        backgroundColor: "#000"
+    },
+    centerImageContainer: {
+        display: "flex",
+        flexDirection: "column",
+        flex:1,
+        alignContent: "center",
+        justifyContent: "center"
+    },
+    centerImage: {
+        width: "100%"
+    },
+    textInput: {
+        borderColor: "#A9A8A8",
+        borderWidth: 1,
+    },
+    engine: {
+        position: 'absolute',
+        right: 0,
+    },
+    body: {
+        backgroundColor: Colors.white,
+    },
+    sectionContainer: {
+        marginTop: 32,
+        paddingHorizontal: 24,
+    },
+    sectionTitle: {
+        fontSize: 24,
+        fontWeight: '600',
+        color: Colors.black,
+    },
+    sectionDescription: {
+        marginTop: 8,
+        fontSize: 18,
+        fontWeight: '400',
+        color: Colors.dark,
+    },
+    highlight: {
+        fontWeight: '700',
+    },
+    footer: {
+        color: Colors.dark,
+        fontSize: 12,
+        fontWeight: '600',
+        padding: 4,
+        paddingRight: 12,
+        textAlign: 'right',
+    },
+    toastContainer: {
+        zIndex: 100000
+    },
+    trackContainer: {
+        paddingTop: 5
+    },
+    track: {
+        borderBottomColor: "rgba(0,0,0, 0.2)",
+        borderBottomWidth: 0.5,
+        display: "flex",
+        flexDirection: "row",
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingTop: 20,
+        paddingBottom: 20
+    },
+    trackIcon: {
+        flex: 2,
+        alignContent: "flex-end",
+        justifyContent: "flex-end",
+        alignItems: "flex-end"
+    },
+    trackTextWrapper: {
+        display: "flex",
+        minHeight: 50,
+        flexDirection: "column",
+        flex: 6
+    },
+    trackTitle: {
+        flex: 1,
+        fontWeight: "bold",
+        fontSize: 16
+    },
+    trackLength: {
+        flex: 1,
+        fontSize: 13
+    },
+    audioElement: {
+        minHeight: 50,
+        elevation: 10
+    },
+    permanentMessage: {
+        padding: 10,
+        fontSize: 12,
+        textAlign: "center",
+        fontWeight: "bold",
+        backgroundColor: "#EBEAEA",
+        fontStyle: "italic"
+    },
+    nowPlayingText: {
+        fontSize: 12
+    }
+});

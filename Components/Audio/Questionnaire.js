@@ -15,27 +15,28 @@ const Questionnaire = props => {
         sendQuestionnaire,
         store,
         anythingElse,
-        comment
+        comment,
+        dark
     } = props;
     return (
         <View style = { styles.textScrollView }>
-            <Text style={ styles.questionnaireLabel }>{ realConfusing }</Text>
+            <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ realConfusing }</Text>
             <TextInput
                 id="confusing"
                 multiline = { multiLine }
                 value={ confusing }
-                style={ styles.questionareText}
+                style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={ (text) =>{
                     questionnaire.confusing = text;
                     store({ questionnaire });
                 } }
             />
-            <Text style={ styles.questionnaireLabel }>{ realOtherQuestion }</Text>
+            <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ realOtherQuestion }</Text>
             <TextInput
                 id="question"
                 multiline = { multiLine }
                 value={ question }
-                style={ styles.questionareText}
+                style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={
                     (text) =>{
                         questionnaire.question = text;
@@ -44,12 +45,12 @@ const Questionnaire = props => {
                 }
             />
 
-            <Text style={ styles.questionnaireLabel }>{ anythingElse }</Text>
+            <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ anythingElse }</Text>
             <TextInput
                 id="comment"
                 multiline = { multiLine }
                 value={ comment }
-                style={ styles.questionareText}
+                style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={
                     (text) =>{
                         questionnaire.comment = text;
@@ -60,6 +61,7 @@ const Questionnaire = props => {
             
             <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>
                 <Button
+                    dark = { dark }
                     title={ "Submit" }
                     onPress={ sendQuestionnaire } 
                 />

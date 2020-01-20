@@ -1,7 +1,6 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 const showBorder = Platform.OS === "ios"?true:false;
 const height = Math.round(Dimensions.get('window').height);
-console.log(height)
 
 export const styles = StyleSheet.create({
     reflection: {
@@ -10,6 +9,11 @@ export const styles = StyleSheet.create({
     elContainer: {
         flex:2,
         display: 'flex'
+    },
+    elContainerDark: {
+        flex:2,
+        display: 'flex',
+        backgroundColor: '#0D0D0D'
     },
     container:{
         display: "flex",
@@ -26,6 +30,21 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
     },
+    containerDark:{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: height < 813? 125 : 155,
+        paddingTop: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderColor: "#3C3C3C",
+        borderWidth: showBorder?0.5:0,
+        elevation: 1,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 0.5,
+    },
     altContiner: {
         display: "flex",
         flexDirection: "column",
@@ -37,6 +56,22 @@ export const styles = StyleSheet.create({
         borderColor: "#C7C6C6",
         borderWidth: showBorder?1:0,
         elevation: 2,
+        shadowColor: '#000',
+        shadowOffset: { width: 1, height: 0 },
+        shadowOpacity: 0.5,
+        shadowRadius: 0.5,
+    },
+    altContinerDark: {
+        display: "flex",
+        flexDirection: "column",
+        minHeight: height < 813? 125 : 155,
+        paddingTop: 10,
+        paddingBottom: 10,
+        paddingLeft: 10,
+        paddingRight: 10,
+        borderColor: "#3C3C3C",
+        borderWidth: showBorder?0.5:0,
+        elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
@@ -66,6 +101,19 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         zIndex: 100
     },
+    refsAccordionHeaderDark: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "row",
+        padding: 10,
+        marginTop: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        borderColor: "#3C3C3C",
+        borderWidth: 0.5,
+        alignItems: "center",
+        zIndex: 100
+    },
     refsBody: {
         flex: 20,
         zIndex: 1,
@@ -74,6 +122,10 @@ export const styles = StyleSheet.create({
     refText: {
         fontSize: 12
     },
+    refTextDark: {
+        fontSize: 12,
+        color: '#fff'
+    },
     noRefsText: {
         flex: 1,
         paddingLeft: 10,
@@ -81,6 +133,15 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         fontStyle: "italic",
         textAlign: "center"
+    },
+    noRefsTextDark: {
+        flex: 1,
+        paddingLeft: 10,
+        paddingRight: 10,
+        fontWeight: "bold",
+        fontStyle: "italic",
+        textAlign: "center",
+        color: '#fff'
     },
     transparencyStatementContainer: {
         padding: 4,
@@ -91,9 +152,20 @@ export const styles = StyleSheet.create({
         fontSize: 10,
         fontStyle: "italic"
     },
+    transparencyStatementTitleDark: {
+        fontWeight: "bold",
+        fontSize: 10,
+        fontStyle: "italic",
+        color: '#fff'
+    },
     transparencyStatementText: {
         fontSize: 10,
         fontStyle: "italic"
+    },
+    transparencyStatementTextDark: {
+        fontSize: 10,
+        fontStyle: "italic",
+        color: '#fff'
     },
     spaceFiller: {
         height: 10
@@ -116,7 +188,12 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         minHeight: 100
     },
-    audioTitle: {},
+    audioTitle: {
+        color: '#000'
+    },
+    audioTitleDark: {
+        color: '#fff'
+    },
     altAudioTitle: {
         paddingLeft: 30,
         fontSize: 25,
@@ -166,11 +243,11 @@ export const styles = StyleSheet.create({
         //justifyContent: "center"
     },
     closePlayerContainer: {
-        position: "absolute",
+        position: 'absolute',
         left: 1,
         borderWidth: 0,
         backgroundColor: "#fff",
-        top: showBorder?-30:-24,
+        top: showBorder?-30:-26,
         borderColor: "#C7C6C6",
         borderBottomColor: "#fff",
         borderWidth: showBorder?1:0,
@@ -180,18 +257,55 @@ export const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 0.2,
         display: "flex",
-        alignItems: "center",
+        alignItems: "flex-start",
         paddingTop: 2,
         paddingBottom: 2,
         paddingLeft: 15,
-        paddingRight: 15
+        paddingRight: 15,
+        textAlign: 'left'
+    },
+    closePlayerContainerDark: {
+        position: 'absolute',
+        left: 1,
+        borderWidth: 0,
+        backgroundColor: "#0D0D0D",
+        top: showBorder?-30:-26,
+        borderColor: "#C7C6C6",
+        borderBottomColor: "#fff",
+        borderWidth: showBorder?1:0,
+        elevation: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 0 },
+        shadowOpacity: 0.2,
+        shadowRadius: 0.2,
+        display: "flex",
+        alignItems: "flex-start",
+        paddingTop: 2,
+        paddingBottom: 2,
+        paddingLeft: 15,
+        paddingRight: 15,
+        textAlign: 'left'
     },
     closePlayer: {
         fontSize: 20
     },
+    closePlayerDark: {
+        fontSize: 20,
+        color: '#fff'
+    },
     slider: {
         height: 20,
         justifyContent: "flex-start",
+        zIndex: 10000
+    },
+    sliderDark: {
+        height: 20,
+        width: 20,
+        borderColor: '#fff',
+        borderWidth: 1,
+        borderRadius: 10,
+        justifyContent: "flex-start",
+        color: '#fff',
         zIndex: 10000
     },
     volumeSlider: {
@@ -226,6 +340,18 @@ export const styles = StyleSheet.create({
         paddingRight: 5,
         fontSize: 15,
         color: "#000",
+        borderWidth: 1
+    },
+    questionareTextDark: {
+        marginTop: 5,
+        marginLeft: 30,
+        marginRight: 30,
+        borderColor: "#E0E2E8",
+        minHeight: 50,
+        paddingLeft: 5,
+        paddingRight: 5,
+        fontSize: 15,
+        color: "#fff",
         borderWidth: 1
     },
     volumeContainer: {
@@ -286,7 +412,10 @@ export const styles = StyleSheet.create({
         height: 20
     },
     trackTime: {
-
+        color: '#000'
+    },
+    trackTimeDark: {
+        color: '#fff'
     },
     poster: {
         height: 150
@@ -294,6 +423,7 @@ export const styles = StyleSheet.create({
     link: {
         fontStyle: 'italic',
         color: "#2055D4",
+        paddingLeft: 5,
         textDecorationLine: "underline",
         textDecorationStyle: "solid"
     },
@@ -315,10 +445,26 @@ export const styles = StyleSheet.create({
         padding: 5,
         textAlign: "center"
     },
+    questionnaireTitleDark: {
+        fontWeight: "bold",
+        fontSize: 17,
+        marginLeft: 30,
+        marginRight: 30,
+        padding: 5,
+        textAlign: "center",
+        color: '#fff'
+    },
     questionnaireLabel: {
         marginLeft: 30,
         marginRight: 30,
         marginTop: 20,
         padding: 5
+    },
+    questionnaireLabelDark: {
+        marginLeft: 30,
+        marginRight: 30,
+        marginTop: 20,
+        padding: 5,
+        color: '#fff'
     }
 });
