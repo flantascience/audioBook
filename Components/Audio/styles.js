@@ -116,9 +116,7 @@ export const styles = StyleSheet.create({
         flexDirection: "column",
         minHeight: 100
     },
-    audioTitle: {
-
-    },
+    audioTitle: {},
     altAudioTitle: {
         paddingLeft: 30,
         fontSize: 25,

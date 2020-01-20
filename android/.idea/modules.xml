@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/../node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" filepath="$PROJECT_DIR$/../node_modules/@react-native-community/slider/android/@react-native-community_slider.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/curricu_dumb_audiobook.iml" filepath="$PROJECT_DIR$/curricu_dumb_audiobook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-dark-mode/android/react-native-dark-mode.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-dark-mode/android/react-native-dark-mode.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-firebase/android/react-native-firebase.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-firebase/android/react-native-firebase.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-fs/android/react-native-fs.iml" />
       <module fileurl="file://$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" filepath="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android/react-native-gesture-handler.iml" />
