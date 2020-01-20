@@ -4,7 +4,7 @@
             "outputFile": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ro/values-ro.xml",
             "map": [
                 {
-                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/aa9287b93f52531df0a6504fb094c90d/play-services-base-17.0.0/res/values-ro/values.xml",
+                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/res/values-ro/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,24 +21,24 @@
                     }
                 },
                 {
-                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/a11d0e357760cdfde371f7188b973251/jetified-play-services-basement-17.0.0/res/values-ro/values.xml",
+                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/cf68592e9484182d2dc4f045b17a25af/core-1.0.2/res/values-ro/values-ro.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "203",
-                        "endOffsets": "450"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "37",
+                        "startLines": "48",
                         "startColumns": "4",
-                        "startOffsets": "4048",
-                        "endColumns": "203",
-                        "endOffsets": "4247"
+                        "startOffsets": "5702",
+                        "endColumns": "100",
+                        "endOffsets": "5798"
                     }
                 },
                 {
-                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/0c54ccd3f16aba3b8dc49c80d5641601/appcompat-1.0.2/res/values-ro/values-ro.xml",
+                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/values-ro/values-ro.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/25914fe594a44339fb8d97ccf571c8b6/core-1.0.2/res/values-ro/values-ro.xml",
+                    "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/2e57ca5516ac3dd2a91c2304b3078357/jetified-play-services-basement-17.0.0/res/values-ro/values.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "203",
+                        "endOffsets": "450"
                     },
                     "to": {
-                        "startLines": "48",
+                        "startLines": "37",
                         "startColumns": "4",
-                        "startOffsets": "5702",
-                        "endColumns": "100",
-                        "endOffsets": "5798"
+                        "startOffsets": "4048",
+                        "endColumns": "203",
+                        "endOffsets": "4247"
                     }
                 }
             ]

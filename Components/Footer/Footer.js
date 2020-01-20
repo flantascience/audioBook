@@ -29,16 +29,12 @@ const Footer = (props)=>{
         });
     }
 
-    const [mode = 'light', changeMode] = useState();
+    const [mode = eventEmitter.currentMode, changeMode] = useState();
 
     useEffect(()=>{
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
-        eventEmitter.on('currentModeChanged', newMode => {
-            changeMode(newMode);
-            console.log('Switched to', newMode, 'mode')
-        }) 
-    }, [])
+    })
 
     return(
         <View 
