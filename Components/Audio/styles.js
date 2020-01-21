@@ -247,10 +247,10 @@ export const styles = StyleSheet.create({
         left: 1,
         borderWidth: 0,
         backgroundColor: "#fff",
-        top: showBorder?-30:-26,
+        top: showBorder?-29:-26,
         borderColor: "#C7C6C6",
-        borderBottomColor: "#fff",
         borderWidth: showBorder?1:0,
+        borderBottomWidth: 0,
         elevation: 0,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 0 },
@@ -261,7 +261,7 @@ export const styles = StyleSheet.create({
         paddingTop: 2,
         paddingBottom: 2,
         paddingLeft: 15,
-        paddingRight: 15,
+        paddingRight: 15, 
         textAlign: 'left'
     },
     closePlayerContainerDark: {
@@ -269,13 +269,13 @@ export const styles = StyleSheet.create({
         left: 1,
         borderWidth: 0,
         backgroundColor: "#0D0D0D",
-        top: showBorder?-30:-26,
-        borderColor: "#C7C6C6",
-        borderBottomColor: "#fff",
-        borderWidth: showBorder?1:0,
+        top: showBorder?-28:-26,
+        borderColor: "#757575",
+        borderWidth: showBorder?0.5:0,
+        borderBottomWidth: 0,
         elevation: 0,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 0 },
+        shadowColor: '#D4D4D4',
+        shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.2,
         shadowRadius: 0.2,
         display: "flex",
@@ -369,6 +369,16 @@ export const styles = StyleSheet.create({
         marginRight: 10,
         zIndex: 10000
     },
+    trackTimeContainerDark: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        //minHeight: 20,
+        marginLeft: 10,
+        marginRight: 10,
+        zIndex: 10000,
+        backgroundColor: '#0D0D0D'
+    },
     altTrackTimeContainer: {
         flex: 1,
         display: "flex",
@@ -382,6 +392,13 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         margin: 0
+    },
+    trackTimeCounterContainerDark: {
+        flex: 1,
+        display: "flex",
+        flexDirection: "row",
+        margin: 0,
+        backgroundColor: '#212121'
     },
     sliderContainer: {
         color: "#000"

@@ -264,14 +264,14 @@ class Audio extends React.Component{
         let mode = eventEmitter.currentMode;
         let dark = mode === 'dark';
 
-        const trackTimeSlider = <View style={ styles.trackTimeContainer }>
+        const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>
                 <ProgressBar dark={dark} toggleReached90={this.toggleReached90} reached90={reached90} />
                 { Platform.OS ==="ios" ?
-                <View style={ { display: "flex", flexDirection: "row", marginTop: 20} }>
+                <View style={ { display: "flex", flexDirection: "row", marginTop: 20, backgroundColor: dark ? '#0D0D0D' : '#fff' } }>
                     <Text style={ { flex: 1, justifyContent: "flex-start", textAlign: "left", color: dark ? '#fff' : '#000' } }>{ formatTime(currentPosition) }</Text>
                     <Text style={ { flex: 1, justifyContent: "flex-end", textAlign: "right", color: dark ? '#fff' : '#000' } }>{ "-" + formatTime(remainingTime) }</Text>
                 </View>:
-                <View style={ styles.trackTimeCounterContainer }>
+                <View style={ dark ? styles.trackTimeCounterContainerDark : styles.trackTimeCounterContainer }>
                     <View style= { styles.trackElapsedTime }>
                         <Text style={ dark ? styles.trackTimeDark : styles.trackTime }>{ formatTime(currentPosition) }</Text>
                     </View>
@@ -416,7 +416,11 @@ class Audio extends React.Component{
                                 style={ dark ? styles.closePlayerContainerDark : styles.closePlayerContainer } 
                                 onPress={this.closeMiniPlayer
                             }>
-                                <Text style={ dark ? styles.closePlayerDark : styles.closePlayer }>X</Text>
+                                <Text 
+                                    style={ dark ? styles.closePlayerDark : styles.closePlayer }
+                                >
+                                    X
+                                </Text>
                             </TouchableOpacity>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
