@@ -188,6 +188,7 @@ class Home extends React.Component {
     let { loaded, showVid, paused, introPlayed } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
+    let dark = mode === 'dark';
 
     if(!isFocused && !paused){
       this.setState({paused:true});
@@ -203,7 +204,7 @@ class Home extends React.Component {
         audioFiles={audioFiles}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={styles.audioElement}
+        style={ dark ? styles.audioElementDark : styles.audioElement }
         currentlyPlayingName={ currentlyPlayingName }
       />: null;
     return (
@@ -263,7 +264,8 @@ class Home extends React.Component {
             />
           </View>
         </View>: null }
-        { selectedTrack ? <View 
+        { selectedTrack ? 
+          <View 
             style={ showOverview?styles.overviewContainer:
               height < 570?styles.altAltOverviewContainer:
               height > 700 && height < 800?styles.longAltOverviewContanier:

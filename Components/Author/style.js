@@ -1,4 +1,8 @@
 import { StyleSheet } from 'react-native';
+import { eventEmitter } from 'react-native-dark-mode';
+
+const mode = eventEmitter.currentMode;
+const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({
     scrollView: {
@@ -24,27 +28,32 @@ export const styles = StyleSheet.create({
     overviewContainer: {
         flex: 6,
         overflow: "hidden",
-        marginBottom: 40
+        marginBottom: 40,
+        backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     altOverviewContainer: {
         flex: 2,
         //overflow: "hidden",
         //marginBottom: 30,
+        backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     altAltOverviewContainer: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: 30,
+        backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     longAltOverviewContanier: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: -20,
+        backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     longerAltOverviewContanier: {
         flex: 2,
         //overflow: "hidden",
         marginBottom: -35,
+        backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeFooter: {
         flex:1,
@@ -192,7 +201,14 @@ export const styles = StyleSheet.create({
     },
     audioElement: {
         minHeight: 50,
-        elevation: 10
+        elevation: 10,
+        zIndex: 1000
+    },
+    audioElementDark: {
+        minHeight: 50,
+        backgroundColor: '#0D0D0D',
+        elevation: 10,
+        zIndex: 1000
     },
     spacer: {
         height: 70

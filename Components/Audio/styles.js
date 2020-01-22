@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     },
     elContainer: {
         flex:2,
-        display: 'flex'
+        display: 'flex',
+        backgroundColor: '#fff'
     },
     elContainerDark: {
         flex:2,
@@ -29,6 +30,7 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
+        backgroundColor: '#fff'
     },
     containerDark:{
         display: "flex",
@@ -60,6 +62,7 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
+        backgroundColor: '#fff'
     },
     altContinerDark: {
         display: "flex",
@@ -169,6 +172,10 @@ export const styles = StyleSheet.create({
     },
     spaceFiller: {
         height: 10
+    },
+    spaceFillerDark: {
+        height: 10,
+        backgroundColor: '#0D0D0D'
     },
     altSpaceFiller: {
         display: "none"
@@ -367,7 +374,8 @@ export const styles = StyleSheet.create({
         //minHeight: 20,
         marginLeft: 10,
         marginRight: 10,
-        zIndex: 10000
+        zIndex: 10000,
+        backgroundColor: '#fff'
     },
     trackTimeContainerDark: {
         flex: 1,
@@ -391,14 +399,21 @@ export const styles = StyleSheet.create({
         flex: 1,
         display: "flex",
         flexDirection: "row",
-        margin: 0
+        marginTop: Platform.OS === 'ios' ? 10 : 0,
+        marginLeft: 0,
+        marginRight: 0,
+        marginBottom: 0,
+        backgroundColor: '#fff'
     },
     trackTimeCounterContainerDark: {
         flex: 1,
         display: "flex",
         flexDirection: "row",
-        margin: 0,
-        backgroundColor: '#212121'
+        marginLeft: 0,
+        marginRight: 0,
+        marginBottom: 0,
+        marginTop: Platform.OS === 'ios' ? 10 : 0,
+        backgroundColor: '#0D0D0D'
     },
     sliderContainer: {
         color: "#000"

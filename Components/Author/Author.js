@@ -169,7 +169,7 @@ class Author extends React.Component {
         audioFiles={audioFiles}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={styles.audioElement}
+        style={ dark ? styles.audioElementDark : styles.audioElement }
         currentlyPlayingName={ currentlyPlayingName }
       />: null;
     return (

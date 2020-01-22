@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
 import Button from '../Button/Button';
 import PropTypes from 'prop-types';
@@ -18,6 +18,10 @@ const Questionnaire = props => {
         comment,
         dark
     } = props;
+
+    const [ localQuestion, setQuestion ] = useState();
+    const [ localConfusing, setConfusing ] = useState();
+    const [ localComment, setComment ] = useState();
     return (
         <View style = { styles.textScrollView }>
             <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ realConfusing }</Text>
@@ -27,9 +31,12 @@ const Questionnaire = props => {
                 value={ confusing }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={ (text) =>{
-                    questionnaire.confusing = text;
-                    store({ questionnaire });
+                    setConfusing(text);
                 } }
+                onBlur={ () => {
+                    questionnaire.confusing = localConfusing;
+                    store({ questionnaire });
+                }}
             />
             <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ realOtherQuestion }</Text>
             <TextInput
@@ -37,12 +44,14 @@ const Questionnaire = props => {
                 multiline = { multiLine }
                 value={ question }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
-                onChangeText={
-                    (text) =>{
-                        questionnaire.question = text;
-                        store({ questionnaire });
+                onChangeText={(text) =>{
+                        setQuestion(text);
                     }
                 }
+                onBlur={() => {
+                    questionnaire.question = localQuestion;
+                    store({ questionnaire });
+                }}
             />
 
             <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ anythingElse }</Text>
@@ -51,12 +60,14 @@ const Questionnaire = props => {
                 multiline = { multiLine }
                 value={ comment }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
-                onChangeText={
-                    (text) =>{
-                        questionnaire.comment = text;
-                        store({ questionnaire });
+                onChangeText={(text) =>{
+                        setComment(text);
                     }
                 }
+                onBlur={()=>{
+                    questionnaire.comment = localComment;
+                    store({ questionnaire });
+                }}
             />
             
             <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>

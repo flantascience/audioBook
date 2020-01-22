@@ -477,7 +477,7 @@ _storeData = async (audioFiles) => {
         audioFiles={audioFiles}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={styles.audioElement}
+        style={ dark ? styles.audioElementDark : styles.audioElement }
         currentlyPlayingName={ currentlyPlayingName }
       />: null;
 
