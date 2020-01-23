@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)"
 options: "807ce383de4c1868f1b5880532c45d18"
-build_time: [1579635979, 489305000]
+build_time: [1579721623, 569089000]
 inputs:
   "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Vendor/AudioPlayer/SwiftAudio/Classes/APError.swift": !dirty [1574511293, 959000000]
   "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Vendor/AudioPlayer/SwiftAudio/Classes/AudioItem.swift": !dirty [1574511293, 959000000]

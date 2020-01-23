@@ -3,10 +3,10 @@ import { View, Text } from 'react-native';
 import { styles } from './style';
 
 
-const Toast = props => {
+const Toast = ({text, dark}) => {
     return(
-        <View style={ styles.container }>
-            <Text style={ styles.text }>{ props.text }</Text>
+        <View style={ dark ? styles.containerDark : styles.container }>
+            <Text style={ dark ? styles.textDark : styles.text }>{ text }</Text>
         </View>
     )
 }

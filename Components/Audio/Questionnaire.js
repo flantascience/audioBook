@@ -7,28 +7,25 @@ const Questionnaire = props => {
     const { 
         styles, 
         multiLine, 
-        confusing, 
         realConfusing, 
         questionnaire, 
-        question, 
         realOtherQuestion, 
         sendQuestionnaire,
         store,
         anythingElse,
-        comment,
         dark
     } = props;
 
-    const [ localQuestion, setQuestion ] = useState();
-    const [ localConfusing, setConfusing ] = useState();
-    const [ localComment, setComment ] = useState();
+    const [ localQuestion = '', setQuestion ] = useState();
+    const [ localConfusing = '', setConfusing ] = useState();
+    const [ localComment = '', setComment ] = useState();
     return (
         <View style = { styles.textScrollView }>
             <Text style={ dark ? styles.questionnaireLabelDark : styles.questionnaireLabel }>{ realConfusing }</Text>
             <TextInput
                 id="confusing"
                 multiline = { multiLine }
-                value={ confusing }
+                value={ localConfusing }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={ (text) =>{
                     setConfusing(text);
@@ -42,7 +39,7 @@ const Questionnaire = props => {
             <TextInput
                 id="question"
                 multiline = { multiLine }
-                value={ question }
+                value={ localQuestion }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={(text) =>{
                         setQuestion(text);
@@ -58,7 +55,7 @@ const Questionnaire = props => {
             <TextInput
                 id="comment"
                 multiline = { multiLine }
-                value={ comment }
+                value={ localComment }
                 style={ dark ? styles.questionareTextDark : styles.questionareText }
                 onChangeText={(text) =>{
                         setComment(text);
@@ -74,7 +71,15 @@ const Questionnaire = props => {
                 <Button
                     dark = { dark }
                     title={ "Submit" }
-                    onPress={ sendQuestionnaire } 
+                    onPress={ () => {
+                        sendQuestionnaire().then(res => {
+                            if (res === 'sent') {
+                                setComment('');
+                                setConfusing('');
+                                setQuestion('');
+                            }
+                        });
+                    } } 
                 />
             </View>
         </View>

@@ -1,5 +1,4 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/ios/MusicControlManager.m \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/react-native-music-control/react-native-music-control-prefix.pch \
   /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/ios/MusicControlManager.h \

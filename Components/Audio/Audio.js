@@ -157,37 +157,42 @@ class Audio extends React.Component{
     }
 
     sendQuestionnaire = ()=>{
-        let { questionnaire, currentlyPlayingName } = this.props;
-        //console.log(currentlyPlayingName);
-        Analytics.logEvent('select_content', {submittedQuestionnaire: currentlyPlayingName});
-        questionnaire.trackName = currentlyPlayingName;
-        if(questionnaire.confusing || questionnaire.question){
-            dbRef.push(questionnaire).then(res=>{
+        return new Promise((resolve)=>{
+            let { questionnaire, currentlyPlayingName } = this.props;
+            //console.log(currentlyPlayingName);
+            Analytics.logEvent('select_content', {submittedQuestionnaire: currentlyPlayingName});
+            questionnaire.trackName = currentlyPlayingName;
+            if(questionnaire.confusing || questionnaire.question){
+                dbRef.push(questionnaire).then(res=>{
+                    let showToast = true;
+                    this.props.store({showToast, toastText: "Your questions were successfully sent." });
+                    setTimeout(()=>{
+                        this.props.store({
+                            showToast: !showToast, 
+                            toastText: null, 
+                            showTextinput: false, 
+                            questionnaire: { confusing: null, question: null, comment:null } 
+                        });
+                    }, 1000);
+                    resolve('sent');
+                }).catch(err=>{
+                    let showToast = true;
+                    this.props.store({showToast, toastText: "Something went wront, try again!" });
+                    setTimeout(()=>{
+                    this.props.store({showToast: !showToast, toastText: null });
+                    }, 1000);
+                    resolve('err')
+                    console.log(err);
+                });
+            }else{
                 let showToast = true;
-                this.props.store({showToast, toastText: "Your questions were successfully sent." });
-                setTimeout(()=>{
-                    this.props.store({
-                        showToast: !showToast, 
-                        toastText: null, 
-                        showTextinput: false, 
-                        questionnaire: { confusing: null, question: null, comment:null } 
-                    });
-                }, 1000);
-            }).catch(err=>{
-                let showToast = true;
-                this.props.store({showToast, toastText: "Something went wront, try again!" });
+                this.props.store({showToast, toastText: "Fill in a question first!" });
                 setTimeout(()=>{
                 this.props.store({showToast: !showToast, toastText: null });
                 }, 1000);
-                console.log(err);
-            });
-        }else{
-            let showToast = true;
-            this.props.store({showToast, toastText: "Fill in a question first!" });
-            setTimeout(()=>{
-              this.props.store({showToast: !showToast, toastText: null });
-            }, 1000);
-        }
+                resolve('no question');
+            }
+        });
     }
 
     toggleReferencesView = () => {
@@ -248,17 +253,15 @@ class Audio extends React.Component{
         let realConfusing = lastTrackId === currentlyPlaying?confusingFinal:confusing1;
         let realOtherQuestion = lastTrackId === currentlyPlaying?otherQuestionFinal:otherQuestion1;
         /**Input text config */
-        let multiLine = lastTrackId === currentlyPlaying?true:false;
+        let multiLine = lastTrackId === currentlyPlaying ? true : false;
         //console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
+
         let playIcon = "play-circle";
-        if(!currentlyPlayingName && paused && !loaded){
-            playIcon = "play-circle"
-        }else if(paused && loaded){
-            playIcon = "play-circle";
-        }else if(!paused && loaded){
-            playIcon = "pause"
-        }
+        if (!currentlyPlayingName && paused && !loaded) playIcon = "play-circle"
+        else if (paused && loaded) playIcon = "play-circle";
+        else if(!paused && loaded) playIcon = "pause";
+
         let trackDuration = selectedTrack? audioFiles[selectedTrack].duration: "";
         let remainingTime = ( trackDuration - currentPosition );
         let mode = eventEmitter.currentMode;
@@ -351,7 +354,7 @@ class Audio extends React.Component{
                         }
                         <View style={ styles.textContainer } >
                             { showToast?
-                                <Toast text={ toastText } />:
+                                <Toast dark={dark} text={ toastText } />:
                             null }
                             <TouchableOpacity 
                                 style={ dark ? styles.refsAccordionHeaderDark : styles.refsAccordionHeader } 

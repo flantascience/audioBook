@@ -190,7 +190,7 @@ class Author extends React.Component {
               <View style={ styles.actionContainer }>
                 <Text style={ dark ? styles.callToActionDark : styles.callToAction}>{ author.callToAction }</Text>
                 { showToast?
-                  <Toast text={ toastText } /> :
+                  <Toast dark={dark} text={ toastText } /> :
                 null }
                   <TextInput
                     style={ dark ? styles.emailInputDark : styles.emailInput }
@@ -220,7 +220,7 @@ class Author extends React.Component {
               <View style={ styles.actionContainer }>
                 <Text style={ dark ? styles.callToActionDark : styles.callToAction}>{ author.callToAction }</Text>
                 { showToast ?
-                  <Toast text={ toastText } /> :
+                  <Toast dark={dark} text={ toastText } /> :
                 null }
                   <TextInput
                     style={ dark ? styles.emailInputDark : styles.emailInput }

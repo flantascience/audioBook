@@ -69,10 +69,7 @@ class Tracks extends React.Component {
     Analytics.setCurrentScreen('Tracks');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
       let palyerState = data.state;
-      //console.log(palyerState)
-      TrackPlayer.getCurrentTrack().then(res => {
-        console.log(res)
-      })
+      //console.log(palyerState);
       if(Platform.OS === "android"){
         if(palyerState === 0 || palyerState === 1 || palyerState === 2)
           this.props.store({ paused: true });
@@ -349,7 +346,7 @@ class Tracks extends React.Component {
   downloadTrack = (pos) => {
     NetInfo.fetch().then(state=>{
       let conType = state.type;
-      let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+      let haveNet = conType === "wifi" || conType === "cellular" ? true : false;
       if(haveNet){
         let { audioFiles } = this.props;
         let { currentAction } = this.state;
@@ -370,7 +367,7 @@ class Tracks extends React.Component {
               currentAction[pos].error = true;
               this.setState({currentAction});
             }else{
-              console.log(audioFiles[pos].title)
+              // console.log(audioFiles[pos].title)
               Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
               currentAction[pos].action = "downloading";
               this.setState({currentAction});
@@ -463,6 +460,7 @@ _storeData = async (audioFiles) => {
     let { referencesInfo } = this.state;
     let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let height = Dimensions.get('window').height;
+
     let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
 
     let mode = eventEmitter.currentMode;
@@ -487,7 +485,7 @@ _storeData = async (audioFiles) => {
               <View style = { dark ? styles.homeMidDark : styles.homeMid }>
                 { showToast?
                   <View style={ styles.toastContainer }>
-                    <Toast text={ toastText } /></View>: 
+                    <Toast dark={dark} text={ toastText } /></View>: 
                   null
                 }
                 { !loading?
