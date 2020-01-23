@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 40,
+        top: 90,
         paddingRight: 40,
         width: "100%",
         alignContent: "center",
@@ -20,6 +21,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         paddingTop: 10,
         paddingBottom: 10,
+        top: 90,
         paddingLeft: 40,
         paddingRight: 40,
         width: "100%",
@@ -39,10 +41,9 @@ export const styles = StyleSheet.create({
         flex: 1,
         textAlign: "center",
         color: "#fff",
-        borderColor: "#fff",
-        borderWidth: 1,
+        borderColor: '#0D0D0D',
         borderRadius: 2,
         padding: 20,
-        backgroundColor: "rgba(0,0,0, .9)"
+        backgroundColor: "rgba(0,0,0, 1)"
     }
 })
