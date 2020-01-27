@@ -14,15 +14,15 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		AncVRDTHFNt3+AKZveT3inG6fHA=
+		CPsWJBQQE2VvFIw5dEq+b3LJyFA=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		qNpXio1pWPZi3EpSYauvFapzU9I=
+		cSnrK4n0VwsCx96ea4p83WdROUE=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		iBvi0A6EpnmCAYMGzHhRNbJfaaQ=
+		ST3Tstqwgmah29nHeMws0HMZjyY=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -159,7 +159,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ZuFsFnlRqTupsKq9GHMb0msWYzk=
+		grUVEVhpY714Qaz+NAMJ/TxiD3g=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -187,7 +187,7 @@
 		</data>
 		<key>PlugIns/audioBookTests.xctest.dSYM/Contents/Resources/DWARF/audioBookTests</key>
 		<data>
-		VPerdfVfYpvPNPAtzQjeDye4cA0=
+		D1dRxc2VeL0w1bLmNysjvlptNGs=
 		</data>
 		<key>PlugIns/audioBookTests.xctest/AntDesign.ttf</key>
 		<data>
@@ -291,7 +291,7 @@
 		</data>
 		<key>PlugIns/audioBookTests.xctest/audioBookTests</key>
 		<data>
-		rcVz6YLMhNRWs7z+mw523tIIZ2o=
+		dpbyGILOIOko41EV9n1N9sKOxS8=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -326,21 +326,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			D3LrOMq1yWdxHiXyS8zN4ZlnXe7LLL1yXnfb2s0pUho=
+			45Ha3Qhh/EFOyjCVmS6//ejw0PYzoOFFUC7fqtcc9Jo=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RIjK505KJCqWjU0ecGfPFzC+S44RtD77ylcCOBYTX4Y=
+			SzxX/uCSyhGGd2fKuQsPaZmkWHQIDB5zPAMDzmS90xU=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			zM5+fkoA4JRkokQIJeBU3psHCoOTTlK2Myp3UUTjBCs=
+			IwRyaKhL28pN+h8IriTxtkk1aibm2EImJB2YkzcbSCI=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -608,7 +608,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LNaiqLd5K+W7OCtbDkp14K77G6mcB1JZhUoF5jYaO6Q=
+			rs/cX9bt2uXGN14My3YeBCxtynOdkfJOdpKihffJ494=
 			</data>
 		</dict>
 		<key>PlugIns/audioBookTests.xctest/AntDesign.ttf</key>
@@ -790,7 +790,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LqJaW3ZibJTwRrovOFmKwfA+L814s0zs0U4ywxpdbGo=
+			jZPwdRxtc4+Il/fD8ACY2kLacAFA4Ud5mrgazzFeG7k=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

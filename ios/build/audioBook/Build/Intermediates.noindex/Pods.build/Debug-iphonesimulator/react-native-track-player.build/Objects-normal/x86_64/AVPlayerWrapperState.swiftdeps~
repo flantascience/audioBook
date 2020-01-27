@@ -21,6 +21,7 @@ depends-member:
 - ["25react_native_track_player20AVPlayerWrapperStateO", "_Default_RawValue"]
 - !private ["25react_native_track_player20AVPlayerWrapperStateO", "_findStringSwitchCase"]
 - ["25react_native_track_player20AVPlayerWrapperStateO", "_rawHashValue"]
+- ["25react_native_track_player20AVPlayerWrapperStateO", "buffering"]
 - ["25react_native_track_player20AVPlayerWrapperStateO", "deinit"]
 - ["25react_native_track_player20AVPlayerWrapperStateO", "hash"]
 - ["25react_native_track_player20AVPlayerWrapperStateO", "hashValue"]
@@ -106,8 +107,18 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
 - "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
-- "/Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
@@ -127,4 +138,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "ab663a6146ab1e01d15416c6259c1bd7"
+interface-hash: "6dd4992cdbe152fbae9e5eabdfe67eff"

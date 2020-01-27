@@ -38,6 +38,15 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseDatabase/FIRServerValue.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseInstanceID/FirebaseInstanceID.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseInstanceID/FIRInstanceID.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FirebasePerformance.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Modules/module.modulemap \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRTrace.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRPerformance.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRPerformanceAttributable.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRHTTPMetric.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FirebaseRemoteConfig.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Modules/module.modulemap \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FIRRemoteConfig.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseStorage/FirebaseStorage.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseStorage/FIRStorage.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/FirebaseStorage/FIRStorageConstants.h \

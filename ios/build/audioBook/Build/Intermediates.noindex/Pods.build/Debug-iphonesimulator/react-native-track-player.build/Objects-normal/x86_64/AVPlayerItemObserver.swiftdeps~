@@ -69,7 +69,6 @@ depends-member:
 - !private ["s7CVarArgP", "AVPlayerItemObserver"]
 - ["s7CVarArgP", ""]
 - !private ["s7CVarArgP", "addObserver"]
-- !private ["s7CVarArgP", "async"]
 - !private ["s7CVarArgP", "context"]
 - !private ["s7CVarArgP", "delegate"]
 - ["s7CVarArgP", "duration"]
@@ -94,7 +93,6 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "AVPlayerItemObserver"]
 - ["s28CustomDebugStringConvertibleP", ""]
 - !private ["s28CustomDebugStringConvertibleP", "addObserver"]
-- !private ["s28CustomDebugStringConvertibleP", "async"]
 - !private ["s28CustomDebugStringConvertibleP", "context"]
 - !private ["s28CustomDebugStringConvertibleP", "delegate"]
 - ["s28CustomDebugStringConvertibleP", "duration"]
@@ -116,7 +114,6 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "AVPlayerItemObserver"]
 - ["s23CustomStringConvertibleP", ""]
 - !private ["s23CustomStringConvertibleP", "addObserver"]
-- !private ["s23CustomStringConvertibleP", "async"]
 - !private ["s23CustomStringConvertibleP", "context"]
 - !private ["s23CustomStringConvertibleP", "delegate"]
 - ["s23CustomStringConvertibleP", "duration"]
@@ -135,9 +132,7 @@ depends-member:
 - !private ["Se", "first"]
 - !private ["Se", "subscript"]
 - !private ["SD", "subscript"]
-- !private ["So18OS_dispatch_objectC", "async"]
 - ["So18OS_dispatch_objectC", "main"]
-- !private ["So17OS_dispatch_queueC", "async"]
 - ["So17OS_dispatch_queueC", "main"]
 - !private ["SE", "first"]
 - !private ["SE", "subscript"]
@@ -146,7 +141,6 @@ depends-member:
 - !private ["SQ", "AVPlayerItemObserver"]
 - ["SQ", ""]
 - !private ["SQ", "addObserver"]
-- !private ["SQ", "async"]
 - !private ["SQ", "context"]
 - !private ["SQ", "delegate"]
 - ["SQ", "duration"]
@@ -172,7 +166,6 @@ depends-member:
 - !private ["SH", "AVPlayerItemObserver"]
 - ["SH", ""]
 - !private ["SH", "addObserver"]
-- !private ["SH", "async"]
 - !private ["SH", "context"]
 - !private ["SH", "delegate"]
 - ["SH", "duration"]
@@ -212,7 +205,6 @@ depends-member:
 - ["So8NSObjectC", "UnsafeMutableRawPointer"]
 - ["So8NSObjectC", ""]
 - !private ["So8NSObjectC", "addObserver"]
-- !private ["So8NSObjectC", "async"]
 - ["So8NSObjectC", "context"]
 - ["So8NSObjectC", "delegate"]
 - ["So8NSObjectC", "duration"]
@@ -231,7 +223,6 @@ depends-member:
 - !private ["So8NSObjectP", "AVPlayerItemObserver"]
 - ["So8NSObjectP", ""]
 - !private ["So8NSObjectP", "addObserver"]
-- !private ["So8NSObjectP", "async"]
 - !private ["So8NSObjectP", "context"]
 - !private ["So8NSObjectP", "delegate"]
 - ["So8NSObjectP", "duration"]
@@ -246,14 +237,12 @@ depends-member:
 - !private ["So8NSObjectP", "timeRangeValue"]
 - !private ["So14NSSecureCodingP", "timeRangeValue"]
 - !private ["So7NSValueC", "timeRangeValue"]
-- !private ["So9OS_objectC", "async"]
 - ["So9OS_objectC", "main"]
 - !private ["s9OptionSetP", "new"]
 - !private ["Sk", "first"]
 - !private ["Sm", "first"]
 - !private ["SY", "new"]
 - !private ["SY", "newKey"]
-- !private ["7Combine9SchedulerP", "async"]
 - ["7Combine9SchedulerP", "main"]
 - !private ["ST", "first"]
 - !private ["ST", "subscript"]
@@ -269,7 +258,6 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "AVPlayerItemObserver"]
 - ["10Foundation27_KeyValueCodingAndObservingP", ""]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "addObserver"]
-- !private ["10Foundation27_KeyValueCodingAndObservingP", "async"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "context"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "duration"]
@@ -287,7 +275,6 @@ depends-member:
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "AVPlayerItemObserver"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "addObserver"]
-- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "async"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "context"]
 - !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "delegate"]
 - ["10Foundation37_KeyValueCodingAndObservingPublishingP", "duration"]
@@ -398,8 +385,18 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
 - "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
-- "/Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
@@ -419,4 +416,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "c4f0fcd1a2686e150c1e05c0682ea336"
+interface-hash: "5dfd62234b0d5a20bd5100f9c5fa84eb"

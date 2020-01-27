@@ -33,6 +33,7 @@ target 'audioBook' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Performance'
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
@@ -41,6 +42,7 @@ target 'audioBook' do
   pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
+
 
   target 'audioBookTests' do
     inherit! :search_paths

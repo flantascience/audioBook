@@ -5,29 +5,18 @@
  * @format
  * @flow
  */
-import React  from 'react';
+import React from 'react';
 import {
   View,
-  Platform,
-  ScrollView,
   Image,
-  Text,
-  TextInput,
-  Button,
-  TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { styles } from './styles';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { 
-  formatTime, 
   getCurrentTrack, 
-  getTrack, 
-  getPlayerState 
 } from '../../Misc/helpers';
-import Toast from '../../Components/Toast/Toast'
 import poster from '../../Misc/media/part2-unschooling.jpg';
 
 class MediaOverviews extends React.Component {

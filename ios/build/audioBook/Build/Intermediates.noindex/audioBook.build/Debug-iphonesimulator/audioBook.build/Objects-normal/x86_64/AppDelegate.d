@@ -21,6 +21,15 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Modules/module.modulemap \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRTrace.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRPerformance.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRPerformanceAttributable.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FIRHTTPMetric.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebasePerformance/Frameworks/FirebasePerformance.framework/Headers/FirebasePerformance.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Modules/module.modulemap \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FIRRemoteConfig.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FirebaseRemoteConfig.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Modules/module.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Headers/FABAttributes.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Fabric/iOS/Fabric.framework/Headers/Fabric.h \

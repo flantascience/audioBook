@@ -48,7 +48,7 @@ class Home extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
+        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -61,12 +61,33 @@ class Home extends React.Component {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
         headerStyle:{
-          backgroundColor: newMode === 'dark'? '#212121' : '#EBEAEA',
+          backgroundColor: newMode === 'dark' ? '#212121' : '#EBEAEA',
           height: 80,
         }
       });
       this.forceUpdate();
     });
+    this.blurSubscription = this.props.navigation.addListener(
+      'willBlur',
+      () => {
+        if (!this.state.paused) {
+          this.setState({paused: true, showVid: false});
+        }
+      }
+    )
+  }
+
+  componentDidUpdate(){
+    let {
+      navigation,
+      paused
+    } = this.props;
+    let vidPlaying = !this.state.paused;
+    let isFocused = navigation.isFocused();
+    let audioPlaying = !paused;
+    if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
+      this.setState({paused: true, showVid: false});
+    }
   }
 
   _handleAppStateChange = (nextState) => {
@@ -175,6 +196,10 @@ class Home extends React.Component {
     }
   };
 
+  componentWillUnmount(){
+    this.blurSubscription.remove();
+  }
+
   render(){
     let {
       navigation,
@@ -189,6 +214,7 @@ class Home extends React.Component {
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
+    let audioPlaying = !this.props.paused;
 
     if(!isFocused && !paused){
       this.setState({paused:true});
@@ -248,6 +274,10 @@ class Home extends React.Component {
                 });
               }}
               onProgress = { () => {
+                if(!isFocused || audioPlaying) {
+                  // console.log('pause vid')
+                  this.setState({paused: true, showVid: false});
+                }
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
                   Analytics.setCurrentScreen('Home');
@@ -258,12 +288,11 @@ class Home extends React.Component {
               disableFocus = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
-              playWhenInactive = { false }
               controls = { true }
               style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
             />
           </View>
-        </View>: null }
+            </View>: null }
         { selectedTrack ? 
           <View 
             style={ showOverview?styles.overviewContainer:
@@ -301,7 +330,8 @@ const mapStateToProps = state => {
     loaded: state.media.loaded,
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
-    showTextinput: state.media.showTextinput
+    showTextinput: state.media.showTextinput,
+    paused: state.media.paused,
   }
 }
 

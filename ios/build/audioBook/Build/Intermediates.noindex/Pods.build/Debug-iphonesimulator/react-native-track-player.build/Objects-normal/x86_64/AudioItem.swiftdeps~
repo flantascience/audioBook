@@ -4,7 +4,7 @@ provides-top-level:
 - "AudioItem"
 - "TimePitching"
 - "InitialTiming"
-- "Authorizing"
+- "AssetOptionsProviding"
 - "DefaultAudioItem"
 - "DefaultAudioItemTimePitching"
 - "DefaultAudioItemInitialTime"
@@ -14,7 +14,7 @@ provides-nominal:
 - "25react_native_track_player9AudioItemP"
 - "25react_native_track_player12TimePitchingP"
 - "25react_native_track_player13InitialTimingP"
-- "25react_native_track_player11AuthorizingP"
+- "25react_native_track_player21AssetOptionsProvidingP"
 - "25react_native_track_player16DefaultAudioItemC"
 - "25react_native_track_player28DefaultAudioItemTimePitchingC"
 - "25react_native_track_player27DefaultAudioItemInitialTimeC"
@@ -24,7 +24,7 @@ provides-member:
 - ["25react_native_track_player9AudioItemP", ""]
 - ["25react_native_track_player12TimePitchingP", ""]
 - ["25react_native_track_player13InitialTimingP", ""]
-- ["25react_native_track_player11AuthorizingP", ""]
+- ["25react_native_track_player21AssetOptionsProvidingP", ""]
 - ["25react_native_track_player16DefaultAudioItemC", ""]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", ""]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", ""]
@@ -33,9 +33,9 @@ provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - "AVAudioTimePitchAlgorithm"
+- "AssetOptionsProviding"
 - "AssignmentPrecedence"
 - "AudioItem"
-- "Authorizing"
 - "DefaultAudioItem"
 - "DefaultAudioItemAuthorizing"
 - "DefaultAudioItemInitialTime"
@@ -51,6 +51,10 @@ depends-top-level:
 - "Void"
 depends-member:
 - !private ["So25AVAudioTimePitchAlgorithma", "lowQualityZeroLatency"]
+- ["25react_native_track_player21AssetOptionsProvidingP", "String"]
+- ["25react_native_track_player21AssetOptionsProvidingP", ""]
+- ["25react_native_track_player21AssetOptionsProvidingP", "getAssetOptions"]
+- !private ["25react_native_track_player21AssetOptionsProvidingP", "options"]
 - !private ["25react_native_track_player9AudioItemP", "AVAudioTimePitchAlgorithm"]
 - ["25react_native_track_player9AudioItemP", "SourceType"]
 - ["25react_native_track_player9AudioItemP", "String"]
@@ -63,23 +67,19 @@ depends-member:
 - !private ["25react_native_track_player9AudioItemP", "audioUrl"]
 - ["25react_native_track_player9AudioItemP", "getAlbumTitle"]
 - ["25react_native_track_player9AudioItemP", "getArtist"]
-- ["25react_native_track_player9AudioItemP", "getHeaders"]
+- ["25react_native_track_player9AudioItemP", "getArtwork"]
+- ["25react_native_track_player9AudioItemP", "getAssetOptions"]
 - ["25react_native_track_player9AudioItemP", "getInitialTime"]
 - ["25react_native_track_player9AudioItemP", "getPitchAlgorithmType"]
 - ["25react_native_track_player9AudioItemP", "getSourceType"]
 - ["25react_native_track_player9AudioItemP", "getSourceUrl"]
 - ["25react_native_track_player9AudioItemP", "getTitle"]
-- !private ["25react_native_track_player9AudioItemP", "headers"]
 - !private ["25react_native_track_player9AudioItemP", "init"]
 - !private ["25react_native_track_player9AudioItemP", "initialTime"]
+- !private ["25react_native_track_player9AudioItemP", "options"]
 - !private ["25react_native_track_player9AudioItemP", "pitchAlgorithmType"]
 - !private ["25react_native_track_player9AudioItemP", "sourceType"]
 - !private ["25react_native_track_player9AudioItemP", "title"]
-- ["25react_native_track_player11AuthorizingP", "String"]
-- ["25react_native_track_player11AuthorizingP", "UIImage"]
-- ["25react_native_track_player11AuthorizingP", ""]
-- ["25react_native_track_player11AuthorizingP", "getHeaders"]
-- !private ["25react_native_track_player11AuthorizingP", "headers"]
 - ["25react_native_track_player16DefaultAudioItemC", "AVAudioTimePitchAlgorithm"]
 - ["25react_native_track_player16DefaultAudioItemC", "SourceType"]
 - ["25react_native_track_player16DefaultAudioItemC", "String"]
@@ -89,20 +89,21 @@ depends-member:
 - ["25react_native_track_player16DefaultAudioItemC", ""]
 - ["25react_native_track_player16DefaultAudioItemC", "albumTitle"]
 - ["25react_native_track_player16DefaultAudioItemC", "artist"]
-- !private ["25react_native_track_player16DefaultAudioItemC", "artwork"]
+- ["25react_native_track_player16DefaultAudioItemC", "artwork"]
 - ["25react_native_track_player16DefaultAudioItemC", "audioUrl"]
 - ["25react_native_track_player16DefaultAudioItemC", "deinit"]
 - ["25react_native_track_player16DefaultAudioItemC", "getAlbumTitle"]
 - ["25react_native_track_player16DefaultAudioItemC", "getArtist"]
-- ["25react_native_track_player16DefaultAudioItemC", "getHeaders"]
+- ["25react_native_track_player16DefaultAudioItemC", "getArtwork"]
+- ["25react_native_track_player16DefaultAudioItemC", "getAssetOptions"]
 - ["25react_native_track_player16DefaultAudioItemC", "getInitialTime"]
 - ["25react_native_track_player16DefaultAudioItemC", "getPitchAlgorithmType"]
 - ["25react_native_track_player16DefaultAudioItemC", "getSourceType"]
 - ["25react_native_track_player16DefaultAudioItemC", "getSourceUrl"]
 - ["25react_native_track_player16DefaultAudioItemC", "getTitle"]
-- ["25react_native_track_player16DefaultAudioItemC", "headers"]
 - ["25react_native_track_player16DefaultAudioItemC", "init"]
 - ["25react_native_track_player16DefaultAudioItemC", "initialTime"]
+- ["25react_native_track_player16DefaultAudioItemC", "options"]
 - ["25react_native_track_player16DefaultAudioItemC", "pitchAlgorithmType"]
 - ["25react_native_track_player16DefaultAudioItemC", "sourceType"]
 - ["25react_native_track_player16DefaultAudioItemC", "title"]
@@ -110,14 +111,16 @@ depends-member:
 - ["25react_native_track_player27DefaultAudioItemAuthorizingC", "String"]
 - ["25react_native_track_player27DefaultAudioItemAuthorizingC", "UIImage"]
 - ["25react_native_track_player27DefaultAudioItemAuthorizingC", "deinit"]
-- ["25react_native_track_player27DefaultAudioItemAuthorizingC", "getHeaders"]
-- ["25react_native_track_player27DefaultAudioItemAuthorizingC", "headers"]
+- ["25react_native_track_player27DefaultAudioItemAuthorizingC", "getAssetOptions"]
+- ["25react_native_track_player27DefaultAudioItemAuthorizingC", "init"]
+- ["25react_native_track_player27DefaultAudioItemAuthorizingC", "options"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "SourceType"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "String"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "TimeInterval"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "UIImage"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "deinit"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "getInitialTime"]
+- ["25react_native_track_player27DefaultAudioItemInitialTimeC", "init"]
 - ["25react_native_track_player27DefaultAudioItemInitialTimeC", "initialTime"]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "AVAudioTimePitchAlgorithm"]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "SourceType"]
@@ -125,6 +128,7 @@ depends-member:
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "UIImage"]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "deinit"]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "getPitchAlgorithmType"]
+- ["25react_native_track_player28DefaultAudioItemTimePitchingC", "init"]
 - ["25react_native_track_player28DefaultAudioItemTimePitchingC", "pitchAlgorithmType"]
 - ["SQ", "=="]
 - ["SQ", ""]
@@ -140,7 +144,6 @@ depends-member:
 - !private ["SH", "lowQualityZeroLatency"]
 - !private ["s6HasherV", "combine"]
 - ["25react_native_track_player13InitialTimingP", "TimeInterval"]
-- ["25react_native_track_player13InitialTimingP", "UIImage"]
 - ["25react_native_track_player13InitialTimingP", ""]
 - ["25react_native_track_player13InitialTimingP", "getInitialTime"]
 - !private ["25react_native_track_player13InitialTimingP", "initialTime"]
@@ -154,7 +157,6 @@ depends-member:
 - ["25react_native_track_player10SourceTypeO", "hashValue"]
 - ["25react_native_track_player10SourceTypeO", "stream"]
 - ["25react_native_track_player12TimePitchingP", "AVAudioTimePitchAlgorithm"]
-- ["25react_native_track_player12TimePitchingP", "UIImage"]
 - ["25react_native_track_player12TimePitchingP", ""]
 - ["25react_native_track_player12TimePitchingP", "getPitchAlgorithmType"]
 - !private ["25react_native_track_player12TimePitchingP", "pitchAlgorithmType"]
@@ -163,8 +165,8 @@ depends-member:
 - !private ["s20_SwiftNewtypeWrapperP", "lowQualityZeroLatency"]
 depends-nominal:
 - !private "So25AVAudioTimePitchAlgorithma"
+- "25react_native_track_player21AssetOptionsProvidingP"
 - "25react_native_track_player9AudioItemP"
-- "25react_native_track_player11AuthorizingP"
 - "25react_native_track_player16DefaultAudioItemC"
 - "25react_native_track_player27DefaultAudioItemAuthorizingC"
 - "25react_native_track_player27DefaultAudioItemInitialTimeC"
@@ -219,8 +221,18 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
 - "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
-- "/Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
@@ -240,4 +252,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
-interface-hash: "92325834d6fa70b8fb7de38b77211a90"
+interface-hash: "73eeddd6beb1fe12263f6baca5f02444"
