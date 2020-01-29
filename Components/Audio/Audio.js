@@ -1,6 +1,4 @@
 import React from 'react';
-import TrackPlayer from 'react-native-track-player';
-//import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
@@ -14,22 +12,17 @@ import {
     formatTime, 
     removeTrack
 } from '../../Misc/helpers';
+import TrackPlayer from 'react-native-video';
 import Toast from '../../Components/Toast/Toast';
-//import { posterURL } from '../../Misc/Strings';
 import firebase from 'react-native-firebase';
-//import Slider from '@react-native-community/slider';
 import claps from '../Tracks/tracks/sample_claps.mp3';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
-//import VolumeUp from './images/volume_up.png';
-//import VolumeDown from './images/volume_down.png';
 import { audioOverview } from '../../Misc/Strings';
 import Questionnaire from './Questionnaire';
 import ProgressBar from './ProgressBar';
-//import poster from '../../Misc/media/part2-unschooling.jpg';
 import Refs from './Refs';
-//import InputScrollView from 'react-native-input-scroll-view';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
@@ -38,6 +31,7 @@ const Analytics = firebase.analytics();
 class Audio extends React.Component{
     state = {
         lastTrackId: null,
+        currentTime: null,
         reached90: false
     }
 
@@ -59,22 +53,18 @@ class Audio extends React.Component{
                 updateShowRefs(false);
                 removeTrack().then(()=>{
                     let stringPos = pos.toString();
-                    TrackPlayer.add([audioFiles[pos]]).then(()=>{
-                        let newState = {
-                            paused: false,
-                            loaded: true,
-                            currentlyPlaying: pos,
-                            selectedTrack: pos,
-                            selectedTrackId: stringPos,
-                            currentlyPlayingName: title,
-                            showTextinput: false
-                        };
-                        this.props.store(newState);
-                        Analytics.logEvent('tracks_played', {tracks: title});
-                        TrackPlayer.play();
-                        resolve('done');
-                    })
-                    
+                    let newState = {
+                        paused: false,
+                        loaded: true,
+                        currentlyPlaying: pos,
+                        selectedTrack: pos,
+                        selectedTrackId: stringPos,
+                        currentlyPlayingName: title,
+                        showTextinput: false
+                    };
+                    this.props.store(newState);
+                    Analytics.logEvent('tracks_played', {tracks: title});
+                    resolve('done');
                 }); 
             }else if( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) === parseInt(pos)){
                 let tpos = Math.floor(parseFloat(currentPosition));
@@ -82,42 +72,39 @@ class Audio extends React.Component{
                if( tpos === tdur){
                     removeTrack().then(()=>{
                         let stringPos = pos.toString();
-                        TrackPlayer.add([audioFiles[pos]]).then(()=>{
-                            let newState = {
-                                /*currentlyPlaying: null,
-                                selectedTrack: 0,*/
-                                currentlyPlaying: pos,
-                                selectedTrack: pos,
-                                selectedTrackId: stringPos,
-                                currentlyPlayingName: title,
-                                showTextinput: false,
-                                paused: false,
-                                loaded: true
-                            };
-                            this.props.store(newState);
-                            TrackPlayer.play();
-                        });
-                    });
+                        let newState = {
+                            /*currentlyPlaying: null,
+                            selectedTrack: 0,*/
+                            currentlyPlaying: pos,
+                            selectedTrack: pos,
+                            selectedTrackId: stringPos,
+                            currentlyPlayingName: title,
+                            showTextinput: false,
+                            paused: false,
+                            loaded: true
+                        };
+                        this.props.store(newState);
+                });
                }else{
                     if(paused){
                         let newState = {
                             paused: false
                         };
                         this.props.store(newState);
-                        TrackPlayer.play();
                     }else{
                         let newState = {
                             paused: true
                         };
                         this.props.store(newState);
-                        TrackPlayer.pause();
-                        //TrackPlayer.stop()
                     }      
                }
                 resolve("same");
             }else{
                 //console.log("other")
-                TrackPlayer.play();
+                let newState = {
+                    paused: false
+                };
+                this.props.store(newState);
                 resolve("not");
             }
         });
@@ -139,8 +126,8 @@ class Audio extends React.Component{
 
     getTime = async ()=>{
         //console.log(data);
-        let currentTime = await TrackPlayer.getPosition();
-        return currentTime;
+        let { currentPosition } = this.props;
+        return currentPosition;
     }
 
     toggleOverview = ()=>{
@@ -153,7 +140,7 @@ class Audio extends React.Component{
 
     goToTracks = ()=>{
         let { navigate } = this.props;
-        navigate("Second");
+        navigate("Third");
     }
 
     sendQuestionnaire = ()=>{
@@ -212,7 +199,6 @@ class Audio extends React.Component{
     }
 
     closeMiniPlayer = () => {
-        TrackPlayer.stop();
         this.props.store({
             selectedTrack: null,
             currentlyPlaying: null,
@@ -245,7 +231,7 @@ class Audio extends React.Component{
                 question,
                 comment
             },
-            showQuestionnaire
+            showQuestionnaire,
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -268,7 +254,7 @@ class Audio extends React.Component{
         let dark = mode === 'dark';
 
         const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>
-                <ProgressBar dark={dark} toggleReached90={this.toggleReached90} reached90={reached90} />
+                <ProgressBar dark={dark} currentTime={this.state.currentTime} toggleReached90={this.toggleReached90} reached90={reached90} />
                 <View style={ dark ? styles.trackTimeCounterContainerDark : styles.trackTimeCounterContainer }>
                     <View style= { styles.trackElapsedTime }>
                         <Text style={ dark ? styles.trackTimeDark : styles.trackTime }>{ formatTime(currentPosition) }</Text>
@@ -295,15 +281,13 @@ class Audio extends React.Component{
                                 <View style={ styles.buttonGroup }>
                                     <TouchableOpacity 
                                         onPress = { ()=>{
-                                            TrackPlayer.getPosition().then(res=>{
-                                                let newPos = res + parseFloat(-15);
-                                                let newState = {
-                                                    currentPosition: newPos,
-                                                    currentTime: newPos
-                                                };
-                                                this.props.store(newState);
-                                                TrackPlayer.seekTo(newPos);
-                                            });
+                                            let newPos = currentPosition + parseFloat(-15);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            this.trackPlayer.seek(newPos);
                                         }} 
                                         disabled={ !buttonsActive }
                                         style={ styles.altGroupedButtons } 
@@ -328,15 +312,13 @@ class Audio extends React.Component{
                                     </TouchableOpacity>
                                     <TouchableOpacity 
                                         onPress = { ()=>{
-                                            TrackPlayer.getPosition().then(res=>{
-                                                let newPos = res + parseFloat(15);
-                                                let newState = {
-                                                    currentPosition: newPos,
-                                                    currentTime: newPos
-                                                };
-                                                this.props.store(newState);
-                                                TrackPlayer.seekTo(newPos);
-                                            });
+                                            let newPos = currentPosition + parseFloat(15);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            this.trackPlayer.seek(newPos);
                                         } } 
                                         disabled={ !buttonsActive }  
                                         style={ styles.groupedButtons }
@@ -429,15 +411,13 @@ class Audio extends React.Component{
                                 <View style={ styles.buttonGroup }>
                                     <TouchableOpacity 
                                         onPress = { ()=>{
-                                            TrackPlayer.getPosition().then(res=>{
-                                                let newPos = res + parseFloat(-15);
-                                                let newState = {
-                                                    currentPosition: newPos,
-                                                    currentTime: newPos
-                                                };
-                                                this.props.store(newState);
-                                                TrackPlayer.seekTo(newPos);
-                                            });
+                                            let newPos = currentPosition + parseFloat(-15);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            this.trackPlayer.seek(newPos);
                                         }} 
                                         disabled={ !buttonsActive }
                                         style={ styles.altGroupedButtons } 
@@ -462,15 +442,13 @@ class Audio extends React.Component{
                                     </TouchableOpacity>
                                     <TouchableOpacity 
                                         onPress = { ()=>{
-                                            TrackPlayer.getPosition().then(res=>{
-                                                let newPos = res + parseFloat(15);
-                                                let newState = {
-                                                    currentPosition: newPos,
-                                                    currentTime: newPos
-                                                };
-                                                this.props.store(newState);
-                                                TrackPlayer.seekTo(newPos);
-                                            });
+                                            let newPos = currentPosition + parseFloat(15);
+                                            let newState = {
+                                                currentPosition: newPos,
+                                                currentTime: newPos
+                                            };
+                                            this.props.store(newState);
+                                            this.trackPlayer.seek(newPos);
                                         } } 
                                         disabled={ !buttonsActive }  
                                         style={ styles.groupedButtons }
@@ -500,30 +478,31 @@ Audio.defaultProps = {
 
 const mapStateToProps = state => {
     return{
-      selectedTrack: state.media.selectedTrack,
-      currentlyPlaying: state.media.currentlyPlaying,
-      currentlyPlayingName: state.media.currentlyPlayingName,
-      paused: state.media.paused,
-      totalLengthFormatted: state.media.totalLengthFormatted,
-      currentPosition: state.media.currentPosition,
-      currentTime: state.media.currentTime,
-      isChanging: state.media.isChanging,
-      audioFiles: state.media.audioFiles,
-      references: state.refs.references,
-      showQuestionnaire: state.media.showQuestionnaire,
-      showRefs: state.refs.showRefs,
-      screen: state.media.screen,
-      buttonsActive: state.media.buttonsActive,
-      showOverview: state.media.showOverview,
-      showTextinput: state.media.showTextinput,
-      totalLength: state.media.totalLength,
-      volume: state.media.volume,
-      loaded: state.media.loaded,
-      trackDuration: state.media.trackDuration,
-      questionnaire: state.media.questionnaire,
-      showToast: state.media.showToast,
-      toastText: state.media.toastText,
-      hideMenu: state.media.hideMenu
+        screen: state.media.screen,
+        selectedTrack: state.media.selectedTrack,
+        currentlyPlaying: state.media.currentlyPlaying,
+        currentlyPlayingName: state.media.currentlyPlayingName,
+        paused: state.media.paused,
+        totalLengthFormatted: state.media.totalLengthFormatted,
+        currentPosition: state.media.currentPosition,
+        currentTime: state.media.currentTime,
+        isChanging: state.media.isChanging,
+        audioFiles: state.media.audioFiles,
+        references: state.refs.references,
+        showQuestionnaire: state.media.showQuestionnaire,
+        showRefs: state.refs.showRefs,
+        screen: state.media.screen,
+        buttonsActive: state.media.buttonsActive,
+        showOverview: state.media.showOverview,
+        showTextinput: state.media.showTextinput,
+        totalLength: state.media.totalLength,
+        volume: state.media.volume,
+        loaded: state.media.loaded,
+        trackDuration: state.media.trackDuration,
+        questionnaire: state.media.questionnaire,
+        showToast: state.media.showToast,
+        toastText: state.media.toastText,
+        hideMenu: state.media.hideMenu
     }
 }
 

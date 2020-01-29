@@ -5,7 +5,7 @@ import React from 'react';
 //import MusicControl from 'react-native-music-control';
 import TrackPlayer from 'react-native-track-player';
 import { AppRegistry, Easing } from 'react-native';
-import { Home, Author, Tracks } from './Components';
+import { Home, Author, Tracks, PreLoad } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
@@ -52,9 +52,10 @@ const screenConfig = {
 };
 
 const MainNavigator = createStackNavigator({
-    First: { screen: Home },
-    Second: { screen: Tracks },
-    Third: { screen: Author }
+  First: { screen: PreLoad },
+  Second: { screen: Home },
+  Third: { screen: Tracks },
+  Fourth: { screen: Author}
 },  
 {
     initialRouteName: 'First',

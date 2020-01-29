@@ -160,9 +160,9 @@ class Author extends React.Component {
     let dark = mode === 'dark';
     
     let height = Dimensions.get('window').height;
-    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
-    const playing = !isChanging?
+
+    let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "";
+    const audioControls =
       <Audio
         navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
@@ -171,7 +171,7 @@ class Author extends React.Component {
         initCurrentlyPlaying = { initCurrentlyPlaying }
         style={ dark ? styles.audioElementDark : styles.audioElement }
         currentlyPlayingName={ currentlyPlayingName }
-      />: null;
+      />;
     return (
       <View 
         style={ styles.Home }
@@ -250,7 +250,7 @@ class Author extends React.Component {
             styles.altOverviewContainer 
           } 
         >
-        { playing }
+        { audioControls }
         </View>: null } 
         <View 
           style = { currentlyPlayingName && height < 570 ? 

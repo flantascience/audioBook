@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Icon from "react-native-vector-icons/Ionicons";
 import { eventEmitter } from 'react-native-dark-mode'
 import {

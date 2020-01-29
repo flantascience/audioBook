@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
 
@@ -7,7 +7,7 @@ const Button = ({ title, onPress, dark }) => {
     return (
         <TouchableOpacity 
             style={ dark ? styles.buttonStyleDark : styles.buttonStyle }
-            onPress = { onPress}
+            onPress = { onPress }
         >
             <Text style={ styles.buttonText }>
                 {title}

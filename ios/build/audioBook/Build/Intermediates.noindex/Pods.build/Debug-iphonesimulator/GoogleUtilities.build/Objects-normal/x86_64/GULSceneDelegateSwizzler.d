@@ -8,5 +8,5 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Public/GULLoggerLevel.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULMutableDictionary.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/SceneDelegateSwizzler/Private/GULSceneDelegateSwizzler.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/SceneDelegateSwizzler/../Common/GULLoggerCodes.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Common/GULLoggerCodes.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/SceneDelegateSwizzler/Internal/GULSceneDelegateSwizzler_Private.h

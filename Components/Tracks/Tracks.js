@@ -9,16 +9,16 @@ import {
   ActivityIndicator
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
+import TrackPlayer from 'react-native-video';
 import NetInfo from "@react-native-community/netinfo";
 import { connect } from 'react-redux';
-import TrackPlayer from 'react-native-track-player';
 import Toast from '../../Components/Toast/Toast';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Audio from '../Audio/Audio';
 import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
-import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
+import { formatTime } from '../../Misc/helpers';
 import { tracks } from '../../Misc/Strings';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -46,11 +46,12 @@ class Tracks extends React.Component {
     });
     this.state = {
       currentAction,
+      currentTime: null,
       referencesInfo: []
     }
   }
 
-  static navigationOptions = ({navigation})=> ({
+  static navigationOptions = ()=> ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -65,80 +66,7 @@ class Tracks extends React.Component {
   });
 
   componentDidMount(){
-    let { audioFiles} = this.props;
     Analytics.setCurrentScreen('Tracks');
-    this.onStateChange = TrackPlayer.addEventListener('playback-state', async (data) => {
-      let palyerState = data.state;
-      //console.log(palyerState);
-      if(Platform.OS === "android"){
-        if(palyerState === 0 || palyerState === 1 || palyerState === 2)
-          this.props.store({ paused: true });
-        else if(palyerState !== 1)
-          this.props.store({ paused: false});
-      }else if(Platform.OS === "ios"){
-        if(palyerState === "paused" || palyerState === "idle"){
-          this.props.store({ paused: true });
-        }else if(palyerState === "playing"){
-          this.props.store({ paused: false });
-        }
-      }
-    });
-
-    TrackPlayer.addEventListener('remote-play', async ()=> {
-      TrackPlayer.play();
-      this.props.store({ paused: false });
-    });
-
-    TrackPlayer.addEventListener('remote-pause', async ()=> {
-      TrackPlayer.pause();
-      this.props.store({ paused: true });
-    });
-
-    TrackPlayer.addEventListener('remote-stop', async ()=> {
-      TrackPlayer.stop();
-      this.props.store({ paused: true });
-    });
-
-    TrackPlayer.addEventListener('remote-previous', async ()=> {
-      TrackPlayer.getCurrentTrack().then(res => {
-        const newTrackId = parseInt(res)-1;
-        const newTrack = audioFiles[newTrackId];
-        if (newTrack) this.toggleNowPlaying(newTrackId);
-      })
-    });
-
-    TrackPlayer.addEventListener('remote-next', async ()=> {
-      TrackPlayer.getCurrentTrack().then(res => {
-        const newTrackId = parseInt(res)+1;
-        const newTrack = audioFiles[newTrackId];
-        if (newTrack) this.toggleNowPlaying(newTrackId);
-      })
-    });
-
-    TrackPlayer.addEventListener('remote-jump-backward', async ()=> {
-      TrackPlayer.getPosition().then(res=>{
-          let newPos = res + parseFloat(-15);
-          let newState = {
-              currentPosition: newPos,
-              currentTime: newPos
-          };
-          this.props.store(newState);
-          TrackPlayer.seekTo(newPos);
-      });
-    });
-
-    TrackPlayer.addEventListener('remote-jump-forward', async ()=> {
-      TrackPlayer.getPosition().then(res=>{
-          let newPos = res + parseFloat(15);
-          let newState = {
-              currentPosition: newPos,
-              currentTime: newPos
-          };
-          this.props.store(newState);
-          TrackPlayer.seekTo(newPos);
-      });
-    });
-
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       //console.log(conType)
@@ -147,7 +75,6 @@ class Tracks extends React.Component {
         this.props.store({showMessage, message: tracks.noInternetConnection });
       }
       else this.props.store({showMessage: false, message: null });
-
     });
   }
 
@@ -172,7 +99,7 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos) => {
-    let { audioFiles, selectedTrack, audioFilesCloud, references } = this.props;
+    let { audioFiles, selectedTrack, audioFilesCloud, references, trackDuration } = this.props;
     let { currentAction } = this.state;
     //console.log(audioFiles[pos]);
     this.foldAccordions();
@@ -191,149 +118,131 @@ class Tracks extends React.Component {
           true:
           false;
           if(playable){
-              // console.log(audioFiles[pos].title)
-            removeTrack().then(res=>{
-              //this.props.store({hideMenu: true});
-              if(res === "removed"){
-                this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
-                if(audioFiles[pos].type === "local"){
-                  RNFS.exists(audioFiles[pos].url).then(res=>{
-                    if(res) {
-                      TrackPlayer.add([currPos]).then(res=>{
-                        getDuration().then(trackDuration=>{
-                          //console.log(trackDuration)
-                          if(trackDuration > 0){
-                            let formattedDuration = formatTime(trackDuration);
-                            this.props.store({
-                              selectedTrack: pos,
-                              currentPostion: 0,
-                              currentTime:0,
-                              selectedTrackId: audioFiles[pos].id,
-                              currentlyPlaying: audioFiles[pos].id,
-                              currentlyPlayingName: audioFiles[pos].title,
-                              initCurrentlyPlaying: true,
-                              buttonsActive: true,
-                              showOverview: true,
-                              trackDuration, 
-                              paused: false, 
-                              loaded: true, 
-                              totalLength: trackDuration, 
-                              formattedDuration
-                            });
-                            TrackPlayer.play();
-                          }else{
-                            trackDuration = audioFiles[pos].duration;
-                            let formattedDuration = formatTime(trackDuration);
-                            this.props.store({
-                              selectedTrack: pos,
-                              currentPostion: 0,
-                              currentTime:0,
-                              selectedTrackId: audioFiles[pos].id,
-                              currentlyPlaying: audioFiles[pos].id,
-                              currentlyPlayingName: audioFiles[pos].title,
-                              initCurrentlyPlaying: true,
-                              buttonsActive: true,
-                              showOverview: true,
-                              trackDuration, 
-                              paused: false, 
-                              loaded: true, 
-                              totalLength: trackDuration, 
-                              formattedDuration
-                            });
-                            TrackPlayer.play();
-                          }
-                          //alert that track is streaming
-                          currentAction[pos].action = "streaming";
-                        })
-                      });
-                    }else{
-                      //check for connectivity again
-                      NetInfo.fetch().then(state=>{
-                        let conType = state.type;
-                        let haveNet = conType === "wifi" || conType === "cellular"?true:false;
-                        if(haveNet){
-                          let showToast = true;
-                          this.props.store({showToast, toastText: tracks.redownloadTrack });
-                          setTimeout(()=>{
-                            this.props.store({showToast: !showToast, toastText: null });
-                          }, 1500);
-                          audioFiles[pos] = audioFilesCloud[pos];
-                          this.props.store({audioFiles});
-                          this._storeData(audioFiles);
-                          this.forceUpdate();
-                        }else{
-                          console.log("no internet")
-                          let showToast = true;
-                          this.props.store({showToast, toastText: tracks.redownloadTrack });
-                          setTimeout(()=>{
-                            this.props.store({showToast: !showToast, toastText: null });
-                          }, 1500);
-                        }
-                      });
-                    }
-                  });
-                }else{
-                    TrackPlayer.add([currPos]).then(res=>{
-                      getDuration().then(trackDuration=>{
-                        //console.log(trackDuration)
-                        if(trackDuration > 0){
-                          let formattedDuration = formatTime(trackDuration);
-                          this.props.store({
-                            selectedTrack: pos,
-                            currentPostion: 0,
-                            currentTime:0,
-                            selectedTrackId: audioFiles[pos].id,
-                            currentlyPlaying: audioFiles[pos].id,
-                            currentlyPlayingName: audioFiles[pos].title,
-                            initCurrentlyPlaying: true,
-                            buttonsActive: true,
-                            showOverview: true,
-                            trackDuration, 
-                            paused: false, 
-                            loaded: true, 
-                            totalLength: trackDuration, 
-                            formattedDuration
-                          });
-                          TrackPlayer.play();
-                        }else{
-                          trackDuration = audioFiles[pos].duration;
-                          let formattedDuration = formatTime(trackDuration);
-                          this.props.store({
-                            selectedTrack: pos,
-                            currentPostion: 0,
-                            currentTime:0,
-                            selectedTrackId: audioFiles[pos].id,
-                            currentlyPlaying: audioFiles[pos].id,
-                            currentlyPlayingName: audioFiles[pos].title,
-                            initCurrentlyPlaying: true,
-                            buttonsActive: true,
-                            showOverview: true,
-                            trackDuration, 
-                            paused: false, 
-                            loaded: true, 
-                            totalLength: trackDuration, 
-                            formattedDuration
-                          });
-                          TrackPlayer.play();
-                        }
-                        //log streamed audio
-                        Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
-                        //alert that track is streaming
-                        currentAction[pos].action = "streaming";
-                      })
+            // console.log(audioFiles[pos].title)
+            console.log(audioFiles)
+            this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
+            if(audioFiles[pos].type === "local"){
+              RNFS.exists(audioFiles[pos].url).then(res=>{
+                if(res) {
+                  //console.log(trackDuration)
+                  if(trackDuration > 0){
+                    let formattedDuration = formatTime(trackDuration);
+                    this.props.store({
+                      selectedTrack: pos,
+                      currentPostion: 0,
+                      currentTime:0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: true,
+                      trackDuration, 
+                      paused: false, 
+                      loaded: true, 
+                      totalLength: trackDuration, 
+                      formattedDuration
+                    });
+                  }else{
+                    trackDuration = audioFiles[pos].duration;
+                    let formattedDuration = formatTime(trackDuration);
+                    this.props.store({
+                      selectedTrack: pos,
+                      currentPostion: 0,
+                      currentTime:0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: true,
+                      trackDuration, 
+                      paused: false, 
+                      loaded: true, 
+                      totalLength: trackDuration, 
+                      formattedDuration
                     });
                   }
+                  //alert that track is streaming
+                  currentAction[pos].action = "streaming";
                 }else{
-                  console.log(res);
+                  //check for connectivity again
+                  NetInfo.fetch().then(state=>{
+                    let conType = state.type;
+                    let haveNet = conType === "wifi" || conType === "cellular"?true:false;
+                    if(haveNet){
+                      let showToast = true;
+                      this.props.store({showToast, toastText: tracks.redownloadTrack });
+                      setTimeout(()=>{
+                        this.props.store({showToast: !showToast, toastText: null });
+                      }, 1500);
+                      audioFiles[pos] = audioFilesCloud[pos];
+                      this.props.store({audioFiles});
+                      this._storeData(audioFiles);
+                      this.forceUpdate();
+                    }else{
+                      console.log("no internet")
+                      let showToast = true;
+                      this.props.store({showToast, toastText: tracks.redownloadTrack });
+                      setTimeout(()=>{
+                        this.props.store({showToast: !showToast, toastText: null });
+                      }, 1500);
+                    }
+                  });
                 }
               });
             }else{
-              let showToast = true;
-              this.props.store({showToast, toastText: tracks.noInternetConnection });
-              setTimeout(()=>{
-                this.props.store({showToast: !showToast, toastText: null });
-              }, 1000);
+              //console.log(trackDuration)
+              if(trackDuration > 0){
+                let formattedDuration = formatTime(trackDuration);
+                this.props.store({
+                  selectedTrack: pos,
+                  currentPostion: 0,
+                  currentTime:0,
+                  selectedTrackId: audioFiles[pos].id,
+                  currentlyPlaying: audioFiles[pos].id,
+                  currentlyPlayingName: audioFiles[pos].title,
+                  initCurrentlyPlaying: true,
+                  buttonsActive: true,
+                  showOverview: true,
+                  trackDuration, 
+                  paused: false, 
+                  loaded: true, 
+                  totalLength: trackDuration, 
+                  formattedDuration
+                });
+              }else{
+                trackDuration = audioFiles[pos].duration;
+                let formattedDuration = formatTime(trackDuration);
+                this.props.store({
+                  selectedTrack: pos,
+                  currentPostion: 0,
+                  currentTime:0,
+                  selectedTrackId: audioFiles[pos].id,
+                  currentlyPlaying: audioFiles[pos].id,
+                  currentlyPlayingName: audioFiles[pos].title,
+                  initCurrentlyPlaying: true,
+                  buttonsActive: true,
+                  showOverview: true,
+                  trackDuration, 
+                  paused: false, 
+                  loaded: true, 
+                  totalLength: trackDuration, 
+                  formattedDuration
+                });
+              }
+              //log streamed audio
+              Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
+              //alert that track is streaming
+              currentAction[pos].action = "streaming";
             }
+          }else{
+            let showToast = true;
+            this.props.store({showToast, toastText: tracks.noInternetConnection });
+            setTimeout(()=>{
+              this.props.store({showToast: !showToast, toastText: null });
+            }, 1000);
+          }
         }).catch(err=>{
           console.log(err)
         });
@@ -414,21 +323,26 @@ class Tracks extends React.Component {
     return new Promise(resolve=>{
         let currentReferences = [];
         let referencesInfo = [];
-        audioFiles.forEach(file=>{
+        try {
+          audioFiles.forEach(file=>{
+            console.log(file)
             let id = file.id;
             if(id === currentlyPlaying){
                 currentReferences = file.references;
             }
-        });
-        if(currentReferences && currentReferences.length > 0){
-            currentReferences.forEach(ref=>{
-                referencesInfo.push(references[ref]);
-            });
-            this.setState({referencesInfo});
-            resolve("has");
-        }else{
-            this.setState({referencesInfo: []});
-            resolve("doesnt");
+          });
+          if(currentReferences && currentReferences.length > 0){
+              currentReferences.forEach(ref=>{
+                  referencesInfo.push(references[ref]);
+              });
+              this.setState({referencesInfo});
+              resolve("has");
+          }else{
+              this.setState({referencesInfo: []});
+              resolve("doesnt");
+          }
+        }catch(e){
+          console.log(err)
         }
     });
 }
@@ -443,8 +357,7 @@ _storeData = async (audioFiles) => {
   }
 };
 
-
-  render(){
+render(){
     let {
       navigation, 
       paused, 
@@ -452,32 +365,31 @@ _storeData = async (audioFiles) => {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      isChanging,
       showOverview,
       toastText,
       showToast
     } = this.props;
     let { referencesInfo } = this.state;
-    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
     let height = Dimensions.get('window').height;
 
-    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
+    let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
 
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;
-    const playing = !isChanging?
+    const audioControls =
       <Audio
-        navigate = { navigation.navigate }
+        navigate = {navigation.navigate}
         audioSource={ audioSource } // Can be a URL or a local file
-        referencesInfo={ referencesInfo }
+        updateDuration={this.updateDuration}
+        referencesInfo={referencesInfo}
         audioFiles={audioFiles}
-        pos={ selectedTrack }
-        initCurrentlyPlaying = { initCurrentlyPlaying }
+        pos={selectedTrack}
+        initCurrentlyPlaying = {initCurrentlyPlaying}
         style={ dark ? styles.audioElementDark : styles.audioElement }
         currentlyPlayingName={ currentlyPlayingName }
-      />: null;
+      />;
 
     return (
       <View style={ styles.Home }>
@@ -497,7 +409,7 @@ _storeData = async (audioFiles) => {
                   let action = currentAction[key]?currentAction[key].action:"stop";
                   /**set default percentage */
                   let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
-                  let playIcon = key !== selectedTrack?
+                  let playIcon = key !== selectedTrack ?
                   "play-circle": 
                   key === selectedTrack && !paused?"pause":
                   "play-circle";
@@ -552,7 +464,7 @@ _storeData = async (audioFiles) => {
                 />
                 }
               </View>: null }
-            { selectedTrack?
+            { selectedTrack ?
             <View 
               style={ showOverview?styles.overviewContainer:
                 height < 570?styles.altAltOverviewContainer:
@@ -561,8 +473,32 @@ _storeData = async (audioFiles) => {
                 styles.altOverviewContainer 
               } 
             >
-            { playing }
-            </View>: null }
+              <TrackPlayer
+                ref={ref => {
+                    this.trackPlayer = ref
+                }}
+                source={audioSource}
+                onProgress={data => {
+                    let { currentTime } = data;
+                    this.setState({currentTime: Math.floor(currentTime)});
+                    this.props.store({currentPosition: Math.floor(currentTime)});
+                }}
+                playInBackground={true}
+                playWhenInactive={true}
+                paused={paused}
+                audioOnly={true}
+                controls={false}
+                onError={error => {
+                  console.log(error)
+                }}
+                onLoad={data => {
+                    let { duration } = data;
+                    if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
+                    else this.props.store({loaded:true});
+                }}
+              />
+              { audioControls }
+            </View> : null }
           <View style = { currentlyPlayingName && height < 570 ? 
             mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
             mode === 'light' ? styles.homeFooter : styles.homeFooterDark
@@ -590,6 +526,7 @@ const mapStateToProps = state => {
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
+    trackDuration: state.media.trackDuration,
     hideMenu: state.media.hideMenu,
     toastText: state.media.toastText,
     showToast: state.media.showToast,

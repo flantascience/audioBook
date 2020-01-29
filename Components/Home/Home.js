@@ -20,26 +20,24 @@ import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './style';
-import demoIntro from "../../Misc/media/demoIntro.mp4";
+import CurricuDumbIntro from "../../Misc/media/CurricuDumb-Intro.mp4";
 import { eventEmitter } from 'react-native-dark-mode';
 
-const tracksRef = firebase.database().ref("/tracks");
-const versionsRef = firebase.database().ref("versions");
-const referencesRef = firebase.database().ref("/references");
 const Analytics = firebase.analytics();
 
 class Home extends React.Component {
-
-  state = {
-    introVideo: "../../Misc/media/demo-intro.mp4",
-    loaded: false,
-    showVid: false,
-    secondaryHide: false,
-    introPlayed: false,
-    paused: true
+  constructor(){
+    super()
+    this.state = {
+      loaded: false,
+      showVid: false,
+      secondaryHide: false,
+      introPlayed: false,
+      paused: true
+    }
   }
 
-  static navigationOptions = ({navigation})=> ({
+  static navigationOptions = ({navigation}) => ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -54,19 +52,7 @@ class Home extends React.Component {
   });
 
   componentDidMount(){
-    AppState.addEventListener("change", this._handleAppStateChange);
-    this.fetchAndStoreMedia();
-    this.fetchAndStoreRefs();
-    eventEmitter.on('currentModeChanged', newMode => {
-      // console.log('Switched to', newMode, 'mode');
-      this.props.navigation.setParams({
-        headerStyle:{
-          backgroundColor: newMode === 'dark' ? '#212121' : '#EBEAEA',
-          height: 80,
-        }
-      });
-      this.forceUpdate();
-    });
+    console.log(this.props.audioFiles)
     this.blurSubscription = this.props.navigation.addListener(
       'willBlur',
       () => {
@@ -78,128 +64,26 @@ class Home extends React.Component {
   }
 
   componentDidUpdate(){
+    console.log(this.props.audioFiles)
     let {
       navigation,
-      paused
+      paused,
+      currentlyPlaying
     } = this.props;
-    let vidPlaying = !this.state.paused;
-    let isFocused = navigation.isFocused();
-    let audioPlaying = !paused;
-    if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
-      this.setState({paused: true, showVid: false});
-    }
-  }
-
-  _handleAppStateChange = (nextState) => {
-    let player = this.player;
-    if(nextState === "background" || nextState === "inactive" && player){
-      this.setState({paused: true});
-    }
-  }
-
-  fetchTracksVersion = () => {
-    return new Promise(resolve=>{
-      let newVersion = false;
-      this._getStoredData("versions").then(val=>{
-        let oldVersion = val;
-        //version control to keep track of the track updates
-        versionsRef.once('value', data=>{
-          data.forEach(spec=>{
-            let key = spec.key;
-            let value = spec.val();
-            //check if data versions match
-            if(key === "tracks" && oldVersion !== value){
-              newVersion = true;
-              AsyncStorage.setItem("versions", value);
-              //resolve(newVersion);
-            }
-            resolve(newVersion);
-          });
-        }).catch(error=>{
-          console.log(error)
-        });
-      });
-    });
-  }
-
-  fetchAndStoreMedia = () => {
-    let { audioFiles } = this.props;
-    let cloudAudio = [];
-    
-    NetInfo.fetch().then(state=>{
-      let conType = state.type;
-      let haveNet = conType === "wifi" || conType === "cellular"? true : false;
-
-      this._getStoredData("audioFiles").then(res=>{
-        if(res){
-          let storedAudioFiles = JSON.parse(res);
-          this.props.storeMedia({audioFiles: storedAudioFiles});
-        }
-      });
-      if(haveNet){
-        this.fetchTracksVersion().then(newVersion=>{
-          tracksRef.once('value', data=>{
-            data.forEach(trackInf=>{
-              //console.log(trackInf);
-              let track = trackInf.val();
-              cloudAudio.push(track);
-            });
-            this._getStoredData("audioFiles").then(res=>{
-              if(!res || newVersion){
-                let newAudioFiles = audioFiles.concat(cloudAudio);
-                this.props.storeMedia({audioFiles: newAudioFiles});
-                this._storeAudioFilesData(newAudioFiles);
-              }else{
-                let storedAudioFiles = JSON.parse(res);
-                //console.log(storedAudioFiles);
-                let newAudioFiles = audioFiles.concat(cloudAudio);
-                this.props.storeMedia({audioFiles: storedAudioFiles, audioFilesCloud: newAudioFiles});
-              }
-            });
-          }).catch(err=>{
-            console.log(err);
-          });
-        });
+    if (!currentlyPlaying) {
+      let vidPlaying = !this.state.paused;
+      let isFocused = navigation.isFocused();
+      let audioPlaying = !paused;
+      if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
+        this.setState({paused: true, showVid: false});
       }
-    });
-  }
-
-  fetchAndStoreRefs = () => {
-    let cloudRefs = [];
-    //this._getStoredData("audioFiles");
-    referencesRef.once('value', data=>{
-      data.forEach(refInfo=>{
-        let key = refInfo.key;
-        let ref = refInfo.val();
-        cloudRefs[key] = ref;
-      });
-      this.props.storeReferences(cloudRefs);
-    });
-  }
-
-  _getStoredData = (key) => {
-    return new Promise( async resolve=>{
-      await AsyncStorage.getItem(key).then(res=>{
-        //console.log(res)
-        resolve(res);
-      });
-    });
-  }
-
-  _storeAudioFilesData = async (audioFiles) => {
-    try {
-      let stringAudioFiles = JSON.stringify(audioFiles);
-      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-      this.props.storeMedia({audioFiles});
-    } catch (error) {
-      console.log(error);
     }
-  };
+  }
 
   componentWillUnmount(){
-    this.blurSubscription.remove();
+    this.blurSubscription().unsubscribe();
   }
-
+  
   render(){
     let {
       navigation,
@@ -207,7 +91,6 @@ class Home extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      isChanging,
       showOverview
     } = this.props;
     let { loaded, showVid, paused, introPlayed } = this.state;
@@ -221,29 +104,20 @@ class Home extends React.Component {
     }
 
     let height = Dimensions.get('window').height;
-    let type = selectedTrack?audioFiles[selectedTrack].type:"local";
-    let audioSource = selectedTrack?type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url}:"";
-    const playing = !isChanging?
-      <Audio
-        navigate = { navigation.navigate }
-        audioSource={ audioSource } // Can be a URL or a local file
-        audioFiles={audioFiles}
-        pos={ selectedTrack }
-        initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={ dark ? styles.audioElementDark : styles.audioElement }
-        currentlyPlayingName={ currentlyPlayingName }
-      />: null;
+
+    let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "";
+
     return (
       <View style={ styles.Home }>
-        { !showOverview?
+        { !showOverview ?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            {!loaded?<Image
+            {!loaded ? <Image
               source={ require('./images/backgroundImage.jpg')}
               style={ styles.thumb }
-            />:null}
+            /> : null}
             {
-              loaded && !showVid?
+              loaded && !showVid ?
               <TouchableOpacity
                 onPress={ ()=>{
                   this.setState({showVid:true, paused: false, secondaryHide:false})
@@ -256,8 +130,9 @@ class Home extends React.Component {
               </TouchableOpacity>:
               null
             }
+            { !audioPlaying ? 
             <Video
-              source={demoIntro}// Can be a URL or a local file.
+              source={CurricuDumbIntro}// Can be a URL or a local file.
               ref={(ref) => {
                 this.player = ref
               }}
@@ -275,7 +150,7 @@ class Home extends React.Component {
               }}
               onProgress = { () => {
                 if(!isFocused || audioPlaying) {
-                  // console.log('pause vid')
+                  console.log('pause vid')
                   this.setState({paused: true, showVid: false});
                 }
                 if (!introPlayed) {
@@ -285,12 +160,11 @@ class Home extends React.Component {
                 }
               }}
               repeat = { false }
-              disableFocus = { true }
               fullscreen = { false }
               resizeMode = { "cover" }
               controls = { true }
               style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
-            />
+            /> : null }
           </View>
             </View>: null }
         { selectedTrack ? 
@@ -302,7 +176,15 @@ class Home extends React.Component {
               styles.altOverviewContainer 
             }
           >
-            { playing }
+            <Audio
+              navigate = { navigation.navigate }
+              audioSource={ audioSource } // Can be a URL or a local file
+              audioFiles={audioFiles}
+              pos={ selectedTrack }
+              initCurrentlyPlaying = { initCurrentlyPlaying }
+              style={ dark ? styles.audioElementDark : styles.audioElement }
+              currentlyPlayingName={ currentlyPlayingName }
+            />
           </View>: null }
         <View 
             style = { currentlyPlayingName && height < 570 ? 

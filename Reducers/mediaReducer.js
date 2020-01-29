@@ -14,6 +14,7 @@ const initialState = {
   totalLength: 1,
   totalLengthFormatted: "00:00",
   currentPosition: 0,
+  trackDuration: 0,
   currentTime: 0,
   repeatOn: false,
   shuffleOn: false,

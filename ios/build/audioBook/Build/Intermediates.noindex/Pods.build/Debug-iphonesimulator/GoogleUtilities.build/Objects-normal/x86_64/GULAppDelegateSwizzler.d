@@ -7,5 +7,5 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Private/GULLogger.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Public/GULLoggerLevel.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULMutableDictionary.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/../Common/GULLoggerCodes.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Internal/GULAppDelegateSwizzler_Private.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Internal/GULAppDelegateSwizzler_Private.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Common/GULLoggerCodes.h

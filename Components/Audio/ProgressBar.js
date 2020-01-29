@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { Component} from 'react';
 //import { View, Text, Platform } from 'react-native'
 import { connect } from 'react-redux';
-import TrackPlayer from 'react-native-track-player';
 //import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
 import firebase from 'react-native-firebase';
@@ -10,13 +9,11 @@ import { storeMedia } from '../../Actions/mediaFiles';
 
 const Analytics = firebase.analytics();
 
-class ProgressBar extends TrackPlayer.ProgressComponent {
+class ProgressBar extends Component {
 
     componentDidUpdate(){
-        let { position } = this.state;
-        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90/*, closeMiniPlayer*/} = this.props;
-        let currentPosition = Math.floor(parseFloat(position));
-        this.props.store({currentPosition, currentTime: currentPosition});
+        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, currentTime/*, closeMiniPlayer*/} = this.props;
+        let currentPosition = Math.floor(parseFloat(currentTime));
         const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
         if (percentage >= 90 && !reached90) {
             console.log(audioFiles[currentlyPlaying].title)
@@ -27,25 +24,12 @@ class ProgressBar extends TrackPlayer.ProgressComponent {
     }
 
     render() {
-        let { position } = this.state;
-        let currentPosition = Math.floor(parseFloat(position));
-        let { trackDuration, buttonsActive, dark } = this.props;
+        let { trackDuration, currentTime, buttonsActive, dark } = this.props;
+        let currentPosition = Math.floor(parseFloat(currentTime));
         return (
             <Slider
                 style={styles.slider}
                 value={currentPosition}
-                onValueChange={(val) => {
-                    //console.log(val)
-                    let currentTime = Math.floor(parseFloat(val));
-                    //console.log(val)
-                    let newState = {
-                        currentPosition: currentTime,
-                        currentTime,
-                        paused: false,
-                    };
-                    this.props.store(newState);
-                    TrackPlayer.seekTo(val);
-                }}
                 maximumValue={trackDuration || 10}
                 minimumValue={0}
                 minimumTrackTintColor={dark ? '#212121' : '#D4D4D4'}
