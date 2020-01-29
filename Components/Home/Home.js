@@ -4,13 +4,10 @@ import {
   View,
   Dimensions,
   Image,
-  TouchableOpacity,
-  AppState
+  TouchableOpacity
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import NetInfo from "@react-native-community/netinfo";
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
