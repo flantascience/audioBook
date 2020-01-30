@@ -79,6 +79,7 @@ class Tracks extends React.Component {
   }
 
   componentDidUpdate(){
+    console.log(this.props.trackPlayer)
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       //console.log(conType)
@@ -493,6 +494,7 @@ const mapStateToProps = state => {
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     screen: state.media.screen,
+    trackPlayer: state.media.trackPlayer,
     audioFiles: state.media.audioFiles,
     audioFilesCloud: state.media.audioFilesCloud,
     buttonsActive: state.media.buttonsActive,

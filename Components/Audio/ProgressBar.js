@@ -12,8 +12,8 @@ const Analytics = firebase.analytics();
 class ProgressBar extends Component {
 
     componentDidUpdate(){
-        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, currentTime/*, closeMiniPlayer*/} = this.props;
-        let currentPosition = Math.floor(parseFloat(currentTime));
+        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90,/*, closeMiniPlayer*/} = this.props;
+        let currentPosition = Math.floor(parseFloat(this.props.currentPosition));
         const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
         if (percentage >= 90 && !reached90) {
             console.log(audioFiles[currentlyPlaying].title)
@@ -24,8 +24,8 @@ class ProgressBar extends Component {
     }
 
     render() {
-        let { trackDuration, currentTime, buttonsActive, dark } = this.props;
-        let currentPosition = Math.floor(parseFloat(currentTime));
+        let { trackDuration, buttonsActive, dark } = this.props;
+        let currentPosition = Math.floor(parseFloat(this.props.currentPosition));
         return (
             <Slider
                 style={styles.slider}

@@ -5,6 +5,7 @@ import {
     TouchableOpacity,
     View,
     Text,
+    AppState,
     Platform,
     ScrollView
 } from 'react-native'; 
@@ -201,6 +202,7 @@ class Audio extends React.Component{
     closeMiniPlayer = () => {
         this.props.store({
             selectedTrack: null,
+            trackPlayer: null,
             currentlyPlaying: null,
             loaded: false,
             showOverview: false,
@@ -212,7 +214,6 @@ class Audio extends React.Component{
         let { lastTrackId, reached90 } = this.state;
         let {
             originScreen,
-            screen,
             audioFiles,
             referencesInfo = [],
             style,
@@ -237,15 +238,15 @@ class Audio extends React.Component{
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
-        //issue with pause button
+        // issue with pause button
         let realConfusing = lastTrackId === currentlyPlaying?confusingFinal:confusing1;
         let realOtherQuestion = lastTrackId === currentlyPlaying?otherQuestionFinal:otherQuestion1;
         /**Input text config */
         let multiLine = lastTrackId === currentlyPlaying ? true : false;
-        //console.log(loaded)
+        // console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
 
-        let audioPlaying = currentlyPlayingName || !paused;
+        // let audioPlaying = currentlyPlayingName || !paused;
 
         let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
 
@@ -259,8 +260,10 @@ class Audio extends React.Component{
         let mode = eventEmitter.currentMode;
         let dark = mode === 'dark';
 
+        console.log(currentPosition)
+
         const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>
-                <ProgressBar dark={dark} currentTime={this.state.currentTime} toggleReached90={this.toggleReached90} reached90={reached90} />
+                <ProgressBar dark={dark} currentTime={currentPosition} toggleReached90={this.toggleReached90} reached90={reached90} />
                 <View style={ dark ? styles.trackTimeCounterContainerDark : styles.trackTimeCounterContainer }>
                     <View style= { styles.trackElapsedTime }>
                         <Text style={ dark ? styles.trackTimeDark : styles.trackTime }>{ formatTime(currentPosition) }</Text>
@@ -273,7 +276,8 @@ class Audio extends React.Component{
         return(
             <View style={ dark ? styles.elContainerDark : styles.elContainer }>
                 { /** I have an idea why this works but not 100% sure DONT TOUCH!! */}
-                { originScreen === 'Home' ? <TrackPlayer
+                { originScreen === 'Home' ? 
+                <TrackPlayer
                     ref={ref => {
                         this.trackPlayer = ref
                     }}
@@ -289,6 +293,7 @@ class Audio extends React.Component{
                     audioOnly={true}
                     controls={false}
                     onLoad={data => {
+                        this.props.store({trackPlayer: this.trackPlayer})
                         let { duration } = data;
                         if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
                         else this.props.store({loaded:true});
@@ -315,7 +320,7 @@ class Audio extends React.Component{
                                                 currentTime: newPos
                                             };
                                             this.props.store(newState);
-                                            this.trackPlayer.seek(newPos);
+                                            this.props.trackPlayer.seek(newPos);
                                         }} 
                                         disabled={ !buttonsActive }
                                         style={ styles.altGroupedButtons } 
@@ -346,7 +351,7 @@ class Audio extends React.Component{
                                                 currentTime: newPos
                                             };
                                             this.props.store(newState);
-                                            this.trackPlayer.seek(newPos);
+                                            this.props.trackPlayer.seek(newPos);
                                         } } 
                                         disabled={ !buttonsActive }  
                                         style={ styles.groupedButtons }
@@ -445,7 +450,7 @@ class Audio extends React.Component{
                                                 currentTime: newPos
                                             };
                                             this.props.store(newState);
-                                            this.trackPlayer.seek(newPos);
+                                            this.props.trackPlayer.seek(newPos);
                                         }} 
                                         disabled={ !buttonsActive }
                                         style={ styles.altGroupedButtons } 
@@ -476,7 +481,7 @@ class Audio extends React.Component{
                                                 currentTime: newPos
                                             };
                                             this.props.store(newState);
-                                            this.trackPlayer.seek(newPos);
+                                            this.props.trackPlayer.seek(newPos);
                                         } } 
                                         disabled={ !buttonsActive }  
                                         style={ styles.groupedButtons }
@@ -512,6 +517,7 @@ const mapStateToProps = state => {
         currentlyPlayingName: state.media.currentlyPlayingName,
         paused: state.media.paused,
         totalLengthFormatted: state.media.totalLengthFormatted,
+        trackPlayer: state.media.trackPlayer,
         currentPosition: state.media.currentPosition,
         currentTime: state.media.currentTime,
         isChanging: state.media.isChanging,
