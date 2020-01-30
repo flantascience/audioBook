@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import {
   View,
   ScrollView,
@@ -98,17 +98,17 @@ class Tracks extends React.Component {
     updateShowQuestionnaire(val);
   }
 
-  toggleNowPlaying = (pos) => {
+  toggleNowPlaying = pos => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, trackDuration } = this.props;
     let { currentAction } = this.state;
+    let currPos = audioFiles ? audioFiles[pos] : null;
     //console.log(audioFiles[pos]);
     this.foldAccordions();
-    if(pos !== selectedTrack){
+    if (currPos !== null && pos !== selectedTrack) {
         //console.log(res)
-        NetInfo.fetch().then(state=>{
+        NetInfo.fetch().then(state => {
           let conType = state.type;
           //console.log(conType)
-          let currPos = audioFiles[pos];
           let mediaType = audioFiles[pos].type;
           /**If track is cloud based one needs an internet connection*/
           //console.log(currPos)
@@ -117,15 +117,14 @@ class Tracks extends React.Component {
           mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?
           true:
           false;
-          if(playable){
+          if (playable) {
             // console.log(audioFiles[pos].title)
-            console.log(audioFiles)
             this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
-            if(audioFiles[pos].type === "local"){
+            if(mediaType === "local"){
               RNFS.exists(audioFiles[pos].url).then(res=>{
-                if(res) {
+                if (res) {
                   //console.log(trackDuration)
-                  if(trackDuration > 0){
+                  if(trackDuration > 0 ){
                     let formattedDuration = formatTime(trackDuration);
                     this.props.store({
                       selectedTrack: pos,
@@ -143,7 +142,7 @@ class Tracks extends React.Component {
                       totalLength: trackDuration, 
                       formattedDuration
                     });
-                  }else{
+                  } else {
                     trackDuration = audioFiles[pos].duration;
                     let formattedDuration = formatTime(trackDuration);
                     this.props.store({
@@ -166,32 +165,17 @@ class Tracks extends React.Component {
                   //alert that track is streaming
                   currentAction[pos].action = "streaming";
                 }else{
-                  //check for connectivity again
-                  NetInfo.fetch().then(state=>{
-                    let conType = state.type;
-                    let haveNet = conType === "wifi" || conType === "cellular"?true:false;
-                    if(haveNet){
-                      let showToast = true;
-                      this.props.store({showToast, toastText: tracks.redownloadTrack });
-                      setTimeout(()=>{
-                        this.props.store({showToast: !showToast, toastText: null });
-                      }, 1500);
-                      audioFiles[pos] = audioFilesCloud[pos];
-                      this.props.store({audioFiles});
-                      this._storeData(audioFiles);
-                      this.forceUpdate();
-                    }else{
-                      console.log("no internet")
-                      let showToast = true;
-                      this.props.store({showToast, toastText: tracks.redownloadTrack });
-                      setTimeout(()=>{
-                        this.props.store({showToast: !showToast, toastText: null });
-                      }, 1500);
-                    }
-                  });
+                  let newAudioFiles = [...audioFiles];
+                  let showToast = true;
+                  this.props.store({showToast, toastText: tracks.redownloadTrack });
+                  setTimeout(()=>{
+                    this.props.store({showToast: !showToast, toastText: null });
+                  }, 1500);
+                  newAudioFiles[pos] = audioFilesCloud[pos];
+                  this._storeData(newAudioFiles);
                 }
               });
-            }else{
+            } else {
               //console.log(trackDuration)
               if(trackDuration > 0){
                 let formattedDuration = formatTime(trackDuration);
@@ -247,8 +231,20 @@ class Tracks extends React.Component {
           console.log(err)
         });
     }else{
-      let showOverview = !this.props.showOverview;
-      this.props.store({showOverview});
+      console.log('currpos be null')
+      if (!currPos) {
+        let showToast = true;
+        let newAudioFiles = [...audioFiles];
+        newAudioFiles[pos] = audioFilesCloud[pos];
+        this.props.store({showToast, toastText: tracks.redownloadTrack});
+        this._storeData(newAudioFiles);
+        setTimeout(()=>{
+          this.props.store({showToast: !showToast, toastText: null });
+        }, 1000);
+      } else {
+        let showOverview = !this.props.showOverview;
+        this.props.store({showOverview});
+      }
     }
   }
 
@@ -292,11 +288,12 @@ class Tracks extends React.Component {
         if(currentAction.length > 0){
           RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
             let newPath = Platform.OS === 'ios'?"file:////" + path:path;
+            let newAudioFiles = [...audioFiles];
             currentAction[pos].action = "downloaded";
-            audioFiles[pos].url = newPath;
-            audioFiles[pos].type = "local";
+            newAudioFiles[pos].url = newPath;
+            newAudioFiles[pos].type = "local";
             //console.log(audioFiles);
-            this._storeData(audioFiles);
+            this._storeData(newAudioFiles);
             this.setState({currentAction});
             this.forceUpdate();
           }).catch(err=>{
@@ -352,6 +349,9 @@ _storeData = async (audioFiles) => {
     let stringAudioFiles = JSON.stringify(audioFiles);
     await AsyncStorage.setItem('audioFiles', stringAudioFiles);
     this.props.store({audioFiles});
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 100);
   } catch (error) {
     console.log(error);
   }
@@ -402,60 +402,64 @@ render(){
                 }
                 { !loading?
                 <ScrollView>{ 
-                  Object.keys(audioFiles).map(key=>{
-                  let { title, type, formattedDuration } = audioFiles[key];
-                  let { currentAction } = this.state;
-                  /**Set default action */
-                  let action = currentAction[key]?currentAction[key].action:"stop";
-                  /**set default percentage */
-                  let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
-                  let playIcon = key !== selectedTrack ?
-                  "play-circle": 
-                  key === selectedTrack && !paused?"pause":
-                  "play-circle";
-                  let downlaodIcon = "cloud-download";
-                  return(
-                    <View key={key} style={ styles.trackContainer }>
-                      <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
-                        <View style={ styles.trackTextWrapper }>
-                          <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
-                          <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
-                        </View>
-                        <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
-                          { playIcon !== "pause" ? 
-                          <Icon
-                            color={ dark ? '#fff' : '#000' }
-                            name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                            size={ 40 }
-                          /> :
-                          <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
-                        </TouchableOpacity>
+                  Object.keys(audioFiles).map(key => {
+                    if (audioFiles[key]) { 
+                      let { title, type, formattedDuration } = audioFiles[key];
+                      let { currentAction } = this.state;
+                      /**Set default action */
+                      let action = currentAction[key]?currentAction[key].action:"stop";
+                      /**set default percentage */
+                      let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
+                      let playIcon = key !== selectedTrack ?
+                      "play-circle": 
+                      key === selectedTrack && !paused ? "pause":
+                      "play-circle";
+                      let downlaodIcon = "cloud-download";
 
-                        { type === "cloud" && action !== "downloading"?
-                        <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
-                          <Icon 
-                            color={ dark ? '#fff' : '#000' }
-                            name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
-                            size={ 35 }
-                          />
-                        </TouchableOpacity>:
-                        type === "cloud" && action === "downloading"?
-                        <View style={{marginLeft: 20}}>
-                          <ProgressCircle
-                            percent={percentage}
-                            radius={14}
-                            borderWidth={2}
-                            color="#3399FF"
-                            shadowColor="#999"
-                            bgColor="#fff"
-                          >
-                            <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
-                          </ProgressCircle>
-                        </View>: null }
-                      </TouchableOpacity>
-                    </View>
-                  )
-                }) }
+                      return(
+                        <View key={key} style={ styles.trackContainer }>
+                          <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
+                            <View style={ styles.trackTextWrapper }>
+                              <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
+                              <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
+                            </View>
+                            <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
+                              { playIcon !== "pause" ? 
+                              <Icon
+                                color={ dark ? '#fff' : '#000' }
+                                name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                                size={ 40 }
+                              /> :
+                              <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
+                            </TouchableOpacity>
+
+                            { type === "cloud" && action !== "downloading"?
+                            <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
+                              <Icon 
+                                color={ dark ? '#fff' : '#000' }
+                                name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
+                                size={ 35 }
+                              />
+                            </TouchableOpacity>:
+                            type === "cloud" && action === "downloading"?
+                            <View style={{marginLeft: 20}}>
+                              <ProgressCircle
+                                percent={percentage}
+                                radius={14}
+                                borderWidth={2}
+                                color="#3399FF"
+                                shadowColor="#999"
+                                bgColor="#fff"
+                              >
+                                <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
+                              </ProgressCircle>
+                            </View>: null }
+                          </TouchableOpacity>
+                        </View>
+                      )
+                    }
+                  })
+                }
                 </ScrollView>:
                 <ActivityIndicator 
                   size="large" 
@@ -511,7 +515,7 @@ render(){
 }
 
 const mapStateToProps = state => {
-  return{
+  return {
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     screen: state.media.screen,

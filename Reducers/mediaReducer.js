@@ -18,7 +18,7 @@ const initialState = {
   currentTime: 0,
   repeatOn: false,
   shuffleOn: false,
-  screen: "Home",
+  screen: "Intro",
   buttonsActive: false,
   showOverview: false,
   showTextinput: false,

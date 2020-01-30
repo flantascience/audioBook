@@ -12,7 +12,7 @@ import {
     formatTime, 
     removeTrack
 } from '../../Misc/helpers';
-import TrackPlayer from 'react-native-video';
+//import TrackPlayer from 'react-native-video';
 import Toast from '../../Components/Toast/Toast';
 import firebase from 'react-native-firebase';
 import claps from '../Tracks/tracks/sample_claps.mp3';

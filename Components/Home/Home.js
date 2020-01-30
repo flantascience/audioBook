@@ -15,7 +15,7 @@ import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
-import { withNavigationFocus } from 'react-navigation'
+import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
 import CurricuDumbIntro from "../../Misc/media/CurricuDumb-Intro.mp4";
 import { eventEmitter } from 'react-native-dark-mode';
@@ -78,7 +78,7 @@ class Home extends React.Component {
   }
 
   componentWillUnmount(){
-    this.blurSubscription().unsubscribe();
+    this.blurSubscription.remove();
   }
   
   render(){
@@ -163,7 +163,7 @@ class Home extends React.Component {
               style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
             /> : null }
           </View>
-            </View>: null }
+        </View>: null }
         { selectedTrack ? 
           <View 
             style={ showOverview?styles.overviewContainer:

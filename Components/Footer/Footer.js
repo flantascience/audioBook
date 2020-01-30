@@ -9,16 +9,15 @@ import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode'
 
-const Footer = (props)=>{
+const Footer =  props => {
     const { navigate } = props.navigation;
     let { screen, currentlyPlayingName } = props;
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
-    let hike = currPlayingNameLen > 1?true:false;
+    let hike = currPlayingNameLen > 1 ? true : false;
     //console.log(props)
     const goTo = (place)=>{
         toggleOverview().then(res=>{
-            if(res === "hidden")
-                navigate(place);
+            if(res === "hidden") navigate(place);
         }); 
     }
 
@@ -46,15 +45,15 @@ const Footer = (props)=>{
                 <IconButton
                     onPress={ ()=>{
                         let newState = {
-                            screen: "Home"
+                            screen: "Intro"
                         };
                         props.store(newState);
                         goTo(footer.home.place);
                     } }
-                    active = { screen === 'Home' }
+                    active = { screen === 'Intro' }
                     name={'home'}
                     style = { styles.icon }
-                    iconStyle = { screen === "Home" ? 
+                    iconStyle = { screen === "Intro" ? 
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
                     mode === 'light' ? styles.iconText : styles.iconTextDark }
                     size={ 25 }
@@ -70,7 +69,6 @@ const Footer = (props)=>{
                     }}
                     active = { screen === 'Tracks' }
                     name={'volume-high'}
-                    place={ footer.tracks.place }
                     style = { styles.icon }
                     iconStyle = { screen === "Tracks" ? 
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
@@ -87,7 +85,6 @@ const Footer = (props)=>{
                         goTo(footer.author.place); 
                     }}
                     name={'person'}
-                    place={ footer.author.place }
                     size={ 25 }
                     active = { screen === 'Author' }
                     style = { styles.icon }

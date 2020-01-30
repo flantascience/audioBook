@@ -91,7 +91,7 @@ class PreLoad extends React.Component {
     });
   }
 
-  fetchFromFirebase = () => {
+  fetchFromFirebase = (fixOnlyCloud = true) => {
     let { audioFiles } = this.props;
     let cloudAudio = [];
     try {
@@ -102,8 +102,11 @@ class PreLoad extends React.Component {
             if (track) cloudAudio.push(track);
           });
           let newAudioFiles = audioFiles.concat(cloudAudio);
-          this.props.storeMedia({audioFiles: newAudioFiles});
-          this._storeAudioFilesData(newAudioFiles);
+          if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
+          else {
+            this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+            this._storeAudioFilesData(newAudioFiles);
+          }
         }).catch(err=>{
           console.log(err);
         });
@@ -117,30 +120,32 @@ class PreLoad extends React.Component {
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       let haveNet = conType === "wifi" || conType === "cellular"? true : false;
-      this.fetchTracksVersion().then(newVersion=>{
-        if (newVersion) this.fetchFromFirebase();
-        else {
-          this._getStoredData("audioFiles").then(res => {
-            if(res){
-              let storedAudioFiles = JSON.parse(res);
-              for(var i = 0; i < storedAudioFiles.length; i++){
-                if (!storedAudioFiles[i]) {
-                  dataIntact = false;
-                  break;
+      if (haveNet) {
+        this.fetchTracksVersion().then(newVersion=>{
+          if (newVersion) this.fetchFromFirebase(false);
+          else {
+            this.fetchFromFirebase();
+            this._getStoredData("audioFiles").then(res => {
+              if(res){
+                let storedAudioFiles = JSON.parse(res);
+                for(var i = 0; i < storedAudioFiles.length; i++){
+                  if (!storedAudioFiles[i]) {
+                    dataIntact = false;
+                    break;
+                  }
+                }
+                if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles})
+                else {
+                  let filteredData = storedAudioFiles.filter( e => {
+                    return e != null;
+                  });
+                  this.props.storeMedia({audioFiles: filteredData})
                 }
               }
-              if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles})
-              else if (!dataIntact && haveNet) this.fetchFromFirebase()
-              else {
-                let filteredData = storedAudioFiles.filter( e => {
-                  return e != null;
-                });
-                this.props.storeMedia({audioFiles: filteredData})
-              }
-            }
-          });
-        }
-      })
+            });
+          }
+        });
+      }
     });
   }
 
@@ -227,10 +232,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    storeMedia: (media) => {
+    storeMedia: media => {
       dispatch(storeMedia(media));
     },
-    storeReferences: (refs) => {
+    storeReferences: refs => {
       dispatch(storeRefs(refs));
     }
   }

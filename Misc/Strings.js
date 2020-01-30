@@ -4,7 +4,7 @@ export const header = {
   subHeaderText: "what teachers can't tell you"
 }
 export const footer = {
-  home: { text:"Home", place: "Second" },
+  home: { text:"Intro", place: "Second" },
   tracks: { text:"Tracks", place: "Third" },
   author: { text:"Author", place: "Fourth" }
 }
