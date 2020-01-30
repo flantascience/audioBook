@@ -4,6 +4,7 @@ import {
   View,
   Dimensions,
   Image,
+  AppState,
   TouchableOpacity
 } from 'react-native';
 import Header from '../Header/Header';
@@ -13,7 +14,7 @@ import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
 import Audio from '../Audio/Audio';
 import Video from 'react-native-video';
-//import MediaOverview from '../MediaOverview/MediaOverview';
+// import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
@@ -28,13 +29,14 @@ class Home extends React.Component {
     this.state = {
       loaded: false,
       showVid: false,
+      currentTime: null,
       secondaryHide: false,
       introPlayed: false,
       paused: true
     }
   }
 
-  static navigationOptions = ({navigation}) => ({
+  static navigationOptions = () => ({
     headerLeft: <Header />,
     headerTitleStyle :{
         textAlign: 'center',
@@ -49,7 +51,8 @@ class Home extends React.Component {
   });
 
   componentDidMount(){
-    console.log(this.props.audioFiles)
+    // console.log(this.props.audioFiles)
+    AppState.addEventListener("change", this._handleAppStateChange);
     this.blurSubscription = this.props.navigation.addListener(
       'willBlur',
       () => {
@@ -61,7 +64,6 @@ class Home extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log(this.props.audioFiles)
     let {
       navigation,
       paused,
@@ -80,6 +82,13 @@ class Home extends React.Component {
   componentWillUnmount(){
     this.blurSubscription.remove();
   }
+
+  _handleAppStateChange = nextState => {
+    let player = this.player;
+    if(nextState === "background" || nextState === "inactive" && player){
+      this.setState({paused: true});
+    }
+  }
   
   render(){
     let {
@@ -94,7 +103,7 @@ class Home extends React.Component {
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
-    let audioPlaying = !this.props.paused;
+    let audioPlaying = currentlyPlayingName || !this.props.paused;
 
     if(!isFocused && !paused){
       this.setState({paused:true});
@@ -147,7 +156,7 @@ class Home extends React.Component {
               }}
               onProgress = { () => {
                 if(!isFocused || audioPlaying) {
-                  console.log('pause vid')
+                  //console.log('pause vid')
                   this.setState({paused: true, showVid: false});
                 }
                 if (!introPlayed) {
@@ -161,7 +170,7 @@ class Home extends React.Component {
               resizeMode = { "cover" }
               controls = { true }
               style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
-            /> : null }
+            /> : null}
           </View>
         </View>: null }
         { selectedTrack ? 
@@ -176,11 +185,10 @@ class Home extends React.Component {
             <Audio
               navigate = { navigation.navigate }
               audioSource={ audioSource } // Can be a URL or a local file
-              audioFiles={audioFiles}
+              originScreen={'Home'}
               pos={ selectedTrack }
               initCurrentlyPlaying = { initCurrentlyPlaying }
               style={ dark ? styles.audioElementDark : styles.audioElement }
-              currentlyPlayingName={ currentlyPlayingName }
             />
           </View>: null }
         <View 

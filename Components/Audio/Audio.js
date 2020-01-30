@@ -12,7 +12,7 @@ import {
     formatTime, 
     removeTrack
 } from '../../Misc/helpers';
-//import TrackPlayer from 'react-native-video';
+import TrackPlayer from 'react-native-video';
 import Toast from '../../Components/Toast/Toast';
 import firebase from 'react-native-firebase';
 import claps from '../Tracks/tracks/sample_claps.mp3';
@@ -211,6 +211,8 @@ class Audio extends React.Component{
     render(){
         let { lastTrackId, reached90 } = this.state;
         let {
+            originScreen,
+            screen,
             audioFiles,
             referencesInfo = [],
             style,
@@ -243,6 +245,10 @@ class Audio extends React.Component{
         //console.log(loaded)
         selectedTrack = pos !== selectedTrack?pos:selectedTrack;
 
+        let audioPlaying = currentlyPlayingName || !paused;
+
+        let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
+
         let playIcon = "play-circle";
         if (!currentlyPlayingName && paused && !loaded) playIcon = "play-circle"
         else if (paused && loaded) playIcon = "play-circle";
@@ -266,6 +272,28 @@ class Audio extends React.Component{
             </View>;
         return(
             <View style={ dark ? styles.elContainerDark : styles.elContainer }>
+                { /** I have an idea why this works but not 100% sure DONT TOUCH!! */}
+                { originScreen === 'Home' ? <TrackPlayer
+                    ref={ref => {
+                        this.trackPlayer = ref
+                    }}
+                    source={audioSource}
+                    onProgress={data => {
+                        let { currentTime } = data;
+                        this.setState({currentTime: Math.floor(currentTime)});
+                        this.props.store({currentPosition: Math.floor(currentTime)});
+                    }}
+                    playInBackground={true}
+                    playWhenInactive={true}
+                    paused={paused}
+                    audioOnly={true}
+                    controls={false}
+                    onLoad={data => {
+                        let { duration } = data;
+                        if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
+                        else this.props.store({loaded:true});
+                    }}
+                /> : null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
                     <View style={ style }>

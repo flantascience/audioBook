@@ -166,11 +166,10 @@ class Author extends React.Component {
       <Audio
         navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
-        audioFiles={audioFiles}
+        originScreen={'Author'}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }
         style={ dark ? styles.audioElementDark : styles.audioElement }
-        currentlyPlayingName={ currentlyPlayingName }
       />;
     return (
       <View 

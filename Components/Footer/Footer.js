@@ -9,13 +9,11 @@ import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode'
 
-const Footer =  props => {
-    const { navigate } = props.navigation;
-    let { screen, currentlyPlayingName } = props;
+const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
     let hike = currPlayingNameLen > 1 ? true : false;
     //console.log(props)
-    const goTo = (place)=>{
+    const goTo = place => {
         toggleOverview().then(res=>{
             if(res === "hidden") navigate(place);
         }); 
@@ -23,7 +21,7 @@ const Footer =  props => {
 
     const toggleOverview = ()=>{
         return new Promise(resolve=>{
-            props.store({ showOverview: false, showTextinput: false });
+            store({ showOverview: false, showTextinput: false });
             resolve('hidden');
         });
     }
@@ -47,7 +45,7 @@ const Footer =  props => {
                         let newState = {
                             screen: "Intro"
                         };
-                        props.store(newState);
+                        store(newState);
                         goTo(footer.home.place);
                     } }
                     active = { screen === 'Intro' }
@@ -64,7 +62,7 @@ const Footer =  props => {
                         let newState = {
                             screen: "Tracks"
                         };
-                        props.store(newState);
+                        store(newState);
                         goTo(footer.tracks.place);
                     }}
                     active = { screen === 'Tracks' }
@@ -81,7 +79,7 @@ const Footer =  props => {
                         let newState = {
                             screen: "Author"
                         };
-                        props.store(newState);
+                        store(newState);
                         goTo(footer.author.place); 
                     }}
                     name={'person'}

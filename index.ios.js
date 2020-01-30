@@ -66,7 +66,7 @@ const MainNavigator = createStackNavigator({
     transitionConfig: sceneProps => ({
       transitionSpec: screenConfig,
       screenInterpolator: (sceneProps) => {
-        if (sceneProps.scene.route.routeName === 'Second') {
+        if (sceneProps.scene.route.routeName === 'First') {
           const { layout, position, scene } = sceneProps;
           const { index } = scene;
           const width = layout.initWidth;

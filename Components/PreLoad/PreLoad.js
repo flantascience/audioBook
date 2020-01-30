@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import {
   View,
   Dimensions,
-  AppState,
   ActivityIndicator
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -41,7 +40,6 @@ class PreLoad extends React.Component {
 
   componentDidMount(){
     let { navigation: { navigate } } = this.props;
-    AppState.addEventListener("change", this._handleAppStateChange);
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
     eventEmitter.on('currentModeChanged', newMode => {
@@ -57,13 +55,6 @@ class PreLoad extends React.Component {
     setTimeout(() => {
       navigate("Second");
     }, 200);
-  }
-
-  _handleAppStateChange = nextState => {
-    let player = this.player;
-    if(nextState === "background" || nextState === "inactive" && player){
-      this.setState({paused: true});
-    }
   }
 
   fetchTracksVersion = () => {

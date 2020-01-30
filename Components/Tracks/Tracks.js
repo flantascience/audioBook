@@ -322,7 +322,7 @@ class Tracks extends React.Component {
         let referencesInfo = [];
         try {
           audioFiles.forEach(file=>{
-            console.log(file)
+            // console.log(file)
             let id = file.id;
             if(id === currentlyPlaying){
                 currentReferences = file.references;
@@ -382,13 +382,11 @@ render(){
       <Audio
         navigate = {navigation.navigate}
         audioSource={ audioSource } // Can be a URL or a local file
-        updateDuration={this.updateDuration}
+        originScreen={'Tracks'}
         referencesInfo={referencesInfo}
-        audioFiles={audioFiles}
         pos={selectedTrack}
         initCurrentlyPlaying = {initCurrentlyPlaying}
         style={ dark ? styles.audioElementDark : styles.audioElement }
-        currentlyPlayingName={ currentlyPlayingName }
       />;
 
     return (
@@ -477,30 +475,6 @@ render(){
                 styles.altOverviewContainer 
               } 
             >
-              <TrackPlayer
-                ref={ref => {
-                    this.trackPlayer = ref
-                }}
-                source={audioSource}
-                onProgress={data => {
-                    let { currentTime } = data;
-                    this.setState({currentTime: Math.floor(currentTime)});
-                    this.props.store({currentPosition: Math.floor(currentTime)});
-                }}
-                playInBackground={true}
-                playWhenInactive={true}
-                paused={paused}
-                audioOnly={true}
-                controls={false}
-                onError={error => {
-                  console.log(error)
-                }}
-                onLoad={data => {
-                    let { duration } = data;
-                    if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
-                    else this.props.store({loaded:true});
-                }}
-              />
               { audioControls }
             </View> : null }
           <View style = { currentlyPlayingName && height < 570 ? 
