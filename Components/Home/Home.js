@@ -104,7 +104,7 @@ class Home extends React.Component {
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
-    let audioPlaying = currentlyPlayingName || !this.props.paused;
+    let audioPlaying = !this.props.paused;
 
     if(!isFocused && !paused){
       this.setState({paused:true});

@@ -79,7 +79,7 @@ class Tracks extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log(this.props.trackPlayer)
+    // console.log(this.props.trackPlayer)
     NetInfo.fetch().then(state=>{
       let conType = state.type;
       //console.log(conType)
