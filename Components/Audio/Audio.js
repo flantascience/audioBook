@@ -5,7 +5,6 @@ import {
     TouchableOpacity,
     View,
     Text,
-    AppState,
     Platform,
     ScrollView
 } from 'react-native'; 
@@ -206,6 +205,7 @@ class Audio extends React.Component{
             currentlyPlaying: null,
             currentlyPlayingName: null,
             loaded: false,
+            paused: true,
             showOverview: false,
             currentPosition: 0
         });
@@ -297,6 +297,7 @@ class Audio extends React.Component{
                         if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
                         else this.props.store({loaded:true});
                     }}
+                    controls = { true }
                 /> : null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
