@@ -162,7 +162,6 @@ class Home extends React.Component {
                 }
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
-                  Analytics.setCurrentScreen('Home');
                   Analytics.logEvent('select_content', {introductionVideo: 'Played'});
                 }
               }}
