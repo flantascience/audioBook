@@ -156,10 +156,10 @@ class Home extends React.Component {
                 this.setState({loaded:true});
               }}
               onEnd = {() => {
-                this.setState({
+                /*this.setState({
                   paused: true, 
                   showVid: false
-                });
+                });*/
                 this.player.dismissFullscreenPlayer();
               }}
               onTouchStart = { () => {
