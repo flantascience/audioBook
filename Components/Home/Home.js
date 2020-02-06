@@ -32,7 +32,8 @@ class Home extends React.Component {
       currentTime: null,
       secondaryHide: false,
       introPlayed: false,
-      paused: true
+      paused: true,
+      fullscreen: false
     }
   }
 
@@ -100,7 +101,7 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused, introPlayed } = this.state;
+    let { loaded, showVid, paused, introPlayed, fullscreen } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
@@ -119,15 +120,21 @@ class Home extends React.Component {
         { !showOverview ?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            {!loaded ? <Image
-              source={ require('./images/backgroundImage.jpg')}
-              style={ styles.thumb }
-            /> : null}
+            {!loaded ? 
+            <TouchableOpacity>
+              <Image
+                source={ require('./images/backgroundImage.jpg')}
+                style={ styles.thumb }
+              />
+            </TouchableOpacity> : null}
             {
               loaded && !showVid ?
               <TouchableOpacity
                 onPress={ ()=>{
-                  this.setState({showVid:true, paused: false, secondaryHide:false})
+                  this.player.presentFullscreenPlayer();
+                  setTimeout(() => {
+                    this.setState({showVid:true, paused: false, secondaryHide:false })
+                  }, 200);
                 }}
               >
                 <Image
@@ -140,10 +147,9 @@ class Home extends React.Component {
             { !audioPlaying ? 
             <Video
               source={CurricuDumbIntro}// Can be a URL or a local file.
-              ref={(ref) => {
+              ref={ref => {
                 this.player = ref
               }}
-              poster = { Image.resolveAssetSource(require('./images/backgroundImage.jpg')).uri }
               posterResizeMode = { "cover" }
               paused = { !paused&&isFocused?false:true }
               onLoad = { () => {
@@ -153,6 +159,13 @@ class Home extends React.Component {
                 this.setState({
                   paused: true, 
                   showVid: false
+                });
+                this.player.dismissFullscreenPlayer();
+              }}
+              onTouchStart = { () => {
+                this.setState({
+                  paused: !this.state.paused, 
+                  showVid: !this.state.showVid
                 });
               }}
               onProgress = { () => {
@@ -165,20 +178,28 @@ class Home extends React.Component {
                   Analytics.logEvent('select_content', {introductionVideo: 'Played'});
                 }
               }}
-              repeat = { false }
-              fullscreen = { false }
+              onFullscreenPlayerWillDismiss = {() => {
+                this.setState({
+                  showVid: false,
+                  paused: true
+                });
+              }}
+              repeat = { true }
+              fullscreen = { true }
+              fullscreenAutorotate = { false }
+              fullscreenOrientation = { "portrait" }
               resizeMode = { "cover" }
-              controls = { true }
-              style = { !showVid || !isFocused?styles.IntroductionVideoBeforeLoad:styles.IntroductionVideo }
+              controls = { false }
+              style = { !showVid || !isFocused ? styles.IntroductionVideoBeforeLoad : styles.IntroductionVideo }
             /> : null}
           </View>
         </View>: null }
         { selectedTrack ? 
           <View 
-            style={ showOverview?styles.overviewContainer:
-              height < 570?styles.altAltOverviewContainer:
-              height > 700 && height < 800?styles.longAltOverviewContanier:
-              height > 800?styles.longerAltOverviewContanier:
+            style={ showOverview ? styles.overviewContainer :
+              height < 570 ? styles.altAltOverviewContainer :
+              height > 700 && height < 800 ? styles.longAltOverviewContanier :
+              height > 800 ? styles.longerAltOverviewContanier :
               styles.altOverviewContainer 
             }
           >

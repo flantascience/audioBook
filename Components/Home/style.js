@@ -4,6 +4,9 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { eventEmitter } from 'react-native-dark-mode';
 
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height;
+
 const mode = eventEmitter.currentMode;
 const dark = mode === 'dark';
 
@@ -42,10 +45,6 @@ export const styles = StyleSheet.create({
         left: 0,
         right:0,
         top:0
-    },
-    thumb: {
-        height: Dimensions.get('window').height - 160,
-        width: Dimensions.get('window').width,
     },
     altOverviewContainer: {
         flex: 2,
@@ -87,11 +86,19 @@ export const styles = StyleSheet.create({
         height: 60,
         backgroundColor: "#212121"
     },
+    thumb: {
+        height: height > 750 ? '100%' : '115%',
+        width,
+        resizeMode: 'stretch'
+    },
     centerImageContainer: {
         display: "flex",
         flexDirection: "column",
         flex:1,
+        height: height - 160,
+        width,
         alignContent: "center",
+        alignItems: "center",
         justifyContent: "center"
     },
     centerImage: {
