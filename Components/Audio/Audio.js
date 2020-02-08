@@ -275,7 +275,7 @@ class Audio extends React.Component{
         return(
             <View style={ dark ? styles.elContainerDark : styles.elContainer }>
                 { /** I have an idea why this works but not 100% sure DONT TOUCH!! */}
-                { originScreen === 'Home' ? 
+                { originScreen === 'Home' ?
                 <TrackPlayer
                     ref={ref => {
                         this.trackPlayer = ref
@@ -290,14 +290,13 @@ class Audio extends React.Component{
                     playWhenInactive={true}
                     paused={paused}
                     audioOnly={true}
-                    controls={false}
                     onLoad={data => {
                         this.props.store({trackPlayer: this.trackPlayer})
                         let { duration } = data;
                         if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
                         else this.props.store({loaded:true});
                     }}
-                    controls = { true }
+                    controls = {true}
                 /> : null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>

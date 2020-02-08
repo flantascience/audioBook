@@ -88,7 +88,7 @@ export const styles = StyleSheet.create({
     },
     thumb: {
         height: height > 750 ? '100%' : '115%',
-        width,
+        width: height > 750 ? width + 10 : width,
         resizeMode: 'stretch'
     },
     centerImageContainer: {

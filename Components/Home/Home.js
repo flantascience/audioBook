@@ -131,14 +131,14 @@ class Home extends React.Component {
               loaded && !showVid ?
               <TouchableOpacity
                 onPress={ ()=>{
-                  this.player.presentFullscreenPlayer();
+                  if (!audioPlaying) this.player.presentFullscreenPlayer();
                   setTimeout(() => {
                     this.setState({showVid:true, paused: false, secondaryHide:false })
                   }, 200);
                 }}
               >
                 <Image
-                  source={ require('./images/backgroundImage2.jpg')}
+                  source={ require('./images/backgroundImage3.jpg')}
                   style={ styles.thumb }
                 />
               </TouchableOpacity>:
@@ -156,10 +156,10 @@ class Home extends React.Component {
                 this.setState({loaded:true});
               }}
               onEnd = {() => {
-                /*this.setState({
+                this.setState({
                   paused: true, 
                   showVid: false
-                });*/
+                });
                 this.player.dismissFullscreenPlayer();
               }}
               onTouchStart = { () => {
@@ -184,7 +184,7 @@ class Home extends React.Component {
                   paused: true
                 });
               }}
-              repeat = { true }
+              repeat = { false }
               fullscreen = { true }
               fullscreenAutorotate = { false }
               fullscreenOrientation = { "portrait" }
@@ -202,7 +202,7 @@ class Home extends React.Component {
               height > 800 ? styles.longerAltOverviewContanier :
               styles.altOverviewContainer 
             }
-          >
+          > 
             <Audio
               navigate = { navigation.navigate }
               audioSource={ audioSource } // Can be a URL or a local file
