@@ -138,7 +138,7 @@ class Home extends React.Component {
                 }}
               >
                 <Image
-                  source={ require('./images/backgroundImage3.jpg')}
+                  source={ require('./images/backgroundImage2.jpg')}
                   style={ styles.thumb }
                 />
               </TouchableOpacity>:

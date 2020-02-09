@@ -291,12 +291,13 @@ class Audio extends React.Component{
                     paused={paused}
                     audioOnly={true}
                     onLoad={data => {
-                        this.props.store({trackPlayer: this.trackPlayer})
+                        this.props.store({trackPlayer: this.trackPlayer});
                         let { duration } = data;
                         if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
                         else this.props.store({loaded:true});
                     }}
-                    controls = {true}
+                    controls={true}
+                    ignoreSilentSwitch={true}
                 /> : null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
