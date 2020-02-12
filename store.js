@@ -1,10 +1,11 @@
 import { createStore, combineReducers } from 'redux';
-import inputReducer from './Reducers/inputReducer';
+import generalReducer from './Reducers/generalReducer';
 import mediaReducer from './Reducers/mediaReducer';
 import referencesReducer from './Reducers/referencesReducer';
 
 const rootReducer = combineReducers({
-  input: inputReducer,
+  input: generalReducer,
+  connectionInfo: generalReducer,
   media: mediaReducer,
   refs: referencesReducer
 });

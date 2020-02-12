@@ -9,7 +9,11 @@ const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: Colors.lighter,
+    },
+    text: {
+        color: dark ? '#fff' : '#000',
+        marginTop: 50,
+        textAlign: 'center'
     },
     Home: {
         display: "flex",

@@ -15,6 +15,12 @@ export const tracks = {
   restartApp: "Something went wrong, please restart app and try again."
 }
 
+export const connectionFeedback = {
+  slowConnection: "Slow connection, this might take a while",
+  noConnection: "You have no internet connection",
+  needConnectionToFetchTracks: "You need an internet connection to fetch tracks list"
+}
+
 export const author = {
   name: "Jim Flannery",
   title: "Author of Curricu-Dumb",
@@ -37,20 +43,8 @@ export const audioOverview = {
 export const refsStrings = {
   noRefs: "There are no references or links for this track",
   transparencyStatementTitle: "Transparency statement: ",
-  transparencyStatementText: "I receive a 5% commission on anything purchased through links to Amazon"
+  transparencyStatementText: "I receive a 5% commission on anything purchased through links to Amazon",
+  noConnection: "You need an internet connection to see some refs"
 }
 
-export const initFilesState = [
-    {
-      name: "Introduction",
-      url: "./tracks/sample_claps.mp3",
-      duration: "00.28",
-      type: "local"
-    }, 
-    {
-      name: "Why I made this app",
-      url: "./tracks/sample_noise.mp3",
-      duration: "00:45",
-      type: "local"
-    }
-  ];
+export const initFilesState = [];

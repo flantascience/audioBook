@@ -101,7 +101,7 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused, introPlayed, fullscreen } = this.state;
+    let { loaded, showVid, paused, introPlayed } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';

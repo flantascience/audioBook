@@ -15,7 +15,6 @@ import {
 import TrackPlayer from 'react-native-video';
 import Toast from '../../Components/Toast/Toast';
 import firebase from 'react-native-firebase';
-import claps from '../Tracks/tracks/sample_claps.mp3';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
@@ -43,15 +42,15 @@ class Audio extends React.Component{
         this.setState({lastTrackId});
     }
 
-    toggleTrack = (pos)=>{
+    toggleTrack = pos => {
         //console.log(currentlyPlaying + " " + pos);
         let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
         let title = audioFiles[pos].title;
-        return new Promise((resolve)=>{
-            if( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)){
+        return new Promise(resolve => {
+            if (currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)) {
                 //console.log("first option");
                 updateShowRefs(false);
-                removeTrack().then(()=>{
+                removeTrack().then(() => {
                     let stringPos = pos.toString();
                     let newState = {
                         paused: false,
@@ -66,11 +65,12 @@ class Audio extends React.Component{
                     Analytics.logEvent('tracks_played', {tracks: title});
                     resolve('done');
                 }); 
-            }else if( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) === parseInt(pos)){
+            }
+            else if ( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) === parseInt(pos)) {
                 let tpos = Math.floor(parseFloat(currentPosition));
                 let tdur = Math.floor(parseFloat(trackDuration));
-               if( tpos === tdur){
-                    removeTrack().then(()=>{
+               if (tpos === tdur) {
+                    removeTrack().then(() => {
                         let stringPos = pos.toString();
                         let newState = {
                             /*currentlyPlaying: null,
@@ -85,13 +85,15 @@ class Audio extends React.Component{
                         };
                         this.props.store(newState);
                 });
-               }else{
-                    if(paused){
+               }
+               else {
+                    if (paused) {
                         let newState = {
                             paused: false
                         };
                         this.props.store(newState);
-                    }else{
+                    }
+                    else  {
                         let newState = {
                             paused: true
                         };
@@ -99,7 +101,8 @@ class Audio extends React.Component{
                     }      
                }
                 resolve("same");
-            }else{
+            }
+            else {
                 //console.log("other")
                 let newState = {
                     paused: false
@@ -110,7 +113,7 @@ class Audio extends React.Component{
         });
     }
 
-    setInfo = (data)=>{
+    setInfo = data => {
         //console.log(data.duration);
         let trackLength = Math.floor(data.duration);
         //let type = this.props.type;
@@ -124,13 +127,13 @@ class Audio extends React.Component{
         }
     }
 
-    getTime = async ()=>{
+    getTime = async () => {
         //console.log(data);
         let { currentPosition } = this.props;
         return currentPosition;
     }
 
-    toggleOverview = ()=>{
+    toggleOverview = () => {
         const { showOverview, screen } = this.props;
         let newShowOverview = !showOverview;
         this.props.store({ showOverview: newShowOverview, screen: "Tracks" });
@@ -138,19 +141,19 @@ class Audio extends React.Component{
             this.goToTracks();
     }
 
-    goToTracks = ()=>{
+    goToTracks = () => {
         let { navigate } = this.props;
         navigate("Third");
     }
 
-    sendQuestionnaire = ()=>{
-        return new Promise((resolve)=>{
+    sendQuestionnaire = () => {
+        return new Promise(resolve => {
             let { questionnaire, currentlyPlayingName } = this.props;
             //console.log(currentlyPlayingName);
             Analytics.logEvent('select_content', {submittedQuestionnaire: currentlyPlayingName});
             questionnaire.trackName = currentlyPlayingName;
             if(questionnaire.confusing || questionnaire.question){
-                dbRef.push(questionnaire).then(res=>{
+                dbRef.push(questionnaire).then(res => {
                     let showToast = true;
                     this.props.store({showToast, toastText: "Your questions were successfully sent." });
                     setTimeout(()=>{
@@ -162,7 +165,7 @@ class Audio extends React.Component{
                         });
                     }, 1000);
                     resolve('sent');
-                }).catch(err=>{
+                }).catch(err => {
                     let showToast = true;
                     this.props.store({showToast, toastText: "Something went wront, try again!" });
                     setTimeout(()=>{
@@ -171,7 +174,8 @@ class Audio extends React.Component{
                     resolve('err')
                     console.log(err);
                 });
-            }else{
+            }
+            else {
                 let showToast = true;
                 this.props.store({showToast, toastText: "Fill in a question first!" });
                 setTimeout(()=>{
@@ -236,6 +240,8 @@ class Audio extends React.Component{
                 comment
             },
             showQuestionnaire,
+            connected,
+            fetchingRefs
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -297,7 +303,7 @@ class Audio extends React.Component{
                         else this.props.store({loaded:true});
                     }}
                     controls={true}
-                    ignoreSilentSwitch={true}
+                    ignoreSilentSwitch={"ignore"}
                 /> : null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
@@ -417,7 +423,7 @@ class Audio extends React.Component{
                                     size={25} 
                                 />
                             </TouchableOpacity>
-                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
+                            <Refs dark={dark} fetching={fetchingRefs} connected={connected} styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
                         </View>
                     </View>
                 </ScrollView>:
@@ -495,7 +501,7 @@ class Audio extends React.Component{
                                 </View>
                             </View>
                             { trackTimeSlider }
-                            <View style = { dark? styles.spaceFillerDark : styles.spaceFiller }></View>
+                            <View style = { dark ? styles.spaceFillerDark : styles.spaceFiller }></View>
                         </View>
                         }
                 </View>
@@ -503,10 +509,6 @@ class Audio extends React.Component{
             </View>
         )
     }
-}
-
-Audio.defaultProps = {
-    audioSource: claps
 }
 
 const mapStateToProps = state => {
@@ -536,7 +538,9 @@ const mapStateToProps = state => {
         questionnaire: state.media.questionnaire,
         showToast: state.media.showToast,
         toastText: state.media.toastText,
-        hideMenu: state.media.hideMenu
+        hideMenu: state.media.hideMenu,
+        connected: state.connectionInfo.connected,
+        fetchingRefs: state.refs.fetching,
     }
 }
 

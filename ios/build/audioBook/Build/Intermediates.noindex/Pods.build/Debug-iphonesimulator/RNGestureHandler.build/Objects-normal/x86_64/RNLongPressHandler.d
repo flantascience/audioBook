@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap \
+  /Users/muganwa/Library/Developer/Xcode/DerivedData/audioBook-bduplvmvzlrigdceaflysxpimkwl/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap \
   /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-gesture-handler/ios/Handlers/RNLongPressHandler.m \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNGestureHandler/RNGestureHandler-prefix.pch \
   /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-gesture-handler/ios/Handlers/RNLongPressHandler.h \

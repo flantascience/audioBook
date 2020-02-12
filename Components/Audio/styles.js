@@ -1,5 +1,5 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
-const showBorder = Platform.OS === "ios"?true:false;
+const showBorder = Platform.OS === "ios" ? true : false;
 const height = Math.round(Dimensions.get('window').height);
 
 export const styles = StyleSheet.create({
@@ -453,8 +453,15 @@ export const styles = StyleSheet.create({
         height: 150
     },
     link: {
-        fontStyle: 'italic',
+        fontWeight: 'bold',
         color: "#2055D4",
+        paddingLeft: 5,
+        textDecorationLine: "underline",
+        textDecorationStyle: "solid"
+    },
+    linkDark: {
+        fontWeight: 'bold',
+        color: "#fff",
         paddingLeft: 5,
         textDecorationLine: "underline",
         textDecorationStyle: "solid"

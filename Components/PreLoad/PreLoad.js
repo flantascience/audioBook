@@ -11,7 +11,8 @@ import Footer from '../Footer/Footer';
 import NetInfo from "@react-native-community/netinfo";
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
-import { storeRefs } from '../../Actions/references';
+import { storeRefs, fetchingRefs } from '../../Actions/references';
+import { slowConnectionDetected, noConnectionDetected, connected } from '../../Actions/connection';
 //import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
@@ -26,22 +27,31 @@ class PreLoad extends React.Component {
 
   static navigationOptions = () => ({
     headerLeft: <Header />,
-    headerTitleStyle :{
+    headerTitleStyle: {
         textAlign: 'center',
         justifyContent: 'center',
         color: '#FF6D00',
         alignItems: 'center'
     },
-    headerStyle:{
+    headerStyle: {
         backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
 
   componentDidMount(){
-    let { navigation: { navigate } } = this.props;
+    const { navigation: { navigate }, reportConnection, reportNoConnection, reportSlowConnection } = this.props;
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
+    NetInfo.isConnected.addEventListener('connectionChange', () => {
+      NetInfo.getConnectionInfo().then(info => {
+        const { type, effectiveType } = info;
+        if ( type === 'none' ) reportNoConnection();
+        else if ( type === 'wifi' )  reportConnection('fast');
+        else if (type === 'cellular' && effectiveType === '4g' || type === 'cellular' && effectiveType === 'unknown' ) reportConnection('normal');
+        else if ( type === 'cellular' && effectiveType === '3g' || type === 'cellular' && effectiveType === '2g' ) reportSlowConnection();
+      });
+    });
     eventEmitter.on('currentModeChanged', newMode => {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
@@ -60,22 +70,22 @@ class PreLoad extends React.Component {
   fetchTracksVersion = () => {
     return new Promise(resolve=>{
       let newVersion = false;
-      this._getStoredData("versions").then(val=>{
+      this._getStoredData("versions").then(val => {
         let oldVersion = val;
         //version control to keep track of the track updates
-        versionsRef.once('value', data=>{
-          data.forEach(spec=>{
+        versionsRef.once('value', data => {
+          data.forEach(spec => {
             let key = spec.key;
             let value = spec.val();
             //check if data versions match
-            if(key === "tracks" && oldVersion !== value){
+            if (key === "tracks" && oldVersion !== value) {
               newVersion = true;
               AsyncStorage.setItem("versions", value);
               //resolve(newVersion);
             }
             resolve(newVersion);
           });
-        }).catch(error=>{
+        }).catch(error => {
           console.log(error)
         });
       });
@@ -86,7 +96,7 @@ class PreLoad extends React.Component {
     let { audioFiles } = this.props;
     let cloudAudio = [];
     try {
-        tracksRef.once('value', data=>{
+        tracksRef.once('value', data => {
           data.forEach(trackInf=>{
             //console.log(trackInf);
             let track = trackInf.val();
@@ -98,7 +108,7 @@ class PreLoad extends React.Component {
             this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
             this._storeAudioFilesData(newAudioFiles);
           }
-        }).catch(err=>{
+        }).catch(err => {
           console.log(err);
         });
     }catch(err){
@@ -108,16 +118,16 @@ class PreLoad extends React.Component {
 
   fetchAndStoreMedia = () => {
     let dataIntact = true;
-    NetInfo.fetch().then(state=>{
+    NetInfo.fetch().then(state => {
       let conType = state.type;
-      let haveNet = conType === "wifi" || conType === "cellular"? true : false;
+      let haveNet = conType === "wifi" || conType === "cellular" ? true : false;
       if (haveNet) {
         this.fetchTracksVersion().then(newVersion=>{
           if (newVersion) this.fetchFromFirebase(false);
           else {
             this.fetchFromFirebase();
             this._getStoredData("audioFiles").then(res => {
-              if(res){
+              if (res) {
                 let storedAudioFiles = JSON.parse(res);
                 for(var i = 0; i < storedAudioFiles.length; i++){
                   if (!storedAudioFiles[i]) {
@@ -125,7 +135,7 @@ class PreLoad extends React.Component {
                     break;
                   }
                 }
-                if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles})
+                if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles});
                 else {
                   let filteredData = storedAudioFiles.filter( e => {
                     return e != null;
@@ -136,6 +146,26 @@ class PreLoad extends React.Component {
             });
           }
         });
+      } 
+      else {
+        this._getStoredData("audioFiles").then(res => {
+          if (res) {
+            let storedAudioFiles = JSON.parse(res);
+            for (var i = 0; i < storedAudioFiles.length; i++) {
+              if (!storedAudioFiles[i]) {
+                dataIntact = false;
+                break;
+              }
+            }
+            if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles})
+            else {
+              let filteredData = storedAudioFiles.filter( e => {
+                return e != null;
+              });
+              this.props.storeMedia({audioFiles: filteredData})
+            }
+          }
+        });
       }
     });
   }
@@ -143,7 +173,8 @@ class PreLoad extends React.Component {
   fetchAndStoreRefs = () => {
     let cloudRefs = [];
     //this._getStoredData("audioFiles");
-    referencesRef.once('value', data=>{
+    this.props.startFetchingRefs();
+    referencesRef.once('value', data => {
       data.forEach(refInfo=>{
         let key = refInfo.key;
         let ref = refInfo.val();
@@ -153,16 +184,16 @@ class PreLoad extends React.Component {
     });
   }
 
-  _getStoredData = (key) => {
-    return new Promise( async resolve=>{
-      await AsyncStorage.getItem(key).then(res=>{
+  _getStoredData = key => {
+    return new Promise(async resolve => {
+      await AsyncStorage.getItem(key).then(res => {
         //console.log(res)
         resolve(res);
       });
     });
   }
 
-  _storeAudioFilesData = async (audioFiles) => {
+  _storeAudioFilesData = async audioFiles => {
     try {
       let stringAudioFiles = JSON.stringify(audioFiles);
       await AsyncStorage.setItem('audioFiles', stringAudioFiles);
@@ -225,6 +256,18 @@ const mapDispatchToProps = dispatch => {
   return {
     storeMedia: media => {
       dispatch(storeMedia(media));
+    },
+    startFetchingRefs: () => {
+      dispatch(fetchingRefs());
+    },
+    reportSlowConnection: () => {
+      dispatch(slowConnectionDetected());
+    },
+    reportNoConnection: () => {
+      dispatch(noConnectionDetected());
+    },
+    reportConnection: type => {
+      dispatch(connected(type));
     },
     storeReferences: refs => {
       dispatch(storeRefs(refs));

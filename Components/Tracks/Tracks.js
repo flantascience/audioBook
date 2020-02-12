@@ -9,8 +9,7 @@ import {
   ActivityIndicator
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import TrackPlayer from 'react-native-video';
-import NetInfo from "@react-native-community/netinfo";
+// import TrackPlayer from 'react-native-video';
 import { connect } from 'react-redux';
 import Toast from '../../Components/Toast/Toast';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -19,12 +18,14 @@ import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
-import { tracks } from '../../Misc/Strings';
+import { tracks, connectionFeedback } from '../../Misc/Strings';
+import { SLOW_CONNECTION_TIMER } from '../../Misc/Constants'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { styles } from './style';
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
+import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
 
@@ -35,6 +36,7 @@ class Tracks extends React.Component {
     super(props);
     let { audioFiles } = props;
     let currentAction = [];
+
     audioFiles.forEach(file=>{
       let { id } = file;
       currentAction.push({ 
@@ -56,40 +58,31 @@ class Tracks extends React.Component {
     headerTitleStyle :{
         textAlign: 'center',
         justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
     },
     headerStyle:{
         backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
-        height: 80,
+        height: 80
     },
   });
 
   componentDidMount(){
     Analytics.setCurrentScreen('Tracks');
-    NetInfo.fetch().then(state=>{
-      let conType = state.type;
-      //console.log(conType)
-      if(conType !== "wifi" && conType !== "cellular"){
-        let showMessage = true;
-        this.props.store({showMessage, message: tracks.noInternetConnection });
-      }
-      else this.props.store({showMessage: false, message: null });
-    });
+    const { connectionInfo: { connected } } = this.props;
+    if (!connected) {
+      let showMessage = true;
+      this.props.store({showMessage, message: tracks.noInternetConnection });
+    }
+    else this.props.store({showMessage: false, message: null });
   }
 
   componentDidUpdate(){
     // console.log(this.props.trackPlayer)
-    NetInfo.fetch().then(state=>{
-      let conType = state.type;
-      //console.log(conType)
-      if(conType !== "wifi" && conType !== "cellular"){
-        let showMessage = true;
-        this.props.store({showMessage, message: tracks.noInternetConnection });
-      }else{
-        this.props.store({showMessage: false, message: null });
-      }
-    });
+    const { connectionInfo: { connected } } = this.props;
+    if (!connected) {
+      let showMessage = true;
+      this.props.store({showMessage, message: tracks.noInternetConnection });
+    }
+    else this.props.store({showMessage: false, message: null });
   }
 
   foldAccordions = () => {
@@ -100,85 +93,28 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = pos => {
-    let { audioFiles, selectedTrack, audioFilesCloud, references, trackDuration } = this.props;
+    let { audioFiles, selectedTrack, audioFilesCloud, references, trackDuration, connectionInfo: { connected } } = this.props;
     let { currentAction } = this.state;
     let currPos = audioFiles ? audioFiles[pos] : null;
-    //console.log(audioFiles[pos]);
     this.foldAccordions();
     if (currPos !== null && pos !== selectedTrack) {
-        //console.log(res)
-        NetInfo.fetch().then(state => {
-          let conType = state.type;
-          //console.log(conType)
-          let mediaType = audioFiles[pos].type;
-          /**If track is cloud based one needs an internet connection*/
-          //console.log(currPos)
-          let playable = mediaType === "local"?
-          true:
-          mediaType === "cloud" && conType === "wifi" || mediaType === "cloud" && conType === "cellular"?
-          true:
-          false;
-          if (playable) {
-            // console.log(audioFiles[pos].title)
-            this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
-            if(mediaType === "local"){
-              RNFS.exists(audioFiles[pos].url).then(res=>{
-                if (res) {
-                  //console.log(trackDuration)
-                  if(trackDuration > 0 ){
-                    let formattedDuration = formatTime(trackDuration);
-                    this.props.store({
-                      selectedTrack: pos,
-                      currentPostion: 0,
-                      currentTime:0,
-                      selectedTrackId: audioFiles[pos].id,
-                      currentlyPlaying: audioFiles[pos].id,
-                      currentlyPlayingName: audioFiles[pos].title,
-                      initCurrentlyPlaying: true,
-                      buttonsActive: true,
-                      showOverview: true,
-                      trackDuration, 
-                      paused: false, 
-                      loaded: true, 
-                      totalLength: trackDuration, 
-                      formattedDuration
-                    });
-                  } else {
-                    trackDuration = audioFiles[pos].duration;
-                    let formattedDuration = formatTime(trackDuration);
-                    this.props.store({
-                      selectedTrack: pos,
-                      currentPostion: 0,
-                      currentTime:0,
-                      selectedTrackId: audioFiles[pos].id,
-                      currentlyPlaying: audioFiles[pos].id,
-                      currentlyPlayingName: audioFiles[pos].title,
-                      initCurrentlyPlaying: true,
-                      buttonsActive: true,
-                      showOverview: true,
-                      trackDuration, 
-                      paused: false, 
-                      loaded: true, 
-                      totalLength: trackDuration, 
-                      formattedDuration
-                    });
-                  }
-                  //alert that track is streaming
-                  currentAction[pos].action = "streaming";
-                }else{
-                  let newAudioFiles = [...audioFiles];
-                  let showToast = true;
-                  this.props.store({showToast, toastText: tracks.redownloadTrack });
-                  setTimeout(()=>{
-                    this.props.store({showToast: !showToast, toastText: null });
-                  }, 1500);
-                  newAudioFiles[pos] = audioFilesCloud[pos];
-                  this._storeData(newAudioFiles);
-                }
-              });
-            } else {
+      //console.log(res)
+      let mediaType = audioFiles[pos].type;
+      /**If track is cloud based one needs an internet connection*/
+      //console.log(currPos)
+      let playable = mediaType === "local"?
+      true:
+      mediaType === "cloud" && connected ?
+      true:
+      false;
+      if (playable) {
+        // console.log(audioFiles[pos].title)
+        this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
+        if(mediaType === "local"){
+          RNFS.exists(audioFiles[pos].url).then(res=>{
+            if (res) {
               //console.log(trackDuration)
-              if(trackDuration > 0){
+              if(trackDuration > 0 ){
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({
                   selectedTrack: pos,
@@ -196,7 +132,7 @@ class Tracks extends React.Component {
                   totalLength: trackDuration, 
                   formattedDuration
                 });
-              }else{
+              } else {
                 trackDuration = audioFiles[pos].duration;
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({
@@ -216,21 +152,72 @@ class Tracks extends React.Component {
                   formattedDuration
                 });
               }
-              //log streamed audio
-              Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
               //alert that track is streaming
               currentAction[pos].action = "streaming";
+            }else{
+              let newAudioFiles = [...audioFiles];
+              let showToast = true;
+              this.props.store({showToast, toastText: tracks.redownloadTrack });
+              setTimeout(()=>{
+                this.props.store({showToast: !showToast, toastText: null });
+              }, 1500);
+              newAudioFiles[pos] = audioFilesCloud[pos];
+              this._storeData(newAudioFiles);
             }
+          });
+        } else {
+          //console.log(trackDuration)
+          if(trackDuration > 0){
+            let formattedDuration = formatTime(trackDuration);
+            this.props.store({
+              selectedTrack: pos,
+              currentPostion: 0,
+              currentTime:0,
+              selectedTrackId: audioFiles[pos].id,
+              currentlyPlaying: audioFiles[pos].id,
+              currentlyPlayingName: audioFiles[pos].title,
+              initCurrentlyPlaying: true,
+              buttonsActive: true,
+              showOverview: true,
+              trackDuration, 
+              paused: false, 
+              loaded: true, 
+              totalLength: trackDuration, 
+              formattedDuration
+            });
           }else{
-            let showToast = true;
-            this.props.store({showToast, toastText: tracks.noInternetConnection });
-            setTimeout(()=>{
-              this.props.store({showToast: !showToast, toastText: null });
-            }, 1000);
+            trackDuration = audioFiles[pos].duration;
+            let formattedDuration = formatTime(trackDuration);
+            this.props.store({
+              selectedTrack: pos,
+              currentPostion: 0,
+              currentTime:0,
+              selectedTrackId: audioFiles[pos].id,
+              currentlyPlaying: audioFiles[pos].id,
+              currentlyPlayingName: audioFiles[pos].title,
+              initCurrentlyPlaying: true,
+              buttonsActive: true,
+              showOverview: true,
+              trackDuration, 
+              paused: false, 
+              loaded: true, 
+              totalLength: trackDuration, 
+              formattedDuration
+            });
           }
-        }).catch(err=>{
-          console.log(err)
-        });
+          //log streamed audio
+          Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
+          //alert that track is streaming
+          currentAction[pos].action = "streaming";
+          this.setState({currentAction});
+        }
+      }else{
+        let showToast = true;
+        this.props.store({showToast, toastText: tracks.noInternetConnection });
+        setTimeout(()=>{
+          this.props.store({showToast: !showToast, toastText: null });
+        }, 1000);
+      }
     }else{
       console.log('currpos be null')
       if (!currPos) {
@@ -249,76 +236,73 @@ class Tracks extends React.Component {
     }
   }
 
-  downloadTrack = (pos) => {
-    NetInfo.fetch().then(state=>{
-      let conType = state.type;
-      let haveNet = conType === "wifi" || conType === "cellular" ? true : false;
-      if(haveNet){
-        let { audioFiles } = this.props;
-        let { currentAction } = this.state;
-        let { url, id } = audioFiles[pos];
-        let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
-        let DownloadFileOptions = {
-          fromUrl: url,
-          toFile: path,
-          //headers: Headers,
-          background: true,
-          cacheable: true,
-          progressDivider: 1,
-          discretionary: true,
-          begin: res => { 
-            let { statusCode } = res;
-            if(statusCode !== 200){
-              currentAction[pos].action = "stop";
-              currentAction[pos].error = true;
-              this.setState({currentAction});
-            }else{
-              // console.log(audioFiles[pos].title)
-              Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
-              currentAction[pos].action = "downloading";
-              this.setState({currentAction});
-            }
-          },
-          progress: prog=>{
-            let { bytesWritten, contentLength } = prog;
-            let percentage = (bytesWritten/contentLength)*100;
-            currentAction[pos].percentage = percentage
+  downloadTrack = pos => {
+    const { connectionInfo: { connected } } = this.props;
+    if(connected){
+      let { audioFiles } = this.props;
+      let { currentAction } = this.state;
+      let { url, id } = audioFiles[pos];
+      let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
+      let DownloadFileOptions = {
+        fromUrl: url,
+        toFile: path,
+        //headers: Headers,
+        background: true,
+        cacheable: true,
+        progressDivider: 1,
+        discretionary: true,
+        begin: res => { 
+          let { statusCode } = res;
+          if(statusCode !== 200){
+            currentAction[pos].action = "stop";
+            currentAction[pos].error = true;
+            this.setState({currentAction});
+          }else{
+            // console.log(audioFiles[pos].title)
+            Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
+            currentAction[pos].action = "downloading";
             this.setState({currentAction});
           }
-        };
-        if(currentAction.length > 0){
-          RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
-            let newPath = Platform.OS === 'ios'?"file:////" + path:path;
-            let newAudioFiles = [...audioFiles];
-            currentAction[pos].action = "downloaded";
-            newAudioFiles[pos].url = newPath;
-            newAudioFiles[pos].type = "local";
-            //console.log(audioFiles);
-            this._storeData(newAudioFiles);
-            this.setState({currentAction});
-            this.forceUpdate();
-          }).catch(err=>{
-            console.log(err);
-            let showToast = true;
-            this.props.store({showToast, toastText: tracks.restartApp });
-            setTimeout(()=>{
-              this.props.store({showToast: !showToast, toastText: null });
-            }, 1500);
-          });
+        },
+        progress: prog=>{
+          let { bytesWritten, contentLength } = prog;
+          let percentage = (bytesWritten/contentLength)*100;
+          currentAction[pos].percentage = percentage
+          this.setState({currentAction});
         }
-      }else{
-        console.log('no interent')
-        let showToast = true;
-        this.props.store({showToast, toastText: tracks.noInternetConnection });
-        setTimeout(()=>{
-        this.props.store({showToast: !showToast, toastText: null });
-        }, 1000);
+      };
+      if(currentAction.length > 0){
+        RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
+          let newPath = Platform.OS === 'ios'?"file:////" + path:path;
+          let newAudioFiles = [...audioFiles];
+          currentAction[pos].action = "downloaded";
+          newAudioFiles[pos].url = newPath;
+          newAudioFiles[pos].type = "local";
+          //console.log(audioFiles);
+          this._storeData(newAudioFiles);
+          this.setState({currentAction});
+          this.forceUpdate();
+        }).catch(err=>{
+          console.log(err);
+          let showToast = true;
+          this.props.store({showToast, toastText: tracks.restartApp });
+          setTimeout(()=>{
+            this.props.store({showToast: !showToast, toastText: null });
+          }, 1500);
+        });
       }
-    });
+    }else{
+      console.log('no interent')
+      let showToast = true;
+      this.props.store({showToast, toastText: tracks.noInternetConnection });
+      setTimeout(()=>{
+      this.props.store({showToast: !showToast, toastText: null });
+      }, 1000);
+    }
   }
 
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
-    return new Promise(resolve=>{
+    return new Promise(resolve => {
         let currentReferences = [];
         let referencesInfo = [];
         try {
@@ -340,12 +324,12 @@ class Tracks extends React.Component {
               resolve("doesnt");
           }
         }catch(e){
-          console.log(err)
+          console.log(e)
         }
     });
-}
+  } 
 
-_storeData = async (audioFiles) => {
+_storeData = async audioFiles => {
   try {
     let stringAudioFiles = JSON.stringify(audioFiles);
     await AsyncStorage.setItem('audioFiles', stringAudioFiles);
@@ -368,7 +352,13 @@ render(){
       currentlyPlayingName,
       showOverview,
       toastText,
-      showToast
+      showToast,
+      connectionInfo: {
+        connection,
+        connected,
+        connectionChecked
+      },
+      reportSlowConnection
     } = this.props;
     let { referencesInfo } = this.state;
     let height = Dimensions.get('window').height;
@@ -379,6 +369,11 @@ render(){
     let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;
+    // set timeout to determine whether the connection is slow
+    setTimeout(() => {
+      if ( loading && !connectionChecked ) reportSlowConnection();
+    }, SLOW_CONNECTION_TIMER);
+
     const audioControls =
       <Audio
         navigate = {navigation.navigate}
@@ -392,15 +387,15 @@ render(){
 
     return (
       <View style={ styles.Home }>
-          { !showOverview?
+          { !showOverview ?
               <View style = { dark ? styles.homeMidDark : styles.homeMid }>
                 { showToast?
                   <View style={ styles.toastContainer }>
-                    <Toast dark={dark} text={ toastText } /></View>: 
+                    <Toast dark={dark} text={ toastText } /></View> : 
                   null
                 }
-                { !loading?
-                <ScrollView>{ 
+                { !loading ?
+                <ScrollView style={styles.scrollView}>{ 
                   Object.keys(audioFiles).map(key => {
                     if (audioFiles[key]) { 
                       let { title, type, formattedDuration } = audioFiles[key];
@@ -459,12 +454,19 @@ render(){
                     }
                   })
                 }
-                </ScrollView>:
-                <ActivityIndicator 
-                  size="large" 
-                  color="#D4D4D4"
-                  style={{ marginTop: "10%" }}
-                />
+                </ScrollView> :
+                <View>
+                  { connected ? 
+                  <View>
+                    <ActivityIndicator 
+                      size="large" 
+                      color="#D4D4D4"
+                      style={{ marginTop: "10%" }}
+                    />
+                    { connection === 'slow' ? <Text style={ styles.text }>{ connectionFeedback.slowConnection }</Text> : null }
+                  </View> : 
+                  <Text style={ styles.text }>{ connectionFeedback.needConnectionToFetchTracks }</Text> }
+                </View>
                 }
               </View>: null }
             { selectedTrack ?
@@ -511,7 +513,8 @@ const mapStateToProps = state => {
     toastText: state.media.toastText,
     showToast: state.media.showToast,
     showMessage: state.media.showMessage,
-    message: state.media.message
+    message: state.media.message,
+    connectionInfo: state.connectionInfo
   }
 }
 
@@ -522,6 +525,12 @@ const mapDispatchToProps = dispatch => {
     },
     updateAudioFiles: files => {
       dispatch(updateAudio(files));
+    },
+    reportSlowConnection: () => {
+      dispatch(slowConnectionDetected());
+    },
+    reportNoConnection: () => {
+      dispatch(noConnectionDetected());
     },
     updateShowRefs: val => {
       dispatch(changeRefsView(val));

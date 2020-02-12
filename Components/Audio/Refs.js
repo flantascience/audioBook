@@ -1,13 +1,20 @@
-import React from 'react';
-import { View, Text, Linking } from 'react-native';
+import React, {/* useEffect */} from 'react';
+import { 
+    View, 
+    Text, 
+    Linking, 
+    ActivityIndicator 
+} from 'react-native';
 import firebase from 'react-native-firebase';
 import { refsStrings } from '../../Misc/Strings';
 import PropTypes from 'prop-types';
 
 const Analytics = firebase.analytics();
 
-const Refs = ({ styles, referencesInfo, showRefs, currentlyPlayingName, dark }) => {
-
+const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currentlyPlayingName, dark }) => {
+    /*useEffect(() => {
+        console.log(connected);
+    }, [])*/
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
             if(supported){
@@ -23,7 +30,7 @@ const Refs = ({ styles, referencesInfo, showRefs, currentlyPlayingName, dark }) 
     return(
         <View style={ styles.refsContainer }>
             <View style = { styles.refsBody }>
-            {   showRefs && referencesInfo.length > 0?
+            {   showRefs && referencesInfo.length > 0 ?
                 <View style={ styles.transparencyStatementContainer } >
                     <Text>
                         <Text style={ dark ? styles.transparencyStatementTitleDark : styles.transparencyStatementTitle }>
@@ -37,10 +44,10 @@ const Refs = ({ styles, referencesInfo, showRefs, currentlyPlayingName, dark }) 
                 null
             }
             { 
-                showRefs?
-                referencesInfo.length > 0?
+                showRefs ?
+                referencesInfo.length > 0 ?
                 Object.keys(referencesInfo).map(ref=>{
-                    if(referencesInfo[ref]){
+                    if (referencesInfo[ref]) {
                         let text = referencesInfo[ref].text;
                         let url = referencesInfo[ref].url || "";
                         let urlLength = url.length;
@@ -50,18 +57,25 @@ const Refs = ({ styles, referencesInfo, showRefs, currentlyPlayingName, dark }) 
                             <Text style={ dark ? styles.refTextDark : styles.refText }>
                                 { " - " + number + ". " + text }
                                 { urlLength > 1 ? 
-                                <Text onPress={ () => goTo(url) } style={ styles.link }> Go to website </Text> : 
+                                <Text onPress={ () => goTo(url) } style={ dark ? styles.linkDark : styles.link }> Link </Text> : 
                                 null }
                             </Text>
                         </View>)
-                    }else
-                        return 
+                    }
+                    else return 
                 }) :
                 <View style={ styles.refRowContainer }>
-                    <Text style={ dark ? styles.noRefsTextDark : styles.noRefsText }>
-                        { refsStrings.noRefs }
+                    { fetching && connected ? 
+                    <ActivityIndicator
+                        size="small" 
+                        color="#D4D4D4"
+                        style={{ marginBottom: "10%" }}
+                     /> : 
+                     null }
+                    <Text style = { dark ? styles.noRefsTextDark : styles.noRefsText }>
+                        { connected ? refsStrings.noRefs : refsStrings.noConnection }
                     </Text>
-                </View>:
+                </View> :
                 null
             }
             </View>

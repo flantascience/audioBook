@@ -9,4 +9,5 @@ export const firebaseConfig = {
     messagingSenderId: process.env.FIREBASE_SENDER_MESSAGING_ID,
     appId: OS === 'android'? process.env.FIREBASE_ANDROID_APP_ID : process.env.FIREBASE_IOS_APP_ID
 };
+export const SLOW_CONNECTION_TIMER = 5000;
 export const emailregex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
