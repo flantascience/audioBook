@@ -3,13 +3,13 @@ import { Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
 
-const Button = ({ title, onPress, dark }) => {
+const Button = ({ title, onPress, dark, style, textStyle }) => {
     return (
         <TouchableOpacity 
-            style={ dark ? styles.buttonStyleDark : styles.buttonStyle }
+            style={ style ? style : dark ? styles.buttonStyleDark : styles.buttonStyle }
             onPress = { onPress }
         >
-            <Text style={ styles.buttonText }>
+            <Text style={ textStyle ? textStyle : styles.buttonText }>
                 {title}
             </Text>
         </TouchableOpacity>

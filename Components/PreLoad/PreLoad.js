@@ -9,11 +9,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import NetInfo from "@react-native-community/netinfo";
-// import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs, fetchingRefs } from '../../Actions/references';
 import { slowConnectionDetected, noConnectionDetected, connected } from '../../Actions/connection';
-//import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './styles';

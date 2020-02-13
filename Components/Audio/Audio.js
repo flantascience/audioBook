@@ -13,15 +13,17 @@ import {
     removeTrack
 } from '../../Misc/helpers';
 import TrackPlayer from 'react-native-video';
-import Toast from '../../Components/Toast/Toast';
+import { 
+    Toast,
+    ProgressBar,
+    Questionnaire,
+    Refs
+} from '../';
 import firebase from 'react-native-firebase';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 import { audioOverview } from '../../Misc/Strings';
-import Questionnaire from './Questionnaire';
-import ProgressBar from './ProgressBar';
-import Refs from './Refs';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");

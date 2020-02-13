@@ -11,17 +11,19 @@ import {
 import AsyncStorage from '@react-native-community/async-storage';
 // import TrackPlayer from 'react-native-video';
 import { connect } from 'react-redux';
-import Toast from '../../Components/Toast/Toast';
+import { 
+  Toast,
+  Audio,
+  Header,
+  Footer
+} from '../';
 import Icon from 'react-native-vector-icons/Ionicons';
-import Audio from '../Audio/Audio';
 import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER } from '../../Misc/Constants'
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants'
 import { styles } from './style';
 // import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
@@ -55,12 +57,12 @@ class Tracks extends React.Component {
 
   static navigationOptions = ()=> ({
     headerLeft: <Header />,
-    headerTitleStyle :{
+    headerTitleStyle: {
         textAlign: 'center',
         justifyContent: 'center',
     },
-    headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark'? '#212121' : '#EBEAEA',
+    headerStyle: {
+        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80
     },
   });
@@ -102,15 +104,15 @@ class Tracks extends React.Component {
       let mediaType = audioFiles[pos].type;
       /**If track is cloud based one needs an internet connection*/
       //console.log(currPos)
-      let playable = mediaType === "local"?
+      let playable = mediaType === "local" ?
       true:
       mediaType === "cloud" && connected ?
       true:
       false;
       if (playable) {
         // console.log(audioFiles[pos].title)
-        this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
-        if(mediaType === "local"){
+        this.updateReferenceInfo(audioFiles[pos].id, audioFiles, references);
+        if (mediaType === "local") {
           RNFS.exists(audioFiles[pos].url).then(res=>{
             if (res) {
               //console.log(trackDuration)
@@ -132,7 +134,8 @@ class Tracks extends React.Component {
                   totalLength: trackDuration, 
                   formattedDuration
                 });
-              } else {
+              }
+              else {
                 trackDuration = audioFiles[pos].duration;
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({
@@ -154,20 +157,22 @@ class Tracks extends React.Component {
               }
               //alert that track is streaming
               currentAction[pos].action = "streaming";
-            }else{
+            }
+            else {
               let newAudioFiles = [...audioFiles];
               let showToast = true;
               this.props.store({showToast, toastText: tracks.redownloadTrack });
-              setTimeout(()=>{
+              setTimeout(() => {
                 this.props.store({showToast: !showToast, toastText: null });
-              }, 1500);
+              }, TOAST_TIMEOUT);
               newAudioFiles[pos] = audioFilesCloud[pos];
               this._storeData(newAudioFiles);
             }
           });
-        } else {
+        }
+        else {
           //console.log(trackDuration)
-          if(trackDuration > 0){
+          if (trackDuration > 0) {
             let formattedDuration = formatTime(trackDuration);
             this.props.store({
               selectedTrack: pos,
@@ -185,7 +190,8 @@ class Tracks extends React.Component {
               totalLength: trackDuration, 
               formattedDuration
             });
-          }else{
+          }
+          else {
             trackDuration = audioFiles[pos].duration;
             let formattedDuration = formatTime(trackDuration);
             this.props.store({
@@ -211,14 +217,16 @@ class Tracks extends React.Component {
           currentAction[pos].action = "streaming";
           this.setState({currentAction});
         }
-      }else{
+      }
+      else {
         let showToast = true;
         this.props.store({showToast, toastText: tracks.noInternetConnection });
         setTimeout(()=>{
           this.props.store({showToast: !showToast, toastText: null });
-        }, 1000);
+        }, TOAST_TIMEOUT);
       }
-    }else{
+    }
+    else {
       console.log('currpos be null')
       if (!currPos) {
         let showToast = true;
@@ -228,7 +236,7 @@ class Tracks extends React.Component {
         this._storeData(newAudioFiles);
         setTimeout(()=>{
           this.props.store({showToast: !showToast, toastText: null });
-        }, 1000);
+        }, TOAST_TIMEOUT);
       } else {
         let showOverview = !this.props.showOverview;
         this.props.store({showOverview});
@@ -238,7 +246,7 @@ class Tracks extends React.Component {
 
   downloadTrack = pos => {
     const { connectionInfo: { connected } } = this.props;
-    if(connected){
+    if (connected) {
       let { audioFiles } = this.props;
       let { currentAction } = this.state;
       let { url, id } = audioFiles[pos];
@@ -253,11 +261,12 @@ class Tracks extends React.Component {
         discretionary: true,
         begin: res => { 
           let { statusCode } = res;
-          if(statusCode !== 200){
+          if (statusCode !== 200) {
             currentAction[pos].action = "stop";
             currentAction[pos].error = true;
             this.setState({currentAction});
-          }else{
+          }
+          else {
             // console.log(audioFiles[pos].title)
             Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
             currentAction[pos].action = "downloading";
@@ -271,7 +280,7 @@ class Tracks extends React.Component {
           this.setState({currentAction});
         }
       };
-      if(currentAction.length > 0){
+      if (currentAction.length > 0) {
         RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
           let newPath = Platform.OS === 'ios'?"file:////" + path:path;
           let newAudioFiles = [...audioFiles];
@@ -291,7 +300,8 @@ class Tracks extends React.Component {
           }, 1500);
         });
       }
-    }else{
+    }
+    else {
       console.log('no interent')
       let showToast = true;
       this.props.store({showToast, toastText: tracks.noInternetConnection });
@@ -313,13 +323,14 @@ class Tracks extends React.Component {
                 currentReferences = file.references;
             }
           });
-          if(currentReferences && currentReferences.length > 0){
+          if (currentReferences && currentReferences.length > 0) {
               currentReferences.forEach(ref=>{
                   referencesInfo.push(references[ref]);
               });
               this.setState({referencesInfo});
               resolve("has");
-          }else{
+          }
+          else {
               this.setState({referencesInfo: []});
               resolve("doesnt");
           }
@@ -330,14 +341,14 @@ class Tracks extends React.Component {
   } 
 
 _storeData = async audioFiles => {
-  try {
+  try{
     let stringAudioFiles = JSON.stringify(audioFiles);
     await AsyncStorage.setItem('audioFiles', stringAudioFiles);
     this.props.store({audioFiles});
     setTimeout(() => {
       this.forceUpdate();
     }, 100);
-  } catch (error) {
+  }catch(error){
     console.log(error);
   }
 };

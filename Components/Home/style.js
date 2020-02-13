@@ -1,8 +1,10 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 import {
     Colors
 } from 'react-native/Libraries/NewAppScreen';
 import { eventEmitter } from 'react-native-dark-mode';
+
+const iOS = Platform.OS === "ios" ? true : false;
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
@@ -91,11 +93,36 @@ export const styles = StyleSheet.create({
         width,
         resizeMode: 'contain'
     },
+    playButtonContainer: {
+        position: 'absolute',
+        display:'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width,
+        height: 52,
+        left: 0,
+        right: 0,
+        bottom: width > 550 ? '25%' : '23%'
+    },
+    playButton: {
+        display:'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+        borderRightWidth: iOS ? 1 : 0,
+        borderBottomWidth: iOS ? 1 : 0,
+        borderRightColor: '#757575',
+        borderBottomColor: '#757575',
+        elevation: iOS ? 0 : 3,
+        width: 130,
+        height: 50,
+        backgroundColor: '#EA4F4F',
+    },
     centerImageContainer: {
         display: "flex",
         flexDirection: "column",
         flex:1,
-        height: height - 160,
+        height: height - 180,
         width,
         alignContent: "center",
         alignItems: "center",

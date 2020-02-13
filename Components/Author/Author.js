@@ -11,18 +11,18 @@ import {
 import { connect } from 'react-redux';
 import NetInfo from "@react-native-community/netinfo";
 import firebase from 'react-native-firebase';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import {
+  Header,
+  Footer,
+  Toast,
+  Audio,
+  Button
+} from '../'
 import { styles } from './style';
-import Toast from '../Toast/Toast';
 import { author } from '../../Misc/Strings';
 import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { emailregex } from '../../Misc/Constants';
-// import { SimpleAnimation } from 'react-native-simple-animations';
-import Audio from '../Audio/Audio';
-//import MediaOverview from '../MediaOverview/MediaOverview';
-import Button from '../Button/Button';
 import InputScrollView from 'react-native-input-scroll-view';
 import { eventEmitter } from 'react-native-dark-mode';
 

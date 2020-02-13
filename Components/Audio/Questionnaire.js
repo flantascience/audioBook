@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput } from 'react-native';
-import Button from '../Button/Button';
+import { Button } from '../';
 import PropTypes from 'prop-types';
 
 const Questionnaire = props => {

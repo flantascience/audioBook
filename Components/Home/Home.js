@@ -7,14 +7,15 @@ import {
   AppState,
   TouchableOpacity
 } from 'react-native';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-// import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
-import Audio from '../Audio/Audio';
+import { 
+  Audio, 
+  Footer, 
+  Header, 
+  Button 
+} from '../';
 import Video from 'react-native-video';
-// import MediaOverview from '../MediaOverview/MediaOverview';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
@@ -87,9 +88,7 @@ class Home extends React.Component {
 
   _handleAppStateChange = nextState => {
     let player = this.player;
-    if(nextState === "background" || nextState === "inactive" && player){
-      this.setState({paused: true});
-    }
+    if (nextState === "background" || nextState === "inactive" && player) this.setState({paused: true});
   }
   
   render(){
@@ -120,38 +119,45 @@ class Home extends React.Component {
         { !showOverview ?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
-            {!loaded ? 
+            { !loaded ? 
             <TouchableOpacity>
               <Image
-                source={ require('./images/backgroundImage.jpg')}
+                source={require('./images/backgroundImage.jpg')}
                 style={ styles.thumb }
               />
-            </TouchableOpacity> : null}
+            </TouchableOpacity> : null }
             {
               loaded && !showVid ?
-              <TouchableOpacity
-                onPress={ ()=>{
-                  if (!audioPlaying) this.player.presentFullscreenPlayer();
-                  setTimeout(() => {
-                    this.setState({showVid:true, paused: false, secondaryHide:false })
-                  }, 200);
-                }}
-              >
+              <View>
                 <Image
-                  source={ require('./images/backgroundImage2.jpg')}
+                  source={require('./images/backgroundImage2.png')}
                   style={ styles.thumb }
                 />
-              </TouchableOpacity>:
+                <View style={ styles.playButtonContainer }>
+                  <Button
+                    style={ styles.playButton }
+                    dark={ dark }
+                    title={ "Start" }
+                    textStyle={{color: '#D4D4D4', fontSize: 20, fontStyle: 'italic', fontWeight: 'bold'}}
+                    onPress={ () => {
+                      if (!audioPlaying) this.player.presentFullscreenPlayer();
+                      setTimeout(() => {
+                        this.setState({showVid:true, paused: false, secondaryHide:false});
+                      }, 200);
+                    } } 
+                  />
+                </View>
+              </View> :
               null
             }
             { !audioPlaying ? 
             <Video
-              source={CurricuDumbIntro}// Can be a URL or a local file.
+              source={CurricuDumbIntro} // Can be a URL or a local file.
               ref={ref => {
                 this.player = ref
               }}
               posterResizeMode = { "cover" }
-              paused = { !paused&&isFocused?false:true }
+              paused = { !paused && isFocused ? false : true }
               onLoad = { () => {
                 this.setState({loaded:true});
               }}
@@ -245,10 +251,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    storeMedia: (media) => {
+    storeMedia: media => {
       dispatch(storeMedia(media));
     },
-    storeReferences: (refs) => {
+    storeReferences: refs => {
       dispatch(storeRefs(refs));
     }
   }
