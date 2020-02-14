@@ -1,6 +1,7 @@
-import React, { Component} from 'react';
-//import { View, Text, Platform } from 'react-native'
+import React, { useEffect }  from 'react';
+import { Platform } from 'react-native'
 import { connect } from 'react-redux';
+import { useTrackPlayerProgress } from 'react-native-track-player';
 //import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
 import firebase from 'react-native-firebase';
@@ -8,36 +9,35 @@ import { styles } from './styles';
 import { storeMedia } from '../../Actions/mediaFiles';
 
 const Analytics = firebase.analytics();
+const Android = Platform.OS === 'android';
 
-class ProgressBar extends Component {
-
-    componentDidUpdate(){
-        let { trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90,/*, closeMiniPlayer*/} = this.props;
-        let currentPosition = Math.floor(parseFloat(this.props.currentPosition));
-        const percentage = currentPosition/Math.floor(parseFloat(trackDuration)) * 100;
+const ProgressBar = ({trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, buttonsActive, dark, currentPosition, store}) => {
+    const { position, duration } = useTrackPlayerProgress();
+    useEffect(() => {
+        let tempPosition = Android ? position : currentPosition;
+        let flooredCurrentPosition = Math.floor(parseFloat(tempPosition));
+        const percentage = flooredCurrentPosition/Math.floor(parseFloat(tempPosition)) * 100;
+        store({currentPosition:flooredCurrentPosition});
         if (percentage >= 90 && !reached90) {
-            console.log(audioFiles[currentlyPlaying].title)
             Analytics.logEvent('tracks_completed', {tracks: audioFiles[currentlyPlaying].title});
             toggleReached90();
         }
-        // if (currentPosition === trackDuration) closeMiniPlayer();
-    }
-
-    render() {
-        let { trackDuration, buttonsActive, dark } = this.props;
-        let currentPosition = Math.floor(parseFloat(this.props.currentPosition));
-        return (
-            <Slider
-                style={styles.slider}
-                value={currentPosition}
-                maximumValue={trackDuration || 10}
-                minimumValue={0}
-                minimumTrackTintColor={dark ? '#212121' : '#D4D4D4'}
-                maximumTrackTintColor={'#757575'}
-                disabled={!buttonsActive}
-            />
-        );
-    }
+    })
+    
+    let tempPosition = Android ? position : currentPosition;
+    let tempDuration = Android ? duration : trackDuration;
+    let flooredCurrentPosition = Math.floor(parseFloat(tempPosition));
+    return (
+        <Slider
+            style={styles.slider}
+            value={flooredCurrentPosition}
+            maximumValue={tempDuration || 10}
+            minimumValue={0}
+            minimumTrackTintColor={dark ? '#212121' : '#D4D4D4'}
+            maximumTrackTintColor={'#757575'}
+            disabled={!buttonsActive}
+        />
+    );
 }
 
 const mapStateToProps = state => {
@@ -48,7 +48,6 @@ const mapStateToProps = state => {
         totalLengthFormatted: state.media.totalLengthFormatted,
         currentPosition: state.media.currentPosition,
         currentTime: state.media.currentTime,
-        isChanging: state.media.isChanging,
         audioFiles: state.media.audioFiles,
         screen: state.media.screen,
         buttonsActive: state.media.buttonsActive,
@@ -62,7 +61,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        store: (media) => {
+        store: media => {
             dispatch(storeMedia(media));
         }
     }

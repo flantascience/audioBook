@@ -5,12 +5,14 @@ import {
   Dimensions,
   Image,
   AppState,
+  Platform,
   TouchableOpacity
 } from 'react-native';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
 import { 
-  Audio, 
+  Audio,
+  AudioAndroid, 
   Footer, 
   Header, 
   Button 
@@ -23,6 +25,7 @@ import CurricuDumbIntro from "../../Misc/media/CurricuDumb-Intro.mp4";
 import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
+const Android = Platform.OS === 'android';
 
 class Home extends React.Component {
   constructor(){
@@ -34,7 +37,8 @@ class Home extends React.Component {
       secondaryHide: false,
       introPlayed: false,
       paused: true,
-      fullscreen: false
+      fullscreen: false,
+      willResume: false
     }
   }
 
@@ -100,20 +104,36 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused, introPlayed } = this.state;
+    let { loaded, showVid, paused, introPlayed, willResume } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
     let audioPlaying = !this.props.paused;
 
-    if(!isFocused && !paused){
-      this.setState({paused:true});
-    }
+    if (!isFocused && !paused) this.setState({paused:true});
 
     let height = Dimensions.get('window').height;
 
     let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "";
 
+    const audioControls = Android ? 
+      <AudioAndroid
+        navigate = { navigation.navigate }
+        audioSource={ audioSource } // Can be a URL or a local file
+        audioFiles={audioFiles}
+        pos={ selectedTrack }
+        initCurrentlyPlaying = { initCurrentlyPlaying }
+        style={ dark ? styles.audioElementDark : styles.audioElement }
+        currentlyPlayingName={ currentlyPlayingName }
+      /> : 
+      <Audio
+        navigate = { navigation.navigate }
+        audioSource={ audioSource } // Can be a URL or a local file
+        originScreen={'Home'}
+        pos={ selectedTrack }
+        initCurrentlyPlaying = { initCurrentlyPlaying }
+        style={ dark ? styles.audioElementDark : styles.audioElement }
+      />;
     return (
       <View style={ styles.Home }>
         { !showOverview ?
@@ -137,10 +157,9 @@ class Home extends React.Component {
                   <Button
                     style={ styles.playButton }
                     dark={ dark }
-                    title={ "Start" }
+                    title={ willResume ? "Resume" : "Start" }
                     textStyle={{color: '#D4D4D4', fontSize: 20, fontStyle: 'italic', fontWeight: 'bold'}}
                     onPress={ () => {
-                      if (!audioPlaying) this.player.presentFullscreenPlayer();
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
@@ -166,16 +185,18 @@ class Home extends React.Component {
                   paused: true, 
                   showVid: false
                 });
-                this.player.dismissFullscreenPlayer();
+                !Android ? this.player.dismissFullscreenPlayer() : null;
               }}
               onTouchStart = { () => {
-                this.setState({
+                !Android ? this.setState({
                   paused: !this.state.paused, 
                   showVid: !this.state.showVid
-                });
+                }) : null;
               }}
-              onProgress = { () => {
-                if(!isFocused || audioPlaying) {
+              onProgress = { data => {
+                const { currentTime, playableDuration } = data;
+                if ( currentTime < playableDuration ) this.setState({willResume: true}); 
+                if (!isFocused || audioPlaying) {
                   //console.log('pause vid')
                   this.setState({paused: true, showVid: false});
                 }
@@ -191,15 +212,15 @@ class Home extends React.Component {
                 });
               }}
               repeat = { false }
-              fullscreen = { true }
+              fullscreen = { Android ? false : true }
               fullscreenAutorotate = { false }
               fullscreenOrientation = { "portrait" }
               resizeMode = { "cover" }
-              controls = { false }
+              controls = { Android ? true : false }
               style = { !showVid || !isFocused ? styles.IntroductionVideoBeforeLoad : styles.IntroductionVideo }
             /> : null}
           </View>
-        </View>: null }
+        </View> : null }
         { selectedTrack ? 
           <View 
             style={ showOverview ? styles.overviewContainer :
@@ -209,20 +230,15 @@ class Home extends React.Component {
               styles.altOverviewContainer 
             }
           > 
-            <Audio
-              navigate = { navigation.navigate }
-              audioSource={ audioSource } // Can be a URL or a local file
-              originScreen={'Home'}
-              pos={ selectedTrack }
-              initCurrentlyPlaying = { initCurrentlyPlaying }
-              style={ dark ? styles.audioElementDark : styles.audioElement }
-            />
-          </View>: null }
+            { audioControls }
+          </View> : 
+          null 
+        }
         <View 
-            style = { currentlyPlayingName && height < 570 ? 
-            mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
-            mode === 'light' ? styles.homeFooter : styles.homeFooterDark
-          }>
+          style = { currentlyPlayingName && height < 570 ? 
+          mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
+          mode === 'light' ? styles.homeFooter : styles.homeFooterDark }
+        >
           <Footer navigation={ navigation } />
         </View>
       </View>

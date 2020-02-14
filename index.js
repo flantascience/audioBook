@@ -2,8 +2,8 @@
  * @format
  */
 import React from 'react';
-import { AppRegistry, Easing } from 'react-native';
-import { Home, Author, Tracks, PreLoad } from './Components';
+import { AppRegistry, Easing, Platform } from 'react-native';
+import { Home, Author, Tracks, TracksAndroid, PreLoad } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
@@ -11,6 +11,7 @@ import configureStore from './store';
 import { DarkModeProvider } from 'react-native-dark-mode'
 
 const store = configureStore();
+const Android = Platform.OS === 'android';
 
 const screenConfig = {
     duration: 1,
@@ -20,7 +21,7 @@ const screenConfig = {
 const MainNavigator = createStackNavigator({
   First: { screen: PreLoad },
   Second: { screen: Home },
-  Third: { screen: Tracks },
+  Third: { screen: Android ? TracksAndroid : Tracks },
   Fourth: { screen: Author}
 },  
 {

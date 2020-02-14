@@ -99,7 +99,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         width,
-        height: 52,
         left: 0,
         right: 0,
         bottom: width > 550 ? '25%' : '23%'
@@ -113,7 +112,7 @@ export const styles = StyleSheet.create({
         borderBottomWidth: iOS ? 1 : 0,
         borderRightColor: '#757575',
         borderBottomColor: '#757575',
-        elevation: iOS ? 0 : 3,
+        elevation: iOS ? 0 : 10,
         width: 130,
         height: 50,
         backgroundColor: '#EA4F4F',

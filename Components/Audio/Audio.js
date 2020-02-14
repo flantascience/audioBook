@@ -20,6 +20,7 @@ import {
     Refs
 } from '../';
 import firebase from 'react-native-firebase';
+import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
@@ -165,14 +166,14 @@ class Audio extends React.Component{
                             showTextinput: false, 
                             questionnaire: { confusing: null, question: null, comment:null } 
                         });
-                    }, 1000);
+                    }, TOAST_TIMEOUT);
                     resolve('sent');
                 }).catch(err => {
                     let showToast = true;
                     this.props.store({showToast, toastText: "Something went wront, try again!" });
                     setTimeout(()=>{
-                    this.props.store({showToast: !showToast, toastText: null });
-                    }, 1000);
+                        this.props.store({showToast: !showToast, toastText: null });
+                    }, TOAST_TIMEOUT);
                     resolve('err')
                     console.log(err);
                 });
@@ -181,8 +182,8 @@ class Audio extends React.Component{
                 let showToast = true;
                 this.props.store({showToast, toastText: "Fill in a question first!" });
                 setTimeout(()=>{
-                this.props.store({showToast: !showToast, toastText: null });
-                }, 1000);
+                    this.props.store({showToast: !showToast, toastText: null });
+                }, TOAST_TIMEOUT);
                 resolve('no question');
             }
         });
@@ -230,7 +231,6 @@ class Audio extends React.Component{
             currentlyPlaying,
             paused,
             selectedTrack,
-            isChanging,
             buttonsActive,
             showOverview,
             loaded,
@@ -310,8 +310,7 @@ class Audio extends React.Component{
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
                     <View style={ style }>
-                        { !currentlyPlaying && isChanging?
-                        null :
+                        { currentlyPlaying != null ?
                         <View  style={ dark ? styles.altContinerDark : styles.altContiner }>
                             <View style={ styles.controllerContainer }>
                                 <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
@@ -373,7 +372,8 @@ class Audio extends React.Component{
                                 </View>
                             </View>
                             { trackTimeSlider }
-                        </View>
+                        </View> :
+                        null
                         }
                         <View style={ styles.textContainer } >
                             { showToast?
@@ -425,13 +425,19 @@ class Audio extends React.Component{
                                     size={25} 
                                 />
                             </TouchableOpacity>
-                            <Refs dark={dark} fetching={fetchingRefs} connected={connected} styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
+                            <Refs 
+                                dark={dark} 
+                                fetching={fetchingRefs} 
+                                connected={connected} 
+                                styles={ styles } 
+                                referencesInfo={ referencesInfo } 
+                                {...this.props} 
+                            />
                         </View>
                     </View>
                 </ScrollView>:
                 <View style={ style }>
-                    { !currentlyPlaying && isChanging?
-                        null:
+                    { currentlyPlaying != null ?
                         <View  style={ dark ? styles.containerDark : styles.container }>
                             <TouchableOpacity 
                                 style={ dark ? styles.closePlayerContainerDark : styles.closePlayerContainer } 
@@ -504,7 +510,8 @@ class Audio extends React.Component{
                             </View>
                             { trackTimeSlider }
                             <View style = { dark ? styles.spaceFillerDark : styles.spaceFiller }></View>
-                        </View>
+                        </View> :
+                        null
                         }
                 </View>
                 }
@@ -524,7 +531,6 @@ const mapStateToProps = state => {
         trackPlayer: state.media.trackPlayer,
         currentPosition: state.media.currentPosition,
         currentTime: state.media.currentTime,
-        isChanging: state.media.isChanging,
         audioFiles: state.media.audioFiles,
         references: state.refs.references,
         showQuestionnaire: state.media.showQuestionnaire,

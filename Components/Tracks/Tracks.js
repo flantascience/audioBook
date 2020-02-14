@@ -23,9 +23,8 @@ import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants'
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
-// import { SimpleAnimation } from 'react-native-simple-animations';
 import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
@@ -79,12 +78,12 @@ class Tracks extends React.Component {
 
   componentDidUpdate(){
     // console.log(this.props.trackPlayer)
-    const { connectionInfo: { connected } } = this.props;
+    const { connectionInfo: { connected }, showMessage } = this.props;
     if (!connected) {
       let showMessage = true;
       this.props.store({showMessage, message: tracks.noInternetConnection });
     }
-    else this.props.store({showMessage: false, message: null });
+    else if (connected && showMessage) this.props.store({showMessage: false, message: null });
   }
 
   foldAccordions = () => {
@@ -273,7 +272,7 @@ class Tracks extends React.Component {
             this.setState({currentAction});
           }
         },
-        progress: prog=>{
+        progress: prog => {
           let { bytesWritten, contentLength } = prog;
           let percentage = (bytesWritten/contentLength)*100;
           currentAction[pos].percentage = percentage
@@ -282,7 +281,7 @@ class Tracks extends React.Component {
       };
       if (currentAction.length > 0) {
         RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
-          let newPath = Platform.OS === 'ios'?"file:////" + path:path;
+          let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
           let newAudioFiles = [...audioFiles];
           currentAction[pos].action = "downloaded";
           newAudioFiles[pos].url = newPath;
@@ -295,9 +294,9 @@ class Tracks extends React.Component {
           console.log(err);
           let showToast = true;
           this.props.store({showToast, toastText: tracks.restartApp });
-          setTimeout(()=>{
+          setTimeout(() => {
             this.props.store({showToast: !showToast, toastText: null });
-          }, 1500);
+          }, TOAST_TIMEOUT);
         });
       }
     }
@@ -305,9 +304,9 @@ class Tracks extends React.Component {
       console.log('no interent')
       let showToast = true;
       this.props.store({showToast, toastText: tracks.noInternetConnection });
-      setTimeout(()=>{
+      setTimeout(() => {
       this.props.store({showToast: !showToast, toastText: null });
-      }, 1000);
+      }, TOAST_TIMEOUT);
     }
   }
 
@@ -316,7 +315,7 @@ class Tracks extends React.Component {
         let currentReferences = [];
         let referencesInfo = [];
         try {
-          audioFiles.forEach(file=>{
+          audioFiles.forEach(file => {
             // console.log(file)
             let id = file.id;
             if(id === currentlyPlaying){
@@ -324,7 +323,7 @@ class Tracks extends React.Component {
             }
           });
           if (currentReferences && currentReferences.length > 0) {
-              currentReferences.forEach(ref=>{
+              currentReferences.forEach(ref => {
                   referencesInfo.push(references[ref]);
               });
               this.setState({referencesInfo});
@@ -366,8 +365,7 @@ render(){
       showToast,
       connectionInfo: {
         connection,
-        connected,
-        connectionChecked
+        connected
       },
       reportSlowConnection
     } = this.props;
@@ -382,7 +380,7 @@ render(){
     let loading = audioFiles.length === 0;
     // set timeout to determine whether the connection is slow
     setTimeout(() => {
-      if ( loading && !connectionChecked ) reportSlowConnection();
+      if (loading) reportSlowConnection();
     }, SLOW_CONNECTION_TIMER);
 
     const audioControls =
@@ -414,21 +412,21 @@ render(){
                       /**Set default action */
                       let action = currentAction[key]?currentAction[key].action:"stop";
                       /**set default percentage */
-                      let percentage = currentAction[key]?Math.floor(currentAction[key].percentage): 1;
+                      let percentage = currentAction[key] ? Math.floor(currentAction[key].percentage) : 1;
                       let playIcon = key !== selectedTrack ?
-                      "play-circle": 
+                      "play-circle" : 
                       key === selectedTrack && !paused ? "pause":
                       "play-circle";
                       let downlaodIcon = "cloud-download";
 
                       return(
                         <View key={key} style={ styles.trackContainer }>
-                          <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
+                          <TouchableOpacity onPress={ () => this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
                             <View style={ styles.trackTextWrapper }>
                               <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
                               <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
                             </View>
-                            <TouchableOpacity onPress={ ()=>this.toggleNowPlaying(key) } style={ styles.trackIcon }>
+                            <TouchableOpacity onPress={ () => this.toggleNowPlaying(key) } style={ styles.trackIcon }>
                               { playIcon !== "pause" ? 
                               <Icon
                                 color={ dark ? '#fff' : '#000' }
@@ -438,15 +436,15 @@ render(){
                               <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
                             </TouchableOpacity>
 
-                            { type === "cloud" && action !== "downloading"?
-                            <TouchableOpacity onPress={ ()=>this.downloadTrack(key) } style={ styles.trackIcon }>
+                            { type === "cloud" && action !== "downloading" ?
+                            <TouchableOpacity onPress={ () => this.downloadTrack(key) } style={ styles.trackIcon }>
                               <Icon 
                                 color={ dark ? '#fff' : '#000' }
                                 name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
                                 size={ 35 }
                               />
-                            </TouchableOpacity>:
-                            type === "cloud" && action === "downloading"?
+                            </TouchableOpacity> :
+                            type === "cloud" && action === "downloading" ?
                             <View style={{marginLeft: 20}}>
                               <ProgressCircle
                                 percent={percentage}
@@ -458,7 +456,9 @@ render(){
                               >
                                 <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
                               </ProgressCircle>
-                            </View>: null }
+                            </View> : 
+                            null 
+                            }
                           </TouchableOpacity>
                         </View>
                       )
@@ -468,18 +468,20 @@ render(){
                 </ScrollView> :
                 <View>
                   { connected ? 
-                  <View>
-                    <ActivityIndicator 
-                      size="large" 
-                      color="#D4D4D4"
-                      style={{ marginTop: "10%" }}
-                    />
-                    { connection === 'slow' ? <Text style={ styles.text }>{ connectionFeedback.slowConnection }</Text> : null }
-                  </View> : 
-                  <Text style={ styles.text }>{ connectionFeedback.needConnectionToFetchTracks }</Text> }
+                    <View>
+                      <ActivityIndicator 
+                        size="large" 
+                        color="#D4D4D4"
+                        style={{ marginTop: "10%" }}
+                      />
+                      { connection === 'slow' ? <Text style={ styles.text }>{ connectionFeedback.slowConnection }</Text> : null }
+                    </View> : 
+                    <Text style={ styles.text }>{ connectionFeedback.needConnectionToFetchTracks }</Text> 
+                  }
                 </View>
                 }
-              </View>: null }
+              </View> : 
+              null }
             { selectedTrack ?
             <View 
               style={ showOverview?styles.overviewContainer:

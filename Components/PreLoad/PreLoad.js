@@ -18,7 +18,7 @@ import { styles } from './styles';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const tracksRef = firebase.database().ref("/tracks");
-const versionsRef = firebase.database().ref("versions");
+const versionsRef = firebase.database().ref("/versions");
 const referencesRef = firebase.database().ref("/references");
 
 class PreLoad extends React.Component {
@@ -43,8 +43,8 @@ class PreLoad extends React.Component {
     this.fetchAndStoreRefs();
     NetInfo.isConnected.addEventListener('connectionChange', () => {
       NetInfo.getConnectionInfo().then(info => {
-        const { type, effectiveType } = info;
-        if ( type === 'none' ) reportNoConnection();
+        const {type, effectiveType} = info;
+        if (type === 'none') reportNoConnection();
         else if ( type === 'wifi' )  reportConnection('fast');
         else if (type === 'cellular' && effectiveType === '4g' || type === 'cellular' && effectiveType === 'unknown' ) reportConnection('normal');
         else if ( type === 'cellular' && effectiveType === '3g' || type === 'cellular' && effectiveType === '2g' ) reportSlowConnection();
@@ -62,11 +62,11 @@ class PreLoad extends React.Component {
     });
     setTimeout(() => {
       navigate("Second");
-    }, 200);
+    }, 300);
   }
 
   fetchTracksVersion = () => {
-    return new Promise(resolve=>{
+    return new Promise(resolve => {
       let newVersion = false;
       this._getStoredData("versions").then(val => {
         let oldVersion = val;
@@ -81,37 +81,33 @@ class PreLoad extends React.Component {
               AsyncStorage.setItem("versions", value);
               //resolve(newVersion);
             }
-            resolve(newVersion);
           });
         }).catch(error => {
-          console.log(error)
+          console.log(error);
         });
       });
+      resolve(newVersion);
     });
   }
 
   fetchFromFirebase = (fixOnlyCloud = true) => {
     let { audioFiles } = this.props;
     let cloudAudio = [];
-    try {
-        tracksRef.once('value', data => {
-          data.forEach(trackInf=>{
-            //console.log(trackInf);
-            let track = trackInf.val();
-            if (track) cloudAudio.push(track);
-          });
-          let newAudioFiles = audioFiles.concat(cloudAudio);
-          if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
-          else {
-            this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
-            this._storeAudioFilesData(newAudioFiles);
-          }
-        }).catch(err => {
-          console.log(err);
-        });
-    }catch(err){
-      console.log(err)
-    }
+    tracksRef.once('value', data => {
+      data.forEach(trackInf=>{
+        //console.log(trackInf);
+        let track = trackInf.val();
+        if (track) cloudAudio.push(track);
+      });
+      let newAudioFiles = audioFiles.concat(cloudAudio);
+      if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
+      else {
+        this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+        this._storeAudioFilesData(newAudioFiles);
+      }
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   fetchAndStoreMedia = () => {
@@ -120,10 +116,10 @@ class PreLoad extends React.Component {
       let conType = state.type;
       let haveNet = conType === "wifi" || conType === "cellular" ? true : false;
       if (haveNet) {
-        this.fetchTracksVersion().then(newVersion=>{
+        this.fetchTracksVersion().then(newVersion => {
           if (newVersion) this.fetchFromFirebase(false);
           else {
-            this.fetchFromFirebase();
+            // this.fetchFromFirebase();
             this._getStoredData("audioFiles").then(res => {
               if (res) {
                 let storedAudioFiles = JSON.parse(res);
@@ -140,7 +136,9 @@ class PreLoad extends React.Component {
                   });
                   this.props.storeMedia({audioFiles: filteredData})
                 }
+                this.fetchFromFirebase();
               }
+              else this.fetchFromFirebase(false);
             });
           }
         });
@@ -163,6 +161,7 @@ class PreLoad extends React.Component {
               this.props.storeMedia({audioFiles: filteredData})
             }
           }
+          else this.props.storeMedia({audioFiles: []});
         });
       }
     });
@@ -246,6 +245,7 @@ const mapStateToProps = state => {
     selectedTrack: state.media.selectedTrack,
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
+    connectionInfo: state.connectionInfo,
     paused: state.media.paused,
   }
 }

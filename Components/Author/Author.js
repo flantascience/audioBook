@@ -16,6 +16,7 @@ import {
   Footer,
   Toast,
   Audio,
+  AudioAndroid,
   Button
 } from '../'
 import { styles } from './style';
@@ -27,7 +28,7 @@ import InputScrollView from 'react-native-input-scroll-view';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
-
+const Android = Platform.OS === 'android';
 const dbRef = firebase.database().ref("/subscriptions");
 
 class Author extends React.Component {
@@ -152,7 +153,6 @@ class Author extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      isChanging,
       showOverview
     } = this.props;
 
@@ -162,15 +162,25 @@ class Author extends React.Component {
     let height = Dimensions.get('window').height;
 
     let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "";
-    const audioControls =
-      <Audio
-        navigate = { navigation.navigate }
-        audioSource={ audioSource } // Can be a URL or a local file
-        originScreen={'Author'}
-        pos={ selectedTrack }
-        initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={ dark ? styles.audioElementDark : styles.audioElement }
-      />;
+    const audioControls = Android ? 
+    <AudioAndroid
+      navigate = { navigation.navigate }
+      audioSource={ audioSource } // Can be a URL or a local file
+      audioFiles={audioFiles}
+      pos={ selectedTrack }
+      initCurrentlyPlaying = { initCurrentlyPlaying }
+      style={ dark ? styles.audioElementDark : styles.audioElement }
+      currentlyPlayingName={ currentlyPlayingName }
+    /> : 
+    <Audio
+      navigate = { navigation.navigate }
+      audioSource={ audioSource } // Can be a URL or a local file
+      originScreen={'Author'}
+      pos={ selectedTrack }
+      initCurrentlyPlaying = { initCurrentlyPlaying }
+      style={ dark ? styles.audioElementDark : styles.audioElement }
+    />;
+
     return (
       <View 
         style={ styles.Home }
@@ -240,7 +250,7 @@ class Author extends React.Component {
               </ScrollView>
             }
         </View>
-        { selectedTrack?
+        { selectedTrack ?
         <View 
           style={ showOverview?styles.overviewContainer:
             height < 570?styles.altAltOverviewContainer:

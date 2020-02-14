@@ -1,5 +1,6 @@
 export { default as Home } from './Home/Home';
 export { default as Audio } from './Audio/Audio';
+export { default as AudioAndroid } from './Audio/AudioAndroid';
 export { default as Refs } from './Audio/Refs';
 export { default as Questionnaire } from './Audio/Questionnaire';
 export { default as ProgressBar } from './Audio/ProgressBar';
@@ -10,4 +11,5 @@ export { default as Button } from './Button/Button';
 export { default as Toast } from './Toast/Toast';
 export { default as Author } from './Author/Author';
 export { default as Tracks } from './Tracks/Tracks';
+export { default as TracksAndroid } from './Tracks/TracksAndroid';
 export { default as PreLoad } from './PreLoad/PreLoad';
