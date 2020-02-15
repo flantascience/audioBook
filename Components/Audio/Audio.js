@@ -282,8 +282,7 @@ class Audio extends React.Component{
             </View>;
         return(
             <View style={ dark ? styles.elContainerDark : styles.elContainer }>
-                { /** I have an idea why this works but not 100% sure DONT TOUCH!! */}
-                { originScreen === 'Home' ?
+                { originScreen !== 'Tracks' && originScreen !== 'Author' ?
                 <TrackPlayer
                     ref={ref => {
                         this.trackPlayer = ref
@@ -294,7 +293,6 @@ class Audio extends React.Component{
                         this.setState({currentTime: Math.floor(currentTime)});
                         this.props.store({currentPosition: Math.floor(currentTime)});
                     }}
-                    playInBackground={true}
                     playWhenInactive={true}
                     paused={paused}
                     audioOnly={true}

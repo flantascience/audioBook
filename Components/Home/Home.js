@@ -163,6 +163,7 @@ class Home extends React.Component {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
+                      !Android && this.player ? this.player.presentFullscreenPlayer() : null;
                     } } 
                   />
                 </View>
@@ -175,7 +176,7 @@ class Home extends React.Component {
               ref={ref => {
                 this.player = ref
               }}
-              posterResizeMode = { "cover" }
+              posterResizeMode = {"cover"}
               paused = { !paused && isFocused ? false : true }
               onLoad = { () => {
                 this.setState({loaded:true});
@@ -187,19 +188,10 @@ class Home extends React.Component {
                 });
                 !Android ? this.player.dismissFullscreenPlayer() : null;
               }}
-              onTouchStart = { () => {
-                !Android ? this.setState({
-                  paused: !this.state.paused, 
-                  showVid: !this.state.showVid
-                }) : null;
-              }}
-              onProgress = { data => {
+              onProgress = {data => {
                 const { currentTime, playableDuration } = data;
-                if ( currentTime < playableDuration ) this.setState({willResume: true}); 
-                if (!isFocused || audioPlaying) {
-                  //console.log('pause vid')
-                  this.setState({paused: true, showVid: false});
-                }
+                if (currentTime < playableDuration) this.setState({willResume: true}); 
+                if (!isFocused || audioPlaying) this.setState({paused: true, showVid: false});
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
                   Analytics.logEvent('select_content', {introductionVideo: 'Played'});
@@ -214,11 +206,12 @@ class Home extends React.Component {
               repeat = { false }
               fullscreen = { Android ? false : true }
               fullscreenAutorotate = { false }
-              fullscreenOrientation = { "portrait" }
-              resizeMode = { "cover" }
+              fullscreenOrientation = {"portrait"}
+              resizeMode = {"cover"}
               controls = { Android ? true : false }
               style = { !showVid || !isFocused ? styles.IntroductionVideoBeforeLoad : styles.IntroductionVideo }
-            /> : null}
+            /> : 
+            null}
           </View>
         </View> : null }
         { selectedTrack ? 
