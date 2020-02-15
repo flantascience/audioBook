@@ -41,7 +41,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
         }>
             <View style={ hike ? styles.altContainer : styles.container }>
                 <IconButton
-                    onPress={ ()=>{
+                    onPress={ () => {
                         let newState = {
                             screen: "Intro"
                         };
@@ -58,7 +58,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                     text={ footer.home.text }
                 />
                 <IconButton
-                    onPress={ ()=>{
+                    onPress={ () => {
                         let newState = {
                             screen: "Tracks"
                         };
@@ -75,7 +75,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                     text={ footer.tracks.text }
                 />
                 <IconButton
-                    onPress={ ()=>{
+                    onPress={ () => {
                         let newState = {
                             screen: "Author"
                         };
@@ -115,7 +115,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        store: (media) => {
+        store: media => {
             dispatch(storeMedia(media));
         }
     }

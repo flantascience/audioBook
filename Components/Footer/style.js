@@ -1,9 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
+const Android = Platform.OS === 'android';
 
 export const styles = StyleSheet.create({
     outerContainer: {
         borderTopColor: "#C7C6C6",
-        borderTopWidth: 1,
+        borderTopWidth: Android ? 0 : 1,
         paddingTop: 10,
         paddingBottom: 10,
         backgroundColor: "#EBEAEA",
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
     },
     outerContainerDark: {
         borderTopColor: "#525253",
-        borderTopWidth: 1,
+        borderTopWidth: Android ? 0 : 1,
         paddingTop: 10,
         paddingBottom: 10,
         backgroundColor: "#212121",
@@ -21,7 +22,7 @@ export const styles = StyleSheet.create({
     },
     altOuterContainer: {
         borderTopColor: "#C7C6C6",
-        borderTopWidth: 1,
+        borderTopWidth: Android ? 0 : 1,
         backgroundColor: "#EBEAEA",
         paddingBottom: 20,
         alignContent: "center",
@@ -29,7 +30,7 @@ export const styles = StyleSheet.create({
     },
     altOuterContainerDark: {
         borderTopColor: "#525253",
-        borderTopWidth: 1,
+        borderTopWidth: Android ? 0 : 1,
         backgroundColor: "#212121",
         paddingBottom: 20,
         alignContent: "center",
