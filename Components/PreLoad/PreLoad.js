@@ -91,15 +91,15 @@ class PreLoad extends React.Component {
   }
 
   fetchFromFirebase = (fixOnlyCloud = true) => {
-    let { audioFiles } = this.props;
     let cloudAudio = [];
     tracksRef.once('value', data => {
-      data.forEach(trackInf=>{
+      data.forEach(trackInf => {
         //console.log(trackInf);
         let track = trackInf.val();
         if (track) cloudAudio.push(track);
       });
-      let newAudioFiles = audioFiles.concat(cloudAudio);
+      let newAudioFiles = [...cloudAudio];
+      console.log(cloudAudio)
       if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
       else {
         this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
@@ -123,20 +123,18 @@ class PreLoad extends React.Component {
             this._getStoredData("audioFiles").then(res => {
               if (res) {
                 let storedAudioFiles = JSON.parse(res);
+                this.fetchFromFirebase();
                 for(var i = 0; i < storedAudioFiles.length; i++){
                   if (!storedAudioFiles[i]) {
                     dataIntact = false;
                     break;
                   }
                 }
-                if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles});
-                else {
-                  let filteredData = storedAudioFiles.filter( e => {
-                    return e != null;
-                  });
-                  this.props.storeMedia({audioFiles: filteredData})
-                }
-                this.fetchFromFirebase();
+                if (dataIntact) {
+                  this.props.storeMedia({audioFiles: storedAudioFiles});
+                  this.fetchFromFirebase();
+                } 
+                else this.fetchFromFirebase(false);
               }
               else this.fetchFromFirebase(false);
             });

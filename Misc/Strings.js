@@ -12,7 +12,8 @@ export const footer = {
 export const tracks = {
   noInternetConnection: "You cannot stream without an active internet connection.",
   redownloadTrack: "You need to re-download this track.",
-  restartApp: "Something went wrong, please restart app and try again."
+  restartApp: "Something went wrong, please restart app and try again.",
+  downloadError: "Something went wrong with downloading tracks list, restart app."
 }
 
 export const connectionFeedback = {

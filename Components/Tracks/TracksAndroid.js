@@ -31,6 +31,7 @@ import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
+const tracksRef = firebase.database().ref("/tracks");
 
 class Tracks extends React.Component {
   constructor(props){
@@ -225,27 +226,19 @@ class Tracks extends React.Component {
                       currentAction[pos].action = "streaming";
                     })
                   });
-                } else {
-                  //check for connectivity again
-                  if (connected) {
-                    let showToast = true;
-                    this.props.store({showToast, toastText: tracks.redownloadTrack });
-                    setTimeout(() => {
-                      this.props.store({showToast: !showToast, toastText: null });
-                    }, TOAST_TIMEOUT);
-                    audioFiles[pos] = audioFilesCloud[pos];
-                    this.props.store({audioFiles});
-                    this._storeData(audioFiles);
-                    this.forceUpdate();
+                } 
+                else {
+                  let showToast = true;
+                  let newAudioFiles;
+                  this.props.store({showToast, toastText: tracks.redownloadTrack });
+                  setTimeout(() => {
+                    this.props.store({showToast: !showToast, toastText: null });
+                  }, TOAST_TIMEOUT);
+                  if (audioFilesCloud.length > 0) {
+                    newAudioFiles = [...audioFilesCloud];
+                    this._storeData(newAudioFiles);
                   }
-                  else {
-                    console.log("no internet")
-                    let showToast = true;
-                    this.props.store({showToast, toastText: tracks.redownloadTrack });
-                    setTimeout(() => {
-                      this.props.store({showToast: !showToast, toastText: null });
-                    }, TOAST_TIMEOUT);
-                  }
+                  else this.fetchFromFirebase();
                 }
               });
             } 
@@ -407,17 +400,48 @@ class Tracks extends React.Component {
             resolve("doesnt");
         }
     });
-}
+  } 
 
-_storeData = async audioFiles => {
-  try {
-    let stringAudioFiles = JSON.stringify(audioFiles);
-    await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-    this.props.store({audioFiles});
-  } catch (error) {
-    console.log(error);
+  _storeData = async audioFiles => {
+    try {
+      let stringAudioFiles = JSON.stringify(audioFiles);
+      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+      this.props.store({audioFiles});
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  fetchFromFirebase = () => {
+    let { connectionInfo: { connected } } = this.props;
+    let cloudAudio = [];
+    if (connected ) {
+      tracksRef.once('value', data => {
+        data.forEach(trackInf => {
+          //console.log(trackInf);
+          let track = trackInf.val();
+          if (track) cloudAudio.push(track);
+        });
+        let newAudioFiles = [...cloudAudio];
+        this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+        this._storeAudioFilesData(newAudioFiles);
+      }).catch(err => {
+        console.log(err)
+        let showToast = true;
+        this.props.store({showToast, toastText: tracks.downloadError });
+        setTimeout(() => {
+          this.props.store({showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+        });
+    }
+    else {
+      let showToast = true;
+      this.props.store({showToast, toastText: tracks.noInternetConnection });
+      setTimeout(() => {
+        this.props.store({showToast: !showToast, toastText: null });
+      }, TOAST_TIMEOUT);
+    }
   }
-};
 
 
   render(){

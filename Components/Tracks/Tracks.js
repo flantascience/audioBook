@@ -31,6 +31,7 @@ import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
+const tracksRef = firebase.database().ref("/tracks");
 
 class Tracks extends React.Component {
   constructor(props){
@@ -158,14 +159,17 @@ class Tracks extends React.Component {
               currentAction[pos].action = "streaming";
             }
             else {
-              let newAudioFiles = [...audioFiles];
               let showToast = true;
+              let newAudioFiles;
               this.props.store({showToast, toastText: tracks.redownloadTrack });
               setTimeout(() => {
                 this.props.store({showToast: !showToast, toastText: null });
               }, TOAST_TIMEOUT);
-              newAudioFiles[pos] = audioFilesCloud[pos];
-              this._storeData(newAudioFiles);
+              if (audioFilesCloud.length > 0) {
+                newAudioFiles = [...audioFilesCloud];
+                this._storeData(newAudioFiles);
+              }
+              else this.fetchFromFirebase();
             }
           });
         }
@@ -352,6 +356,37 @@ _storeData = async audioFiles => {
   }
 };
 
+fetchFromFirebase = () => {
+  let { connectionInfo: { connected } } = this.props;
+  let cloudAudio = [];
+  if (connected ) {
+    tracksRef.once('value', data => {
+      data.forEach(trackInf => {
+        //console.log(trackInf);
+        let track = trackInf.val();
+        if (track) cloudAudio.push(track);
+      });
+      let newAudioFiles = [...cloudAudio];
+      this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+      this._storeAudioFilesData(newAudioFiles);
+    }).catch(err => {
+      console.log(err)
+      let showToast = true;
+      this.props.store({showToast, toastText: tracks.downloadError });
+      setTimeout(() => {
+        this.props.store({showToast: !showToast, toastText: null });
+      }, TOAST_TIMEOUT);
+      });
+  }
+  else {
+    let showToast = true;
+    this.props.store({showToast, toastText: tracks.noInternetConnection });
+    setTimeout(() => {
+      this.props.store({showToast: !showToast, toastText: null });
+    }, TOAST_TIMEOUT);
+  }
+}
+
 render(){
     let {
       navigation, 
@@ -371,6 +406,8 @@ render(){
     } = this.props;
     let { referencesInfo } = this.state;
     let height = Dimensions.get('window').height;
+
+    //console.log(audioFiles);
 
     let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
 

@@ -189,7 +189,7 @@ class Author extends React.Component {
           { Platform.OS === "ios"?
           <InputScrollView style = { dark ? styles.scrollViewDark : styles.scrollView }>
               <View style = { styles.centerImageContainer }>
-                <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
+                <Image style={ styles.authorImage } source={require('./images/author-pic.jpg')} />
               </View>
               <Text style = {dark ? styles.nameDark : styles.name}>{ author.name }</Text>
               <Text style = {dark ? styles.authorTitleDark : styles.authorTitle}>{ author.title }</Text>
@@ -220,7 +220,7 @@ class Author extends React.Component {
             </InputScrollView> :
             <ScrollView style = { dark ? styles.scrollViewDark : styles.scrollView }>
               <View style = { styles.centerImageContainer }>
-                <Image style={ styles.authorImage } source={require('./images/author.jpg')} />
+                <Image style={ styles.authorImage } source={require('./images/author-pic.jpg')} />
               </View>
               <Text style = {dark ? styles.nameDark : styles.name}>{ author.name }</Text>
               <View style={ dark ? styles.introContainerDark : styles.introContainer }>
