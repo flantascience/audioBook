@@ -42,19 +42,21 @@ class Home extends React.Component {
     }
   }
 
-  static navigationOptions = () => ({
-    headerLeft: <Header />,
-    headerTitleStyle :{
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
-    },
-    headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-    },
-  });
+  static navigationOptions = () => {
+    return {
+        headerLeft: <Header />,
+        headerTitleStyle: {
+            textAlign: 'center',
+            justifyContent: 'center',
+            color: '#FF6D00',
+            alignItems: 'center'
+        },
+        headerStyle: {
+            backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+            height: 80,
+      }
+    }
+  };
 
   componentDidMount(){
     // console.log(this.props.audioFiles)
@@ -76,6 +78,7 @@ class Home extends React.Component {
       paused,
       currentlyPlaying
     } = this.props;
+
     if (!currentlyPlaying) {
       let vidPlaying = !this.state.paused;
       let isFocused = navigation.isFocused();
@@ -163,13 +166,15 @@ class Home extends React.Component {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
-                      !Android && this.player ? this.player.presentFullscreenPlayer() : null;
+                      let newParams = {...navigation.state.params};
+                      newParams.paused = false;
+                      navigation.setParams(newParams);
+                      this.player ? this.player.presentFullscreenPlayer() : null;
                     } } 
                   />
                 </View>
               </View> :
-              null
-            }
+              null }
             { !audioPlaying ? 
             <Video
               source={CurricuDumbIntro} // Can be a URL or a local file.
@@ -186,11 +191,15 @@ class Home extends React.Component {
                   paused: true, 
                   showVid: false
                 });
-                !Android ? this.player.dismissFullscreenPlayer() : null;
+                this.player.dismissFullscreenPlayer();
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
-                if (currentTime < playableDuration) this.setState({willResume: true}); 
+
+                const { willResume } = this.state;
+                if (Math.floor(currentTime) < Math.floor(playableDuration) && !willResume) this.setState({willResume: true})
+                else if(Math.floor(currentTime) === Math.floor(playableDuration) && willResume) this.setState({willResume: false})
+
                 if (!isFocused || audioPlaying) this.setState({paused: true, showVid: false});
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
@@ -203,17 +212,25 @@ class Home extends React.Component {
                   paused: true
                 });
               }}
+              onTouchEnd={() => {
+                const { paused, showVid } = this.state
+                Android ? this.setState({
+                  showVid: !showVid,
+                  paused: !paused
+                }) : null;
+              }}
               repeat = { false }
-              fullscreen = { Android ? false : true }
+              fullscreen = { Android ? paused ? false : true : true }
               fullscreenAutorotate = { false }
               fullscreenOrientation = {"portrait"}
               resizeMode = {"cover"}
-              controls = { Android ? true : false }
+              controls = { false }
               style = { !showVid || !isFocused ? styles.IntroductionVideoBeforeLoad : styles.IntroductionVideo }
             /> : 
-            null}
+            null }
           </View>
-        </View> : null }
+        </View> : 
+        null }
         { selectedTrack ? 
           <View 
             style={ showOverview ? styles.overviewContainer :
@@ -225,8 +242,7 @@ class Home extends React.Component {
           > 
             { audioControls }
           </View> : 
-          null 
-        }
+          null }
         <View 
           style = { currentlyPlayingName && height < 570 ? 
           mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :

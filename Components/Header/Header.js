@@ -8,11 +8,9 @@ import { header } from '../../Misc/Strings';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode'
 
-const Header = ()=>{
-
+const Header = () => {
     const [mode = eventEmitter.currentMode, changeMode] = useState();
-
-    useEffect(()=>{
+    useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
     })

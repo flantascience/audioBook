@@ -43,6 +43,7 @@ export const styles = StyleSheet.create({
     IntroductionVideo: {
         position: "absolute",
         backgroundColor: "#000",
+        height,
         bottom:0,
         left: 0,
         right:0,

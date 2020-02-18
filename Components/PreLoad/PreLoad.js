@@ -99,7 +99,6 @@ class PreLoad extends React.Component {
         if (track) cloudAudio.push(track);
       });
       let newAudioFiles = [...cloudAudio];
-      console.log(cloudAudio)
       if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
       else {
         this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
