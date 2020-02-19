@@ -45,7 +45,7 @@ export const refsStrings = {
   noRefs: "There are no references or links for this track",
   transparencyStatementTitle: "Transparency statement: ",
   transparencyStatementText: "I receive a 5% commission on anything purchased through links to Amazon",
-  noConnection: "You need an internet connection to see some refs"
+  noConnection: "You must be connected to the internet to see the references."
 }
 
 export const initFilesState = [];

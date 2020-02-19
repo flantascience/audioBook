@@ -5,6 +5,75 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>86EB5AEE-6A46-4FDF-8418-1D48308846EF</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>86EB5AEE-6A46-4FDF-8418-1D48308846EF.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>audioBook project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>audioBook</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>603826447.08001399</real>
+			<key>timeStoppedRecording</key>
+			<real>603826489.01118004</real>
+			<key>title</key>
+			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>86EB5AEE-6A46-4FDF-8418-1D48308846EF</string>
+		</dict>
+		<key>D2B8BF6B-77CC-4749-82F2-BF4F3D1E144D</key>
+		<dict>
+			<key>className</key>
+			<string>IDECommandLineBuildLog</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>D2B8BF6B-77CC-4749-82F2-BF4F3D1E144D.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>audioBook project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>audioBook</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
+			<key>timeStartedRecording</key>
+			<real>603826159.82467496</real>
+			<key>timeStoppedRecording</key>
+			<real>603826208.75755203</real>
+			<key>title</key>
+			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
+			<key>uniqueIdentifier</key>
+			<string>D2B8BF6B-77CC-4749-82F2-BF4F3D1E144D</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

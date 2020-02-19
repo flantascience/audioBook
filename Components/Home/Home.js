@@ -44,16 +44,18 @@ class Home extends React.Component {
 
   static navigationOptions = () => {
     return {
-        headerLeft: <Header />,
-        headerTitleStyle: {
-            textAlign: 'center',
-            justifyContent: 'center',
-            color: '#FF6D00',
-            alignItems: 'center'
-        },
-        headerStyle: {
-            backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
-            height: 80,
+      headerLeft: <Header />,
+      headerTitleStyle: {
+          textAlign: 'center',
+          justifyContent: 'center',
+          color: '#FF6D00',
+          alignItems: 'center'
+      },
+      headerStyle: {
+        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        height: 80,
+        borderBottomWidth: Android ? 0 : 1,
+        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -143,17 +145,17 @@ class Home extends React.Component {
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
             { !loaded ? 
-            <TouchableOpacity>
+            <View>
               <Image
-                source={require('./images/backgroundImage.jpg')}
+                source={require('./images/home-chalkboard-wide-high-text.jpg')}
                 style={ styles.thumb }
               />
-            </TouchableOpacity> : null }
+            </View> : null }
             {
               loaded && !showVid ?
               <View>
                 <Image
-                  source={require('./images/backgroundImage2.png')}
+                  source={require('./images/home-chalkboard-wide-high-text.jpg')}
                   style={ styles.thumb }
                 />
                 <View style={ styles.playButtonContainer }>
@@ -161,15 +163,12 @@ class Home extends React.Component {
                     style={ styles.playButton }
                     dark={ dark }
                     title={ willResume ? "Resume" : "Start" }
-                    textStyle={{color: '#D4D4D4', fontSize: 20, fontStyle: 'italic', fontWeight: 'bold'}}
+                    textStyle={{color: '#fff', fontSize: 15, fontFamily: 'Arial', fontWeight: 'bold'}}
                     onPress={ () => {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
-                      let newParams = {...navigation.state.params};
-                      newParams.paused = false;
-                      navigation.setParams(newParams);
-                      this.player ? this.player.presentFullscreenPlayer() : null;
+                      this.player && !Android ? this.player.presentFullscreenPlayer() : null;
                     } } 
                   />
                 </View>
@@ -181,7 +180,6 @@ class Home extends React.Component {
               ref={ref => {
                 this.player = ref
               }}
-              posterResizeMode = {"cover"}
               paused = { !paused && isFocused ? false : true }
               onLoad = { () => {
                 this.setState({loaded:true});
@@ -189,13 +187,13 @@ class Home extends React.Component {
               onEnd = {() => {
                 this.setState({
                   paused: true, 
-                  showVid: false
+                  showVid: false,
+                  willResume: false
                 });
-                this.player.dismissFullscreenPlayer();
+                this.player && !Android ? this.player.dismissFullscreenPlayer() : null;
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
-
                 const { willResume } = this.state;
                 if (Math.floor(currentTime) < Math.floor(playableDuration) && !willResume) this.setState({willResume: true})
                 else if(Math.floor(currentTime) === Math.floor(playableDuration) && willResume) this.setState({willResume: false})
@@ -220,7 +218,7 @@ class Home extends React.Component {
                 }) : null;
               }}
               repeat = { false }
-              fullscreen = { Android ? paused ? false : true : true }
+              fullscreen = { Android ? false : true }
               fullscreenAutorotate = { false }
               fullscreenOrientation = {"portrait"}
               resizeMode = {"cover"}

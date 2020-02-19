@@ -19,7 +19,7 @@ const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currently
         Linking.canOpenURL(url).then(supported => {
             if(supported){
                 Analytics.logEvent('references_clicked', {tracks: currentlyPlayingName, urls: url});
-                Linking.openURL(url).catch(error=>{
+                Linking.openURL(url).catch(error => {
                     console.log(error);
                 });
             }
@@ -55,9 +55,9 @@ const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currently
                         return(
                         <View style={ styles.refRowContainer } key={ref}>
                             <Text style={ dark ? styles.refTextDark : styles.refText }>
-                                { " - " + number + ". " + text }
-                                { urlLength > 1 ? 
-                                <Text onPress={ () => goTo(url) } style={ dark ? styles.linkDark : styles.link }> Link </Text> : 
+                                { " - " + number + ". " + text + ' ' }
+                                { urlLength > 1 ?
+                                <Text onPress={ () => goTo(url) } style={ dark ? styles.linkDark : styles.link }>Link</Text> : 
                                 null }
                             </Text>
                         </View>)

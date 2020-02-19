@@ -32,6 +32,7 @@ import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
+const Android = Platform.OS === 'android';
 
 class Tracks extends React.Component {
   constructor(props){
@@ -55,17 +56,23 @@ class Tracks extends React.Component {
     }
   }
 
-  static navigationOptions = ()=> ({
-    headerLeft: <Header />,
-    headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-    },
-    headerStyle: {
+  static navigationOptions = () => {
+    return {
+      headerLeft: <Header />,
+      headerTitleStyle: {
+          textAlign: 'center',
+          justifyContent: 'center',
+          color: '#FF6D00',
+          alignItems: 'center'
+      },
+      headerStyle: {
         backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80
-    },
-  });
+        height: 80,
+        borderBottomWidth: Android ? 0 : 1,
+        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+      }
+    }
+  };
 
   componentDidMount(){
     Analytics.setCurrentScreen('Tracks');

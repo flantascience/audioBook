@@ -9,6 +9,7 @@ const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({
     scrollView: {
+        backgroundColor: dark ? '#000' : '#fff',
     },
     text: {
         color: dark ? '#fff' : '#000',

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
 		04D3A7B050D14969965BA924 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5352F5D4411F8E863496 /* AntDesign.ttf */; };
@@ -27,6 +26,8 @@
 		6A066A9823881D2C001DB23C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A066A9723881D2C001DB23C /* GoogleService-Info.plist */; };
 		6A326963235471CC00946C70 /* audioBookSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A326962235471CC00946C70 /* audioBookSwift.swift */; };
 		6A32696523547A5100946C70 /* crzy-head-shot-trans.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A32696423547A5100946C70 /* crzy-head-shot-trans.png */; };
+		6A41D3DE23FC790100779CD0 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */; };
+		6A41D3DF23FC790100779CD0 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */; };
 		6A91CBC523E21A1200E366C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A91CBC423E21A1200E366C4 /* GoogleService-Info.plist */; };
 		6CB7634DC49141248DAFD638 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A7861B4F643F7B9A70470 /* SimpleLineIcons.ttf */; };
 		6E882FABA8E947159DD07146 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 907A4B6616D54763A38EAEB0 /* FontAwesome.ttf */; };
@@ -104,6 +105,7 @@
 		FAC6C25B22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
 		FAC6C25C22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
 		FAC6C25D22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
+		A016A0CFD1664398BD5DF218 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,7 @@
 		6A066A9723881D2C001DB23C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A326962235471CC00946C70 /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioBookSwift.swift; sourceTree = "<group>"; };
 		6A32696423547A5100946C70 /* crzy-head-shot-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot-trans.png"; path = "../Components/Header/images/crzy-head-shot-trans.png"; sourceTree = "<group>"; };
+		6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DKCrayonCrumble.ttf; sourceTree = "<group>"; };
 		6A91CBC423E21A1200E366C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Dev/Curricu-dumb/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D3916424961B21B7AAA4388 /* Pods-audioBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84F4F8FE967F8D890CCC065C /* libPods-audioBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +191,7 @@
 		FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		FAF0B3E982190E795960657A /* Pods-audioBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook.release.xcconfig"; path = "Target Support Files/Pods-audioBook/Pods-audioBook.release.xcconfig"; sourceTree = "<group>"; };
 		FE080162ADCD7DDCA4643A7C /* Pods-audioBook-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; name = "DKCrayonCrumble.ttf"; path = "../assets/fonts/DKCrayonCrumble.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,6 +333,7 @@
 				C5E4C8749EC447629882476D /* Octicons.ttf */,
 				9C0A7861B4F643F7B9A70470 /* SimpleLineIcons.ttf */,
 				6998FD080C704EBB8624BC13 /* Zocial.ttf */,
+				61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 		FAC6C20D22F053BB00107D2E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */,
 				FAC6C20E22F053BB00107D2E /* Fontisto.ttf */,
 				FAC6C20F22F053BB00107D2E /* Octicons.ttf */,
 				FAC6C21022F053BB00107D2E /* Feather.ttf */,
@@ -574,7 +580,9 @@
 				5CF68418CA90454EB37D081A /* MaterialIcons.ttf in Resources */,
 				8D017BFBC56447AAAD004654 /* Octicons.ttf in Resources */,
 				6CB7634DC49141248DAFD638 /* SimpleLineIcons.ttf in Resources */,
+				6A41D3DE23FC790100779CD0 /* DKCrayonCrumble.ttf in Resources */,
 				CC2E46740D0445F39F620219 /* Zocial.ttf in Resources */,
+				A016A0CFD1664398BD5DF218 /* DKCrayonCrumble.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +598,7 @@
 				FAC6C23C22F053BB00107D2E /* Foundation.ttf in Resources */,
 				FAC6C25022F053BB00107D2E /* Zocial.ttf in Resources */,
 				FAC6C22822F053BB00107D2E /* Feather.ttf in Resources */,
+				6A41D3DF23FC790100779CD0 /* DKCrayonCrumble.ttf in Resources */,
 				FAC6C24822F053BB00107D2E /* FontAwesome5_Regular.ttf in Resources */,
 				FAC6C23022F053BB00107D2E /* FontAwesome5_Brands.ttf in Resources */,
 				FAC6C22C22F053BB00107D2E /* Entypo.ttf in Resources */,

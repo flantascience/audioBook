@@ -12,9 +12,11 @@ const height = Dimensions.get('window').height;
 const mode = eventEmitter.currentMode;
 const dark = mode === 'dark';
 
+//console.log(height)
+
 export const styles = StyleSheet.create({
     scrollView: {
-        backgroundColor: Colors.lighter,
+        backgroundColor: dark ? '#000' : '#fff',
     },
     Home: {
         display: "flex",
@@ -43,33 +45,28 @@ export const styles = StyleSheet.create({
     IntroductionVideo: {
         position: "absolute",
         backgroundColor: "#000",
-        height,
+        height: height > 600 ? height - 100 : height - 50,
         bottom:0,
         left: 0,
         right:0,
-        top:0
+        top: 0
     },
     altOverviewContainer: {
         flex: 2,
-        //overflow: "hidden",
-        //marginBottom: 30,
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     altAltOverviewContainer: {
         flex: 2,
-        //overflow: "hidden",
         marginBottom: 30,
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     longAltOverviewContanier: {
         flex: 2,
-        //overflow: "hidden",
         marginBottom: -20,
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     longerAltOverviewContanier: {
         flex: 2,
-        //overflow: "hidden",
         marginBottom: -35,
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
@@ -90,9 +87,11 @@ export const styles = StyleSheet.create({
         backgroundColor: "#212121"
     },
     thumb: {
-        height,
+        height: height > 800 ? height - 180 : 
+        height > 600 ? height - 100 : 
+        height - 30,
         width,
-        resizeMode: 'contain'
+        resizeMode: 'cover'
     },
     playButtonContainer: {
         position: 'absolute',
@@ -102,7 +101,9 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        bottom: width > 550 ? '25%' : '23%'
+        bottom: height > 800 ? '33%' : 
+        height > 600 ? '30%' : 
+        '30%'
     },
     playButton: {
         display:'flex',
@@ -115,8 +116,9 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#757575',
         elevation: iOS ? 0 : 10,
         width: 130,
-        height: 50,
-        backgroundColor: '#EA4F4F',
+        height: 35,
+        //paddingTop: 5,
+        backgroundColor: '#6FDA44',
     },
     centerImageContainer: {
         display: "flex",
@@ -124,6 +126,8 @@ export const styles = StyleSheet.create({
         flex:1,
         height: height - 180,
         width,
+        borderWidth: 0,
+        backgroundColor: dark ? '#000' : '#fff',
         alignContent: "center",
         alignItems: "center",
         justifyContent: "center"
