@@ -4,9 +4,10 @@
 <dict>
 	<key>application-identifier</key>
 	<string>983ZG46JTF.com.jim-flannery.audioBook</string>
-	<key>keychain-access-groups</key>
+	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>983ZG46JTF.com.jim-flannery.audioBook</string>
+		<string>applinks:curricudumb.app.link</string>
+		<string>webcredentials:example.com</string>
 	</array>
 </dict>
 </plist>

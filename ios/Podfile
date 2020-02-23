@@ -45,6 +45,7 @@ target 'audioBook' do
 
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'Branch'
 
   target 'audioBookTests' do
     inherit! :search_paths

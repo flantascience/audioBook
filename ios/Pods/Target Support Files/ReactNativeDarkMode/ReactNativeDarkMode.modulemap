@@ -1,0 +1,6 @@
+framework module ReactNativeDarkMode {
+  umbrella header "ReactNativeDarkMode-umbrella.h"
+
+  export *
+  module * { export * }
+}

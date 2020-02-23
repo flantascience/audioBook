@@ -67,4 +67,32 @@ dependencies: \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/FirebaseCore/FIRConfiguration.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/FirebaseCore/FIRApp.h \
   /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/FirebaseCore/FirebaseCore.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Firebase/Firebase.h
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Firebase/Firebase.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/Branch.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCCallbacks.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCCommerceEvent.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCServerRequest.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCServerInterface.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCServerResponse.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCPreferenceHelper.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCNetworkServiceProtocol.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCAvailability.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCConfig.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCDebug.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/NSError+Branch.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCLinkCache.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCLinkData.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCLog.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BNCServerRequestQueue.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchActivityItemProvider.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchConstants.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchCSSearchableItemAttributeSet.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchDeepLinkingController.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchEvent.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchUniversalObject.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchLinkProperties.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchDelegate.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchShareLink.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchCrossPlatformID.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/BranchLastAttributedTouchData.h \
+  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/Branch/UIViewController+Branch.h

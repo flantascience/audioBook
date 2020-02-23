@@ -29,6 +29,8 @@ import com.rnfs.RNFSPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-music-control
 import com.tanguyantoine.react.MusicControl;
+// react-native-splash-screen
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 // react-native-track-player
 import com.guichaguri.trackplayer.TrackPlayer;
 // react-native-vector-icons
@@ -76,6 +78,7 @@ public class PackageList {
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
       new MusicControl(),
+      new SplashScreenReactPackage(),
       new TrackPlayer(),
       new VectorIconsPackage(),
       new ReactVideoPackage()

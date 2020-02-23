@@ -1,30 +1,403 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a2badec-7f7e-4833-8805-21dc1027526f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ios/audioBook/audioBook.entitlements" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/apk_list/debug/mainApkListPersistenceDebug/apk-list.gson" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/apk_list/debug/mainApkListPersistenceDebug/apk-list.gson" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/processDebugManifest/bundle-manifest/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/metadata_feature_manifest/debug/processDebugManifest/metadata-feature/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/metadata_feature_manifest/debug/processDebugManifest/metadata-feature/output.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Manifest.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Pods.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-acknowledgements.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-acknowledgements.markdown" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-acknowledgements.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-acknowledgements.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-resources.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook-resources.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBook/Pods-audioBook.release.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBookTests/Pods-audioBookTests.release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Pods/Target Support Files/Pods-audioBookTests/Pods-audioBookTests.release.xcconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/audioBook.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/audioBook/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook/AppDelegate.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ios/audioBook/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/audioBook/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/DoubleConversion-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/DoubleConversion-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/DoubleConversion.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/DoubleConversion.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/DoubleConversion.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/FirebaseCore-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/FirebaseCore-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/FirebaseCore.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/FirebaseCore.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/FirebaseInstanceID-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/FirebaseInstanceID-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/FirebaseInstanceID.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/FirebaseInstanceID.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseInstanceID.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/FirebaseStorage-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/FirebaseStorage-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/FirebaseStorage.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/FirebaseStorage.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseStorage.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Folly.build/Objects-normal/x86_64/Folly.LinkFileList" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Folly.build/Objects-normal/x86_64/Folly.LinkFileList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Folly.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Folly.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/GTMSessionFetcher-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/GTMSessionFetcher-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/GTMSessionFetcher.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/GTMSessionFetcher.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GTMSessionFetcher.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleToolboxForMac.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleToolboxForMac.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/GoogleUtilities-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/GoogleUtilities-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/GoogleUtilities.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/GoogleUtilities.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/GoogleUtilities.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-audioBook.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-audioBook.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-audioBookTests.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Pods-audioBookTests.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Protobuf.build/Objects-normal/x86_64/Any.pbobjc.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Protobuf.build/Objects-normal/x86_64/Any.pbobjc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Protobuf.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Protobuf.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNCAsyncStorage.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNCAsyncStorage.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFS.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFS.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/RNFirebase-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/RNFirebase-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/RNFirebase.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/RNFirebase.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNFirebase.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/RNGestureHandler-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/RNGestureHandler-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/RNGestureHandler.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/RNGestureHandler.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNGestureHandler.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/RNVectorIcons-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/RNVectorIcons-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/RNVectorIcons.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/RNVectorIcons.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/RNVectorIcons.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/React-Core-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/React-Core-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/React-Core.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/React-Core.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Core.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/React-DevSupport-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/React-DevSupport-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/React-DevSupport.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/React-DevSupport.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-DevSupport.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/React-RCTActionSheet-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/React-RCTActionSheet-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/React-RCTActionSheet.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/React-RCTActionSheet.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTActionSheet.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/React-RCTAnimation-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/React-RCTAnimation-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/React-RCTAnimation.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/React-RCTAnimation.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTAnimation.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/React-RCTBlob-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/React-RCTBlob-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/React-RCTBlob.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/React-RCTBlob.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTBlob.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/React-RCTImage-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/React-RCTImage-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/React-RCTImage.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/React-RCTImage.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTImage.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/React-RCTLinking-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/React-RCTLinking-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/React-RCTLinking.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/React-RCTLinking.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTLinking.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/React-RCTNetwork-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/React-RCTNetwork-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/React-RCTNetwork.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/React-RCTNetwork.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTNetwork.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/React-RCTSettings-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/React-RCTSettings-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/React-RCTSettings.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/React-RCTSettings.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTSettings.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/React-RCTText-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/React-RCTText-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/React-RCTText.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/React-RCTText.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTText.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/React-RCTVibration-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/React-RCTVibration-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/React-RCTVibration.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/React-RCTVibration.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTVibration.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/React-RCTWebSocket-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/React-RCTWebSocket-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/React-RCTWebSocket.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/React-RCTWebSocket.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-RCTWebSocket.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/React-cxxreact-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/React-cxxreact-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/React-cxxreact.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/React-cxxreact.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-cxxreact.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/React-fishhook-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/React-fishhook-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/React-fishhook.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/React-fishhook.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-fishhook.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/React-jsi-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/React-jsi-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/React-jsi.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/React-jsi.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsi.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/React-jsiexecutor-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/React-jsiexecutor-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/React-jsiexecutor.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/React-jsiexecutor.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsiexecutor.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/React-jsinspector-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/React-jsinspector-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/React-jsinspector.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/React-jsinspector.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-jsinspector.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/ReactNativeDarkMode.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/ReactNativeDarkMode.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/glog.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/glog.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/leveldb-library.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/leveldb-library.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/nanopb-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/nanopb-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/nanopb.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/nanopb.build/nanopb.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-music-control.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-music-control.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-netinfo.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-netinfo.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/react-native-slider-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/react-native-slider-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/react-native-slider.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-slider.build/react-native-slider.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/APError.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemNotificationObserver.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerItemObserver.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerObserver.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerTimeObserver.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerTimeObserver.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapper.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapper.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperDelegate.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperDelegate.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperProtocol.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperProtocol.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AVPlayerWrapperState.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioItem.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioPlayer.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSession.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/AudioSessionController.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Capabilities.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Event.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaItemProperty.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaURL.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/MediaURL.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoCenter.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoCenter.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoController.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoController.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoControllerProtocol.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoControllerProtocol.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoKeyValue.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/NowPlayingInfoProperty.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/PitchAlgorithms.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueueManager.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer~partial.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/QueuedAudioPlayer~partial.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RNTrackPlayer.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommand.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/RemoteCommandController.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/SessionCategories.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/TimeEventFrequency.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/Track.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react-native-track-player-master.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react-native-track-player-master.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react-native-track-player-master.swiftdeps~moduleonly" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react-native-track-player-master.swiftdeps~moduleonly" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react_native_track_player.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/Objects-normal/x86_64/react_native_track_player.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-track-player.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-video.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/react-native-video.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/yoga-project-headers.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/yoga-project-headers.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/yoga.hmap" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/yoga.build/yoga.hmap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/DerivedSources/audioBook_vers.c" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/DerivedSources/audioBook_vers.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.d" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.dia" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.dia" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/AppDelegate.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook-master.swiftdeps" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook-master.swiftdeps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook-master.swiftdeps~moduleonly" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook-master.swiftdeps~moduleonly" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBookSwift.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBookSwift.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBookSwift~partial.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBookSwift~partial.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook_dependency_info.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook_dependency_info.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook_vers.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/audioBook_vers.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/Objects-normal/x86_64/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/audioBook.app-Simulated.xcent" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/audioBook.app-Simulated.xcent" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBook.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/Objects-normal/x86_64/audioBookTests.o" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/Objects-normal/x86_64/audioBookTests.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/Objects-normal/x86_64/audioBookTests_dependency_info.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/Objects-normal/x86_64/audioBookTests_dependency_info.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/dgph" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Intermediates.noindex/audioBook.build/Debug-iphonesimulator/audioBookTests.build/dgph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/Folly/libFolly.a" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/Folly/libFolly.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/Protobuf/libProtobuf.a" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/Protobuf/libProtobuf.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app.dSYM/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app.dSYM/Contents/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app.dSYM/Contents/Resources/DWARF/audioBook" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app.dSYM/Contents/Resources/DWARF/audioBook" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Assets.car" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Assets.car" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Base.lproj/LaunchScreen.nib/objects-13.0+.nib" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Base.lproj/LaunchScreen.nib/objects-13.0+.nib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Base.lproj/LaunchScreen.nib/runtime.nib" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Base.lproj/LaunchScreen.nib/runtime.nib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/GoogleService-Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/GoogleService-Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest.dSYM/Contents/Resources/DWARF/audioBookTests" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest.dSYM/Contents/Resources/DWARF/audioBookTests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/audioBookTests" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/PlugIns/audioBookTests.xctest/audioBookTests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/_CodeSignature/CodeResources" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/_CodeSignature/CodeResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/audioBook" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.app/audioBook" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.swiftmodule/x86_64.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/audioBook.swiftmodule/x86_64.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/libreact-native-track-player.a" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/libreact-native-track-player.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.swiftmodule/x86_64.swiftmodule" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.swiftmodule/x86_64.swiftmodule" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/AppDelegate.o-2DZ3ME9B2E4S5" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/AppDelegate.o-2DZ3ME9B2E4S5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/QueuedAudioPlayer.o-200724ME6YOXB" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/QueuedAudioPlayer.o-200724ME6YOXB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/audioBookSwift.o-3J1KZDXZ7B9R3" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Index/DataStore/v5/units/audioBookSwift.o-3J1KZDXZ7B9R3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Logs/Build/D2B8BF6B-77CC-4749-82F2-BF4F3D1E144D.xcactivitylog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/Logs/Build/LogStoreManifest.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/Logs/Build/LogStoreManifest.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/AVFoundation-2W8OQOO5E005V.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/AVFoundation-2W8OQOO5E005V.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/AudioToolbox-29TRZLCW5QLKV.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/AudioToolbox-29TRZLCW5QLKV.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CFNetwork-3188M7OK0JW08.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CFNetwork-3188M7OK0JW08.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreAudio-DU322UQPMITA.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreAudio-DU322UQPMITA.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreAudioTypes-XFXLG6SQQAFJ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreAudioTypes-XFXLG6SQQAFJ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreFoundation-J9ZOXGK4ZTRR.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreFoundation-J9ZOXGK4ZTRR.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreGraphics-54UV9QOCX3ZY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreGraphics-54UV9QOCX3ZY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreImage-2L8M44C0CYIPM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreImage-2L8M44C0CYIPM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreMIDI-2OV5TK5CIMZXQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreMIDI-2OV5TK5CIMZXQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreMedia-3JTCZ41S8BKUD.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreMedia-3JTCZ41S8BKUD.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreText-3W9A51BO0R6G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreText-3W9A51BO0R6G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreVideo-1MLDN391V99P4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/CoreVideo-1MLDN391V99P4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Darwin-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Darwin-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Dispatch-2LX9MWM6UEPQW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Dispatch-2LX9MWM6UEPQW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/FileProvider-1OMUUHYDP2DYB.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/FileProvider-1OMUUHYDP2DYB.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Foundation-3DFYNEBRQSXST.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Foundation-3DFYNEBRQSXST.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/IOSurface-2NV0LTM1HC45.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/IOSurface-2NV0LTM1HC45.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/ImageIO-YVI44K06S0WO.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/ImageIO-YVI44K06S0WO.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/MediaPlayer-2DWL0NXJSGSEI.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/MediaPlayer-2DWL0NXJSGSEI.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/MediaToolbox-3N6MLXYI7H98P.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/MediaToolbox-3N6MLXYI7H98P.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Metal-UMHL2WVYX9T4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Metal-UMHL2WVYX9T4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/ObjectiveC-1R06XOY9T4FIM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/ObjectiveC-1R06XOY9T4FIM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/OpenGLES-MDRMEQ3COFKY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/OpenGLES-MDRMEQ3COFKY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/QuartzCore-23I9VTX2KZMTH.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/QuartzCore-23I9VTX2KZMTH.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Security-27ZMYP8CODFT0.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/Security-27ZMYP8CODFT0.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/SwiftOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/SwiftOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/SwiftShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/SwiftShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/UIKit-1V5UHAPTOD24G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/UIKit-1V5UHAPTOD24G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/UserNotifications-2WSP49G9OSOCW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/UserNotifications-2WSP49G9OSOCW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_Builtin_intrinsics-1NVMHOZAVFWA2.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_Builtin_intrinsics-1NVMHOZAVFWA2.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftCoreFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftCoreFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftCoreMediaOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftCoreMediaOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftDispatchOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftDispatchOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftObjectiveCOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftObjectiveCOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftUIKitOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/_SwiftUIKitOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/os_object-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/os_object-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/react_native_track_player-MGB3NVV01OMS.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/react_native_track_player-MGB3NVV01OMS.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/simd-3V2MLXFFX3BH.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/1JPYB37HNWU86/simd-3V2MLXFFX3BH.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CFNetwork-3188M7OK0JW08.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CFNetwork-3188M7OK0JW08.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreFoundation-J9ZOXGK4ZTRR.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreFoundation-J9ZOXGK4ZTRR.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreGraphics-54UV9QOCX3ZY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreGraphics-54UV9QOCX3ZY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreImage-2L8M44C0CYIPM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreImage-2L8M44C0CYIPM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreText-3W9A51BO0R6G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreText-3W9A51BO0R6G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreVideo-1MLDN391V99P4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/CoreVideo-1MLDN391V99P4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Darwin-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Darwin-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Dispatch-2LX9MWM6UEPQW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Dispatch-2LX9MWM6UEPQW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/FileProvider-1OMUUHYDP2DYB.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/FileProvider-1OMUUHYDP2DYB.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Foundation-3DFYNEBRQSXST.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Foundation-3DFYNEBRQSXST.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/IOSurface-2NV0LTM1HC45.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/IOSurface-2NV0LTM1HC45.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/ImageIO-YVI44K06S0WO.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/ImageIO-YVI44K06S0WO.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Metal-UMHL2WVYX9T4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Metal-UMHL2WVYX9T4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/ObjectiveC-1R06XOY9T4FIM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/ObjectiveC-1R06XOY9T4FIM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/OpenGLES-MDRMEQ3COFKY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/OpenGLES-MDRMEQ3COFKY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/QuartzCore-23I9VTX2KZMTH.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/QuartzCore-23I9VTX2KZMTH.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Security-27ZMYP8CODFT0.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/Security-27ZMYP8CODFT0.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/UIKit-1V5UHAPTOD24G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/UIKit-1V5UHAPTOD24G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/UserNotifications-2WSP49G9OSOCW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/UserNotifications-2WSP49G9OSOCW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/XCTest-1FJM61D2FSIU5.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/XCTest-1FJM61D2FSIU5.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/modules.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/modules.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/os_object-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2BPDQK6KO2VBO/os_object-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/AVFoundation-2W8OQOO5E005V.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/AVFoundation-2W8OQOO5E005V.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/AudioToolbox-29TRZLCW5QLKV.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/AudioToolbox-29TRZLCW5QLKV.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CFNetwork-3188M7OK0JW08.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CFNetwork-3188M7OK0JW08.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreAudio-DU322UQPMITA.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreAudio-DU322UQPMITA.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreAudioTypes-XFXLG6SQQAFJ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreAudioTypes-XFXLG6SQQAFJ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreFoundation-J9ZOXGK4ZTRR.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreFoundation-J9ZOXGK4ZTRR.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreGraphics-54UV9QOCX3ZY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreGraphics-54UV9QOCX3ZY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreImage-2L8M44C0CYIPM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreImage-2L8M44C0CYIPM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreMIDI-2OV5TK5CIMZXQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreMIDI-2OV5TK5CIMZXQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreMedia-3JTCZ41S8BKUD.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreMedia-3JTCZ41S8BKUD.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreText-3W9A51BO0R6G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreText-3W9A51BO0R6G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreVideo-1MLDN391V99P4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/CoreVideo-1MLDN391V99P4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Crashlytics-3MAKWNI3I9CJK.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Crashlytics-3MAKWNI3I9CJK.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Darwin-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Darwin-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Dispatch-2LX9MWM6UEPQW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Dispatch-2LX9MWM6UEPQW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Fabric-QRO5FAC8VADE.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Fabric-QRO5FAC8VADE.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FileProvider-1OMUUHYDP2DYB.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FileProvider-1OMUUHYDP2DYB.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Firebase-2WORAM55RG66F.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Firebase-2WORAM55RG66F.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebaseAnalytics-1IRS07RVRLC2Y.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebaseAnalytics-1IRS07RVRLC2Y.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebasePerformance-1CLAH7JLQ7HYA.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebasePerformance-1CLAH7JLQ7HYA.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebaseRemoteConfig-3A5RARN0BUUDO.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/FirebaseRemoteConfig-3A5RARN0BUUDO.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Foundation-3DFYNEBRQSXST.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Foundation-3DFYNEBRQSXST.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/IOSurface-2NV0LTM1HC45.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/IOSurface-2NV0LTM1HC45.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/ImageIO-YVI44K06S0WO.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/ImageIO-YVI44K06S0WO.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/MediaToolbox-3N6MLXYI7H98P.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/MediaToolbox-3N6MLXYI7H98P.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Metal-UMHL2WVYX9T4.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Metal-UMHL2WVYX9T4.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/ObjectiveC-1R06XOY9T4FIM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/ObjectiveC-1R06XOY9T4FIM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/OpenGLES-MDRMEQ3COFKY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/OpenGLES-MDRMEQ3COFKY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/QuartzCore-23I9VTX2KZMTH.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/QuartzCore-23I9VTX2KZMTH.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Security-27ZMYP8CODFT0.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/Security-27ZMYP8CODFT0.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/UIKit-1V5UHAPTOD24G.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/UIKit-1V5UHAPTOD24G.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/UserNotifications-2WSP49G9OSOCW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/UserNotifications-2WSP49G9OSOCW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/_Builtin_intrinsics-1NVMHOZAVFWA2.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/_Builtin_intrinsics-1NVMHOZAVFWA2.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/modules.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/modules.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/os_object-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/os_object-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/simd-3V2MLXFFX3BH.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2KTO77R4VAAJW/simd-3V2MLXFFX3BH.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/CFNetwork-3188M7OK0JW08.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/CFNetwork-3188M7OK0JW08.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/CoreFoundation-J9ZOXGK4ZTRR.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/CoreFoundation-J9ZOXGK4ZTRR.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Darwin-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Darwin-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Dispatch-2LX9MWM6UEPQW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Dispatch-2LX9MWM6UEPQW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Foundation-3DFYNEBRQSXST.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Foundation-3DFYNEBRQSXST.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/ObjectiveC-1R06XOY9T4FIM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/ObjectiveC-1R06XOY9T4FIM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Security-27ZMYP8CODFT0.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/Security-27ZMYP8CODFT0.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/modules.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/modules.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/os_object-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2RYN4J9LYIQ9U/os_object-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2UN1C6ADTB6GX/modules.idx" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/2UN1C6ADTB6GX/modules.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CFNetwork-3188M7OK0JW08.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CFNetwork-3188M7OK0JW08.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CoreFoundation-J9ZOXGK4ZTRR.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CoreFoundation-J9ZOXGK4ZTRR.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CoreGraphics-54UV9QOCX3ZY.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/CoreGraphics-54UV9QOCX3ZY.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Darwin-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Darwin-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Dispatch-2LX9MWM6UEPQW.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Dispatch-2LX9MWM6UEPQW.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Foundation-3DFYNEBRQSXST.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Foundation-3DFYNEBRQSXST.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/ObjectiveC-1R06XOY9T4FIM.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/ObjectiveC-1R06XOY9T4FIM.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Security-27ZMYP8CODFT0.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/Security-27ZMYP8CODFT0.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/SwiftOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/SwiftOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/SwiftShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/SwiftShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_Builtin_stddef_max_align_t-1NVMHOZAVFWA2.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftCoreFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftCoreFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftDispatchOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftDispatchOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftFoundationOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftObjectiveCOverlayShims-2TTN5UXQBRCCQ.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/_SwiftObjectiveCOverlayShims-2TTN5UXQBRCCQ.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/os_object-38I6DLZ5IH61J.pcm" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/ModuleCache.noindex/3GLI9S7MG7CZG/os_object-38I6DLZ5IH61J.pcm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ios/build/audioBook/info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/build/audioBook/info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,21 +408,63 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="988dd23346584d3052" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_One_API_R" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="curricu_dumb_audiobook" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="curricu_dumb_audiobook" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+            <state relative-caret-position="414">
+              <caret line="147" column="51" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/SplashActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/color.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -57,8 +472,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="60">
+              <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="10" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -66,8 +481,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+            <state relative-caret-position="60">
+              <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="35" selection-start-column="35" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,15 +504,23 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="390">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -103,28 +538,42 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/audiobook/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/audiobook/MainApplication.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/settings.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/color.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/abhiandroid.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/splashfile.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="979" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <hideEmptyPackages AndroidView="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="curricu_dumb_audiobook" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -172,6 +621,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -181,7 +631,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="device.picker.selection" value="Pixel_2_API_28" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -191,7 +641,7 @@
     <option name="MODULE_TAB" value="Properties" />
     <option name="BUILD_VARIANTS_TAB" value="Build Types" />
     <option name="LAST_EDITED_SIGNING_CONFIG" value="debug" />
-    <option name="LAST_EDITED_BUILD_TYPE" value="debug" />
+    <option name="LAST_EDITED_BUILD_TYPE" value="all" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -211,7 +661,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle./Users/muganwa/Documents/GitHub/audioBook/android/app [installDebug]">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -272,6 +722,50 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="/Users/muganwa/Documents/GitHub/audioBook/android/app [installDebug]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="installDebug" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="/Users/muganwa/Documents/GitHub/audioBook/android/app [signingReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="signingReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle./Users/muganwa/Documents/GitHub/audioBook/android/app [installDebug]" />
+        <item itemvalue="Gradle./Users/muganwa/Documents/GitHub/audioBook/android/app [signingReport]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -286,36 +780,72 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="979" extended-state="1" />
+    <frame x="0" y="23" width="1680" height="979" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2924298" />
+      <window_info id="Captures" order="0" sideWeight="0.50084037" side_tool="true" weight="0.2924298" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49915966" visible="true" weight="0.2924298" />
       <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.50084037" side_tool="true" weight="0.2924298" />
+      <window_info id="Build Variants" order="4" sideWeight="0.50084037" side_tool="true" weight="0.2924298" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" weight="0.32967034" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.4993895" weight="0.32919955" />
-      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32919955" />
-      <window_info anchor="bottom" id="TODO" order="2" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.497558" weight="0.20067644" />
+      <window_info anchor="bottom" id="Logcat" order="1" sideWeight="0.4993895" weight="0.32919955" />
+      <window_info anchor="bottom" id="TODO" order="2" sideWeight="0.4993895" weight="0.32919955" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32919955" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.36752138" side_tool="true" visible="true" weight="0.1837655" />
-      <window_info anchor="bottom" id="Version Control" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.63247865" visible="true" weight="0.1837655" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.4993895" weight="0.32919955" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.37179488" side_tool="true" visible="true" weight="0.1837655" />
+      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.4993895" weight="0.32919955" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.6282051" visible="true" weight="0.1837655" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.497558" weight="0.32919955" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.32967034" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Assistant" order="5" weight="0.32967034" />
+      <window_info anchor="right" id="Preview" order="6" weight="0.32967034" />
     </layout>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
@@ -387,16 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build/generated/rncli/src/main/java/com/facebook/react/PackageList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -411,24 +931,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/abhiandroid.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splashfile.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="154" column="22" selection-start-line="154" selection-start-column="22" selection-end-line="154" selection-end-column="22" />
+        <state relative-caret-position="414">
+          <caret line="147" column="51" selection-start-line="147" selection-start-column="51" selection-end-line="147" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/color.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="33" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state relative-caret-position="60">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="10" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="48" />
+        <state relative-caret-position="60">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -436,12 +1010,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="390">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
+      <provider editor-type-id="android-manifest" />
     </entry>
   </component>
 </project>
