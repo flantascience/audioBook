@@ -3,9 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>com.apple.developer.associated-domains</key>
-	<array>
-		<string>applinks:curricudumb.app.link</string>
-		<string>applinks:curricudumb-alternate.app.link</string>
-	</array>
+	<array/>
 </dict>
 </plist>

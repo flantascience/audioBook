@@ -15,7 +15,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1ACCB09DDFC24C7981706D79 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18A7754A1AC847DEABAA566C /* Foundation.ttf */; };
 		2712423794024C76B9787A43 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1D3BCBD54F5B4DB5B0F31DB5 /* FontAwesome5_Brands.ttf */; };
-		28C597CD90103385974FE19E /* libPods-audioBookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E776933670D763F4B2D760 /* libPods-audioBookTests.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -38,10 +37,11 @@
 		AC2ABA66BAAC4333810758AA /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E844E78D3D14383B6DE4E96 /* Fontisto.ttf */; };
 		C4EC8ED3CC31878160A43092 /* libPods-audioBook-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046EEF471898616885D3F0FB /* libPods-audioBook-tvOSTests.a */; };
 		CC2E46740D0445F39F620219 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6998FD080C704EBB8624BC13 /* Zocial.ttf */; };
-		CED2B2CFF78386CC0D7B64B0 /* libPods-audioBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFB6A9AFA0EE8C8CE955B57 /* libPods-audioBook.a */; };
+		D1DE8A632447B6DC485462AD /* libPods-audioBookTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F4F8FE967F8D890CCC065C /* libPods-audioBookTests.a */; };
 		D3F412197BE24A59A2BF3083 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C79418C206384AADB77EBC3C /* Feather.ttf */; };
 		D8842EA24557405E84434026 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C47B9ED936C403DB56FCBE3 /* MaterialCommunityIcons.ttf */; };
 		DE19530727DD4EDD9F5AFA64 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 032A1C339CFF4A4C824E696A /* FontAwesome5_Solid.ttf */; };
+		EB7DE6E7891733231275CCD9 /* libPods-audioBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BA5CCC1983FD25AF12B7B66 /* libPods-audioBook.a */; };
 		F03A33E440F14459B8CB3833 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4FFC55A6AAA4E478D8F2748 /* FontAwesome5_Regular.ttf */; };
 		FAC6C21E22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
 		FAC6C21F22F053BB00107D2E /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C20E22F053BB00107D2E /* Fontisto.ttf */; };
@@ -141,7 +141,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = audioBook/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = audioBook/main.m; sourceTree = "<group>"; };
 		17E0756FF34948A1B3657C75 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		17E776933670D763F4B2D760 /* libPods-audioBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18A7754A1AC847DEABAA566C /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		1D3BCBD54F5B4DB5B0F31DB5 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* audioBook-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "audioBook-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,8 +156,9 @@
 		6A32696423547A5100946C70 /* crzy-head-shot-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot-trans.png"; path = "../Components/Header/images/crzy-head-shot-trans.png"; sourceTree = "<group>"; };
 		6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DKCrayonCrumble.ttf; sourceTree = "<group>"; };
 		6A91CBC423E21A1200E366C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Dev/Curricu-dumb/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6A97C27623FFAC3F007C142B /* audioBook.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = audioBook.entitlements; path = audioBook/audioBook.entitlements; sourceTree = "<group>"; };
 		7D3916424961B21B7AAA4388 /* Pods-audioBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		84F4F8FE967F8D890CCC065C /* libPods-audioBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BA5CCC1983FD25AF12B7B66 /* libPods-audioBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAB5352F5D4411F8E863496 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		907A4B6616D54763A38EAEB0 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		9A7A3398388E4E59AB2E0157 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -167,7 +167,6 @@
 		C4FFC55A6AAA4E478D8F2748 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		C5E4C8749EC447629882476D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C79418C206384AADB77EBC3C /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		CCFB6A9AFA0EE8C8CE955B57 /* libPods-audioBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB34346627F164088FFE6D93 /* libPods-audioBook-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E373A5CFAEAD1ED7F4E29A03 /* Pods-audioBook-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOSTests/Pods-audioBook-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -201,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28C597CD90103385974FE19E /* libPods-audioBookTests.a in Frameworks */,
+				D1DE8A632447B6DC485462AD /* libPods-audioBookTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED2B2CFF78386CC0D7B64B0 /* libPods-audioBook.a in Frameworks */,
+				EB7DE6E7891733231275CCD9 /* libPods-audioBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +251,6 @@
 		13B07FAE1A68108700A75B9A /* audioBook */ = {
 			isa = PBXGroup;
 			children = (
-				6A97C27623FFAC3F007C142B /* audioBook.entitlements */,
 				6A066A9723881D2C001DB23C /* GoogleService-Info.plist */,
 				6A32696423547A5100946C70 /* crzy-head-shot-trans.png */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -271,10 +269,10 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
+				8BA5CCC1983FD25AF12B7B66 /* libPods-audioBook.a */,
 				DB34346627F164088FFE6D93 /* libPods-audioBook-tvOS.a */,
 				046EEF471898616885D3F0FB /* libPods-audioBook-tvOSTests.a */,
-				CCFB6A9AFA0EE8C8CE955B57 /* libPods-audioBook.a */,
-				17E776933670D763F4B2D760 /* libPods-audioBookTests.a */,
+				84F4F8FE967F8D890CCC065C /* libPods-audioBookTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,7 +412,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				6A2AF2032387CD1A00F7E7C5 /* ShellScript */,
-				CEA4D905B3D1E636D15D976D /* [CP] Copy Pods Resources */,
+				DC69ADABC8F6C72C9451041B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -773,7 +771,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CEA4D905B3D1E636D15D976D /* [CP] Copy Pods Resources */ = {
+		DC69ADABC8F6C72C9451041B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -781,7 +779,6 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-audioBook/Pods-audioBook-resources.sh",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
-				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/DKCrayonCrumble.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
@@ -801,7 +798,6 @@
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DKCrayonCrumble.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
@@ -980,7 +976,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = audioBook/audioBook.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
@@ -1013,7 +1008,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = audioBook/audioBook.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;

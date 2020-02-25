@@ -107,7 +107,6 @@
     <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-lite:3.0.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.facebook.react:react-native:0.60.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.0.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: io.branch.sdk.android:library:4.3.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-perf:19.0.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database:17.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage:17.0.0@aar" level="project" />
@@ -176,7 +175,6 @@
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:beta:1.2.10@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.crashlytics.sdk.android:answers:1.4.7@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.fabric.sdk.android:fabric:1.4.8@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.installreferrer:installreferrer:1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
     <orderEntry type="module" module-name="@react-native-community_netinfo" />
     <orderEntry type="module" module-name="@react-native-community_slider" />
@@ -189,6 +187,5 @@
     <orderEntry type="module" module-name="react-native-dark-mode" />
     <orderEntry type="module" module-name="react-native-gesture-handler" />
     <orderEntry type="module" module-name="react-native-music-control" />
-    <orderEntry type="module" module-name="react-native-splash-screen" />
   </component>
 </module>

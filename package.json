@@ -26,7 +26,6 @@
     "react-native-progress": "^3.6.0",
     "react-native-progress-circle": "^2.0.1",
     "react-native-simple-animations": "^0.2.1",
-    "react-native-splash-screen": "^3.2.0",
     "react-native-swift": "^1.2.2",
     "react-native-track-player": "1.1.7",
     "react-native-vector-icons": "^6.6.0",
@@ -51,7 +50,7 @@
   },
   "rnpm": {
     "assets": [
-      "./assets/fonts/"
+   "./assets/fonts/"
     ]
   }
 }
