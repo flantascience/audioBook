@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
 		04D3A7B050D14969965BA924 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5352F5D4411F8E863496 /* AntDesign.ttf */; };
@@ -33,7 +32,6 @@
 		6CB7634DC49141248DAFD638 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A7861B4F643F7B9A70470 /* SimpleLineIcons.ttf */; };
 		6E882FABA8E947159DD07146 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 907A4B6616D54763A38EAEB0 /* FontAwesome.ttf */; };
 		8D017BFBC56447AAAD004654 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5E4C8749EC447629882476D /* Octicons.ttf */; };
-		A016A0CFD1664398BD5DF218 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */; };
 		AC2ABA66BAAC4333810758AA /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E844E78D3D14383B6DE4E96 /* Fontisto.ttf */; };
 		C4EC8ED3CC31878160A43092 /* libPods-audioBook-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 046EEF471898616885D3F0FB /* libPods-audioBook-tvOSTests.a */; };
 		CC2E46740D0445F39F620219 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6998FD080C704EBB8624BC13 /* Zocial.ttf */; };
@@ -107,6 +105,7 @@
 		FAC6C25B22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
 		FAC6C25C22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
 		FAC6C25D22F053BB00107D2E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */; };
+		A016A0CFD1664398BD5DF218 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,7 +148,6 @@
 		33EB855423889E12D93D2511 /* Pods-audioBook-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOS.release.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		34F8DB48EEFDAAF3A960DBE5 /* Pods-audioBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook.debug.xcconfig"; path = "Target Support Files/Pods-audioBook/Pods-audioBook.debug.xcconfig"; sourceTree = "<group>"; };
 		3E844E78D3D14383B6DE4E96 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = DKCrayonCrumble.ttf; path = ../assets/fonts/DKCrayonCrumble.ttf; sourceTree = "<group>"; };
 		6998FD080C704EBB8624BC13 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		6A066A9723881D2C001DB23C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A326962235471CC00946C70 /* audioBookSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioBookSwift.swift; sourceTree = "<group>"; };
@@ -193,6 +191,7 @@
 		FAC6C21D22F053BB00107D2E /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		FAF0B3E982190E795960657A /* Pods-audioBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook.release.xcconfig"; path = "Target Support Files/Pods-audioBook/Pods-audioBook.release.xcconfig"; sourceTree = "<group>"; };
 		FE080162ADCD7DDCA4643A7C /* Pods-audioBook-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBook-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-audioBook-tvOS/Pods-audioBook-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; name = "DKCrayonCrumble.ttf"; path = "../assets/fonts/DKCrayonCrumble.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -978,7 +977,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1010,7 +1009,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = audioBook/Info.plist;
