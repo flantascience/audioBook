@@ -29,7 +29,14 @@ export const author = {
   " Join me on my mission to liberate young people from schools to thrive in freedom.",
   callToAction: "Want updates about future projects?",
   buttonText: "JOIN MAILING LIST",
-  emailPlaceHolder: "email@provider.com"
+  emailPlaceHolder: "email@provider.com",
+  messages: {
+    tryLater: "Please try later",
+    subscribed: "You successfully subscribed!",
+    alreadySubscribed: "You already subscribed",
+    worngEmailFormat: "You entered a wrong email format",
+    fillEmail: "Fill in your email address"
+  }
 }
 
 export const audioOverview = {

@@ -293,6 +293,9 @@ class Audio extends React.Component{
                         this.setState({currentTime: Math.floor(currentTime)});
                         this.props.store({currentPosition: Math.floor(currentTime)});
                     }}
+                    onEnd={() => {
+                        this.props.store({paused: true, currentPosition: 0});
+                    }}
                     playWhenInactive={true}
                     paused={paused}
                     audioOnly={true}
@@ -302,6 +305,7 @@ class Audio extends React.Component{
                         if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
                         else this.props.store({loaded:true});
                     }}
+                    repeat={true}
                     controls={true}
                     ignoreSilentSwitch={"ignore"}
                 /> : null }

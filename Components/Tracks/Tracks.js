@@ -374,7 +374,7 @@ fetchFromFirebase = () => {
         if (track) cloudAudio.push(track);
       });
       let newAudioFiles = [...cloudAudio];
-      this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+      this.props.store({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
       this._storeAudioFilesData(newAudioFiles);
     }).catch(err => {
       console.log(err)

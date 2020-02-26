@@ -1,0 +1,350 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.curricu_dumb_audiobook"
+4    android:versionCode="15"
+5    android:versionName="2.5" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:5:5-79
+11-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:7:5-80
+13-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:7:22-77
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:8:5-68
+14-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:8:22-65
+15
+16    <!-- Required by older versions of Google Play services to create IID tokens -->
+17    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+17-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:26:5-82
+17-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:26:22-79
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+18-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:5-77
+18-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:22-74
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->[:react-native-fs] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-fs/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:5-81
+19-->[:react-native-fs] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-fs/android/build/intermediates/library_manifest/release/AndroidManifest.xml:11:22-78
+20    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+20-->[:@react-native-community_netinfo] /Users/muganwa/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/release/AndroidManifest.xml:10:5-76
+20-->[:@react-native-community_netinfo] /Users/muganwa/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/release/AndroidManifest.xml:10:22-73
+21    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+21-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:5-110
+21-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:22-107
+22
+23    <application
+23-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-50:19
+24        android:name="com.curricu_dumb_audiobook.MainApplication"
+24-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:12:7-64
+25        android:allowBackup="false"
+25-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:17:7-34
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/cf68592e9484182d2dc4f045b17a25af/core-1.0.2/AndroidManifest.xml:22:18-86
+27        android:icon="@mipmap/ic_launcher"
+27-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:15:7-41
+28        android:label="@string/app_name"
+28-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:14:7-39
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:16:7-52
+30        android:screenOrientation="portrait"
+30-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:13:7-43
+31        android:theme="@style/AppTheme" >
+31-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:18:7-38
+32        <activity
+32-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:19:7-44:18
+33            android:name="com.curricu_dumb_audiobook.MainActivity"
+33-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:20:9-63
+34            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+34-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:23:9-79
+35            android:label="@string/app_name"
+35-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:22:9-41
+36            android:screenOrientation="portrait"
+36-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:21:9-45
+37            android:windowSoftInputMode="adjustResize" >
+37-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:24:9-51
+38            <intent-filter>
+38-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:25:9-28:25
+39                <action android:name="android.intent.action.MAIN" />
+39-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:26:13-65
+39-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:26:21-62
+40
+41                <category android:name="android.intent.category.LAUNCHER" />
+41-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:27:13-73
+41-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:27:23-70
+42            </intent-filter>
+43            <!-- Branch URI scheme -->
+44            <intent-filter android:scheme="http" >
+44-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:11-35:27
+44-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:26-47
+45                <data
+45-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:15-68
+46                    android:host="open"
+46-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:46-65
+47                    android:scheme="yourapp" />
+47-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:21-45
+48
+49                <action android:name="android.intent.action.VIEW" />
+49-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:15-67
+49-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:23-64
+50
+51                <category android:name="android.intent.category.DEFAULT" />
+51-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:15-74
+51-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:25-71
+52                <category android:name="android.intent.category.BROWSABLE" />
+52-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:15-76
+52-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:25-73
+53            </intent-filter>
+54
+55            <!-- Branch App Links -->
+56            <intent-filter android:autoVerify="true" >
+56-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:38:11-43:27
+56-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:38:26-51
+57                <action android:name="android.intent.action.VIEW" />
+57-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:15-67
+57-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:23-64
+58
+59                <category android:name="android.intent.category.DEFAULT" />
+59-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:15-74
+59-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:25-71
+60                <category android:name="android.intent.category.BROWSABLE" />
+60-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:15-76
+60-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:25-73
+61
+62                <data
+62-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:15-68
+63                    android:host="curricudumb.app.link"
+63-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:46-65
+64                    android:scheme="https" />
+64-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:21-45
+65            </intent-filter>
+66        </activity>
+67        <!-- Branch init -->
+68        <meta-data
+68-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:9-119
+69            android:name="io.branch.sdk.BranchKey"
+69-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:20-58
+70            android:value="key_live_lhPUGcRynkQUCiCZECjFkkohtAgrescK" />
+70-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:59-116
+71        <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
+72        <meta-data
+72-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:9-82
+73            android:name="io.branch.sdk.TestMode"
+73-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:20-57
+74            android:value="false" />
+74-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:58-79
+75
+76        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+76-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:49:7-84
+76-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:49:17-81
+77
+78        <service
+78-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:9-33:19
+79            android:name="com.google.firebase.components.ComponentDiscoveryService"
+79-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:18-89
+80            android:directBootAware="true"
+80-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+81            android:exported="false" >
+81-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:33:13-37
+82            <meta-data
+82-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:30:13-32:85
+83                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+83-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:31:17-109
+84                android:value="com.google.firebase.components.ComponentRegistrar" />
+84-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:32:17-82
+85            <meta-data
+85-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:31:13-33:85
+86                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+86-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:32:17-107
+87                android:value="com.google.firebase.components.ComponentRegistrar" />
+87-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:33:17-82
+88            <meta-data
+88-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:34:13-36:85
+89                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar"
+89-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:35:17-109
+90                android:value="com.google.firebase.components.ComponentRegistrar" />
+90-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:36:17-82
+91            <meta-data
+91-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:30:13-32:85
+92                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+92-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:31:17-139
+93                android:value="com.google.firebase.components.ComponentRegistrar" />
+93-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:32:17-82
+94            <meta-data
+94-->[com.google.firebase:firebase-config:19.0.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ac165bf4c97b688a28b2b33d0e54ae0b/firebase-config-19.0.4/AndroidManifest.xml:32:13-34:85
+95                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+95-->[com.google.firebase:firebase-config:19.0.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ac165bf4c97b688a28b2b33d0e54ae0b/firebase-config-19.0.4/AndroidManifest.xml:33:17-117
+96                android:value="com.google.firebase.components.ComponentRegistrar" />
+96-->[com.google.firebase:firebase-config:19.0.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ac165bf4c97b688a28b2b33d0e54ae0b/firebase-config-19.0.4/AndroidManifest.xml:34:17-82
+97            <meta-data
+97-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:32:13-34:85
+98                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+98-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:33:17-96
+99                android:value="com.google.firebase.components.ComponentRegistrar" />
+99-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:34:17-82
+100            <meta-data
+100-->[:react-native-firebase] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-firebase/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:13-19:85
+101                android:name="com.google.firebase.components:io.invertase.firebase.ReactNativeFirebaseAppRegistrar"
+101-->[:react-native-firebase] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-firebase/android/build/intermediates/library_manifest/release/AndroidManifest.xml:18:17-116
+102                android:value="com.google.firebase.components.ComponentRegistrar" />
+102-->[:react-native-firebase] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-firebase/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:17-82
+103            <meta-data
+103-->[com.google.firebase:firebase-abt:19.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/254346295c10375d6af5514bdda7d8d6/firebase-abt-19.0.0/AndroidManifest.xml:13:13-15:85
+104                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+104-->[com.google.firebase:firebase-abt:19.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/254346295c10375d6af5514bdda7d8d6/firebase-abt-19.0.0/AndroidManifest.xml:14:17-109
+105                android:value="com.google.firebase.components.ComponentRegistrar" />
+105-->[com.google.firebase:firebase-abt:19.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/254346295c10375d6af5514bdda7d8d6/firebase-abt-19.0.0/AndroidManifest.xml:15:17-82
+106        </service>
+107
+108        <provider
+108-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:25:9-29:39
+109            android:name="com.google.firebase.perf.provider.FirebasePerfProvider"
+109-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:26:13-82
+110            android:authorities="com.curricu_dumb_audiobook.firebaseperfprovider"
+110-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:27:13-72
+111            android:exported="false"
+111-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:28:13-37
+112            android:initOrder="101" />
+112-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:29:13-36
+113
+114        <receiver
+114-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:37:9-44:20
+115            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+115-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:38:13-78
+116            android:exported="true"
+116-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:39:13-36
+117            android:permission="com.google.android.c2dm.permission.SEND" >
+117-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:40:13-73
+118            <intent-filter>
+118-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:41:13-43:29
+119                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+119-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:42:17-81
+119-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:42:25-78
+120            </intent-filter>
+121        </receiver>
+122
+123        <activity
+123-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+124            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+124-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+125            android:exported="false"
+125-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+126            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- The main service, handles playback, playlists and media buttons -->
+126-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+127        <service
+127-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:17:9-24:19
+128            android:name="com.guichaguri.trackplayer.service.MusicService"
+128-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:18:13-75
+129            android:enabled="true"
+129-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:19:13-35
+130            android:exported="true" >
+130-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:20:13-36
+131            <intent-filter>
+131-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:21:13-23:29
+132                <action android:name="android.intent.action.MEDIA_BUTTON" />
+132-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:22:17-77
+132-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:22:25-74
+133            </intent-filter>
+134        </service> <!-- A receiver that will receive media buttons. Required on pre-lollipop devices -->
+135        <receiver android:name="androidx.media.session.MediaButtonReceiver" >
+135-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:27:9-31:20
+135-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:27:19-76
+136            <intent-filter>
+136-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:21:13-23:29
+137                <action android:name="android.intent.action.MEDIA_BUTTON" />
+137-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:22:17-77
+137-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/release/AndroidManifest.xml:22:25-74
+138            </intent-filter>
+139        </receiver>
+140
+141        <provider
+141-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:19:9-23:38
+142            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+142-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:20:13-75
+143            android:authorities="com.curricu_dumb_audiobook.crashlyticsinitprovider"
+143-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:21:13-75
+144            android:exported="false"
+144-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:22:13-37
+145            android:initOrder="90" />
+145-->[com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:23:13-35
+146
+147        <service
+147-->[:react-native-music-control] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/android/build/intermediates/library_manifest/release/AndroidManifest.xml:12:9-14:43
+148            android:name="com.tanguyantoine.react.MusicControlNotification$NotificationService"
+148-->[:react-native-music-control] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/android/build/intermediates/library_manifest/release/AndroidManifest.xml:13:13-96
+149            android:stopWithTask="true" />
+149-->[:react-native-music-control] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/android/build/intermediates/library_manifest/release/AndroidManifest.xml:14:13-40
+150
+151        <receiver
+151-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:29:9-33:20
+152            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+152-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:30:13-85
+153            android:enabled="true"
+153-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:31:13-35
+154            android:exported="false" >
+154-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:32:13-37
+155        </receiver>
+156        <receiver
+156-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:34:9-42:20
+157            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+157-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:35:13-100
+158            android:enabled="true"
+158-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:36:13-35
+159            android:exported="true"
+159-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:37:13-36
+160            android:permission="android.permission.INSTALL_PACKAGES" >
+160-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:38:13-69
+161            <intent-filter>
+161-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:39:13-41:29
+162                <action android:name="com.android.vending.INSTALL_REFERRER" />
+162-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:40:17-79
+162-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:40:25-76
+163            </intent-filter>
+164        </receiver>
+165
+166        <service
+166-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:44:9-47:40
+167            android:name="com.google.android.gms.measurement.AppMeasurementService"
+167-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:45:13-84
+168            android:enabled="true"
+168-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:46:13-35
+169            android:exported="false" />
+169-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:47:13-37
+170        <service
+170-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:48:9-52:72
+171            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+171-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:49:13-87
+172            android:enabled="true"
+172-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:50:13-35
+173            android:exported="false"
+173-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:51:13-37
+174            android:permission="android.permission.BIND_JOB_SERVICE" />
+174-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:52:13-69
+175
+176        <provider
+176-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+177            android:name="com.google.firebase.provider.FirebaseInitProvider"
+177-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+178            android:authorities="com.curricu_dumb_audiobook.firebaseinitprovider"
+178-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+179            android:exported="false"
+179-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+180            android:initOrder="100" />
+180-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+181
+182        <meta-data
+182-->[com.google.android.gms:play-services-basement:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/2e57ca5516ac3dd2a91c2304b3078357/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+183            android:name="com.google.android.gms.version"
+183-->[com.google.android.gms:play-services-basement:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/2e57ca5516ac3dd2a91c2304b3078357/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+184            android:value="@integer/google_play_services_version" />
+184-->[com.google.android.gms:play-services-basement:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/2e57ca5516ac3dd2a91c2304b3078357/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+185    </application>
+186
+187</manifest>

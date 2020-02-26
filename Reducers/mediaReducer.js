@@ -12,6 +12,7 @@ const initialState = {
   audioFilesCloud: [],
   loaded: false,
   paused: true,
+  stopped: null,
   totalLength: 1,
   totalLengthFormatted: "00:00",
   currentPosition: 0,

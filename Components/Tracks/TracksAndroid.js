@@ -107,8 +107,16 @@ class Tracks extends React.Component {
       })
     });
 
+    TrackPlayer.addEventListener('playback-queue-ended', async () => {
+      const currentPosition = await TrackPlayer.getPosition();
+      if (currentPosition) {
+        this.props.store({paused: true, stopped: true, currentPosition: 0});
+        TrackPlayer.stop();
+      }
+    });
+
     TrackPlayer.addEventListener('remote-jump-backward', async () => {
-      TrackPlayer.getPosition().then(res=>{
+      TrackPlayer.getPosition().then(res => {
           let newPos = res + parseFloat(-15);
           let newState = {
               currentPosition: newPos,
@@ -195,6 +203,7 @@ class Tracks extends React.Component {
                           showOverview: true,
                           trackDuration, 
                           paused: false, 
+                          stopped: false,
                           loaded: true, 
                           totalLength: trackDuration, 
                           formattedDuration
@@ -216,6 +225,7 @@ class Tracks extends React.Component {
                           showOverview: true,
                           trackDuration, 
                           paused: false, 
+                          stopped: false,
                           loaded: true, 
                           totalLength: trackDuration, 
                           formattedDuration
@@ -260,6 +270,7 @@ class Tracks extends React.Component {
                         showOverview: true,
                         trackDuration, 
                         paused: false, 
+                        stopped: false,
                         loaded: true, 
                         totalLength: trackDuration, 
                         formattedDuration
@@ -281,6 +292,7 @@ class Tracks extends React.Component {
                         showOverview: true,
                         trackDuration, 
                         paused: false, 
+                        stopped: false,
                         loaded: true, 
                         totalLength: trackDuration, 
                         formattedDuration

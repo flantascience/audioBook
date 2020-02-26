@@ -19,6 +19,7 @@ import {
   ProgressBar,
   Refs
 } from '../';
+import { useTrackPlayerProgress } from 'react-native-track-player';
 import firebase from 'react-native-firebase';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { TOAST_TIMEOUT } from '../../Misc/Constants';
@@ -44,8 +45,8 @@ class Audio extends React.Component{
         this.setState({lastTrackId});
     }
 
-    toggleTrack = (pos)=>{
-      //console.log(currentlyPlaying + " " + pos);
+    toggleTrack = pos => {
+      console.log(currentlyPlaying + " " + pos);
       let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
       let title = audioFiles[pos].title;
       return new Promise(resolve => {
@@ -57,6 +58,7 @@ class Audio extends React.Component{
               TrackPlayer.add([audioFiles[pos]]).then(() => {
                   let newState = {
                       paused: false,
+                      stopped: false,
                       loaded: true,
                       currentlyPlaying: pos,
                       selectedTrack: pos,
@@ -151,7 +153,7 @@ class Audio extends React.Component{
 
     goToTracks = () => {
         let { navigate } = this.props;
-        navigate("Second");
+        navigate("Third");
     }
 
     sendQuestionnaire = () => {
@@ -265,7 +267,6 @@ class Audio extends React.Component{
         let remainingTime = ( trackDuration - currentPosition );
         let mode = eventEmitter.currentMode;
         let dark = mode === 'dark';
-
         const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>
                 <ProgressBar dark={dark} toggleReached90={this.toggleReached90} reached90={reached90} />
                 <View style={ dark ? styles.trackTimeCounterContainerDark : styles.trackTimeCounterContainer }>
