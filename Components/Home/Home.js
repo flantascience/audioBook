@@ -146,17 +146,33 @@ class Home extends React.Component {
             { !loaded ? 
             <View>
               <Image
-                source={require('./images/home-chalkboard-wide-high-text.jpg')}
+                source={require('./images/chalkboard-only.jpg')}
                 style={ styles.thumb }
               />
+              <View style = { styles.mainTextThumb }>
+                  <Image
+                    source={require('./images/book-title.png')}
+                    style={ styles.mainTextThumbImg }
+                  />
+                </View>
             </View> : null }
             {
               loaded && !showVid ?
               <View>
                 <Image
-                  source={require('./images/home-chalkboard-wide-high-text.jpg')}
+                  source={require('./images/chalkboard-only.jpg')}
                   style={ styles.thumb }
                 />
+                <View style = { styles.mainTextThumb }>
+                  <Image
+                    source={require('./images/book-title.png')}
+                    style={ styles.mainTextThumbImg }
+                  />
+                   <Image 
+                    source={require('./images/press-start-to-play.png')} 
+                    style={ styles.pressStart }
+                   />
+                </View>
                 <View style={ styles.playButtonContainer }>
                   <Button
                     style={ styles.playButton }

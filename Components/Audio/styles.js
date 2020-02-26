@@ -468,7 +468,8 @@ export const styles = StyleSheet.create({
     },
     refRowContainer: {
         alignContent: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        alignItems: "center"
     },
     refText: {
         alignSelf: "flex-start"

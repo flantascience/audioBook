@@ -246,7 +246,8 @@ class Audio extends React.Component{
                 question,
                 comment
             },
-            showQuestionnaire
+            showQuestionnaire,
+            fetchingRefs
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -402,7 +403,7 @@ class Audio extends React.Component{
                                     size={25} 
                                 />
                             </TouchableOpacity>
-                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } {...this.props} />
+                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } fetching={fetchingRefs} {...this.props} />
                         </View>
                     </View>
                 </ScrollView> :
@@ -518,7 +519,9 @@ const mapStateToProps = state => {
       questionnaire: state.media.questionnaire,
       showToast: state.media.showToast,
       toastText: state.media.toastText,
-      hideMenu: state.media.hideMenu
+      hideMenu: state.media.hideMenu,
+      connected: state.connectionInfo.connected,
+      fetchingRefs: state.refs.fetching,
     }
 }
 

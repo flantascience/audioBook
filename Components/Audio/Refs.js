@@ -3,18 +3,21 @@ import {
     View, 
     Text, 
     Linking, 
-    ActivityIndicator 
+    ActivityIndicator,
+    Dimensions
 } from 'react-native';
 import firebase from 'react-native-firebase';
 import { refsStrings } from '../../Misc/Strings';
 import PropTypes from 'prop-types';
 
 const Analytics = firebase.analytics();
-
-const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currentlyPlayingName, dark }) => {
+const width = Dimensions.get('window').width;
+const Refs = ({ styles, fetching, connected, referencesInfo, references, showRefs, currentlyPlayingName, dark }) => {
     /*useEffect(() => {
         console.log(connected);
     }, [])*/
+    console.log(references)
+    const showStatement = references.length > 0;
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
             if(supported){
@@ -30,23 +33,23 @@ const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currently
     return(
         <View style={ styles.refsContainer }>
             <View style = { styles.refsBody }>
-            {   showRefs && referencesInfo.length > 0 ?
+            {  showRefs && referencesInfo.length > 0 ?
                 <View style={ styles.transparencyStatementContainer } >
                     <Text>
                         <Text style={ dark ? styles.transparencyStatementTitleDark : styles.transparencyStatementTitle }>
-                            { refsStrings.transparencyStatementTitle }
+                            { showStatement ? refsStrings.transparencyStatementTitle : null }
                         </Text>
                         <Text style={ dark ? styles.transparencyStatementTextDark : styles.transparencyStatementText }>
-                            { refsStrings.transparencyStatementText }
+                            { showStatement ? refsStrings.transparencyStatementText : null }
                         </Text>
                     </Text>
                 </View>:
                 null
             }
-            { 
+            {
                 showRefs ?
-                referencesInfo.length > 0 ?
-                Object.keys(referencesInfo).map(ref=>{
+                references.length > 0 ?
+                Object.keys(referencesInfo).map(ref => {
                     if (referencesInfo[ref]) {
                         let text = referencesInfo[ref].text;
                         let url = referencesInfo[ref].url || "";
@@ -66,15 +69,16 @@ const Refs = ({ styles, fetching, connected, referencesInfo, showRefs, currently
                 }) :
                 <View style={ styles.refRowContainer }>
                     { fetching && connected ? 
-                    <ActivityIndicator
-                        size="small" 
-                        color="#D4D4D4"
-                        style={{ marginBottom: "10%" }}
-                     /> : 
-                     null }
+                        <View style={{display: 'flex', width: width - 70}}>
+                            <ActivityIndicator
+                                size="small" 
+                                color={ dark ? "#D4D4D4" : "#000" }
+                                style={{ marginBottom: "10%" }}
+                            />
+                        </View> : 
                     <Text style = { dark ? styles.noRefsTextDark : styles.noRefsText }>
                         { connected ? refsStrings.noRefs : refsStrings.noConnection }
-                    </Text>
+                    </Text> }
                 </View> :
                 null
             }

@@ -391,7 +391,7 @@ class Tracks extends React.Component {
   }
 
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
-    return new Promise(resolve=>{
+    return new Promise(resolve => {
         let currentReferences = [];
         let referencesInfo = [];
         audioFiles.forEach(file => {
@@ -413,6 +413,7 @@ class Tracks extends React.Component {
         }
     });
   } 
+
 
   _storeData = async audioFiles => {
     try {
@@ -473,6 +474,7 @@ class Tracks extends React.Component {
       },
       reportSlowConnection
     } = this.props;
+    let { referencesInfo } = this.state;
     let type = selectedTrack ? audioFiles[selectedTrack].type : "local";
     let height = Dimensions.get('window').height;
 
@@ -491,6 +493,7 @@ class Tracks extends React.Component {
     <AudioAndroid
         navigate = { navigation.navigate }
         audioSource={ audioSource } // Can be a URL or a local file
+        referencesInfo={referencesInfo}
         audioFiles={audioFiles}
         pos={ selectedTrack }
         initCurrentlyPlaying = { initCurrentlyPlaying }

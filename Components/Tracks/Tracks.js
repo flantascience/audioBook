@@ -325,29 +325,25 @@ class Tracks extends React.Component {
     return new Promise(resolve => {
         let currentReferences = [];
         let referencesInfo = [];
-        try {
-          audioFiles.forEach(file => {
-            // console.log(file)
-            let id = file.id;
-            if(id === currentlyPlaying){
-                currentReferences = file.references;
-            }
-          });
-          if (currentReferences && currentReferences.length > 0) {
-              currentReferences.forEach(ref => {
-                  referencesInfo.push(references[ref]);
-              });
-              this.setState({referencesInfo});
-              resolve("has");
+        audioFiles.forEach(file => {
+          // console.log(file)
+          let id = file.id;
+          if(id === currentlyPlaying){
+              currentReferences = file.references;
           }
-          else {
-              this.setState({referencesInfo: []});
-              resolve("doesnt");
-          }
-        }catch(e){
-          console.log(e)
+        });
+        if (currentReferences && currentReferences.length > 0) {
+            currentReferences.forEach(ref => {
+                referencesInfo.push(references[ref]);
+            });
+            this.setState({referencesInfo});
+            resolve("has");
         }
-    });
+        else {
+            this.setState({referencesInfo: []});
+            resolve("doesnt");
+        }
+  });
   } 
 
 _storeData = async audioFiles => {

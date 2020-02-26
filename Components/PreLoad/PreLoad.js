@@ -169,11 +169,12 @@ class PreLoad extends React.Component {
     //this._getStoredData("audioFiles");
     this.props.startFetchingRefs();
     referencesRef.once('value', data => {
-      data.forEach(refInfo=>{
+      data.forEach(refInfo => {
         let key = refInfo.key;
         let ref = refInfo.val();
         cloudRefs[key] = ref;
       });
+      //console.log(cloudRefs)
       this.props.storeReferences(cloudRefs);
     });
   }

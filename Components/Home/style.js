@@ -87,11 +87,32 @@ export const styles = StyleSheet.create({
         backgroundColor: "#212121"
     },
     thumb: {
-        height: height > 800 ? height - 180 : 
-        height > 600 ? height - 100 : 
-        height - 30,
+        height: height > 800 ? height - 200 : 
+        height > 600 ? height - 180 : 
+        height - 160,
         width,
         resizeMode: 'cover'
+    },
+    mainTextThumb: {
+        position: 'absolute',
+        display:'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width,
+        left: 0,
+        right: 0,
+        top: height > 800 ? '23%' : 
+        height > 600 ? '20%' : 
+        '20%'
+    },
+    mainTextThumbImg: {
+        resizeMode: 'contain',
+        width: '90%'
+    },
+    pressStart: {
+        resizeMode: 'contain',
+        marginTop: height > 800 ? '20%' : 10,
+        width: '50%'
     },
     playButtonContainer: {
         position: 'absolute',
@@ -103,7 +124,7 @@ export const styles = StyleSheet.create({
         right: 0,
         bottom: height > 800 ? '33%' : 
         height > 600 ? '30%' : 
-        '30%'
+        '25%'
     },
     playButton: {
         display:'flex',
@@ -124,7 +145,9 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         flex:1,
-        height: height - 180,
+        height: height > 800 ? 
+        height - 220 : height > 600 ? 
+        height - 180 : height - 160,
         width,
         borderWidth: 0,
         backgroundColor: dark ? '#000' : '#fff',
