@@ -75,7 +75,7 @@ class Tracks extends React.Component {
   };
 
   componentDidMount(){
-    Analytics.setCurrentScreen('Tracks');
+    Analytics.setCurrentScreen('Tracks_prod');
     const { connectionInfo: { connected } } = this.props;
     if (!connected) {
       let showMessage = true;
@@ -221,8 +221,8 @@ class Tracks extends React.Component {
               formattedDuration
             });
           }
-          //log streamed audio
-          Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
+          //log streamed audio if title available
+          audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {streaming: audioFiles[pos].title}) : null;
           //alert that track is streaming
           currentAction[pos].action = "streaming";
           this.setState({currentAction});
@@ -278,7 +278,7 @@ class Tracks extends React.Component {
           }
           else {
             // console.log(audioFiles[pos].title)
-            Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
+            audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {downloading: audioFiles[pos].title}) : null;
             currentAction[pos].action = "downloading";
             this.setState({currentAction});
           }

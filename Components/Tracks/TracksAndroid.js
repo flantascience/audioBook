@@ -68,7 +68,7 @@ class Tracks extends React.Component {
 
   componentDidMount(){
     let { audioFiles, connectionInfo: { connected } } = this.props;
-    Analytics.setCurrentScreen('Tracks');
+    Analytics.setCurrentScreen('Tracks_prod');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       let palyerState = data.state;
       //console.log(palyerState);
@@ -288,7 +288,7 @@ class Tracks extends React.Component {
                       TrackPlayer.play();
                     }
                     //log streamed audio
-                    Analytics.logEvent('type_of_consumption', {streaming: audioFiles[pos].title});
+                    audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {streaming: audioFiles[pos].title}) : null;
                     //alert that track is streaming
                     currentAction[pos].action = "streaming";
                   })
@@ -336,7 +336,7 @@ class Tracks extends React.Component {
             } 
             else {
               // console.log(audioFiles[pos].title)
-              Analytics.logEvent('type_of_consumption', {downloading: audioFiles[pos].title});
+              audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {downloading: audioFiles[pos].title}) : null;
               currentAction[pos].action = "downloading";
               this.setState({currentAction});
             }

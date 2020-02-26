@@ -62,7 +62,7 @@ class Home extends React.Component {
   componentDidMount(){
     // console.log(this.props.audioFiles)
     AppState.addEventListener("change", this._handleAppStateChange);
-    Analytics.setCurrentScreen('Home');
+    Analytics.setCurrentScreen('Home_prod');
     this.blurSubscription = this.props.navigation.addListener(
       'willBlur',
       () => {
@@ -200,7 +200,7 @@ class Home extends React.Component {
                 if (!isFocused || audioPlaying) this.setState({paused: true, showVid: false});
                 if (!introPlayed) {
                   this.setState({introPlayed:true});
-                  Analytics.logEvent('select_content', {introductionVideo: 'Played'});
+                  Analytics.logEvent('played_intro_prod');
                 }
               }}
               onFullscreenPlayerWillDismiss = {() => {

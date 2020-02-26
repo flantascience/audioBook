@@ -52,7 +52,7 @@ class Author extends React.Component {
   };
 
   componentDidMount(){
-    Analytics.setCurrentScreen('Author');
+    Analytics.setCurrentScreen('Author_prod');
     this.fetchSubscribers();
   }
 
@@ -113,7 +113,7 @@ class Author extends React.Component {
                 setTimeout(()=>{
                   this.props.storeMediaInf({showToast: !showToast, toastText: null });
                 }, 800);
-                Analytics.logEvent('subscribed_users', {emailAddress: userEmail});
+                userEmail ? Analytics.logEvent('subscribed_users_prod', {emailAddress: userEmail}) : null;
                 this.fetchSubscribers();
               }
             });
