@@ -48,7 +48,7 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
             }
             {
                 showRefs ?
-                referencesInfo.length > 0 ?
+                references.length > 0 ?
                 Object.keys(referencesInfo).map(ref => {
                     if (referencesInfo[ref]) {
                         let text = referencesInfo[ref].text;
