@@ -1,10 +1,10 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
-INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
-MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
+INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
+INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
+INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
+MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
 MERGED from [:react-native-video] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-video/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:@react-native-community_async-storage] /Users/muganwa/Documents/GitHub/audioBook/node_modules/@react-native-community/async-storage/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:15:1-36:12
@@ -30,6 +30,7 @@ MERGED from [:react-native-vector-icons] /Users/muganwa/Documents/GitHub/audioBo
 MERGED from [com.facebook.react:react-native:0.60.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/95b6726a8f803716d6a8b8be06029791/jetified-react-native-0.60.4/AndroidManifest.xml:2:1-13:12
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:2:1-26:12
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/50192512c59f9949a74f11d7ebb037c6/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [io.branch.sdk.android:library:4.3.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/0b0d0543bb752b30eb71ca284d6c3b1a/jetified-library-4.3.2/AndroidManifest.xml:2:1-11:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/14f6f7a5e9b92949ed4ff26fdeb3afa1/android-jsc-r245459/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-music-control] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-17:12
@@ -91,6 +92,7 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/muganwa/.gradle/ca
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/0d39e401bbecf03636b8964644f766f0/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d931f48babf9ecd6f03b723d4635c8f8/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/9cc67bc43f58c1a9ee105d194347b5db/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8f31f18639480bcb698f80c448c41a94/jetified-fbcore-2.0.0/AndroidManifest.xml:2:1-9:12
 INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml:2:1-8:12
 INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml:2:1-8:12
@@ -102,13 +104,13 @@ INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/An
 		INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
 		INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-33:12
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:1-52:12
 		INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:1:11-69
@@ -195,9 +197,9 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.1] /U
 	android:name
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:8:22-65
 application
-ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-31:19
-MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-31:19
-MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-31:19
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-50:19
+MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-50:19
+MERGED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-50:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:28:5-34:19
 MERGED from [com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:29:5-35:19
@@ -276,6 +278,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/muga
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/366e975b55898c9cbe4020a32e129225/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3f3b75f80b6a3c335df2a3a26f35c32d/jetified-gifdecoder-4.7.1/AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3f3b75f80b6a3c335df2a3a26f35c32d/jetified-gifdecoder-4.7.1/AndroidManifest.xml:9:5-20
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:11:5-20
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:11:5-20
 	android:screenOrientation
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:13:7-43
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:13:7-43
@@ -306,7 +310,7 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] /Users/muganwa/.gradle/
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:12:7-64
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:12:7-64
 activity#com.curricu_dumb_audiobook.MainActivity
-ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:19:7-29:18
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:19:7-44:18
 	android:screenOrientation
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:21:9-45
 	android:label
@@ -327,10 +331,48 @@ category#android.intent.category.LAUNCHER
 ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:27:13-73
 	android:name
 		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:27:23-70
-activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:7-84
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:open+data:scheme:yourapp
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:11-35:27
+	android:scheme
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:26-47
+data
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:15-68
+	android:host
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:46-65
+	android:scheme
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:31:21-45
+action#android.intent.action.VIEW
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:15-67
 	android:name
-		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:30:17-81
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:32:23-64
+category#android.intent.category.DEFAULT
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:15-74
+	android:name
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:33:25-71
+category#android.intent.category.BROWSABLE
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:15-76
+	android:name
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:34:25-73
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:curricudumb.app.link+data:scheme:https
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:38:11-43:27
+	android:autoVerify
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:38:26-51
+meta-data#io.branch.sdk.BranchKey
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:9-119
+	android:value
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:59-116
+	android:name
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:46:20-58
+meta-data#io.branch.sdk.TestMode
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:9-82
+	android:value
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:58-79
+	android:name
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:48:20-57
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:49:7-84
+	android:name
+		ADDED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:49:17-81
 uses-sdk
 INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml
@@ -385,6 +427,8 @@ MERGED from [com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gra
 MERGED from [com.crashlytics.sdk.android:crashlytics:2.10.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d4d5299958313ebd1a8475c1d0cf001a/jetified-crashlytics-2.10.1/AndroidManifest.xml:12:5-14:63
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/50192512c59f9949a74f11d7ebb037c6/multidex-2.0.1/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/50192512c59f9949a74f11d7ebb037c6/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [io.branch.sdk.android:library:4.3.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/0b0d0543bb752b30eb71ca284d6c3b1a/jetified-library-4.3.2/AndroidManifest.xml:7:5-9:41
+MERGED from [io.branch.sdk.android:library:4.3.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/0b0d0543bb752b30eb71ca284d6c3b1a/jetified-library-4.3.2/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/14f6f7a5e9b92949ed4ff26fdeb3afa1/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/14f6f7a5e9b92949ed4ff26fdeb3afa1/android-jsc-r245459/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
@@ -507,6 +551,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/muganwa/.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d931f48babf9ecd6f03b723d4635c8f8/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/9cc67bc43f58c1a9ee105d194347b5db/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/9cc67bc43f58c1a9ee105d194347b5db/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8f31f18639480bcb698f80c448c41a94/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8f31f18639480bcb698f80c448c41a94/jetified-fbcore-2.0.0/AndroidManifest.xml:5:5-7:41
 INJECTED from /Users/muganwa/Documents/GitHub/audioBook/android/app/src/debug/AndroidManifest.xml
@@ -677,6 +723,8 @@ uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_S
 ADDED from [com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/bd0585db5f746e491498729603736a2e/play-services-measurement-impl-17.2.1/AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/bd0585db5f746e491498729603736a2e/play-services-measurement-impl-17.2.1/AndroidManifest.xml:26:5-110
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
+MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/595a5e254e438095c8a04c3fd02a1370/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
 	android:name
 		ADDED from [com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:22-107
 receiver#com.google.android.gms.measurement.AppMeasurementReceiver

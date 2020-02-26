@@ -5,25 +5,17 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.pm.PackageManager;
 import android.os.Build;
-//import android.os.Bundle;
-// import android.util.Log;
 
 //import com.facebook.react.BuildConfig; /*caused crashes*/
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import com.facebook.react.PackageList;
-// import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
-// import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.react.ReactApplication;
 
-//import io.branch.referral.Branch;
+import io.branch.referral.Branch;
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
-// import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
-
-// RN file downloader package
-//import com.rnfs.RNFSPackage;
 
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -84,6 +76,8 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    // Initialize the Branch object
+    Branch.getAutoInstance(this);
     SoLoader.init(this, /* native exopackage */ false);
     //Remote things
     mFirebaseRemoteConfig = FirebaseRemoteConfig.getInstance();

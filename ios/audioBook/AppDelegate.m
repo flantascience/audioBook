@@ -11,12 +11,21 @@
 #import <React/RCTRootView.h>
 #import <Firebase.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Branch.h"
 @import Firebase;
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  // if you are using the TEST key
+  [Branch setUseTestBranchKey:YES];
+  // listener for Branch Deep Link data
+  [[Branch getInstance] initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary * _Nonnull params, NSError * _Nullable error) {
+    // do stuff with deep link data (nav to page, display content, etc)
+    NSLog(@"%@", params);
+  }];
 
   for (NSString* family in [UIFont familyNames])
   {
@@ -43,6 +52,16 @@
   [self.window makeKeyAndVisible];
 
   return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  [[Branch getInstance] application:app openURL:url options:options];
+  return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+  // handler for Push Notifications
+  [[Branch getInstance] handlePushNotification:userInfo];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge

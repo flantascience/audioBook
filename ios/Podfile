@@ -42,7 +42,8 @@ target 'audioBook' do
   pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
-
+  
+  pod 'Branch'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
