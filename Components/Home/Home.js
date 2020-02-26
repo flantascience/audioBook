@@ -5,8 +5,7 @@ import {
   Dimensions,
   Image,
   AppState,
-  Platform,
-  TouchableOpacity
+  Platform
 } from 'react-native';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
