@@ -184,7 +184,7 @@ class Home extends React.Component {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
-                      this.player && !Android ? this.player.presentFullscreenPlayer() : null;
+                      this.player ? this.player.presentFullscreenPlayer() : null;
                     } } 
                   />
                 </View>
@@ -206,7 +206,7 @@ class Home extends React.Component {
                   showVid: false,
                   willResume: false
                 });
-                this.player && !Android ? this.player.dismissFullscreenPlayer() : null;
+                this.player ? this.player.dismissFullscreenPlayer() : null;
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
@@ -234,6 +234,7 @@ class Home extends React.Component {
                   showVid: !showVid,
                   paused: !paused
                 }) : null;
+                this.player ? this.player.dismissFullscreenPlayer() : null;
               }}
               repeat = { false }
               fullscreen = { Android ? false : true }
