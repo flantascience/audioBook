@@ -44,6 +44,7 @@ buck-out
 .gradle
 /android/app/google-services.json
 local.properties
+/android/app/build/
 *.iml
 #env
 .env
@@ -85,3 +86,5 @@ RNTester/build
 RNTester/Pods/Local Podspecs
 RNTester/Pods/Target Support Files
 android/.gradle/5.4.1/executionHistory/executionHistory.bin
+*.hprof
+*.apk

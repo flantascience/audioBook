@@ -164,12 +164,13 @@ class Tracks extends React.Component {
 
   toggleNowPlaying = pos => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected} } = this.props;
-    let { currentAction } = this.state;
+    const { currentAction } = this.state;
     this.foldAccordions();
     if (pos !== selectedTrack) {
       //console.log(res)
-      let currPos = audioFiles[pos];
-      let mediaType = audioFiles[pos].type;
+      const currPos = audioFiles[pos];
+      const mediaType = audioFiles[pos].type;
+      const title = audioFiles[pos].title;
       /**If track is cloud based one needs an internet connection*/
       //console.log(currPos)
       let playable = mediaType === "local"?
@@ -179,6 +180,7 @@ class Tracks extends React.Component {
       false;
       if (playable) {
         // console.log(audioFiles[pos].title)
+        Analytics.logEvent('tracks_played_prod', {tracks: title});
         removeTrack().then(res => {
           //this.props.store({hideMenu: true});
           if (res === "removed") {

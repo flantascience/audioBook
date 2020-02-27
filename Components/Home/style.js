@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
     },
     pressStart: {
         resizeMode: 'contain',
-        marginTop: height > 800 ? '20%' : 10,
+        marginTop: height > 800 ? '20%' : '10%',
         width: '50%'
     },
     playButtonContainer: {
@@ -140,6 +140,12 @@ export const styles = StyleSheet.create({
         height: 35,
         //paddingTop: 5,
         backgroundColor: '#6FDA44',
+    },
+    playButtonText: {
+        color: '#fff', 
+        fontSize: 15, 
+        fontFamily: 'Arial', 
+        fontWeight: 'bold'
     },
     centerImageContainer: {
         display: "flex",

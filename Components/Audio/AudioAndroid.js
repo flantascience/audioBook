@@ -19,13 +19,12 @@ import {
   ProgressBar,
   Refs
 } from '../';
-import { useTrackPlayerProgress } from 'react-native-track-player';
 import firebase from 'react-native-firebase';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
-import { audioOverview } from '../../Misc/Strings';
+import { audioOverview, audio } from '../../Misc/Strings';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
@@ -67,7 +66,6 @@ class Audio extends React.Component{
                       showTextinput: false
                   };
                   this.props.store(newState);
-                  Analytics.logEvent('tracks_played', {tracks: title});
                   TrackPlayer.play();
                   resolve('done');
               })
@@ -160,12 +158,12 @@ class Audio extends React.Component{
         return new Promise(resolve => {
             let { questionnaire, currentlyPlayingName } = this.props;
             //console.log(currentlyPlayingName);
-            Analytics.logEvent('select_content', {submittedQuestionnaire: currentlyPlayingName});
+            Analytics.logEvent('questionnaires_submitted_prod', {submittedQuestionnaire: currentlyPlayingName});
             questionnaire.trackName = currentlyPlayingName;
             if (questionnaire.confusing || questionnaire.question) {
                 dbRef.push(questionnaire).then(res => {
                     let showToast = true;
-                    this.props.store({showToast, toastText: "Your questions were successfully sent." });
+                    this.props.store({showToast, toastText: audio.sentQuestions});
                     setTimeout(() => {
                         this.props.store({
                             showToast: !showToast, 
@@ -177,7 +175,7 @@ class Audio extends React.Component{
                     resolve('sent');
                 }).catch(err => {
                     let showToast = true;
-                    this.props.store({showToast, toastText: "Something went wront, try again!" });
+                    this.props.store({showToast, toastText: audio.errors.generic});
                     setTimeout(() => {
                       this.props.store({showToast: !showToast, toastText: null });
                     }, TOAST_TIMEOUT);
@@ -187,7 +185,7 @@ class Audio extends React.Component{
             }
             else {
               let showToast = true;
-              this.props.store({showToast, toastText: "Fill in a question first!" });
+              this.props.store({showToast, toastText: audio.errors.noQuestion});
               setTimeout(() => {
                 this.props.store({showToast: !showToast, toastText: null });
               }, TOAST_TIMEOUT);
@@ -287,11 +285,11 @@ class Audio extends React.Component{
                         { currentlyPlaying != null ?
                         <View  style={ dark ? styles.altContinerDark : styles.altContiner }>
                             <View style={ styles.controllerContainer }>
-                                <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
+                                <TouchableOpacity onPress={ this.toggleOverview } style={ styles.textDisplay }>
                                     <Text style={ dark ? styles.audioTitleDark : styles.audioTitle }>
-                                        { currentlyPlayingName || "Select Track" }
+                                        { currentlyPlayingName || audio.selectTrack }
                                     </Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={ styles.buttonGroup }>
                                     <TouchableOpacity 
                                         onPress = { () => {
@@ -412,8 +410,8 @@ class Audio extends React.Component{
                         <View  style={ dark ? styles.containerDark : styles.container }>
                             <TouchableOpacity 
                                 style={ dark ? styles.closePlayerContainerDark : styles.closePlayerContainer } 
-                                onPress={this.closeMiniPlayer
-                            }>
+                                onPress={this.closeMiniPlayer}
+                            >
                                 <Text 
                                     style={ dark ? styles.closePlayerDark : styles.closePlayer }
                                 >
@@ -421,11 +419,11 @@ class Audio extends React.Component{
                                 </Text>
                             </TouchableOpacity>
                             <View style={ styles.controllerContainer }>
-                                <View onTouchEnd={ this.toggleOverview } style={ styles.textDisplay }>
+                                <TouchableOpacity onPress={ this.toggleOverview } style={ styles.textDisplay }>
                                     <Text style={ dark ? styles.audioTitleDark : styles.audioTitle }>
-                                        { currentlyPlayingName || "Select Track" }
+                                        { currentlyPlayingName || audio.selectTrack }
                                     </Text>
-                                </View>
+                                </TouchableOpacity>
                                 <View style={ styles.buttonGroup }>
                                     <TouchableOpacity 
                                         onPress = { () => {

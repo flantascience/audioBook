@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         minHeight: height < 813? 125 : 155,
-        paddingTop: 10,
+        paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#C7C6C6",
@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
         display: "flex",
         flexDirection: "column",
         minHeight: height < 813? 125 : 155,
-        paddingTop: 10,
+        paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#3C3C3C",
@@ -207,7 +207,8 @@ export const styles = StyleSheet.create({
         fontWeight: "400"
     },
     textDisplay: {
-        flex: 5
+        flex: 5,
+        marginTop: !showBorder ? 8 : 0
     },
     textScrollView: {
         flex:1,
@@ -250,11 +251,12 @@ export const styles = StyleSheet.create({
         //justifyContent: "center"
     },
     closePlayerContainer: {
-        position: 'absolute',
+        position: showBorder ? 'absolute' : 'relative',
         left: 1,
+        width: showBorder ? null : 40,
         borderWidth: 0,
         backgroundColor: "#fff",
-        top: showBorder ? -29 : -26,
+        top: showBorder ? -29 : 0,
         borderColor: "#C7C6C6",
         borderWidth: showBorder ? 1 : 0,
         borderBottomWidth: 0,
@@ -269,14 +271,15 @@ export const styles = StyleSheet.create({
         paddingBottom: 2,
         paddingLeft: 15,
         paddingRight: 15, 
-        textAlign: 'left'
+        zIndex: 1000
     },
     closePlayerContainerDark: {
-        position: 'absolute',
+        position: showBorder ? 'absolute' : 'relative',
         left: 1,
+        width: showBorder ? null : 40,
         borderWidth: 0,
-        backgroundColor: "#0D0D0D",
-        top: showBorder ? -28 : -26,
+        backgroundColor: showBorder ? "#0D0D0D" : '#7F8787',
+        top: showBorder ? -28 : 0,
         borderColor: "#757575",
         borderWidth: showBorder ? 0.5 : 0,
         borderBottomWidth: 0,
@@ -291,14 +294,16 @@ export const styles = StyleSheet.create({
         paddingBottom: 2,
         paddingLeft: 15,
         paddingRight: 15,
-        textAlign: 'left'
+        zIndex: 1000
     },
     closePlayer: {
-        fontSize: 20
+        fontSize: 20,
+        textAlign: "center"
     },
     closePlayerDark: {
         fontSize: 20,
-        color: '#fff'
+        color: '#fff',
+        textAlign: "center"
     },
     slider: {
         height: 20,

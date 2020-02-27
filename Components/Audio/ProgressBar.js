@@ -23,7 +23,7 @@ const ProgressBar = ({iOSTrackPlayer, paused, trackDuration, audioFiles, current
         }
         else store({currentPosition:flooredCurrentPosition});
         if (percentage >= 90 && !reached90) {
-            Analytics.logEvent('tracks_completed', {tracks: audioFiles[currentlyPlaying].title});
+            Analytics.logEvent('tracks_completed_prod', {tracks: audioFiles[currentlyPlaying].title});
             toggleReached90();
         }
     })

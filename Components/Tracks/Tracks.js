@@ -108,7 +108,8 @@ class Tracks extends React.Component {
     this.foldAccordions();
     if (currPos !== null && pos !== selectedTrack) {
       //console.log(res)
-      let mediaType = audioFiles[pos].type;
+      const mediaType = audioFiles[pos].type;
+      const title = audioFiles[pos].title;
       /**If track is cloud based one needs an internet connection*/
       //console.log(currPos)
       let playable = mediaType === "local" ?
@@ -117,10 +118,11 @@ class Tracks extends React.Component {
       true:
       false;
       if (playable) {
+        Analytics.logEvent('tracks_played_prod', {tracks: title});
         // console.log(audioFiles[pos].title)
         this.updateReferenceInfo(audioFiles[pos].id, audioFiles, references);
         if (mediaType === "local") {
-          RNFS.exists(audioFiles[pos].url).then(res=>{
+          RNFS.exists(audioFiles[pos].url).then(res => {
             if (res) {
               //console.log(trackDuration)
               if(trackDuration > 0 ){

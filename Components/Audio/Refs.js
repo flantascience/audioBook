@@ -16,18 +16,16 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
     /*useEffect(() => {
         console.log(connected);
     }, [])*/
-    console.log(references)
     const showStatement = references.length > 0;
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
-            if(supported){
-                Analytics.logEvent('references_clicked', {tracks: currentlyPlayingName, urls: url});
+            if (supported) {
+                Analytics.logEvent('references_clicked_prod', {tracks: currentlyPlayingName, urls: url});
                 Linking.openURL(url).catch(error => {
                     console.log(error);
                 });
             }
-            else
-                console.log("unsupported");
+            else console.log("unsupported");
         })
     }
     return(
@@ -49,6 +47,7 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
             {
                 showRefs ?
                 references.length > 0 ?
+                referencesInfo.length > 0 ?
                 Object.keys(referencesInfo).map(ref => {
                     if (referencesInfo[ref]) {
                         let text = referencesInfo[ref].text;
@@ -67,6 +66,9 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
                     }
                     else return 
                 }) :
+                <Text style = { dark ? styles.noRefsTextDark : styles.noRefsText }>
+                    { connected ? refsStrings.noRefs : refsStrings.noConnection }
+                </Text> :
                 <View style={ styles.refRowContainer }>
                     { fetching && connected ? 
                         <View style={{display: 'flex', width: width - 70}}>
@@ -76,9 +78,7 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
                                 style={{ marginBottom: "10%" }}
                             />
                         </View> : 
-                    <Text style = { dark ? styles.noRefsTextDark : styles.noRefsText }>
-                        { connected ? refsStrings.noRefs : refsStrings.noConnection }
-                    </Text> }
+                    null }
                 </View> :
                 null
             }

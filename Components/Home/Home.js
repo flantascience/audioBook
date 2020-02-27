@@ -37,7 +37,8 @@ class Home extends React.Component {
       introPlayed: false,
       paused: true,
       fullscreen: false,
-      willResume: false
+      willResume: false,
+      startButtonTitle: "Start"
     }
   }
 
@@ -108,7 +109,7 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused, introPlayed, willResume } = this.state;
+    let { loaded, showVid, paused, introPlayed, willResume, startButtonTitle } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
@@ -177,8 +178,8 @@ class Home extends React.Component {
                   <Button
                     style={ styles.playButton }
                     dark={ dark }
-                    title={ willResume ? "Resume" : "Start" }
-                    textStyle={{color: '#fff', fontSize: 15, fontFamily: 'Arial', fontWeight: 'bold'}}
+                    title={startButtonTitle}
+                    textStyle={styles.playButtonText}
                     onPress={ () => {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
@@ -209,9 +210,11 @@ class Home extends React.Component {
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
-                const { willResume } = this.state;
-                if (Math.floor(currentTime) < Math.floor(playableDuration) && !willResume) this.setState({willResume: true})
-                else if(Math.floor(currentTime) === Math.floor(playableDuration) && willResume) this.setState({willResume: false})
+                // const { willResume } = this.state;
+                const flooredCurrentTime = Math.floor(parseFloat(currentTime));
+                const flooredPlayableDuration = Math.floor(parseFloat(playableDuration));
+                if (flooredCurrentTime < flooredPlayableDuration) this.setState({willResume: true, startButtonTitle: 'Resume'});
+                else if(flooredCurrentTime === flooredPlayableDuration) this.setState({willResume: false, startButtonTitle: 'Start'});
 
                 if (!isFocused || audioPlaying) this.setState({paused: true, showVid: false});
                 if (!introPlayed) {

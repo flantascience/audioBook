@@ -39,6 +39,15 @@ export const author = {
   }
 }
 
+export const audio = {
+  sentQuestions: "Your questions were submitted successfully.",
+  selectTrack: "Select Track",
+  errors: {
+    generic: "Something went wrong, try again later.",
+    noQuestion: "Fill in a question first."
+  }
+}
+
 export const audioOverview = {
   titleText: "Track Feedback",
   confusing1: "Was anything confusing?",
