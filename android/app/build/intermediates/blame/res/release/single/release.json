@@ -480,6 +480,10 @@
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable-xhdpi-v4/abc_ic_star_black_36dp.png"
     },
     {
+        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_components_home_images_pressstarttoplay.png.flat",
+        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/components_home_images_pressstarttoplay.png"
+    },
+    {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-v21_abc_list_divider_material.xml.flat",
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable-v21/abc_list_divider_material.xml"
     },
@@ -792,12 +796,12 @@
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable-xhdpi-v4/abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigationstack_lib_module_views_assets_backicon.png.flat",
-        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png"
-    },
-    {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable_abc_text_cursor_material.xml.flat",
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_node_modules_reactnavigationstack_lib_module_views_assets_backicon.png.flat",
+        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png"
     },
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -1006,6 +1010,10 @@
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/layout_abc_cascading_menu_item_layout.xml.flat",
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/layout/abc_cascading_menu_item_layout.xml"
+    },
+    {
+        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_components_home_images_booktitle.png.flat",
+        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/components_home_images_booktitle.png"
     },
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_light.png.flat",
@@ -1222,10 +1230,6 @@
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable-mdpi-v4/abc_ab_share_pack_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_components_home_images_homechalkboardwidehightext.jpg.flat",
-        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/components_home_images_homechalkboardwidehightext.jpg"
     },
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-v21_abc_action_bar_item_background_material.xml.flat",
@@ -1726,6 +1730,10 @@
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/Users/muganwa/.gradle/caches/transforms-2/files-2.1/dd53b7b1cad9548abc553377d75b8448/appcompat-1.0.2/res/drawable-mdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-mdpi_components_home_images_chalkboardonly.jpg.flat",
+        "source": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/generated/res/react/release/drawable-mdpi/components_home_images_chalkboardonly.jpg"
     },
     {
         "merged": "/Users/muganwa/Documents/GitHub/audioBook/android/app/build/intermediates/res/merged/release/drawable-xhdpi-v4_abc_list_longpressed_holo.9.png.flat",
