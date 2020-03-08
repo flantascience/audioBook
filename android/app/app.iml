@@ -179,16 +179,16 @@
     <orderEntry type="library" name="Gradle: androidx.multidex:multidex:2.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.installreferrer:installreferrer:1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: org.webkit:android-jsc:r245459@aar" level="project" />
-    <orderEntry type="module" module-name="android-@react-native-community_netinfo" />
-    <orderEntry type="module" module-name="android-@react-native-community_slider" />
-    <orderEntry type="module" module-name="android-react-native-firebase" />
-    <orderEntry type="module" module-name="android-react-native-video" />
-    <orderEntry type="module" module-name="android-@react-native-community_async-storage" />
-    <orderEntry type="module" module-name="android-react-native-track-player" />
-    <orderEntry type="module" module-name="android-react-native-fs" />
-    <orderEntry type="module" module-name="android-react-native-dark-mode" />
-    <orderEntry type="module" module-name="android-react-native-gesture-handler" />
-    <orderEntry type="module" module-name="android-react-native-music-control" />
-    <orderEntry type="module" module-name="android-react-native-vector-icons" />
+    <orderEntry type="module" module-name="netinfo-android-@react-native-community_netinfo" />
+    <orderEntry type="module" module-name="slider-android-@react-native-community_slider" />
+    <orderEntry type="module" module-name="react-native-firebase-android-react-native-firebase" />
+    <orderEntry type="module" module-name="react-native-video-android-react-native-video" />
+    <orderEntry type="module" module-name="async-storage-android-@react-native-community_async-storage" />
+    <orderEntry type="module" module-name="react-native-track-player-android-react-native-track-player" />
+    <orderEntry type="module" module-name="react-native-fs-android-react-native-fs" />
+    <orderEntry type="module" module-name="react-native-dark-mode-android-react-native-dark-mode" />
+    <orderEntry type="module" module-name="react-native-gesture-handler-android-react-native-gesture-handler" />
+    <orderEntry type="module" module-name="react-native-music-control-android-react-native-music-control" />
+    <orderEntry type="module" module-name="react-native-vector-icons-android-react-native-vector-icons" />
   </component>
 </module>

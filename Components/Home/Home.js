@@ -7,7 +7,7 @@ import {
   AppState,
   Platform
 } from 'react-native';
-import { storeMedia } from '../../Actions/mediaFiles';
+import { storeMedia, toggleStartTracks } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
 import { 
   Audio,
@@ -95,6 +95,15 @@ class Home extends React.Component {
     this.blurSubscription.remove();
   }
 
+  startTracks = () => {
+    const { navigation: { navigate }, changeStartTracks, storeMedia } = this.props;
+    changeStartTracks(true);
+    navigate('Third');
+    storeMedia({
+      screen: "Tracks"
+    });
+  }
+
   _handleAppStateChange = nextState => {
     let player = this.player;
     if (nextState === "background" || nextState === "inactive" && player) this.setState({paused: true});
@@ -109,7 +118,7 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    let { loaded, showVid, paused, introPlayed, willResume, startButtonTitle } = this.state;
+    let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
     let isFocused = navigation.isFocused();
     let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
@@ -207,6 +216,7 @@ class Home extends React.Component {
                   willResume: false
                 });
                 this.player ? this.player.dismissFullscreenPlayer() : null;
+                this.startTracks();
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
@@ -298,6 +308,9 @@ const mapDispatchToProps = dispatch => {
     },
     storeReferences: refs => {
       dispatch(storeRefs(refs));
+    },
+    changeStartTracks: value => {
+      dispatch(toggleStartTracks(value));
     }
   }
 }

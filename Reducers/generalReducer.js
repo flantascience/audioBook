@@ -1,7 +1,14 @@
-import { STORE_INPUT, SLOW_CONNECTION, NO_CONNECTION, CONNECTED } from '../Actions/types';
+import { 
+  STORE_INPUT, 
+  SLOW_CONNECTION, 
+  NO_CONNECTION, 
+  CONNECTED, 
+  SET_START_TRACKS 
+} from '../Actions/types';
 
 const initialState = {
   userEmail: '',
+  startTracks: false,
   connection: 'normal',
   connectionChecked: false,
   connected: true
@@ -34,6 +41,12 @@ const generalReducer = (state = initialState, action) => {
         connected: false,
         connectionChecked: true
       }
+    case SET_START_TRACKS: {
+      return {
+        ...state,
+        startTracks: action.payload
+      }
+    }
     default:
       return state;
   }

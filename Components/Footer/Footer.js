@@ -20,7 +20,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
     }
 
     const toggleOverview = ()=>{
-        return new Promise(resolve=>{
+        return new Promise(resolve => {
             store({ showOverview: false, showTextinput: false });
             resolve('hidden');
         });

@@ -26,7 +26,7 @@ import { tracks, connectionFeedback } from '../../Misc/Strings';
 import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
-import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
+import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
 
@@ -48,7 +48,8 @@ class Tracks extends React.Component {
       });
     });
     this.state = {
-      currentAction
+      currentAction,
+      autoPlayStarted: false
     }
   }
 
@@ -68,7 +69,6 @@ class Tracks extends React.Component {
 
   componentDidMount(){
     let { audioFiles, connectionInfo: { connected } } = this.props;
-    Analytics.setCurrentScreen('Tracks_prod');
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       let palyerState = data.state;
       //console.log(palyerState);
@@ -146,8 +146,15 @@ class Tracks extends React.Component {
   }
 
   componentDidUpdate(){
-    const { connectionInfo: { connected }, showMessage } = this.props;
-    // console.log(audioFilesCloud)
+    const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks, store } = this.props;
+    // console.log(audioFilesCloud);
+    const audioFilesLoaded = audioFiles.length > 0;
+    if (startTracks && audioFilesLoaded && !this.state.autoPlayStarted) {
+      this.setState({autoPlayStarted: true});
+      this.toggleNowPlaying("0", true);
+      changeStartTracks(false);
+    }
+    Analytics.setCurrentScreen('Tracks_prod');
     if (!connected) {
       let showMessage = true;
       this.props.store({showMessage, message: tracks.noInternetConnection });
@@ -162,7 +169,7 @@ class Tracks extends React.Component {
     updateShowQuestionnaire(val);
   }
 
-  toggleNowPlaying = pos => {
+  toggleNowPlaying = (pos, prog = false) => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected} } = this.props;
     const { currentAction } = this.state;
     this.foldAccordions();
@@ -202,7 +209,7 @@ class Tracks extends React.Component {
                           currentlyPlayingName: audioFiles[pos].title,
                           initCurrentlyPlaying: true,
                           buttonsActive: true,
-                          showOverview: true,
+                          showOverview: prog ? false : true,
                           trackDuration, 
                           paused: false, 
                           stopped: false,
@@ -224,7 +231,7 @@ class Tracks extends React.Component {
                           currentlyPlayingName: audioFiles[pos].title,
                           initCurrentlyPlaying: true,
                           buttonsActive: true,
-                          showOverview: true,
+                          showOverview: prog ? false : true,
                           trackDuration, 
                           paused: false, 
                           stopped: false,
@@ -257,7 +264,7 @@ class Tracks extends React.Component {
             else {
                 TrackPlayer.add([currPos]).then(res => {
                   getDuration().then(trackDuration => {
-                    //console.log(trackDuration)
+                    console.log(trackDuration)
                     if (trackDuration > 0) {
                       let formattedDuration = formatTime(trackDuration);
                       this.props.store({
@@ -269,7 +276,7 @@ class Tracks extends React.Component {
                         currentlyPlayingName: audioFiles[pos].title,
                         initCurrentlyPlaying: true,
                         buttonsActive: true,
-                        showOverview: true,
+                        showOverview: prog ? false : true,
                         trackDuration, 
                         paused: false, 
                         stopped: false,
@@ -291,7 +298,7 @@ class Tracks extends React.Component {
                         currentlyPlayingName: audioFiles[pos].title,
                         initCurrentlyPlaying: true,
                         buttonsActive: true,
-                        showOverview: true,
+                        showOverview: prog ? false : true,
                         trackDuration, 
                         paused: false, 
                         stopped: false,
@@ -514,7 +521,7 @@ class Tracks extends React.Component {
                 }
                 { !loading ?
                 <ScrollView>{ 
-                  Object.keys(audioFiles).map(key=>{
+                  Object.keys(audioFiles).map(key => {
                   let { title, type, formattedDuration } = audioFiles[key];
                   let { currentAction } = this.state;
                   /**Set default action */
@@ -550,7 +557,7 @@ class Tracks extends React.Component {
                             name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
                             size={ 35 }
                           />
-                        </TouchableOpacity>:
+                        </TouchableOpacity> :
                         type === "cloud" && action === "downloading"?
                         <View style={{marginLeft: 20}}>
                           <ProgressCircle
@@ -563,7 +570,7 @@ class Tracks extends React.Component {
                           >
                             <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
                           </ProgressCircle>
-                        </View>: null }
+                        </View> : null }
                       </TouchableOpacity>
                     </View>
                   )
@@ -650,7 +657,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(changeRefsView(val));
     },
     updateShowQuestionnaire: val => {
-        dispatch(changeQuestionnaireVew(val));
+      dispatch(changeQuestionnaireVew(val));
+    },
+    changeStartTracks: value => {
+      dispatch(toggleStartTracks(value));
     }
   }
 }

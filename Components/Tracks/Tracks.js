@@ -25,7 +25,7 @@ import { formatTime } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
 import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
-import { storeMedia, updateAudio, changeQuestionnaireVew } from '../../Actions/mediaFiles';
+import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
@@ -52,6 +52,7 @@ class Tracks extends React.Component {
     this.state = {
       currentAction,
       currentTime: null,
+      autoPlayStarted: false,
       referencesInfo: []
     }
   }
@@ -86,7 +87,13 @@ class Tracks extends React.Component {
 
   componentDidUpdate(){
     // console.log(this.props.trackPlayer)
-    const { connectionInfo: { connected }, showMessage } = this.props;
+    const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks } = this.props;
+    const audioFilesLoaded = audioFiles.length > 0;
+    if (startTracks && audioFilesLoaded && !this.state.autoPlayStarted) {
+      this.setState({autoPlayStarted: true});
+      this.toggleNowPlaying("0", true);
+      changeStartTracks(false);
+    }
     if (!connected) {
       let showMessage = true;
       this.props.store({showMessage, message: tracks.noInternetConnection });
@@ -101,7 +108,7 @@ class Tracks extends React.Component {
     updateShowQuestionnaire(val);
   }
 
-  toggleNowPlaying = pos => {
+  toggleNowPlaying = (pos, prog = false) => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, trackDuration, connectionInfo: { connected } } = this.props;
     let { currentAction } = this.state;
     let currPos = audioFiles ? audioFiles[pos] : null;
@@ -136,7 +143,7 @@ class Tracks extends React.Component {
                   currentlyPlayingName: audioFiles[pos].title,
                   initCurrentlyPlaying: true,
                   buttonsActive: true,
-                  showOverview: true,
+                  showOverview: prog ? false : true,
                   trackDuration, 
                   paused: false, 
                   loaded: true, 
@@ -156,7 +163,7 @@ class Tracks extends React.Component {
                   currentlyPlayingName: audioFiles[pos].title,
                   initCurrentlyPlaying: true,
                   buttonsActive: true,
-                  showOverview: true,
+                  showOverview: prog ? false : true,
                   trackDuration, 
                   paused: false, 
                   loaded: true, 
@@ -195,7 +202,7 @@ class Tracks extends React.Component {
               currentlyPlayingName: audioFiles[pos].title,
               initCurrentlyPlaying: true,
               buttonsActive: true,
-              showOverview: true,
+              showOverview: prog ? false : true,
               trackDuration, 
               paused: false, 
               loaded: true, 
@@ -215,7 +222,7 @@ class Tracks extends React.Component {
               currentlyPlayingName: audioFiles[pos].title,
               initCurrentlyPlaying: true,
               buttonsActive: true,
-              showOverview: true,
+              showOverview: prog ? false : true,
               trackDuration, 
               paused: false, 
               loaded: true, 
@@ -449,15 +456,15 @@ render(){
                 <ScrollView style={styles.scrollView}>{ 
                   Object.keys(audioFiles).map(key => {
                     if (audioFiles[key]) { 
-                      let { title, type, formattedDuration } = audioFiles[key];
-                      let { currentAction } = this.state;
+                      const { title, type, formattedDuration } = audioFiles[key];
+                      const { currentAction } = this.state;
                       /**Set default action */
-                      let action = currentAction[key]?currentAction[key].action:"stop";
+                      let action = currentAction[key] ? currentAction[key].action : "stop";
                       /**set default percentage */
                       let percentage = currentAction[key] ? Math.floor(currentAction[key].percentage) : 1;
                       let playIcon = key !== selectedTrack ?
                       "play-circle" : 
-                      key === selectedTrack && !paused ? "pause":
+                      key === selectedTrack && !paused ? "pause" :
                       "play-circle";
                       let downlaodIcon = "cloud-download";
 
@@ -569,7 +576,7 @@ const mapStateToProps = state => {
     showToast: state.media.showToast,
     showMessage: state.media.showMessage,
     message: state.media.message,
-    connectionInfo: state.connectionInfo
+    connectionInfo: state.connectionInfo,
   }
 }
 
@@ -591,7 +598,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(changeRefsView(val));
     },
     updateShowQuestionnaire: val => {
-        dispatch(changeQuestionnaireVew(val));
+      dispatch(changeQuestionnaireVew(val));
+    },
+    changeStartTracks: value => {
+      dispatch(toggleStartTracks(value));
     }
   }
 }

@@ -40,40 +40,6 @@
 			<key>uniqueIdentifier</key>
 			<string>C6986E9E-F830-401B-817E-29D214F0337C</string>
 		</dict>
-		<key>CF9A7722-6633-4E40-AAE4-BCC76F31A322</key>
-		<dict>
-			<key>className</key>
-			<string>IDECommandLineBuildLog</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
-			<key>fileName</key>
-			<string>CF9A7722-6633-4E40-AAE4-BCC76F31A322.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-			</dict>
-			<key>schemeIdentifier-containerName</key>
-			<string>audioBook project</string>
-			<key>schemeIdentifier-schemeName</key>
-			<string>audioBook</string>
-			<key>schemeIdentifier-sharedScheme</key>
-			<integer>1</integer>
-			<key>signature</key>
-			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
-			<key>timeStartedRecording</key>
-			<real>604450045.67570806</real>
-			<key>timeStoppedRecording</key>
-			<real>604450089.23465097</real>
-			<key>title</key>
-			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
-			<key>uniqueIdentifier</key>
-			<string>CF9A7722-6633-4E40-AAE4-BCC76F31A322</string>
-		</dict>
 	</dict>
 </dict>
 </plist>

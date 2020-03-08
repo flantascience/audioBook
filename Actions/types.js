@@ -8,3 +8,4 @@ export const SLOW_CONNECTION = 'SLOW_CONNECTION';
 export const NO_CONNECTION = 'NO_CONNECTION';
 export const CONNECTED = 'CONNECTED';
 export const FETCHING_REFS = 'FETCHING_REFS';
+export const SET_START_TRACKS = 'SET_START_TRACKS';

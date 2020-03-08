@@ -1,4 +1,9 @@
-import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from './types';
+import { 
+  STORE_MEDIA, 
+  UPDATE_AUDIO_FILES, 
+  TOGGLE_QUESTIONNAIRE,
+  SET_START_TRACKS
+} from './types';
 
 export const storeMedia = media => {
   return {
@@ -11,6 +16,14 @@ export const changeQuestionnaireVew  = payload => {
   return {
     type: TOGGLE_QUESTIONNAIRE,
     payload
+  }
+}
+
+export const toggleStartTracks = payload => {
+  return {
+    type: SET_START_TRACKS,
+    payload
+
   }
 }
 
