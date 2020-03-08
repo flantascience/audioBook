@@ -22,6 +22,7 @@ import {
 import firebase from 'react-native-firebase';
 import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
+import { NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 import { audioOverview, audio } from '../../Misc/Strings';
@@ -293,7 +294,17 @@ class Audio extends React.Component{
                         this.props.store({currentPosition: Math.floor(currentTime)});
                     }}
                     onEnd={() => {
-                        this.props.store({paused: true, currentPosition: 0});
+                        // move to the next track
+                        const { audioFiles, currentlyPlaying, currentPosition, toggleNowPlaying } = this.props;
+                        // check if there's a next track
+                        const nextTrackId = currentlyPlaying + 1;
+                        const nextTrackInfo = audioFiles[nextTrackId];
+                        console.log('track ended')
+                        if (nextTrackInfo && toggleNowPlaying) {
+                            //this.toggleTrack(nextTrackId);
+                            toggleNowPlaying(nextTrackId, true);
+                        }
+                        else this.props.store({paused: true, currentPosition: 0});
                     }}
                     playWhenInactive={true}
                     paused={paused}
@@ -377,7 +388,7 @@ class Audio extends React.Component{
                         null
                         }
                         <View style={ styles.textContainer } >
-                            { showToast?
+                            { showToast ?
                                 <Toast dark={dark} text={ toastText } />:
                             null }
                             <TouchableOpacity 
@@ -436,7 +447,7 @@ class Audio extends React.Component{
                             />
                         </View>
                     </View>
-                </ScrollView>:
+                </ScrollView> :
                 <View style={ style }>
                     { currentlyPlaying != null ?
                         <View  style={ dark ? styles.containerDark : styles.container }>
@@ -550,6 +561,7 @@ const mapStateToProps = state => {
         hideMenu: state.media.hideMenu,
         connected: state.connectionInfo.connected,
         fetchingRefs: state.refs.fetching,
+        toggleNowPlaying: state.media.toggleNowPlaying
     }
 }
 

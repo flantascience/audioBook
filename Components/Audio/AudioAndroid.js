@@ -45,7 +45,6 @@ class Audio extends React.Component{
     }
 
     toggleTrack = pos => {
-      console.log(currentlyPlaying + " " + pos);
       let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
       let title = audioFiles[pos].title;
       return new Promise(resolve => {

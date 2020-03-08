@@ -11,5 +11,6 @@ export const firebaseConfig = {
 };
 export const SLOW_CONNECTION_TIMER = 5000;
 export const TOAST_TIMEOUT = 1500;
+export const NEXT_TRACK_TIMEOUT = 500;
 export const POST_SEEK_TIMEOUT = 100;
 export const emailregex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;

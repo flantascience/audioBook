@@ -23,7 +23,7 @@ import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants';
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
@@ -70,10 +70,20 @@ class Tracks extends React.Component {
   componentDidMount(){
     let { audioFiles, connectionInfo: { connected } } = this.props;
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
-      let palyerState = data.state;
-      //console.log(palyerState);
-      if (palyerState === 0 || palyerState === 1 || palyerState === 2) this.props.store({ paused: true });
-      else if (palyerState !== 1) this.props.store({ paused: false});
+      const playerState = data.state;
+      const { media: { currentPosition, trackDuration, currentlyPlaying } } = this.props;
+      console.log(playerState)
+      if (playerState === 1 && trackDuration && parseInt(currentPosition) === parseInt(trackDuration)) {
+        const nextTrackId = currentlyPlaying + 1;
+        if (nextTrackId != undefined && nextTrackId !== NaN) {
+          const nextTrackInfo = audioFiles[nextTrackId];
+          console.log(nextTrackId)
+          if (nextTrackInfo) setTimeout(() => this.toggleNowPlaying(String(nextTrackId), true), NEXT_TRACK_TIMEOUT);
+        }
+      }
+
+      if (playerState === 0 || playerState === 1 || playerState === 2) this.props.store({ paused: true });
+      else if (playerState !== 1) this.props.store({ paused: false});
     });
 
     TrackPlayer.addEventListener('remote-play', async () => {
@@ -170,7 +180,7 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos, prog = false) => {
-    let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected} } = this.props;
+    let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, media: { showOverview } } = this.props;
     const { currentAction } = this.state;
     this.foldAccordions();
     if (pos !== selectedTrack) {
@@ -199,10 +209,10 @@ class Tracks extends React.Component {
                     getDuration().then(trackDuration=>{
                       //console.log(trackDuration)
                       if (trackDuration > 0) {
-                        let formattedDuration = formatTime(trackDuration);
+                        const formattedDuration = formatTime(trackDuration);
                         this.props.store({
                           selectedTrack: pos,
-                          currentPostion: 0,
+                          currentPostion:0,
                           currentTime:0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
@@ -224,7 +234,7 @@ class Tracks extends React.Component {
                         let formattedDuration = formatTime(trackDuration);
                         this.props.store({
                           selectedTrack: pos,
-                          currentPostion: 0,
+                          currentPostion:0,
                           currentTime:0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
@@ -264,12 +274,12 @@ class Tracks extends React.Component {
             else {
                 TrackPlayer.add([currPos]).then(res => {
                   getDuration().then(trackDuration => {
-                    console.log(trackDuration)
+                    // console.log(trackDuration)
                     if (trackDuration > 0) {
                       let formattedDuration = formatTime(trackDuration);
                       this.props.store({
                         selectedTrack: pos,
-                        currentPostion: 0,
+                        currentPostion:0,
                         currentTime:0,
                         selectedTrackId: audioFiles[pos].id,
                         currentlyPlaying: audioFiles[pos].id,
@@ -291,7 +301,7 @@ class Tracks extends React.Component {
                       let formattedDuration = formatTime(trackDuration);
                       this.props.store({
                         selectedTrack: pos,
-                        currentPostion: 0,
+                        currentPostion:0,
                         currentTime:0,
                         selectedTrackId: audioFiles[pos].id,
                         currentlyPlaying: audioFiles[pos].id,

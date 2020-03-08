@@ -53,7 +53,8 @@ class Tracks extends React.Component {
       currentAction,
       currentTime: null,
       autoPlayStarted: false,
-      referencesInfo: []
+      referencesInfo: [],
+      togglePushed: false
     }
   }
 
@@ -87,8 +88,9 @@ class Tracks extends React.Component {
 
   componentDidUpdate(){
     // console.log(this.props.trackPlayer)
-    const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks } = this.props;
+    const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks, store } = this.props;
     const audioFilesLoaded = audioFiles.length > 0;
+    !this.state.togglePushed ? store({toggleNowPlaying: this.toggleNowPlaying}) : null;
     if (startTracks && audioFilesLoaded && !this.state.autoPlayStarted) {
       this.setState({autoPlayStarted: true});
       this.toggleNowPlaying("0", true);
@@ -96,9 +98,9 @@ class Tracks extends React.Component {
     }
     if (!connected) {
       let showMessage = true;
-      this.props.store({showMessage, message: tracks.noInternetConnection });
+      store({showMessage, message: tracks.noInternetConnection });
     }
-    else if (connected && showMessage) this.props.store({showMessage: false, message: null });
+    else if (connected && showMessage) store({showMessage: false, message: null });
   }
 
   foldAccordions = () => {
@@ -437,6 +439,7 @@ render(){
         navigate = {navigation.navigate}
         audioSource={ audioSource } // Can be a URL or a local file
         originScreen={'Tracks'}
+        upperGoToTrack={this.toggleNowPlaying}
         referencesInfo={referencesInfo}
         pos={selectedTrack}
         initCurrentlyPlaying = {initCurrentlyPlaying}
