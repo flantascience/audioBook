@@ -24,8 +24,8 @@
 15-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:8:5-68
 15-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:8:22-65
 16    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-16-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:26:5-82
-16-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:26:22-79
+16-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:26:5-82
+16-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:26:22-79
 17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 17-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:5-77
 17-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:12:22-74
@@ -36,8 +36,8 @@
 19-->[:@react-native-community_netinfo] /Users/muganwa/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:5-76
 19-->[:@react-native-community_netinfo] /Users/muganwa/Documents/GitHub/audioBook/node_modules/@react-native-community/netinfo/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:10:22-73
 20    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-20-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:5-110
-20-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:26:22-107
+20-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:26:5-110
+20-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:26:22-107
 21
 22    <application
 22-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:11:5-50:19
@@ -146,25 +146,25 @@
 75-->/Users/muganwa/Documents/GitHub/audioBook/android/app/src/main/AndroidManifest.xml:49:17-81
 76
 77        <service
-77-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:9-33:19
+77-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:29:9-35:19
 78            android:name="com.google.firebase.components.ComponentDiscoveryService"
-78-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:29:18-89
+78-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:30:13-84
 79            android:directBootAware="true"
 79-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
 80            android:exported="false" >
-80-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:33:13-37
+80-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:31:13-37
 81            <meta-data
-81-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:30:13-32:85
+81-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:32:13-34:85
 82                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-82-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:31:17-109
+82-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:33:17-109
 83                android:value="com.google.firebase.components.ComponentRegistrar" />
-83-->[com.google.firebase:firebase-database:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ffb93ec4434036cfe33c666c1d545a67/jetified-firebase-database-17.0.0/AndroidManifest.xml:32:17-82
+83-->[com.google.firebase:firebase-database:19.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/a79876bec75f75c5932563b95cbc09b7/firebase-database-19.2.1/AndroidManifest.xml:34:17-82
 84            <meta-data
-84-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:31:13-33:85
+84-->[com.google.firebase:firebase-storage:19.1.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/074bfeefcee492b62d61e9184b9f7aca/firebase-storage-19.1.1/AndroidManifest.xml:33:13-35:85
 85                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
-85-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:32:17-107
+85-->[com.google.firebase:firebase-storage:19.1.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/074bfeefcee492b62d61e9184b9f7aca/firebase-storage-19.1.1/AndroidManifest.xml:34:17-107
 86                android:value="com.google.firebase.components.ComponentRegistrar" />
-86-->[com.google.firebase:firebase-storage:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/48ad51803aea674a258c01bbdbe7395f/jetified-firebase-storage-17.0.0/AndroidManifest.xml:33:17-82
+86-->[com.google.firebase:firebase-storage:19.1.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/074bfeefcee492b62d61e9184b9f7aca/firebase-storage-19.1.1/AndroidManifest.xml:35:17-82
 87            <meta-data
 87-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:34:13-36:85
 88                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar"
@@ -172,11 +172,11 @@
 89                android:value="com.google.firebase.components.ComponentRegistrar" />
 89-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:36:17-82
 90            <meta-data
-90-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:30:13-32:85
+90-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8b10a81ccd5dbe8bea278aa2107efb91/play-services-measurement-api-17.2.3/AndroidManifest.xml:30:13-32:85
 91                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-91-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:31:17-139
+91-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8b10a81ccd5dbe8bea278aa2107efb91/play-services-measurement-api-17.2.3/AndroidManifest.xml:31:17-139
 92                android:value="com.google.firebase.components.ComponentRegistrar" />
-92-->[com.google.android.gms:play-services-measurement-api:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ad14b019bf16a5c6b060384c0c6a8964/play-services-measurement-api-17.2.1/AndroidManifest.xml:32:17-82
+92-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/8b10a81ccd5dbe8bea278aa2107efb91/play-services-measurement-api-17.2.3/AndroidManifest.xml:32:17-82
 93            <meta-data
 93-->[com.google.firebase:firebase-config:19.0.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ac165bf4c97b688a28b2b33d0e54ae0b/firebase-config-19.0.4/AndroidManifest.xml:32:13-34:85
 94                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
@@ -184,11 +184,11 @@
 95                android:value="com.google.firebase.components.ComponentRegistrar" />
 95-->[com.google.firebase:firebase-config:19.0.4] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ac165bf4c97b688a28b2b33d0e54ae0b/firebase-config-19.0.4/AndroidManifest.xml:34:17-82
 96            <meta-data
-96-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:32:13-34:85
+96-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:32:13-34:85
 97                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-97-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:33:17-96
+97-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:33:17-96
 98                android:value="com.google.firebase.components.ComponentRegistrar" />
-98-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:34:17-82
+98-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:34:17-82
 99            <meta-data
 99-->[:react-native-firebase] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-firebase/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:13-19:85
 100                android:name="com.google.firebase.components:io.invertase.firebase.ReactNativeFirebaseAppRegistrar"
@@ -215,29 +215,29 @@
 111-->[com.google.firebase:firebase-perf:19.0.5] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/529543ac212e8c104f228d1f1c8ac2b5/firebase-perf-19.0.5/AndroidManifest.xml:29:13-36
 112
 113        <receiver
-113-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:37:9-44:20
+113-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:37:9-44:20
 114            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-114-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:38:13-78
+114-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:38:13-78
 115            android:exported="true"
-115-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:39:13-36
+115-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:39:13-36
 116            android:permission="com.google.android.c2dm.permission.SEND" >
-116-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:40:13-73
+116-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:40:13-73
 117            <intent-filter>
-117-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:41:13-43:29
+117-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:41:13-43:29
 118                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-118-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:42:17-81
-118-->[com.google.firebase:firebase-iid:20.0.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/6d167e30309880643a170d468291dba2/firebase-iid-20.0.1/AndroidManifest.xml:42:25-78
+118-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:42:17-81
+118-->[com.google.firebase:firebase-iid:20.0.2] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/f5a348ba7f132953dc1fefc7ab25d6b8/firebase-iid-20.0.2/AndroidManifest.xml:42:25-78
 119            </intent-filter>
 120        </receiver>
 121
 122        <activity
-122-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+122-->[com.google.android.gms:play-services-base:17.1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ca7f8347518053597a53b4cb4adf3617/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
 123            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-123-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+123-->[com.google.android.gms:play-services-base:17.1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ca7f8347518053597a53b4cb4adf3617/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
 124            android:exported="false"
-124-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+124-->[com.google.android.gms:play-services-base:17.1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ca7f8347518053597a53b4cb4adf3617/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
 125            android:theme="@android:style/Theme.Translucent.NoTitleBar" /> <!-- The main service, handles playback, playlists and media buttons -->
-125-->[com.google.android.gms:play-services-base:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/36af510a0538f69a4644c7026ca31b4e/play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+125-->[com.google.android.gms:play-services-base:17.1.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/ca7f8347518053597a53b4cb4adf3617/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
 126        <service
 126-->[:react-native-track-player] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:17:9-24:19
 127            android:name="com.guichaguri.trackplayer.service.MusicService"
@@ -282,62 +282,62 @@
 148            android:stopWithTask="true" />
 148-->[:react-native-music-control] /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-music-control/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-40
 149
-150        <receiver
-150-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:29:9-33:20
-151            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-151-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:30:13-85
-152            android:enabled="true"
-152-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:31:13-35
-153            android:exported="false" >
-153-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:32:13-37
-154        </receiver>
-155        <receiver
-155-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:34:9-42:20
-156            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
-156-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:35:13-100
-157            android:enabled="true"
-157-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:36:13-35
-158            android:exported="true"
-158-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:37:13-36
-159            android:permission="android.permission.INSTALL_PACKAGES" >
-159-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:38:13-69
-160            <intent-filter>
-160-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:39:13-41:29
-161                <action android:name="com.android.vending.INSTALL_REFERRER" />
-161-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:40:17-79
-161-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:40:25-76
-162            </intent-filter>
-163        </receiver>
-164
-165        <service
-165-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:44:9-47:40
-166            android:name="com.google.android.gms.measurement.AppMeasurementService"
-166-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:45:13-84
-167            android:enabled="true"
-167-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:46:13-35
-168            android:exported="false" />
-168-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:47:13-37
-169        <service
-169-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:48:9-52:72
-170            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-170-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:49:13-87
-171            android:enabled="true"
-171-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:50:13-35
-172            android:exported="false"
-172-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:51:13-37
-173            android:permission="android.permission.BIND_JOB_SERVICE" />
-173-->[com.google.android.gms:play-services-measurement:17.2.1] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/3eef844f490fe49b8bac413f02fcf632/play-services-measurement-17.2.1/AndroidManifest.xml:52:13-69
-174
-175        <provider
-175-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
-176            android:name="com.google.firebase.provider.FirebaseInitProvider"
-176-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
-177            android:authorities="com.curricu_dumb_audiobook.firebaseinitprovider"
-177-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+150        <provider
+150-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+151            android:name="com.google.firebase.provider.FirebaseInitProvider"
+151-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+152            android:authorities="com.curricu_dumb_audiobook.firebaseinitprovider"
+152-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+153            android:exported="false"
+153-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+154            android:initOrder="100" />
+154-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+155
+156        <receiver
+156-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:29:9-33:20
+157            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+157-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:30:13-85
+158            android:enabled="true"
+158-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:31:13-35
+159            android:exported="false" >
+159-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:32:13-37
+160        </receiver>
+161        <receiver
+161-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:34:9-42:20
+162            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+162-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:35:13-100
+163            android:enabled="true"
+163-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:36:13-35
+164            android:exported="true"
+164-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:37:13-36
+165            android:permission="android.permission.INSTALL_PACKAGES" >
+165-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:38:13-69
+166            <intent-filter>
+166-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:39:13-41:29
+167                <action android:name="com.android.vending.INSTALL_REFERRER" />
+167-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:40:17-79
+167-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:40:25-76
+168            </intent-filter>
+169        </receiver>
+170
+171        <service
+171-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:44:9-47:40
+172            android:name="com.google.android.gms.measurement.AppMeasurementService"
+172-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:45:13-84
+173            android:enabled="true"
+173-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:46:13-35
+174            android:exported="false" />
+174-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:47:13-37
+175        <service
+175-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:48:9-52:72
+176            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+176-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:49:13-87
+177            android:enabled="true"
+177-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:50:13-35
 178            android:exported="false"
-178-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
-179            android:initOrder="100" />
-179-->[com.google.firebase:firebase-common:19.3.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/945825dcdbb5d54ed6481f7107158967/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+178-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:51:13-37
+179            android:permission="android.permission.BIND_JOB_SERVICE" />
+179-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/d35ded617c1a74722df6ce5375d0332e/play-services-measurement-17.2.3/AndroidManifest.xml:52:13-69
 180
 181        <meta-data
 181-->[com.google.android.gms:play-services-basement:17.0.0] /Users/muganwa/.gradle/caches/transforms-2/files-2.1/2e57ca5516ac3dd2a91c2304b3078357/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69

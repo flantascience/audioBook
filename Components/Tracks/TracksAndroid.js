@@ -16,7 +16,8 @@ import {
   AudioAndroid,
   Toast,
   Footer,
-  Header
+  Header,
+  SoundBar
 } from '..';
 import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
@@ -212,7 +213,7 @@ class Tracks extends React.Component {
                         const formattedDuration = formatTime(trackDuration);
                         this.props.store({
                           selectedTrack: pos,
-                          currentPostion:0,
+                          currentPosition:0,
                           currentTime:0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
@@ -234,7 +235,7 @@ class Tracks extends React.Component {
                         let formattedDuration = formatTime(trackDuration);
                         this.props.store({
                           selectedTrack: pos,
-                          currentPostion:0,
+                          currentPosition:0,
                           currentTime:0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
@@ -279,7 +280,7 @@ class Tracks extends React.Component {
                       let formattedDuration = formatTime(trackDuration);
                       this.props.store({
                         selectedTrack: pos,
-                        currentPostion:0,
+                        currentPosition:0,
                         currentTime:0,
                         selectedTrackId: audioFiles[pos].id,
                         currentlyPlaying: audioFiles[pos].id,
@@ -301,7 +302,7 @@ class Tracks extends React.Component {
                       let formattedDuration = formatTime(trackDuration);
                       this.props.store({
                         selectedTrack: pos,
-                        currentPostion:0,
+                        currentPosition:0,
                         currentTime:0,
                         selectedTrackId: audioFiles[pos].id,
                         currentlyPlaying: audioFiles[pos].id,
@@ -484,6 +485,7 @@ class Tracks extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
+      currentPosition,
       showOverview,
       toastText,
       showToast,
@@ -522,6 +524,7 @@ class Tracks extends React.Component {
 
     return (
       <View style={ styles.Home }>
+        
           { !showOverview ?
               <View style = { dark ? styles.homeMidDark : styles.homeMid }>
                 { showToast ?
@@ -557,7 +560,7 @@ class Tracks extends React.Component {
                             name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                             size={ 40 }
                           /> :
-                          <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
+                          <SoundBar dark={dark} playing={currentPosition > 0} /> }
                         </TouchableOpacity>
 
                         { type === "cloud" && action !== "downloading" ?
@@ -637,7 +640,7 @@ const mapStateToProps = state => {
     paused: state.media.paused,
     references: state.refs.references,
     selectedTrack: state.media.selectedTrack,
-    currentPostion: state.media.currentPostion,
+    currentPosition: state.media.currentPosition,
     showTextinput: state.media.showTextinput,
     hideMenu: state.media.hideMenu,
     toastText: state.media.toastText,

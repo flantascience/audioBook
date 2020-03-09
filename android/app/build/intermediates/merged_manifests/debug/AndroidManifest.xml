@@ -147,6 +147,12 @@
             android:name="com.tanguyantoine.react.MusicControlNotification$NotificationService"
             android:stopWithTask="true" />
 
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.curricu_dumb_audiobook.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
         <receiver
             android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
             android:enabled="true"
@@ -171,12 +177,6 @@
             android:enabled="true"
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
-        <provider
-            android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.curricu_dumb_audiobook.firebaseinitprovider"
-            android:exported="false"
-            android:initOrder="100" />
 
         <meta-data
             android:name="com.google.android.gms.version"

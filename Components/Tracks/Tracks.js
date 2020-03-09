@@ -15,7 +15,8 @@ import {
   Toast,
   Audio,
   Header,
-  Footer
+  Footer,
+  SoundBar
 } from '../';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProgressCircle from 'react-native-progress-circle';
@@ -138,7 +139,7 @@ class Tracks extends React.Component {
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({
                   selectedTrack: pos,
-                  currentPostion: 0,
+                  currentPosition: 0,
                   currentTime:0,
                   selectedTrackId: audioFiles[pos].id,
                   currentlyPlaying: audioFiles[pos].id,
@@ -158,7 +159,7 @@ class Tracks extends React.Component {
                 let formattedDuration = formatTime(trackDuration);
                 this.props.store({
                   selectedTrack: pos,
-                  currentPostion: 0,
+                  currentPosition: 0,
                   currentTime:0,
                   selectedTrackId: audioFiles[pos].id,
                   currentlyPlaying: audioFiles[pos].id,
@@ -197,7 +198,7 @@ class Tracks extends React.Component {
             let formattedDuration = formatTime(trackDuration);
             this.props.store({
               selectedTrack: pos,
-              currentPostion: 0,
+              currentPosition: 0,
               currentTime:0,
               selectedTrackId: audioFiles[pos].id,
               currentlyPlaying: audioFiles[pos].id,
@@ -217,7 +218,7 @@ class Tracks extends React.Component {
             let formattedDuration = formatTime(trackDuration);
             this.props.store({
               selectedTrack: pos,
-              currentPostion: 0,
+              currentPosition: 0,
               currentTime:0,
               selectedTrackId: audioFiles[pos].id,
               currentlyPlaying: audioFiles[pos].id,
@@ -409,6 +410,7 @@ render(){
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
+      currentPosition,
       showOverview,
       toastText,
       showToast,
@@ -485,7 +487,7 @@ render(){
                                 name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
                                 size={ 40 }
                               /> :
-                              <Text style={ dark ? styles.nowPlayingTextDark : styles.nowPlayingText }>...</Text> }
+                              <SoundBar dark={dark} playing={currentPosition > 0} /> }
                             </TouchableOpacity>
 
                             { type === "cloud" && action !== "downloading" ?
@@ -571,7 +573,7 @@ const mapStateToProps = state => {
     paused: state.media.paused,
     references: state.refs.references,
     selectedTrack: state.media.selectedTrack,
-    currentPostion: state.media.currentPostion,
+    currentPosition: state.media.currentPosition,
     showTextinput: state.media.showTextinput,
     trackDuration: state.media.trackDuration,
     hideMenu: state.media.hideMenu,
