@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import IconButton from "../IconButton/IconButton";
 import {
-    View
+    View,
+    Share
 } from 'react-native';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode'
+import { eventEmitter } from 'react-native-dark-mode';
+import { BRANCH_LINK } from 'react-native-dotenv';
 
 const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
@@ -19,16 +21,26 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
         }); 
     }
 
-    const toggleOverview = ()=>{
+    const toggleOverview = () => {
         return new Promise(resolve => {
             store({ showOverview: false, showTextinput: false });
             resolve('hidden');
         });
     }
 
+    const share = async () => {
+        try {
+            await Share.share({message: "You need to check this app out! " + BRANCH_LINK, url: BRANCH_LINK}).then(result => {
+                console.log(result);
+            });
+        }catch(e){
+            console.log(e);
+        }
+    }
+
     const [mode = eventEmitter.currentMode, changeMode] = useState();
 
-    useEffect(()=>{
+    useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
     })
@@ -90,6 +102,15 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
                     mode === 'light' ? styles.iconText : styles.iconTextDark }
                     text={ footer.author.text }
+                />
+                <IconButton
+                    onPress={ share }
+                    name={'share'}
+                    size={ 25 }
+                    active = { true }
+                    style = { styles.icon }
+                    iconStyle = { mode === 'light' ? styles.altIconText : styles.altIconTextDark }
+                    text={ footer.share.text }
                 />
             </View>
         </View>

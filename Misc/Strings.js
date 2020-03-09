@@ -6,7 +6,8 @@ export const header = {
 export const footer = {
   home: { text:"Intro", place: "Second" },
   tracks: { text:"Tracks", place: "Third" },
-  author: { text:"Author", place: "Fourth" }
+  author: { text:"Author", place: "Fourth" },
+  share: { text: "Share" }
 }
 
 export const tracks = {
