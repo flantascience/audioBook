@@ -12,6 +12,8 @@ import NetInfo from "@react-native-community/netinfo";
 import { storeMedia } from '../../Actions/mediaFiles';
 import { storeRefs, fetchingRefs } from '../../Actions/references';
 import { slowConnectionDetected, noConnectionDetected, connected } from '../../Actions/connection';
+import { REDIRECT_TIMER } from '../../Misc/Constants';
+import { navInfo } from '../../Misc/Strings';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './styles';
@@ -38,7 +40,7 @@ class PreLoad extends React.Component {
   });
 
   componentDidMount(){
-    const { navigation: { navigate }, reportConnection, reportNoConnection, reportSlowConnection } = this.props;
+    const { navigation: { navigate }, reportConnection, reportNoConnection, reportSlowConnection, loadedFromMemory, screen, storeMedia } = this.props;
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
     NetInfo.isConnected.addEventListener('connectionChange', () => {
@@ -60,9 +62,58 @@ class PreLoad extends React.Component {
       });
       this.forceUpdate();
     });
-    setTimeout(() => {
-      navigate("Second");
-    }, 300);
+
+    if (!loadedFromMemory) {
+      AsyncStorage.getItem('media').then( res => {
+        if (res) {
+          const objMedia = JSON.parse(res);
+          const {
+            screen,
+            selectedTrack,
+            currentPosition,
+            currentTime,
+            selectedTrackId,
+            currentlyPlaying,
+            currentlyPlayingName,
+            initCurrentlyPlaying,
+            buttonsActive,
+            showOverview,
+            trackDuration, 
+            stopped,
+            loaded, 
+            totalLength, 
+            formattedDuration
+          } = objMedia;
+          setTimeout(() => {
+            storeMedia({
+              screen,
+              selectedTrack,
+              currentPosition,
+              currentTime,
+              selectedTrackId,
+              currentlyPlaying,
+              currentlyPlayingName,
+              initCurrentlyPlaying,
+              buttonsActive,
+              showOverview,
+              trackDuration, 
+              stopped,
+              loaded, 
+              totalLength, 
+              formattedDuration,
+              loadedFromMemory: true
+            });
+            navigate(navInfo[screen]);
+          }, REDIRECT_TIMER);
+        }
+        else {
+          storeMedia({loadedFromMemory:true});
+          setTimeout(() => {
+            navigate(navInfo[screen]);
+          }, REDIRECT_TIMER);
+        }
+      });
+    }
   }
 
   fetchTracksVersion = () => {
@@ -244,6 +295,7 @@ const mapStateToProps = state => {
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
     connectionInfo: state.connectionInfo,
+    loadedFromMemory: state.media.loadedFromMemory,
     paused: state.media.paused,
   }
 }

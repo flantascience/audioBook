@@ -10,6 +10,13 @@ export const footer = {
   share: { text: "Share", icon: 'share' }
 }
 
+export const navInfo = {
+  PreLoad: 'First',
+  Intro: 'Second',
+  Tracks: 'Third',
+  Author: 'Fourth'
+}
+
 export const tracks = {
   noInternetConnection: "You cannot stream without an active internet connection.",
   redownloadTrack: "You need to re-download this track.",
