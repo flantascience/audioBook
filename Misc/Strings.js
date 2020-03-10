@@ -4,10 +4,10 @@ export const header = {
   subHeaderText: "what teachers can't tell you"
 }
 export const footer = {
-  home: { text:"Intro", place: "Second" },
-  tracks: { text:"Tracks", place: "Third" },
-  author: { text:"Author", place: "Fourth" },
-  share: { text: "Share" }
+  home: { text:"Intro", icon: 'home', place: "Second" },
+  tracks: { text:"Tracks", icon: 'volume-high', place: "Third" },
+  author: { text:"Author", icon: 'person', place: "Fourth" },
+  share: { text: "Share", icon: 'share' }
 }
 
 export const tracks = {

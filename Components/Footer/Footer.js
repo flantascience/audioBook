@@ -54,14 +54,11 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
             <View style={ hike ? styles.altContainer : styles.container }>
                 <IconButton
                     onPress={ () => {
-                        let newState = {
-                            screen: "Intro"
-                        };
-                        store(newState);
+                        store({screen: 'Intro'});
                         goTo(footer.home.place);
                     } }
                     active = { screen === 'Intro' }
-                    name={'home'}
+                    name={footer.home.icon}
                     style = { styles.icon }
                     iconStyle = { screen === "Intro" ? 
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
@@ -71,14 +68,11 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                 />
                 <IconButton
                     onPress={ () => {
-                        let newState = {
-                            screen: "Tracks"
-                        };
-                        store(newState);
+                        store({screen: 'Tracks'});
                         goTo(footer.tracks.place);
                     }}
                     active = { screen === 'Tracks' }
-                    name={'volume-high'}
+                    name={footer.tracks.icon}
                     style = { styles.icon }
                     iconStyle = { screen === "Tracks" ? 
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
@@ -88,13 +82,10 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                 />
                 <IconButton
                     onPress={ () => {
-                        let newState = {
-                            screen: "Author"
-                        };
-                        store(newState);
+                        store({screen: 'Author'});
                         goTo(footer.author.place); 
                     }}
-                    name={'person'}
+                    name={footer.author.icon}
                     size={ 25 }
                     active = { screen === 'Author' }
                     style = { styles.icon }
@@ -105,11 +96,11 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                 />
                 <IconButton
                     onPress={ share }
-                    name={'share'}
+                    name={footer.share.icon}
                     size={ 25 }
-                    active = { true }
+                    active = { false }
                     style = { styles.icon }
-                    iconStyle = { mode === 'light' ? styles.altIconText : styles.altIconTextDark }
+                    iconStyle = { mode === 'light' ? styles.iconText : styles.iconTextDark }
                     text={ footer.share.text }
                 />
             </View>

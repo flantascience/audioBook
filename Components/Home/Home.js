@@ -44,7 +44,7 @@ class Home extends React.Component {
 
   static navigationOptions = () => {
     return {
-      headerLeft: <Header />,
+      headerLeft: <Header Android={Android} />,
       headerTitleStyle: {
           textAlign: 'center',
           justifyContent: 'center',
@@ -78,7 +78,9 @@ class Home extends React.Component {
     let {
       navigation,
       paused,
-      currentlyPlaying
+      currentlyPlaying,
+      playingIntro,
+      storeMedia
     } = this.props;
 
     if (!currentlyPlaying) {
@@ -87,7 +89,9 @@ class Home extends React.Component {
       let audioPlaying = !paused;
       if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
         this.setState({paused: true, showVid: false});
+        storeMedia({playingIntro: false});
       }
+      else if (vidPlaying && !playingIntro) storeMedia({playingIntro: true});
     }
   }
 
@@ -116,7 +120,9 @@ class Home extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      showOverview
+      showOverview,
+      storeMedia,
+      playingIntro
     } = this.props;
     let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
     let isFocused = navigation.isFocused();
@@ -194,6 +200,7 @@ class Home extends React.Component {
                         this.setState({showVid:true, paused: false, secondaryHide:false});
                       }, 200);
                       this.player ? this.player.presentFullscreenPlayer() : null;
+                      storeMedia({playingIntro: true});
                     } } 
                   />
                 </View>
@@ -217,6 +224,7 @@ class Home extends React.Component {
                 });
                 this.player ? this.player.dismissFullscreenPlayer() : null;
                 this.startTracks();
+                storeMedia({playingIntro: false});
               }}
               onProgress = {data => {
                 const { currentTime, playableDuration } = data;
@@ -240,11 +248,13 @@ class Home extends React.Component {
               }}
               onTouchEnd={() => {
                 const { paused, showVid } = this.state
+                const { playingIntro } = this.props;
                 Android ? this.setState({
                   showVid: !showVid,
                   paused: !paused
                 }) : null;
                 this.player ? this.player.dismissFullscreenPlayer() : null;
+                storeMedia({playingIntro: !playingIntro});
               }}
               repeat = { false }
               fullscreen = { Android ? false : true }
@@ -275,7 +285,7 @@ class Home extends React.Component {
           mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
           mode === 'light' ? styles.homeFooter : styles.homeFooterDark }
         >
-          <Footer navigation={ navigation } />
+          { !playingIntro || !Android ? <Footer navigation={ navigation } /> : null }
         </View>
       </View>
     );
@@ -298,6 +308,7 @@ const mapStateToProps = state => {
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
     paused: state.media.paused,
+    playingIntro: state.media.playingIntro
   }
 }
 

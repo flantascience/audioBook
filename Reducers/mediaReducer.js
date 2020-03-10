@@ -2,6 +2,7 @@ import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from '../Action
 
 const initialState = {
   emails: undefined,
+  playingIntro: false,
   toggleNowPlaying: null,
   mediaFiles: [],
   trackPlayer: null,

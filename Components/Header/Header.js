@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import {
     View,
     Text,
@@ -8,13 +9,14 @@ import { header } from '../../Misc/Strings';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode'
 
-const Header = () => {
+const Header = ({ playingIntro, Android }) => {
     const [mode = eventEmitter.currentMode, changeMode] = useState();
     useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
     })
 
+    if (!playingIntro || !Android)
     return(
         <View style={ styles.header }>
             <View style={ styles.headerElementsContainer}>
@@ -27,7 +29,14 @@ const Header = () => {
                 </View>
             </View>
         </View>
-    )
+    ) 
+    else return null;
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        playingIntro: state.media.playingIntro
+    }  
+}
+
+export default connect(mapStateToProps)(Header);
