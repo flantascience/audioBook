@@ -123,9 +123,13 @@ export const styles = StyleSheet.create({
         padding: 10
     },
     refText: {
+        alignSelf: "flex-start",
+        textAlign: "left",
         fontSize: 12
     },
     refTextDark: {
+        alignSelf: "flex-start",
+        textAlign: "left",
         fontSize: 12,
         color: '#fff'
     },
@@ -475,9 +479,6 @@ export const styles = StyleSheet.create({
         alignContent: "center",
         justifyContent: "center",
         alignItems: "center"
-    },
-    refText: {
-        alignSelf: "flex-start"
     },
     refLink: {
         alignSelf: "flex-start"
