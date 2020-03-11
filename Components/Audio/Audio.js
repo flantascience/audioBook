@@ -39,7 +39,7 @@ class Audio extends React.Component{
     }
 
     componentDidMount(){
-        let { audioFiles } = this.props;
+        let { audioFiles, trackPlayer } = this.props;
         this.props.store({ showToast: false, toastText: null });
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
@@ -48,7 +48,7 @@ class Audio extends React.Component{
 
     toggleTrack = pos => {
         //console.log(currentlyPlaying + " " + pos);
-        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
+        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs, store } = this.props;
         let title = audioFiles[pos].title;
         return new Promise(resolve => {
             if (currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)) {
@@ -65,7 +65,7 @@ class Audio extends React.Component{
                         currentlyPlayingName: title,
                         showTextinput: false
                     };
-                    this.props.store(newState);
+                    store(newState);
                     resolve('done');
                 }); 
             }
@@ -86,8 +86,8 @@ class Audio extends React.Component{
                             paused: false,
                             loaded: true
                         };
-                        this.props.store(newState);
-                });
+                        store(newState);
+                    });
                }
                else {
                     if (paused) {
@@ -110,7 +110,7 @@ class Audio extends React.Component{
                 let newState = {
                     paused: false
                 };
-                this.props.store(newState);
+                store(newState);
                 resolve("not");
             }
         });
@@ -243,7 +243,8 @@ class Audio extends React.Component{
             },
             showQuestionnaire,
             connected,
-            fetchingRefs
+            fetchingRefs,
+            store
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -285,7 +286,7 @@ class Audio extends React.Component{
                 { originScreen !== 'Tracks' && originScreen !== 'Author' ?
                 <TrackPlayer
                     ref={ref => {
-                        this.trackPlayer = ref
+                        this.trackPlayer = ref;
                     }}
                     source={audioSource}
                     onProgress={data => {
@@ -295,7 +296,7 @@ class Audio extends React.Component{
                     }}
                     onEnd={() => {
                         // move to the next track
-                        const { audioFiles, currentlyPlaying, currentPosition, toggleNowPlaying } = this.props;
+                        const { audioFiles, currentlyPlaying, toggleNowPlaying } = this.props;
                         // check if there's a next track
                         const nextTrackId = currentlyPlaying + 1;
                         const nextTrackInfo = audioFiles[nextTrackId];
@@ -304,16 +305,17 @@ class Audio extends React.Component{
                             //this.toggleTrack(nextTrackId);
                             toggleNowPlaying(nextTrackId, true);
                         }
-                        else this.props.store({paused: true, currentPosition: 0});
+                        else store({paused: true, currentPosition: 0});
                     }}
                     playWhenInactive={true}
                     paused={paused}
                     audioOnly={true}
                     onLoad={data => {
-                        this.props.store({trackPlayer: this.trackPlayer});
+                        store({trackPlayer: this.trackPlayer});
                         let { duration } = data;
-                        if (duration) this.props.store({loaded:true, trackDuration: Math.floor(duration)});
-                        else this.props.store({loaded:true});
+                        if (duration) store({loaded:true, trackDuration: Math.floor(duration)});
+                        else store({loaded:true});
+                        if (currentPosition !== 0) this.trackPlayer.seek(currentPosition);
                     }}
                     repeat={true}
                     controls={true}
@@ -354,7 +356,7 @@ class Audio extends React.Component{
                                     <TouchableOpacity  
                                         disabled={ !buttonsActive }  
                                         style={ styles.groupedButtons } 
-                                        onPress={ selectedTrack?()=>this.toggleTrack(selectedTrack):()=>{} }
+                                        onPress={ selectedTrack ? ()=>this.toggleTrack(selectedTrack):()=>{} }
                                     >
                                         <Icon
                                             color={ dark ? '#fff' : '#000' }

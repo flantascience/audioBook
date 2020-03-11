@@ -53,7 +53,7 @@ class Audio extends React.Component{
       let title = audioFiles[pos].title;
       return new Promise(resolve => {
         if ( currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)) {
-          //console.log("first option");
+          // console.log("first option");
           updateShowRefs(false);
           removeTrack().then(() => {
               let stringPos = pos.toString();

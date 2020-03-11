@@ -3,23 +3,65 @@ import { connect } from 'react-redux';
 import {
     View,
     Text,
-    Image
+    Image,
+    Platform
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode'
+import { eventEmitter } from 'react-native-dark-mode';
+// import jsonStringifier from 'json-stringify-safe';
 
-const Header = ({ playingIntro, Android, media, loadedFromMemory }) => {
+const Android = Platform.OS === 'android';
+
+const Header = ({ playingIntro, media, preloader=false }) => {
     const [mode = eventEmitter.currentMode, changeMode] = useState();
     useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
-        return function cleanup() {
-            const stringifiedMedia = JSON.stringify(media);
-            AsyncStorage.setItem('media', stringifiedMedia);
-        }
+        return cleanup = () => {
+            if (!preloader) {
+                const {
+                    screen,
+                    audioFiles,
+                    selectedTrack,
+                    currentPosition,
+                    currentTime,
+                    selectedTrackId,
+                    currentlyPlaying,
+                    currentlyPlayingName,
+                    initCurrentlyPlaying,
+                    buttonsActive,
+                    showOverview,
+                    trackDuration, 
+                    stopped,
+                    loaded, 
+                    totalLength, 
+                    formattedDuration
+                } = media;
+                
+                const stringifiedMedia = JSON.stringify({
+                    screen,
+                    audioFiles,
+                    selectedTrack,
+                    currentPosition,
+                    currentTime,
+                    selectedTrackId,
+                    currentlyPlaying,
+                    currentlyPlayingName,
+                    initCurrentlyPlaying,
+                    buttonsActive,
+                    showOverview,
+                    trackDuration,
+                    stopped,
+                    loaded,
+                    totalLength,
+                    formattedDuration
+                });
+                AsyncStorage.setItem('media', stringifiedMedia);
+            }
+        };
     })
 
     if (!playingIntro || !Android)

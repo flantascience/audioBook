@@ -29,7 +29,7 @@ const Android = Platform.OS === 'android';
 class PreLoad extends React.Component {
 
   static navigationOptions = () => ({
-    headerLeft: <Header />,
+    headerLeft: <Header pre={true} />,
     headerTitleStyle: {
         textAlign: 'center',
         justifyContent: 'center',
@@ -77,11 +77,11 @@ class PreLoad extends React.Component {
             currentPosition,
             currentTime,
             selectedTrackId,
+            showOverview,
             currentlyPlaying,
             currentlyPlayingName,
             initCurrentlyPlaying,
             buttonsActive,
-            showOverview,
             trackDuration, 
             stopped,
             loaded, 
@@ -89,7 +89,7 @@ class PreLoad extends React.Component {
             formattedDuration
           } = objMedia;
           storeMedia({
-            screen,
+            screen: !Android ? 'Intro' : screen,
             selectedTrack,
             currentPosition,
             currentTime,
@@ -116,7 +116,7 @@ class PreLoad extends React.Component {
             }
           }
           setTimeout(() => {
-            navigate(navInfo[screen]);
+            Android ? navigate(navInfo[screen]) : navigate('Second');
           }, REDIRECT_TIMER);
         }
         else {
