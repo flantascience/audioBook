@@ -37,11 +37,15 @@ class Audio extends React.Component{
     }
 
     componentDidMount(){
-        let { audioFiles } = this.props;
-        this.props.store({ showToast: false, toastText: null });
+        let { audioFiles, loadedFromMemory, store, currentlyPlaying, currentPosition } = this.props;
+        store({ showToast: false, toastText: null });
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({lastTrackId});
+        if (loadedFromMemory && currentlyPlaying !== undefined && currentlyPlaying !== null) {
+            TrackPlayer.seekTo(parseFloat(currentPosition));
+            store({loadedFromMemory: false});
+        }
     }
 
     toggleTrack = pos => {
@@ -517,6 +521,7 @@ const mapStateToProps = state => {
       showToast: state.media.showToast,
       toastText: state.media.toastText,
       hideMenu: state.media.hideMenu,
+      loadedFromMemory: state.media.loadedFromMemory,
       connected: state.connectionInfo.connected,
       fetchingRefs: state.refs.fetching,
     }

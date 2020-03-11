@@ -98,3 +98,4 @@ const App = ()=>(
 );
 
 AppRegistry.registerComponent(appName, () => App);
+TrackPlayer.registerEventHandler(() => require('./service'));

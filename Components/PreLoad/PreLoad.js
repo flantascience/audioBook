@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import {
   View,
   Dimensions,
-  ActivityIndicator
+  ActivityIndicator,
+  Platform
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import NetInfo from "@react-native-community/netinfo";
 import { storeMedia } from '../../Actions/mediaFiles';
+import TrackPlayer from 'react-native-track-player';
 import { storeRefs, fetchingRefs } from '../../Actions/references';
 import { slowConnectionDetected, noConnectionDetected, connected } from '../../Actions/connection';
 import { REDIRECT_TIMER } from '../../Misc/Constants';
@@ -22,6 +24,7 @@ import { eventEmitter } from 'react-native-dark-mode';
 const tracksRef = firebase.database().ref("/tracks");
 const versionsRef = firebase.database().ref("/versions");
 const referencesRef = firebase.database().ref("/references");
+const Android = Platform.OS === 'android';
 
 class PreLoad extends React.Component {
 
@@ -69,6 +72,7 @@ class PreLoad extends React.Component {
           const objMedia = JSON.parse(res);
           const {
             screen,
+            audioFiles,
             selectedTrack,
             currentPosition,
             currentTime,
@@ -84,25 +88,34 @@ class PreLoad extends React.Component {
             totalLength, 
             formattedDuration
           } = objMedia;
+          storeMedia({
+            screen,
+            selectedTrack,
+            currentPosition,
+            currentTime,
+            selectedTrackId,
+            currentlyPlaying,
+            currentlyPlayingName,
+            initCurrentlyPlaying,
+            buttonsActive,
+            showOverview,
+            trackDuration, 
+            stopped,
+            loaded, 
+            totalLength, 
+            formattedDuration,
+            loadedFromMemory: true
+          });
+          if (Android && TrackPlayer) {
+            // track 0 always returns falsey
+            if (audioFiles.length > 0 && currentlyPlaying !== null && currentlyPlaying !== undefined) {
+              TrackPlayer.add([audioFiles[parseInt(currentlyPlaying)]]).then(res => {
+                // track loaded
+                console.log('track loaded')
+              });
+            }
+          }
           setTimeout(() => {
-            storeMedia({
-              screen,
-              selectedTrack,
-              currentPosition,
-              currentTime,
-              selectedTrackId,
-              currentlyPlaying,
-              currentlyPlayingName,
-              initCurrentlyPlaying,
-              buttonsActive,
-              showOverview,
-              trackDuration, 
-              stopped,
-              loaded, 
-              totalLength, 
-              formattedDuration,
-              loadedFromMemory: true
-            });
             navigate(navInfo[screen]);
           }, REDIRECT_TIMER);
         }

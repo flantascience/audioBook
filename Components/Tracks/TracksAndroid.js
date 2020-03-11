@@ -69,11 +69,10 @@ class Tracks extends React.Component {
   });
 
   componentDidMount(){
-    let { audioFiles, connectionInfo: { connected } } = this.props;
+    let { audioFiles, connectionInfo: { connected }, store } = this.props;
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       const playerState = data.state;
       const { media: { currentPosition, trackDuration, currentlyPlaying } } = this.props;
-      console.log(playerState)
       if (playerState === 1 && trackDuration && parseInt(currentPosition) === parseInt(trackDuration)) {
         const nextTrackId = currentlyPlaying + 1;
         if (nextTrackId != undefined && nextTrackId !== NaN) {
@@ -89,17 +88,17 @@ class Tracks extends React.Component {
 
     TrackPlayer.addEventListener('remote-play', async () => {
       TrackPlayer.play();
-      this.props.store({ paused: false });
+      store({ paused: false });
     });
 
     TrackPlayer.addEventListener('remote-pause', async () => {
       TrackPlayer.pause();
-      this.props.store({ paused: true });
+      store({ paused: true });
     });
 
     TrackPlayer.addEventListener('remote-stop', async () => {
       TrackPlayer.stop();
-      this.props.store({ paused: true });
+      store({ paused: true });
     });
 
     TrackPlayer.addEventListener('remote-previous', async () => {
@@ -133,7 +132,7 @@ class Tracks extends React.Component {
               currentPosition: newPos,
               currentTime: newPos
           };
-          this.props.store(newState);
+          store(newState);
           TrackPlayer.seekTo(newPos);
       });
     });
@@ -145,15 +144,15 @@ class Tracks extends React.Component {
               currentPosition: newPos,
               currentTime: newPos
           };
-          this.props.store(newState);
+          store(newState);
           TrackPlayer.seekTo(newPos);
       });
     });
     if (connected) {
       let showMessage = true;
-      this.props.store({showMessage, message: tracks.noInternetConnection });
+      store({showMessage, message: tracks.noInternetConnection });
     }
-    else this.props.store({showMessage: false, message: null});
+    else store({showMessage: false, message: null});
   }
 
   componentDidUpdate(){
@@ -170,7 +169,7 @@ class Tracks extends React.Component {
       let showMessage = true;
       this.props.store({showMessage, message: tracks.noInternetConnection });
     }
-    else if (connected && showMessage) this.props.store({showMessage: false, message: null });
+    else if (connected && showMessage) store({showMessage: false, message: null });
   }
 
   foldAccordions = () => {
@@ -181,7 +180,7 @@ class Tracks extends React.Component {
   }
 
   toggleNowPlaying = (pos, prog = false) => {
-    let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, media: { showOverview } } = this.props;
+    let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, store } = this.props;
     const { currentAction } = this.state;
     this.foldAccordions();
     if (pos !== selectedTrack) {
@@ -211,7 +210,7 @@ class Tracks extends React.Component {
                       //console.log(trackDuration)
                       if (trackDuration > 0) {
                         const formattedDuration = formatTime(trackDuration);
-                        this.props.store({
+                        store({
                           selectedTrack: pos,
                           currentPosition:0,
                           currentTime:0,
@@ -233,7 +232,7 @@ class Tracks extends React.Component {
                       else {
                         trackDuration = audioFiles[pos].duration;
                         let formattedDuration = formatTime(trackDuration);
-                        this.props.store({
+                        store({
                           selectedTrack: pos,
                           currentPosition:0,
                           currentTime:0,
@@ -260,9 +259,9 @@ class Tracks extends React.Component {
                 else {
                   let showToast = true;
                   let newAudioFiles;
-                  this.props.store({showToast, toastText: tracks.redownloadTrack });
+                  store({showToast, toastText: tracks.redownloadTrack });
                   setTimeout(() => {
-                    this.props.store({showToast: !showToast, toastText: null });
+                    store({showToast: !showToast, toastText: null });
                   }, TOAST_TIMEOUT);
                   if (audioFilesCloud.length > 0) {
                     newAudioFiles = [...audioFilesCloud];
@@ -278,7 +277,7 @@ class Tracks extends React.Component {
                     // console.log(trackDuration)
                     if (trackDuration > 0) {
                       let formattedDuration = formatTime(trackDuration);
-                      this.props.store({
+                      store({
                         selectedTrack: pos,
                         currentPosition:0,
                         currentTime:0,
@@ -300,7 +299,7 @@ class Tracks extends React.Component {
                     else {
                       trackDuration = audioFiles[pos].duration;
                       let formattedDuration = formatTime(trackDuration);
-                      this.props.store({
+                      store({
                         selectedTrack: pos,
                         currentPosition:0,
                         currentTime:0,
@@ -332,15 +331,15 @@ class Tracks extends React.Component {
         }
         else {
           let showToast = true;
-          this.props.store({showToast, toastText: tracks.noInternetConnection });
+          store({showToast, toastText: tracks.noInternetConnection });
           setTimeout(() => {
-            this.props.store({showToast: !showToast, toastText: null });
+            store({showToast: !showToast, toastText: null });
           }, TOAST_TIMEOUT);
         }
     }
     else {
       let showOverview = !this.props.showOverview;
-      this.props.store({showOverview});
+      store({showOverview});
     }
   }
 
@@ -648,6 +647,7 @@ const mapStateToProps = state => {
     showMessage: state.media.showMessage,
     message: state.media.message,
     connectionInfo: state.connectionInfo,
+    loadedFromMemory: state.media.loadedFromMemory,
     media: state.media
   }
 }

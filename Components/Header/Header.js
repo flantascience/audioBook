@@ -11,12 +11,11 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode'
 
-const Header = ({ playingIntro, Android, media }) => {
+const Header = ({ playingIntro, Android, media, loadedFromMemory }) => {
     const [mode = eventEmitter.currentMode, changeMode] = useState();
     useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
-        console.log(media.screen)
         return function cleanup() {
             const stringifiedMedia = JSON.stringify(media);
             AsyncStorage.setItem('media', stringifiedMedia);

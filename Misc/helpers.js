@@ -38,12 +38,12 @@ export const getPlayerState = async ()=> {
     return state;
 
 }
-export const removeTrack = (id)=> {
-    return new Promise(resolve=>{
-        TrackPlayer.reset().then(()=>{
+export const removeTrack =  () => {
+    return new Promise(resolve => {
+        TrackPlayer.reset().then(() => {
             resolve("removed");
-        }).catch(err=>{
-            resolve("There was an error.");
+        }).catch(err => {
+            resolve({ message: err.message});
         }); 
     })
 }

@@ -43,7 +43,6 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
     useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
-        console.log(screen)
     })
 
     return(
