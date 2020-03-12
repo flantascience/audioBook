@@ -1,16 +1,14 @@
 import React, { useEffect } from 'react';
 import { View, Image, Text } from 'react-native';
 import styles from './style';
-import soundDark from './sound-play_clear_bg.gif';
-import soundLight from './sound-play_white_bg.gif';
-import preSoundDark from './sound-play_clear_bg.png';
-import preSoundLight from './sound-play_white_bg.png'
+import soundDark from './images/sound-play_clear_bg.gif';
+import soundLight from './images/sound-play_white_bg.gif';
+import preSoundDark from './images/sound_before_start_clear.png';
+import preSoundLight from './images/sound_before_start_white.png'
 
 
 const SoundBar = ({ dark, playing }) => {
-
-  useEffect(() => {}, [])
-
+  useEffect(() => {}, []);
   return (
     <View style={ styles.container }>
       { playing ? 
