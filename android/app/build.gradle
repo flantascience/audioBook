@@ -137,7 +137,16 @@ android {
     }
     buildTypes {
         release {
+            //Enable the proguard
+            minifyEnabled true
+            //shrinkResources true
             signingConfig signingConfigs.release
+            //other size reducing configs
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
         }
     }
 
@@ -155,6 +164,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 19
         versionName "2.9"
+        resConfigs "en"
     }
     splits {
         abi {
