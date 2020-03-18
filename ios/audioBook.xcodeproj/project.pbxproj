@@ -30,6 +30,7 @@
 		6A41D3DF23FC790100779CD0 /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */; };
 		6A91CBC523E21A1200E366C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A91CBC423E21A1200E366C4 /* GoogleService-Info.plist */; };
 		6ABFAC6E2405F67600572B9F /* DKCrayonCrumble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61B1C6D4EA324B21967DF965 /* DKCrayonCrumble.ttf */; };
+		6AD439EC24227E370005619D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AD439EB24227E370005619D /* StoreKit.framework */; };
 		6CB7634DC49141248DAFD638 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C0A7861B4F643F7B9A70470 /* SimpleLineIcons.ttf */; };
 		6E882FABA8E947159DD07146 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 907A4B6616D54763A38EAEB0 /* FontAwesome.ttf */; };
 		8D017BFBC56447AAAD004654 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5E4C8749EC447629882476D /* Octicons.ttf */; };
@@ -155,6 +156,7 @@
 		6A32696423547A5100946C70 /* crzy-head-shot-trans.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crzy-head-shot-trans.png"; path = "../Components/Header/images/crzy-head-shot-trans.png"; sourceTree = "<group>"; };
 		6A41D3DD23FC790100779CD0 /* DKCrayonCrumble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DKCrayonCrumble.ttf; sourceTree = "<group>"; };
 		6A91CBC423E21A1200E366C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Dev/Curricu-dumb/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6AD439EB24227E370005619D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		7D3916424961B21B7AAA4388 /* Pods-audioBookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-audioBookTests.debug.xcconfig"; path = "Target Support Files/Pods-audioBookTests/Pods-audioBookTests.debug.xcconfig"; sourceTree = "<group>"; };
 		84F4F8FE967F8D890CCC065C /* libPods-audioBookTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBookTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BA5CCC1983FD25AF12B7B66 /* libPods-audioBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-audioBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB7DE6E7891733231275CCD9 /* libPods-audioBook.a in Frameworks */,
+				6AD439EC24227E370005619D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +269,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AD439EB24227E370005619D /* StoreKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				8BA5CCC1983FD25AF12B7B66 /* libPods-audioBook.a */,

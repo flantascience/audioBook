@@ -101,7 +101,8 @@ def enableSeparateBuildPerCPUArchitecture = false
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = false
+def enableProguardInReleaseBuilds = true
+def enableProguardInDebugBuilds = true
 
 /**
  * The preferred build flavor of JavaScriptCore.
@@ -126,44 +127,18 @@ def jscFlavor = 'org.webkit:android-jsc:+'
 def enableHermes = project.ext.react.get("enableHermes", false);
 
 android {
-
-    signingConfigs {
-        release {
-            storeFile file(MYAPP_RELEASE_STORE_FILE)
-            storePassword MYAPP_RELEASE_STORE_PASSWORD
-            keyAlias MYAPP_RELEASE_KEY_ALIAS
-            keyPassword MYAPP_RELEASE_KEY_PASSWORD
-        }
-    }
-    buildTypes {
-        release {
-            //Enable the proguard
-            minifyEnabled true
-            //shrinkResources true
-            signingConfig signingConfigs.release
-            //other size reducing configs
-            debuggable false
-            jniDebuggable false
-            renderscriptDebuggable false
-            pseudoLocalesEnabled false
-            zipAlignEnabled true
-        }
-    }
-
     compileSdkVersion rootProject.ext.compileSdkVersion
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
     defaultConfig {
         multiDexEnabled true
         applicationId "com.curricu_dumb_audiobook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 19
-        versionName "2.9"
+        versionCode 22
+        versionName "3.2"
         resConfigs "en"
     }
     splits {
@@ -175,6 +150,12 @@ android {
         }
     }
     signingConfigs {
+        release {
+            storeFile file(MYAPP_RELEASE_STORE_FILE)
+            storePassword MYAPP_RELEASE_STORE_PASSWORD
+            keyAlias MYAPP_RELEASE_KEY_ALIAS
+            keyPassword MYAPP_RELEASE_KEY_PASSWORD
+        }
         debug {
             storeFile file('debug.keystore')
             storePassword 'android'
@@ -184,14 +165,30 @@ android {
     }
     buildTypes {
         debug {
+            //Enable the proguard
+            //minifyEnabled enableProguardInDebugBuilds
+            //proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            //shrinkResources true
             signingConfig signingConfigs.debug
+            //other size reducing configs
+            debuggable true
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://facebook.github.io/react-native/docs/signed-apk-android.
+            //Enable the proguard
+            //minifyEnabled enableProguardInReleaseBuilds
+            //proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            //shrinkResources true
             signingConfig signingConfigs.debug
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            //other size reducing configs
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
         }
     }
     // applicationVariants are e.g. debug, release
