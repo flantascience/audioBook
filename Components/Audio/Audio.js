@@ -22,10 +22,9 @@ import {
 import firebase from 'react-native-firebase';
 import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
-import { NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
-import { audioOverview, audio } from '../../Misc/Strings';
+import { audioOverview, audio, tracks } from '../../Misc/Strings';
 import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
@@ -296,16 +295,25 @@ class Audio extends React.Component{
                     }}
                     onEnd={() => {
                         // move to the next track
-                        const { audioFiles, currentlyPlaying, toggleNowPlaying } = this.props;
+                        const { audioFiles, currentlyPlaying, toggleNowPlaying, userType } = this.props;
                         // check if there's a next track
                         const nextTrackId = currentlyPlaying + 1;
                         const nextTrackInfo = audioFiles[nextTrackId];
-                        console.log('track ended')
-                        if (nextTrackInfo && toggleNowPlaying) {
-                            //this.toggleTrack(nextTrackId);
-                            toggleNowPlaying(nextTrackId, true);
+                        // console.log('track ended')
+                        const free = audioFiles[nextTrackId].free;
+                        const trackAvailable = free || userType === 'paid';
+                        // console.log(nextTrackId)
+                        if (nextTrackInfo && toggleNowPlaying && trackAvailable) toggleNowPlaying(nextTrackId, true);
+                        else { 
+                            store({paused: true, currentPosition: 0});
+                            if (!trackAvailable) {
+                                let showToast = true;
+                                store({showToast, toastText: tracks.nextTrackIsPaid });
+                                setTimeout(() => {
+                                    store({showToast: !showToast, toastText: null });
+                                }, TOAST_TIMEOUT);
+                            }
                         }
-                        else store({paused: true, currentPosition: 0});
                     }}
                     playWhenInactive={true}
                     paused={paused}

@@ -19,6 +19,8 @@ export const navInfo = {
 
 export const tracks = {
   noInternetConnection: "You cannot stream without an active internet connection.",
+  payForTracks: "You need to subscribe to listen to this track.",
+  nextTrackIsPaid: "You'll need to subscribe to play next track.",
   redownloadTrack: "You need to re-download this track.",
   restartApp: "Something went wrong, please restart app and try again.",
   downloadError: "Something went wrong with downloading tracks list, restart app."

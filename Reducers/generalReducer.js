@@ -11,7 +11,8 @@ const initialState = {
   startTracks: false,
   connection: 'normal',
   connectionChecked: false,
-  connected: true
+  connected: true,
+  userType: 'free'
 };
 
 const generalReducer = (state = initialState, action) => {

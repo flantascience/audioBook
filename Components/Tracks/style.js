@@ -151,11 +151,20 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20
     },
+    iconsContainer: {
+        display: 'flex',
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: 'row',
+        minWidth: 25,
+        flex: 2
+    },
     trackIcon: {
-        flex: 2,
-        alignContent: "flex-end",
-        justifyContent: "flex-end",
-        alignItems: "flex-end"
+        flex: 1,
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center"
     },
     trackTextWrapper: {
         display: "flex",
