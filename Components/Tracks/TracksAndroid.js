@@ -472,7 +472,7 @@ class Tracks extends React.Component {
     const canceled = items[2];
     const unavailable = items[3];
     const { updateUserType, store } = this.props;
-    RNIap.requestPurchase(tracksId, false).then(purchase => {
+    RNIap.requestPurchase(successful, false).then(purchase => {
       if (purchase) {
         updateUserType('paid');
         let showToast = true;
