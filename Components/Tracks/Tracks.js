@@ -30,6 +30,11 @@ import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } fr
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
+import * as RNIap from 'react-native-iap';
+
+const items = [
+   '01'
+  ];
 
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
@@ -52,6 +57,7 @@ class Tracks extends React.Component {
     });
     this.state = {
       currentAction,
+      products: null,
       currentTime: null,
       autoPlayStarted: false,
       referencesInfo: [],
@@ -84,7 +90,10 @@ class Tracks extends React.Component {
       let showMessage = true;
       this.props.store({showMessage, message: tracks.noInternetConnection });
     }
-    else this.props.store({showMessage: false, message: null });
+    else {
+      this.props.store({showMessage: false, message: null });
+      this.fetchAvailableProducts();
+    }
   }
 
   componentDidUpdate(){
@@ -409,6 +418,20 @@ fetchFromFirebase = () => {
     setTimeout(() => {
       store({showToast: !showToast, toastText: null });
     }, TOAST_TIMEOUT);
+  }
+}
+
+fetchAvailableProducts = () => {
+  try {
+    RNIap.getProducts(items).then(products => {
+     //handle success of fetch product list
+     this.setState({products})
+     //console.log(products)
+    }).catch(error => {
+      console.log(error.message);
+    })
+  } catch(err) {
+    console.warn(err); // standardized err.code and err.message available
   }
 }
 

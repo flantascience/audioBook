@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
+import { setUserType } from '../../Actions/userInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode';
@@ -15,8 +16,16 @@ import { eventEmitter } from 'react-native-dark-mode';
 
 const Android = Platform.OS === 'android';
 
-const Header = ({ playingIntro, media, preloader=false }) => {
+const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
+
     const [mode = eventEmitter.currentMode, changeMode] = useState();
+
+    useEffect(() => {
+        AsyncStorage.getItem('userType').then(userType => {
+            if(userType) updateUserType(userType);
+        });
+    }, []);
+
     useEffect(() => {
         let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
@@ -85,6 +94,9 @@ const mapDispatchToProps = dispatch => {
     return {
         storeMedia: media => {
             dispatch(storeMedia(media));
+        },
+        updateUserType: userType => {
+            dispatch(setUserType(userType));
         }
     }
 }

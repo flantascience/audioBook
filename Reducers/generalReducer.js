@@ -3,7 +3,8 @@ import {
   SLOW_CONNECTION, 
   NO_CONNECTION, 
   CONNECTED, 
-  SET_START_TRACKS 
+  SET_START_TRACKS ,
+  SET_USER_TYPE
 } from '../Actions/types';
 
 const initialState = {
@@ -46,6 +47,12 @@ const generalReducer = (state = initialState, action) => {
       return {
         ...state,
         startTracks: action.payload
+      }
+    }
+    case SET_USER_TYPE: {
+      return {
+        ...state,
+        userType: action.payload
       }
     }
     default:

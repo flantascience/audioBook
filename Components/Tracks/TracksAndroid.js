@@ -24,12 +24,21 @@ import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, LONG_TOAST_TIMEOUT, NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
+import { setUserType } from '../../Actions/userInput';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
+import * as RNIap from 'react-native-iap';
+
+const items = [
+   '01',
+   'android.test.purchased',
+   'android.test.canceled',
+   'android.test.item_unavailable'
+  ];
 
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
@@ -39,7 +48,7 @@ class Tracks extends React.Component {
     super(props);
     let { audioFiles } = props;
     let currentAction = [];
-    audioFiles.forEach(file=>{
+    audioFiles.forEach(file => {
       let { id } = file;
       currentAction.push({ 
         id, 
@@ -50,6 +59,7 @@ class Tracks extends React.Component {
     });
     this.state = {
       currentAction,
+      products: null,
       autoPlayStarted: false
     }
   }
@@ -70,7 +80,6 @@ class Tracks extends React.Component {
 
   componentDidMount(){
     let { audioFiles, connectionInfo: { connected }, store } = this.props;
-
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       const playerState = data.state;
       const { media: { currentPosition, trackDuration, currentlyPlaying, userType } } = this.props;
@@ -162,6 +171,7 @@ class Tracks extends React.Component {
     if (connected) {
       let showMessage = true;
       store({showMessage, message: tracks.noInternetConnection });
+      this.fetchAvailableProducts();
     }
     else store({showMessage: false, message: null});
   }
@@ -443,6 +453,64 @@ class Tracks extends React.Component {
       }
   }
 
+  fetchAvailableProducts = () => {
+    try {
+      RNIap.getProducts(items).then(products => {
+       //handle success of fetch product list
+       this.setState({products});
+      }).catch(error => {
+        console.log(error.message);
+      })
+    } catch(err) {
+      console.warn(err); // standardized err.code and err.message available
+    }
+  }
+
+  buyProduct = () => {
+    const tracksId = items[0];
+    const successful = items[1];
+    const canceled = items[2];
+    const unavailable = items[3];
+    const { updateUserType, store } = this.props;
+    RNIap.requestPurchase(tracksId, false).then(purchase => {
+      if (purchase) {
+        updateUserType('paid');
+        let showToast = true;
+        store({showToast, toastText: tracks.successfullyPaid });
+        setTimeout(() => {
+          store({showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      }
+      else {
+        updateUserType('free');
+        let showToast = true;
+        store({showToast, toastText: tracks.restartApp });
+        setTimeout(() => {
+          store({showToast: !showToast, toastText: null });
+        }, LONG_TOAST_TIMEOUT);
+      }
+    }).
+    catch(e => {
+      // console.log(e.code)
+      if (e.code === 'E_ALREADY_OWNED') {
+        updateUserType('paid');
+        let showToast = true;
+        store({showToast, toastText: tracks.alreadyPaid});
+        setTimeout(() => {
+          store({showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      }
+      else {
+        updateUserType('free');
+        let showToast = true;
+        store({showToast, toastText: tracks.transactionFailed });
+        setTimeout(() => {
+          store({showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      }
+    });
+  }
+
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
     return new Promise(resolve => {
         let currentReferences = [];
@@ -623,7 +691,7 @@ class Tracks extends React.Component {
                           null } 
                         </View> :
                         <View style={styles.iconsContainer}>
-                            <TouchableOpacity style={ styles.trackIcon }>
+                            <TouchableOpacity onPress={this.buyProduct} style={ styles.trackIcon }>
                               <Icon 
                                 color={ dark ? '#fff' : '#000' }
                                 name={ Platform.OS === "ios" ? `ios-${lockedItemIcon}` : `md-${lockedItemIcon}` }
@@ -724,6 +792,9 @@ const mapDispatchToProps = dispatch => {
     },
     changeStartTracks: value => {
       dispatch(toggleStartTracks(value));
+    },
+    updateUserType: userType => {
+      dispatch(setUserType(userType));
     }
   }
 }

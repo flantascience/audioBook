@@ -3,13 +3,16 @@ import { connect } from 'react-redux';
 import IconButton from "../IconButton/IconButton";
 import {
     View,
-    Share
+    Share,
+    Platform
 } from 'react-native';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
 import { eventEmitter } from 'react-native-dark-mode';
 import { BRANCH_LINK } from 'react-native-dotenv';
+
+const Android = Platform.OS === 'android';
 
 const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
@@ -30,8 +33,9 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
 
     const share = async () => {
         try {
-            await Share.share({message: "You need to check this app out! " + BRANCH_LINK, url: BRANCH_LINK}).then(result => {
-                console.log(result);
+            const message = Android ? "You need to checkout this app! "+ BRANCH_LINK : "You need to checkout this app!";
+            await Share.share({message, url: BRANCH_LINK}).then(result => {
+                /** Do something after sharing */
             });
         }catch(e){
             console.log(e);
