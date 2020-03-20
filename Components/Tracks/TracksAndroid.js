@@ -468,12 +468,13 @@ class Tracks extends React.Component {
 
   buyProduct = () => {
     const tracksId = items[0];
-    const successful = items[1];
+    /*const successful = items[1];
     const canceled = items[2];
-    const unavailable = items[3];
+    const unavailable = items[3];*/
     const { updateUserType, store } = this.props;
-    RNIap.requestPurchase(successful, false).then(purchase => {
-      if (purchase) {
+    RNIap.requestPurchase(tracksId, false).then(purchase => {
+      if (purchase.transactionReceipt) {
+        AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
         updateUserType('paid');
         let showToast = true;
         store({showToast, toastText: tracks.successfullyPaid });
