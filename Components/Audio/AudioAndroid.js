@@ -415,11 +415,13 @@ class Audio extends React.Component{
                                 style={ dark ? styles.closePlayerContainerDark : styles.closePlayerContainer } 
                                 onPress={this.closeMiniPlayer}
                             >
-                                <Text 
-                                    style={ dark ? styles.closePlayerDark : styles.closePlayer }
-                                >
-                                    X
-                                </Text>
+                                <View style={ dark ? styles.closePlayerDark : styles.closePlayer }>
+                                    <Icon 
+                                        color={ dark ? '#fff' : '#000' }
+                                        name={ Platform.OS === "ios" ? `ios-close` : `md-close` }
+                                        size={ 20 }
+                                    />
+                                </View>
                             </TouchableOpacity>
                             <View style={ styles.controllerContainer }>
                                 <TouchableOpacity onPress={ this.toggleOverview } style={ styles.textDisplay }>

@@ -16,7 +16,8 @@ import {
   Audio,
   Header,
   Footer,
-  SoundBar
+  SoundBar,
+  PurchaseOverview
 } from '../';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ProgressCircle from 'react-native-progress-circle';
@@ -24,12 +25,14 @@ import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT } from '../../Misc/Constants';
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, LONG_TOAST_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
+import { updateShowPurchaseOverview, updatePurchasing } from '../../Actions/generalActions';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
 import { eventEmitter } from 'react-native-dark-mode';
+import { setUserType } from '../../Actions/userInput';
 import * as RNIap from 'react-native-iap';
 
 const items = [
@@ -374,68 +377,125 @@ class Tracks extends React.Component {
             this.setState({referencesInfo: []});
             resolve("doesnt");
         }
-  });
+    });
   } 
 
-_storeData = async audioFiles => {
-  try{
-    let stringAudioFiles = JSON.stringify(audioFiles);
-    await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-    this.props.store({audioFiles});
-    setTimeout(() => {
-      this.forceUpdate();
-    }, 100);
-  }catch(error){
-    console.log(error);
-  }
-};
+  _storeData = async audioFiles => {
+    try{
+      let stringAudioFiles = JSON.stringify(audioFiles);
+      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+      this.props.store({audioFiles});
+      setTimeout(() => {
+        this.forceUpdate();
+      }, 100);
+    }catch(error){
+      console.log(error);
+    }
+  };
 
-fetchFromFirebase = () => {
-  let { connectionInfo: { connected }, store } = this.props;
-  let cloudAudio = [];
-  if (connected ) {
-    tracksRef.once('value', data => {
-      data.forEach(trackInf => {
-        //console.log(trackInf);
-        let track = trackInf.val();
-        if (track) cloudAudio.push(track);
+  fetchFromFirebase = () => {
+    let { connectionInfo: { connected }, store } = this.props;
+    let cloudAudio = [];
+    if (connected ) {
+      tracksRef.once('value', data => {
+        data.forEach(trackInf => {
+          //console.log(trackInf);
+          let track = trackInf.val();
+          if (track) cloudAudio.push(track);
+        });
+        let newAudioFiles = [...cloudAudio];
+        store({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+        this._storeAudioFilesData(newAudioFiles);
+      }).catch(err => {
+        console.log(err)
+        let showToast = true;
+        store({showToast, toastText: tracks.downloadError });
+        setTimeout(() => {
+          store({showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
       });
-      let newAudioFiles = [...cloudAudio];
-      store({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
-      this._storeAudioFilesData(newAudioFiles);
-    }).catch(err => {
-      console.log(err)
+    }
+    else {
       let showToast = true;
-      store({showToast, toastText: tracks.downloadError });
+      store({showToast, toastText: tracks.noInternetConnection });
       setTimeout(() => {
         store({showToast: !showToast, toastText: null });
       }, TOAST_TIMEOUT);
+    }
+  }
+
+  fetchAvailableProducts = () => {
+    try {
+      RNIap.getProducts(items).then(products => {
+      //handle success of fetch product list
+      this.setState({products})
+      //console.log(products)
+      }).catch(error => {
+        console.log(error.message);
+      })
+    } catch(err) {
+      console.warn(err); // standardized err.code and err.message available
+    }
+  }
+
+  buyProduct = () => {
+    const { products } = this.state;
+    const { updateUserType, store } = this.props;
+    if (products.length > 0) {
+      const tracksId = items[0];
+      /*const successful = items[1];
+      const canceled = items[2];
+      const unavailable = items[3];*/
+      RNIap.requestPurchase(tracksId, false).then(purchase => {
+        if (purchase.transactionReceipt) {
+          AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
+          updateUserType('paid');
+          let showToast = true;
+          store({showToast, toastText: tracks.successfullyPaid });
+          setTimeout(() => {
+            store({showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
+        }
+        else {
+          updateUserType('free');
+          let showToast = true;
+          store({showToast, toastText: tracks.restartApp });
+          setTimeout(() => {
+            store({showToast: !showToast, toastText: null });
+          }, LONG_TOAST_TIMEOUT);
+        }
+      }).
+      catch(e => {
+        // console.log(e.code)
+        if (e.code === 'E_ALREADY_OWNED') {
+          updateUserType('paid');
+          let showToast = true;
+          store({showToast, toastText: tracks.alreadyPaid});
+          setTimeout(() => {
+            store({showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
+        }
+        else {
+          updateUserType('free');
+          let showToast = true;
+          store({showToast, toastText: tracks.transactionFailed });
+          setTimeout(() => {
+            store({showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
+        }
       });
+    }
+    else {
+      updateUserType('free');
+      let showToast = true;
+      store({showToast, toastText: tracks.productsUnavailable });
+      setTimeout(() => {
+        store({showToast: !showToast, toastText: null });
+      }, LONG_TOAST_TIMEOUT);
+    }
   }
-  else {
-    let showToast = true;
-    store({showToast, toastText: tracks.noInternetConnection });
-    setTimeout(() => {
-      store({showToast: !showToast, toastText: null });
-    }, TOAST_TIMEOUT);
-  }
-}
 
-fetchAvailableProducts = () => {
-  try {
-    RNIap.getProducts(items).then(products => {
-     //handle success of fetch product list
-     this.setState({products})
-     //console.log(products)
-    }).catch(error => {
-      console.log(error.message);
-    })
-  } catch(err) {
-    console.warn(err); // standardized err.code and err.message available
-  }
-}
-
-render(){
+  render(){
     let {
       navigation, 
       paused, 
@@ -452,12 +512,14 @@ render(){
         connected
       },
       reportSlowConnection,
-      userType
+      userType,
+      toggleShowPurchaseOverview,
+      showPurchaseOverview
     } = this.props;
     let { referencesInfo } = this.state;
     let height = Dimensions.get('window').height;
 
-    //console.log(audioFiles);
+    // console.log(showPurchaseOverview);
 
     let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
 
@@ -491,8 +553,17 @@ render(){
                     <Toast dark={dark} text={ toastText } /></View> : 
                   null
                 }
+                { showPurchaseOverview ? 
+                <PurchaseOverview 
+                  dark={dark} 
+                  toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)} 
+                  onPurchase={this.buyProduct} 
+                  onRestore={this.buyProduct} 
+                /> : 
+                null }
                 { !loading ?
-                <ScrollView style={styles.scrollView}>{ 
+                <ScrollView style={styles.scrollView}>
+                  { 
                   Object.keys(audioFiles).map(key => {
                     if (audioFiles[key]) { 
                       const { title, type, formattedDuration, free } = audioFiles[key];
@@ -505,7 +576,7 @@ render(){
                       "play-circle" : 
                       key === selectedTrack && !paused ? "pause" :
                       "play-circle";
-                      let downlaodIcon = "cloud-download";
+                      const downlaodIcon = "cloud-download";
                       const lockedItemIcon = "lock";
                       return(
                         <View key={key} style={ styles.trackContainer }>
@@ -549,7 +620,7 @@ render(){
                               null } 
                             </View> :
                             <View style={styles.iconsContainer}>
-                                <TouchableOpacity style={ styles.trackIcon }>
+                                <TouchableOpacity onPress={() => toggleShowPurchaseOverview(!showPurchaseOverview)} style={ styles.trackIcon }>
                                   <Icon 
                                     color={ dark ? '#fff' : '#000' }
                                     name={ Platform.OS === "ios" ? `ios-${lockedItemIcon}` : `md-${lockedItemIcon}` }
@@ -627,7 +698,9 @@ const mapStateToProps = state => {
     showMessage: state.media.showMessage,
     message: state.media.message,
     connectionInfo: state.connectionInfo,
-    userType: state.connectionInfo.userType
+    userType: state.connectionInfo.userType,
+    showPurchaseOverview: state.generalInfo.showPurchaseOverview,
+    purchasing: state.generalInfo.purchasing
   }
 }
 
@@ -653,6 +726,15 @@ const mapDispatchToProps = dispatch => {
     },
     changeStartTracks: value => {
       dispatch(toggleStartTracks(value));
+    },
+    updateUserType: userType => {
+      dispatch(setUserType(userType));
+    },
+    toggleShowPurchaseOverview: value => {
+      dispatch(updateShowPurchaseOverview(value))
+    },
+    togglePurchasing: value => {
+      dispatch(updatePurchasing(value))
     }
   }
 }

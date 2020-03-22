@@ -4,11 +4,15 @@ import {
   NO_CONNECTION, 
   CONNECTED, 
   SET_START_TRACKS ,
-  SET_USER_TYPE
+  SET_USER_TYPE,
+  UPDATE_SHOW_PURCHASE_OVERVIEW,
+  UPDATE_PURCHASING
 } from '../Actions/types';
 
 const initialState = {
   userEmail: '',
+  purchasing: false,
+  showPurchaseOverview: false,
   startTracks: false,
   connection: 'normal',
   connectionChecked: false,
@@ -53,6 +57,18 @@ const generalReducer = (state = initialState, action) => {
       return {
         ...state,
         userType: action.payload
+      }
+    }
+    case UPDATE_SHOW_PURCHASE_OVERVIEW: {
+      return {
+        ...state,
+        showPurchaseOverview: action.payload
+      }
+    }
+    case UPDATE_PURCHASING: {
+      return {
+        ...state,
+        purchasing: action.payload
       }
     }
     default:
