@@ -26,11 +26,13 @@ import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { emailregex } from '../../Misc/Constants';
 import InputScrollView from 'react-native-input-scroll-view';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
 const dbRef = firebase.database().ref("/subscriptions");
+
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Author extends React.Component {
 
@@ -44,10 +46,10 @@ class Author extends React.Component {
           alignItems: 'center'
       },
       headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
         borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+        borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -73,7 +75,7 @@ class Author extends React.Component {
     return new Promise(resolve => {
       let { emails } = this.props;
       //console.log(this.props)
-      if(emails && emails.length > 0){
+      if (emails && emails.length > 0) {
         let available = true;
         emails.map(email => {
           if(userEmail.toLowerCase() === email.toLowerCase()){
@@ -82,7 +84,8 @@ class Author extends React.Component {
           }
         });
         resolve(available);
-      }else{
+      } 
+      else {
         let showToast = true;
         this.props.storeMediaInf({showToast, toastText: author.messages.tryLater });
         setTimeout(() => {
@@ -98,16 +101,17 @@ class Author extends React.Component {
       if (userEmail.match(emailregex)) {
         this.checkAvailability(userEmail).then(available => {
           if (available) { 
-            NetInfo.fetch().then(state=>{
+            NetInfo.fetch().then(state => {
               let conType = state.type;
               //console.log(conType)
-              if(conType !== "wifi" && conType !== "cellular"){
+              if (conType !== "wifi" && conType !== "cellular") {
                 let showToast = true;
                 this.props.storeMediaInf({showToast, toastText: connectionFeedback.noConnection });
                 setTimeout(() => {
                   this.props.storeMediaInf({showToast: !showToast, toastText: null });
                 }, TOAST_TIMEOUT);
-              }else{
+              }
+              else {
                 dbRef.push(userEmail);
                 let showToast = true;
                 this.props.storeMediaInf({showToast, toastText: author.messages.subscribed });
@@ -118,7 +122,8 @@ class Author extends React.Component {
                 this.fetchSubscribers();
               }
             });
-          }else{
+          }
+          else {
             let showToast = true;
             this.props.storeMediaInf({showToast, toastText: author.messages.alreadySubscribed });
             setTimeout(() => {
@@ -126,14 +131,16 @@ class Author extends React.Component {
             }, TOAST_TIMEOUT);
           }
         }); 
-      }else{
+      }
+      else {
         let showToast = true;
         this.props.storeMediaInf({showToast, toastText: author.messages.worngEmailFormat });
         setTimeout(() => {
           this.props.storeMediaInf({showToast: !showToast, toastText: null });
         }, TOAST_TIMEOUT);
       }
-    }else{
+    }
+    else {
       let showToast = true;
       this.props.storeMediaInf({showToast, toastText: author.messages.fillEmail });
       setTimeout(() => {
@@ -142,7 +149,7 @@ class Author extends React.Component {
     }
   }
 
-  tempSave = (text)=>{
+  tempSave = text => {
     if(text.trim() === '') {
         return;
     }
@@ -161,7 +168,7 @@ class Author extends React.Component {
       showOverview
     } = this.props;
 
-    let mode = eventEmitter.currentMode;
+    let mode = currentMode;
     let dark = mode === 'dark';
     
     let height = Dimensions.get('window').height;
@@ -211,6 +218,7 @@ class Author extends React.Component {
                     autoCompleteType={'email'}
                     textContentType={'emailAddress'}
                     placeholder={ author.emailPlaceHolder }
+                    placeholderTextColor={'#757575'}
                     onChangeText={ this.tempSave }
                   />
                   <View style = { Platform.OS === "ios"?styles.altButtonContainer:styles.buttonContainer }>

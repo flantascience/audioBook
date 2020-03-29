@@ -30,6 +30,8 @@ import { eventEmitter } from 'react-native-dark-mode';
 const dbRef = firebase.database().ref("/questionnaire");
 const Analytics = firebase.analytics();
 
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
 class Audio extends React.Component{
     state = {
         lastTrackId: null,
@@ -266,7 +268,7 @@ class Audio extends React.Component{
 
         let trackDuration = selectedTrack? audioFiles[selectedTrack].duration: "";
         let remainingTime = ( trackDuration - currentPosition );
-        let mode = eventEmitter.currentMode;
+        let mode = currentMode;
         let dark = mode === 'dark';
 
         const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>

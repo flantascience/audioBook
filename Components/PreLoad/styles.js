@@ -2,9 +2,11 @@ import { StyleSheet, Dimensions } from 'react-native';
 import {
     Colors
 } from 'react-native/Libraries/NewAppScreen';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
-const mode = eventEmitter.currentMode;
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
+const mode = currentMode;
 const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({

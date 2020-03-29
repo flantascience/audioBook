@@ -14,6 +14,8 @@ import { BRANCH_LINK } from 'react-native-dotenv';
 
 const Android = Platform.OS === 'android';
 
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
 const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
     let hike = currPlayingNameLen > 1 ? true : false;
@@ -42,10 +44,9 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
         }
     }
 
-    const [mode = eventEmitter.currentMode, changeMode] = useState();
+    const [mode = currentMode, changeMode] = useState();
 
     useEffect(() => {
-        let currentMode = eventEmitter.currentMode;
         changeMode(currentMode);
     })
 

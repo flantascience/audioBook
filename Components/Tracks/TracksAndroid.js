@@ -43,6 +43,8 @@ const items = [
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
 
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
 class Tracks extends React.Component {
   constructor(props){
     super(props);
@@ -73,7 +75,7 @@ class Tracks extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -615,7 +617,7 @@ class Tracks extends React.Component {
 
     let audioSource = selectedTrack ? type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url} : "";
 
-    let mode = eventEmitter.currentMode;
+    let mode = currentMode;
     let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;

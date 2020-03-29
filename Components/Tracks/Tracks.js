@@ -35,13 +35,13 @@ import { eventEmitter } from 'react-native-dark-mode';
 import { setUserType } from '../../Actions/userInput';
 import * as RNIap from 'react-native-iap';
 
-const items = [
-   '01'
-  ];
+const items = ['01'];
 
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
 const Android = Platform.OS === 'android';
+
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Tracks extends React.Component {
   constructor(props){
@@ -78,10 +78,10 @@ class Tracks extends React.Component {
           alignItems: 'center'
       },
       headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
         borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+        borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -325,7 +325,7 @@ class Tracks extends React.Component {
         }
       };
       if (currentAction.length > 0) {
-        RNFS.downloadFile(DownloadFileOptions).promise.then(()=>{
+        RNFS.downloadFile(DownloadFileOptions).promise.then(() => {
           let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
           let newAudioFiles = [...audioFiles];
           currentAction[pos].action = "downloaded";
@@ -335,7 +335,7 @@ class Tracks extends React.Component {
           this._storeData(newAudioFiles);
           this.setState({currentAction});
           this.forceUpdate();
-        }).catch(err=>{
+        }).catch(err => {
           console.log(err);
           let showToast = true;
           store({showToast, toastText: tracks.restartApp });
@@ -424,15 +424,11 @@ class Tracks extends React.Component {
     }
   }
 
-  fetchAvailableProducts = () => {
+  fetchAvailableProducts = async () => {
     try {
-      RNIap.getProducts(items).then(products => {
-      //handle success of fetch product list
-      this.setState({products})
-      //console.log(products)
-      }).catch(error => {
-        console.log(error.message);
-      })
+      const products = await RNIap.getProducts(items);
+      console.log(products)
+      this.setState({ products });
     } catch(err) {
       console.warn(err); // standardized err.code and err.message available
     }
@@ -523,7 +519,7 @@ class Tracks extends React.Component {
 
     let audioSource = selectedTrack ? {uri: audioFiles[selectedTrack].url} : "" ;
 
-    let mode = eventEmitter.currentMode;
+    let mode = currentMode;
     let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;

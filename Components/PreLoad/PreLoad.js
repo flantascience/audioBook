@@ -26,6 +26,8 @@ const versionsRef = firebase.database().ref("/versions");
 const referencesRef = firebase.database().ref("/references");
 const Android = Platform.OS === 'android';
 
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
 class PreLoad extends React.Component {
 
   static navigationOptions = () => ({
@@ -37,7 +39,7 @@ class PreLoad extends React.Component {
         alignItems: 'center'
     },
     headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -55,7 +57,7 @@ class PreLoad extends React.Component {
         else if ( type === 'cellular' && effectiveType === '3g' || type === 'cellular' && effectiveType === '2g' ) reportSlowConnection();
       });
     });
-    eventEmitter.on('currentModeChanged', newMode => {
+    /*eventEmitter.on('currentModeChanged', newMode => {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
         headerStyle:{
@@ -64,7 +66,7 @@ class PreLoad extends React.Component {
         }
       });
       this.forceUpdate();
-    });
+    });*/
 
     if (!loadedFromMemory) {
       AsyncStorage.getItem('media').then( res => {
@@ -267,7 +269,7 @@ class PreLoad extends React.Component {
       navigation,
       currentlyPlayingName,
     } = this.props;
-    let mode = eventEmitter.currentMode;
+    let mode = currentMode;
     let dark = mode === 'dark';
 
     let height = Dimensions.get('window').height;

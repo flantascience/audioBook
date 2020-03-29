@@ -21,10 +21,12 @@ import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
 import CurricuDumbIntro from "../../Misc/media/CurricuDumb-Intro.mp4";
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
+
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Home extends React.Component {
   constructor(){
@@ -52,10 +54,10 @@ class Home extends React.Component {
           alignItems: 'center'
       },
       headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
         borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+        borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -126,7 +128,7 @@ class Home extends React.Component {
     } = this.props;
     let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
     let isFocused = navigation.isFocused();
-    let mode = eventEmitter.currentMode;
+    let mode = currentMode;
     let dark = mode === 'dark';
     let audioPlaying = !this.props.paused;
 

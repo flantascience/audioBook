@@ -16,9 +16,11 @@ import { eventEmitter } from 'react-native-dark-mode';
 
 const Android = Platform.OS === 'android';
 
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
 const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
 
-    const [mode = eventEmitter.currentMode, changeMode] = useState();
+    const [mode = currentMode, changeMode] = useState();
 
     useEffect(() => {
         AsyncStorage.getItem('userType').then(userType => {
@@ -27,8 +29,8 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
     }, []);
 
     useEffect(() => {
-        let currentMode = eventEmitter.currentMode;
-        changeMode(currentMode);
+        //let currentMode = eventEmitter.currentMode;
+        //changeMode(currentMode);
         return cleanup = () => {
             if (!preloader) {
                 const {

@@ -2,14 +2,16 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 import {
     Colors
 } from 'react-native/Libraries/NewAppScreen';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const iOS = Platform.OS === "ios" ? true : false;
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-const mode = eventEmitter.currentMode;
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
+const mode = currentMode;
 const dark = mode === 'dark';
 
 //console.log(height)
