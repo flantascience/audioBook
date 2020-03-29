@@ -4,15 +4,16 @@ import {
     View,
     Text,
     Image,
-    Platform
+    Platform,
+    BackHandler,
+    Alert
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode';
-// import jsonStringifier from 'json-stringify-safe';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const Android = Platform.OS === 'android';
 
@@ -26,11 +27,22 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
         AsyncStorage.getItem('userType').then(userType => {
             if(userType) updateUserType(userType);
         });
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            Alert.alert(
+                'Exit App',
+                'Do you want to exit?',
+                [
+                  {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+                  {text: 'Yes', onPress: () => BackHandler.exitApp()},
+                ],
+                { cancelable: false }
+            );
+            return true;
+        });
     }, []);
 
     useEffect(() => {
-        //let currentMode = eventEmitter.currentMode;
-        //changeMode(currentMode);
+        /**not component will unmount just periodic updates */
         return cleanup = () => {
             if (!preloader) {
                 const {
@@ -51,7 +63,7 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
                     totalLength, 
                     formattedDuration
                 } = media;
-                
+
                 const stringifiedMedia = JSON.stringify({
                     screen,
                     audioFiles,

@@ -31,7 +31,7 @@ export const tracks = {
 }
 
 export const purchaseOverview = {
-  intro: "Purchase if you're a first time buyer or restore if you already purchased tracks.",
+  intro: "You must purchase the locked tracks. If you've already purchased them, click ''Restore'' to restore them to your device.",
   purchase: "Purchase",
   restore: "Restore "
 }

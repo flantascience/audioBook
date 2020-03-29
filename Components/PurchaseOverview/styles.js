@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
     alignContent: 'flex-end',
     alignItems: 'flex-end',
     right: 5,
-    top: 5
+    top: 0
   },
   closeOverview: {
     display: 'flex',
     alignContent: 'flex-end',
     alignItems: 'flex-end',
     right: 5,
-    top: 5
+    top: 0
   },
   closeOverviewDarkText: {
     fontSize: 15,

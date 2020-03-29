@@ -180,7 +180,6 @@ class Tracks extends React.Component {
 
   componentDidUpdate(){
     const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks, store } = this.props;
-    // console.log(audioFilesCloud);
     const audioFilesLoaded = audioFiles.length > 0;
     if (startTracks && audioFilesLoaded && !this.state.autoPlayStarted) {
       this.setState({autoPlayStarted: true});
