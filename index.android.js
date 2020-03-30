@@ -89,7 +89,7 @@ const MainNavigator = createStackNavigator({
 
 const IniApp = createAppContainer(MainNavigator);
 
-const App = ()=>(
+const App = () => (
   <Provider store = { store }> 
     <DarkModeProvider>
       <IniApp /> 

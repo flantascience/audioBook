@@ -9,7 +9,7 @@ import {
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 import { BRANCH_LINK } from 'react-native-dotenv';
 
 const Android = Platform.OS === 'android';
