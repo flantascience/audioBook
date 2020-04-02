@@ -164,12 +164,12 @@ class Home extends React.Component {
             { !loaded ? 
             <View>
               <Image
-                source={require('./images/chalkboard-only.jpg')}
+                source={require('./images/chalkboard-with-hands.jpg')}
                 style={ styles.thumb }
               />
               <View style = { styles.mainTextThumb }>
                   <Image
-                    source={require('./images/book-title.png')}
+                    source={require('./images/book-title-3-lines.png')}
                     style={ styles.mainTextThumbImg }
                   />
                 </View>
@@ -178,25 +178,22 @@ class Home extends React.Component {
               loaded && !showVid ?
               <View>
                 <Image
-                  source={require('./images/chalkboard-only.jpg')}
+                  source={require('./images/chalkboard-with-hands.jpg')}
                   style={ styles.thumb }
                 />
                 <View style = { styles.mainTextThumb }>
                   <Image
-                    source={require('./images/book-title.png')}
+                    source={require('./images/book-title-3-lines.png')}
                     style={ styles.mainTextThumbImg }
                   />
-                   <Image 
-                    source={require('./images/press-start-to-play.png')} 
-                    style={ styles.pressStart }
-                   />
                 </View>
                 <View style={ styles.playButtonContainer }>
                   <Button
                     style={ styles.playButton }
                     dark={ dark }
-                    title={startButtonTitle}
                     textStyle={styles.playButtonText}
+                    imageStyle={styles.playButtonImage}
+                    image={require('./images/play_image.png')}
                     onPress={ () => {
                       setTimeout(() => {
                         this.setState({showVid:true, paused: false, secondaryHide:false});

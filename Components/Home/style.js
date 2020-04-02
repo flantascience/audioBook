@@ -124,24 +124,22 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        bottom: height > 800 ? '33%' : 
-        height > 600 ? '30%' : 
-        '25%'
+        bottom: height > 800 ? '38%' : 
+        height > 600 ? '35%' : 
+        '30%'
     },
     playButton: {
         display:'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 30,
-        borderRightWidth: iOS ? 0.5 : 0,
-        borderBottomWidth: iOS ? 0.5 : 0,
-        borderRightColor: '#757575',
-        borderBottomColor: '#757575',
         elevation: iOS ? 0 : 10,
-        width: 130,
-        height: 35,
+        width: 80,
+        height: 80,
         //paddingTop: 5,
-        backgroundColor: '#6FDA44',
+    },
+    playButtonImage: {
+        height: 80,
+        width: 80
     },
     playButtonText: {
         color: '#fff', 
