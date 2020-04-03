@@ -18,11 +18,11 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/objects-13.0+.nib</key>
 		<data>
-		OVg83TRXAHxtxevlNWnS1ugkm+c=
+		lTDWTtyUzzjvQ03tMwN5wC65KaA=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<data>
-		5sjr4x9jThtzWc0S0jdaEgFuKBE=
+		PT1Wp2cd7rJYdNjxSczCfPo91jg=
 		</data>
 		<key>DKCrayonCrumble.ttf</key>
 		<data>
@@ -163,7 +163,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		sfSUGn6N/8+XEzMR7qNjKLzZPcw=
+		5bgcT1cWkEvS6HO9avwORPYCbbE=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -191,7 +191,7 @@
 		</data>
 		<key>PlugIns/audioBookTests.xctest.dSYM/Contents/Resources/DWARF/audioBookTests</key>
 		<data>
-		KKyxuXL+2qVmJatUn3Xz8eneTsA=
+		FN5NrubWFu77AIUJRRquB9TvaZY=
 		</data>
 		<key>PlugIns/audioBookTests.xctest/AntDesign.ttf</key>
 		<data>
@@ -263,7 +263,7 @@
 		</data>
 		<key>PlugIns/audioBookTests.xctest/Info.plist</key>
 		<data>
-		z0U6mQVbLxEIyAj4utovmbJgr9g=
+		6FzOZz9/yFHtGRYWbGu42n5DQug=
 		</data>
 		<key>PlugIns/audioBookTests.xctest/Ionicons.ttf</key>
 		<data>
@@ -291,11 +291,11 @@
 		</data>
 		<key>PlugIns/audioBookTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		QuA48jr94uug61BMx57hgyoRGaY=
+		ZU2wMNOEJgDN7MmyErpK0XTZnOc=
 		</data>
 		<key>PlugIns/audioBookTests.xctest/audioBookTests</key>
 		<data>
-		bLIjsd6dfXdEA8xBb6zj4C2ZRIA=
+		qKPEmuEPkFOcHkyzSXYLrLo9+po=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -337,14 +337,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			43Q9SN0JoPV+0Tx9o+5wzUBy7woZuhFIJmajOyIxlEg=
+			hOdxx/YxFy+U2pcmLHncb8PEl3oOraMjJfFC3Uf1700=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.nib/runtime.nib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y3GoRrxriSFmyB7RnnflTbX4psW9JguZutB3BBw8nfs=
+			XO1g7ISPXlAGYKcYYTrIAZ3hKtmRxeWCYjShZzaUxDI=
 			</data>
 		</dict>
 		<key>DKCrayonCrumble.ttf</key>
@@ -619,7 +619,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Fx1wDKi+8GSefq6ORjrNwmLT3NATKLFMZ/Xqa7fIR4o=
+			dTDRhokzIz+P4pe6Yu68YTbk87ogUmM0W9EMnSSZZUo=
 			</data>
 		</dict>
 		<key>PlugIns/audioBookTests.xctest/AntDesign.ttf</key>
@@ -745,7 +745,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			hjQI91+3vHBg3HCWY79aHD5KkYggOOcR3XZS+SW6dFY=
+			Du0kFfLo+1M6BIspOf0IjMmytAJcFlJcoZJMXGqWqRg=
 			</data>
 		</dict>
 		<key>PlugIns/audioBookTests.xctest/Ionicons.ttf</key>
@@ -794,14 +794,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			KfKMLELGh3CKloNVwrV+hMeGlNlD5Ah24XekUv7IaEY=
+			TbnmN7+JI/6XEHbyH+S6aU3GXXuLuR9hk70i7NO10aE=
 			</data>
 		</dict>
 		<key>PlugIns/audioBookTests.xctest/audioBookTests</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			E/HF0P5d+ytPyP1ISQRiPPOBkyEhiHLSwNGaBcOCAUI=
+			08hUuvT6klGMTCBurzu4+xtIejUUIqlAjv+yxqLsrfw=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

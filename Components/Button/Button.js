@@ -18,9 +18,11 @@ const Button = ({ title, image, imageStyle, onPress, dark, style, textStyle }) =
 }
 
 Button.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     style: PropTypes.object,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    image: PropTypes.number,
+    imageStyle: PropTypes.object
 }
 
 export default Button;

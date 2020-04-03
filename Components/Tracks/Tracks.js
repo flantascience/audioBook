@@ -31,11 +31,15 @@ import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } fr
 import { updateShowPurchaseOverview, updatePurchasing } from '../../Actions/generalActions';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 import { setUserType } from '../../Actions/userInput';
 import * as RNIap from 'react-native-iap';
 
-const items = ['01'];
+const items = Platform.select({
+    ios: [
+      '01'
+    ]
+});
 
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
@@ -426,9 +430,12 @@ class Tracks extends React.Component {
 
   fetchAvailableProducts = async () => {
     try {
-      const products = await RNIap.getProducts(items);
-      console.log(products)
-      this.setState({ products });
+        const connection = await RNIap.initConnection();
+        console.log(connection)
+        const products = await RNIap.getProducts(items);
+        console.log('products');
+        console.log(products);
+        this.setState({ products });
     } catch(err) {
       console.warn(err); // standardized err.code and err.message available
     }
@@ -576,7 +583,7 @@ class Tracks extends React.Component {
                       const lockedItemIcon = "lock";
                       return(
                         <View key={key} style={ styles.trackContainer }>
-                          <TouchableOpacity onPress={ () => this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
+                          <TouchableOpacity onPress={ () => { free || userType === 'paid' ? this.toggleNowPlaying(key) : toggleShowPurchaseOverview(!showPurchaseOverview) }} style={ dark ? styles.trackDark : styles.track }> 
                             <View style={ styles.trackTextWrapper }>
                               <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
                               <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>

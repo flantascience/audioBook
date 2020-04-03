@@ -664,7 +664,7 @@ class Tracks extends React.Component {
                     const lockedItemIcon = "lock";
                     return(
                       <View key={key} style={ styles.trackContainer }>
-                        <TouchableOpacity onPress={ () => this.toggleNowPlaying(key) } style={ dark ? styles.trackDark : styles.track }> 
+                        <TouchableOpacity onPress={ () => { free || userType === 'paid' ? this.toggleNowPlaying(key) : this.buyProduct() }} style={ dark ? styles.trackDark : styles.track }> 
                           <View style={ styles.trackTextWrapper }>
                             <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
                             <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
