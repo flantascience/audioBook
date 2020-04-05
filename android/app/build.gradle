@@ -137,8 +137,8 @@ android {
         applicationId "com.curricu_dumb_audiobook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 24
-        versionName "3.4"
+        versionCode 25
+        versionName "3.5"
         resConfigs "en"
     }
     splits {
