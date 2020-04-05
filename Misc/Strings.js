@@ -20,6 +20,7 @@ export const navInfo = {
 export const tracks = {
   noInternetConnection: "You cannot stream without an active internet connection.",
   successfullyPaid: "You successfully purchased all tracks, thanks!",
+  successfullyRestored: "You successfully restored your purchase.",
   alreadyPaid: "You already own the tracks.",
   productsUnavailable: "Something's not quite right, please try again later.",
   transactionFailed: "Transaction failed, try again later",

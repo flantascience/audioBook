@@ -430,20 +430,42 @@ class Tracks extends React.Component {
 
   fetchAvailableProducts = async () => {
     try {
-        const connection = await RNIap.initConnection();
-        console.log(connection)
+        await RNIap.initConnection();
         const products = await RNIap.getProducts(items);
-        console.log('products');
-        console.log(products);
         this.setState({ products });
     } catch(err) {
       console.warn(err); // standardized err.code and err.message available
     }
   }
 
+  RestorePurchase = () => {
+    const { updateUserType, store, toggleShowPurchaseOverview } = this.props;
+    RNIap.getAvailablePurchases().then(response => {
+        //console.log(response)
+        if (response[0].transactionId) {
+            updateUserType('paid');
+            let showToast = true;
+            toggleShowPurchaseOverview(false);
+            store({showToast, toastText: tracks.successfullyRestored });
+            setTimeout(() => {
+                store({showToast: !showToast, toastText: null });
+            }, TOAST_TIMEOUT);
+        }
+        else {
+            updateUserType('free');
+            let showToast = true;
+            toggleShowPurchaseOverview(false);
+            store({showToast, toastText: tracks.restartApp });
+            setTimeout(() => {
+                store({showToast: !showToast, toastText: null });
+            }, LONG_TOAST_TIMEOUT);
+        }
+    })
+  }
+
   buyProduct = () => {
     const { products } = this.state;
-    const { updateUserType, store } = this.props;
+    const { updateUserType, store, toggleShowPurchaseOverview } = this.props;
     if (products.length > 0) {
       const tracksId = items[0];
       /*const successful = items[1];
@@ -454,6 +476,7 @@ class Tracks extends React.Component {
           AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
           updateUserType('paid');
           let showToast = true;
+          toggleShowPurchaseOverview(false);
           store({showToast, toastText: tracks.successfullyPaid });
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
@@ -462,6 +485,7 @@ class Tracks extends React.Component {
         else {
           updateUserType('free');
           let showToast = true;
+          toggleShowPurchaseOverview(false);
           store({showToast, toastText: tracks.restartApp });
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
@@ -473,6 +497,7 @@ class Tracks extends React.Component {
         if (e.code === 'E_ALREADY_OWNED') {
           updateUserType('paid');
           let showToast = true;
+          toggleShowPurchaseOverview(false);
           store({showToast, toastText: tracks.alreadyPaid});
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
@@ -481,6 +506,7 @@ class Tracks extends React.Component {
         else {
           updateUserType('free');
           let showToast = true;
+          toggleShowPurchaseOverview(false);
           store({showToast, toastText: tracks.transactionFailed });
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
@@ -491,6 +517,7 @@ class Tracks extends React.Component {
     else {
       updateUserType('free');
       let showToast = true;
+      toggleShowPurchaseOverview(false);
       store({showToast, toastText: tracks.productsUnavailable });
       setTimeout(() => {
         store({showToast: !showToast, toastText: null });
@@ -561,7 +588,7 @@ class Tracks extends React.Component {
                   dark={dark} 
                   toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)} 
                   onPurchase={this.buyProduct} 
-                  onRestore={this.buyProduct} 
+                  onRestore={this.RestorePurchase} 
                 /> : 
                 null }
                 { !loading ?
