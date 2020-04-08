@@ -1,0 +1,116 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AVPlayerWrapperProtocol"
+provides-nominal:
+- "25react_native_track_player23AVPlayerWrapperProtocolP"
+provides-member:
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AVPlayer"
+- "AVPlayerItem"
+- "AVPlayerWrapperDelegate"
+- "AVPlayerWrapperProtocol"
+- "AVPlayerWrapperState"
+- "AnyObject"
+- "Bool"
+- "Float"
+- "String"
+- "TimeEventFrequency"
+- "TimeInterval"
+- "URL"
+depends-member:
+- ["So8AVPlayerC", "WaitingReason"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "AVPlayer"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "AVPlayerItem"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "AVPlayerWrapperDelegate"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "AVPlayerWrapperState"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "Bool"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "Float"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "String"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "TimeEventFrequency"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "TimeInterval"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "URL"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "automaticallyWaitsToMinimizeStalling"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "bufferDuration"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "bufferedPosition"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "currentItem"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "currentTime"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "delegate"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "duration"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "isMuted"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "load"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "pause"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "play"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "rate"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "reasonForWaitingToPlay"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "seek"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "state"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "stop"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "timeEventFrequency"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "togglePlaying"]
+- ["25react_native_track_player23AVPlayerWrapperProtocolP", "volume"]
+- ["s7CVarArgP", "WaitingReason"]
+- ["s28CustomDebugStringConvertibleP", "WaitingReason"]
+- ["s23CustomStringConvertibleP", "WaitingReason"]
+- ["SQ", "WaitingReason"]
+- ["SH", "WaitingReason"]
+- ["So8NSObjectC", "WaitingReason"]
+- ["So8NSObjectP", "WaitingReason"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "WaitingReason"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "WaitingReason"]
+depends-nominal:
+- "So8AVPlayerC"
+- "25react_native_track_player23AVPlayerWrapperProtocolP"
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "SQ"
+- "SH"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMIDI.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMedia.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/simd.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/AVFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreAudio.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/MediaPlayer.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Users/muganwa/Library/Developer/Xcode/DerivedData/audioBook-bduplvmvzlrigdceaflysxpimkwl/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers/MediaPlayer.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioTypes.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "398adc5b6aab242b0b22c48da6faa74d"

@@ -103,9 +103,9 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? '23%' : 
-        height > 600 ? '20%' : 
-        '20%'
+        top: height > 800 ? '5%' : 
+        height > 600 && height < 800 ? '3%' : 
+        '1%'
     },
     mainTextThumbImg: {
         resizeMode: 'contain',
@@ -124,9 +124,11 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        bottom: height > 800 ? '38%' : 
+        bottom:40,
+        top: 40
+        /*bottom: height > 800 ? '38%' : 
         height > 600 ? '35%' : 
-        '30%'
+        '30%'*/
     },
     playButton: {
         display:'flex',

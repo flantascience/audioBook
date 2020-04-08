@@ -1,0 +1,235 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "NowPlayingInfoProperty"
+provides-nominal:
+- "25react_native_track_player22NowPlayingInfoPropertyO"
+provides-member:
+- ["25react_native_track_player22NowPlayingInfoPropertyO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- "Bool"
+- !private "BooleanLiteralType"
+- "Double"
+- "Float"
+- !private "MPNowPlayingInfoCollectionIdentifier"
+- "MPNowPlayingInfoLanguageOption"
+- "MPNowPlayingInfoLanguageOptionGroup"
+- "MPNowPlayingInfoMediaType"
+- !private "MPNowPlayingInfoPropertyAssetURL"
+- !private "MPNowPlayingInfoPropertyAvailableLanguageOptions"
+- !private "MPNowPlayingInfoPropertyChapterCount"
+- !private "MPNowPlayingInfoPropertyChapterNumber"
+- !private "MPNowPlayingInfoPropertyCurrentLanguageOptions"
+- !private "MPNowPlayingInfoPropertyDefaultPlaybackRate"
+- !private "MPNowPlayingInfoPropertyElapsedPlaybackTime"
+- !private "MPNowPlayingInfoPropertyExternalContentIdentifier"
+- !private "MPNowPlayingInfoPropertyExternalUserProfileIdentifier"
+- !private "MPNowPlayingInfoPropertyIsLiveStream"
+- !private "MPNowPlayingInfoPropertyMediaType"
+- !private "MPNowPlayingInfoPropertyPlaybackProgress"
+- !private "MPNowPlayingInfoPropertyPlaybackQueueCount"
+- !private "MPNowPlayingInfoPropertyPlaybackQueueIndex"
+- !private "MPNowPlayingInfoPropertyPlaybackRate"
+- !private "MPNowPlayingInfoPropertyServiceIdentifier"
+- !private "NSNumber"
+- !private "NSString"
+- "NowPlayingInfoKeyValue"
+- "NowPlayingInfoProperty"
+- "String"
+- !private "StringLiteralType"
+- "TernaryPrecedence"
+- "UInt64"
+- "URL"
+depends-member:
+- !private ["s7CVarArgP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["SQ", "init"]
+- !private ["SQ", "rawValue"]
+- !private ["s27ExpressibleByBooleanLiteralP", "init"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s25ExpressibleByFloatLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["SH", "init"]
+- !private ["SH", "rawValue"]
+- !private ["So25MPNowPlayingInfoMediaTypeV", "rawValue"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSNumberC", "init"]
+- !private ["So8NSObjectC", "init"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So8NSStringC", "init"]
+- !private ["So7NSValueC", "init"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoCollectionIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyAssetURL"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyAvailableLanguageOptions"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyChapterCount"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyChapterNumber"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyCurrentLanguageOptions"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyDefaultPlaybackRate"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyElapsedPlaybackTime"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyExternalContentIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyExternalUserProfileIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyIsLiveStream"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyMediaType"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyPlaybackProgress"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyPlaybackQueueCount"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyPlaybackQueueIndex"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyPlaybackRate"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "MPNowPlayingInfoPropertyServiceIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "NSNumber"]
+- !private ["25react_native_track_player22NowPlayingInfoKeyValueP", "NSString"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", ""]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "assetUrl"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "availableLanguageOptions"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "chapterCount"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "chapterNumber"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "collectionIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "currentLanguageOptions"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "defaultPlaybackRate"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "elapsedPlaybackTime"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "externalContentIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "externalUserProfileIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "getKey"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "getValue"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "isLiveStream"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "mediaType"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "playbackProgress"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "playbackQueueCount"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "playbackQueueIndex"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "playbackRate"]
+- ["25react_native_track_player22NowPlayingInfoKeyValueP", "serviceIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "Bool"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "Double"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "Float"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoCollectionIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoLanguageOption"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoLanguageOptionGroup"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoMediaType"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyAssetURL"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyAvailableLanguageOptions"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyChapterCount"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyChapterNumber"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyCurrentLanguageOptions"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyDefaultPlaybackRate"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyElapsedPlaybackTime"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyExternalContentIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyExternalUserProfileIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyIsLiveStream"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyMediaType"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyPlaybackProgress"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyPlaybackQueueCount"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyPlaybackQueueIndex"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyPlaybackRate"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "MPNowPlayingInfoPropertyServiceIdentifier"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "NSNumber"]
+- !private ["25react_native_track_player22NowPlayingInfoPropertyO", "NSString"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "String"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "UInt64"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "URL"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "assetUrl"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "availableLanguageOptions"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "chapterCount"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "chapterNumber"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "collectionIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "currentLanguageOptions"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "defaultPlaybackRate"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "deinit"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "elapsedPlaybackTime"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "externalContentIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "externalUserProfileIdentifier"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "getKey"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "getValue"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "isLiveStream"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "mediaType"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "playbackProgress"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "playbackQueueCount"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "playbackQueueIndex"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "playbackRate"]
+- ["25react_native_track_player22NowPlayingInfoPropertyO", "serviceIdentifier"]
+- !private ["SY", "rawValue"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+depends-nominal:
+- !private "s7CVarArgP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s23CustomStringConvertibleP"
+- !private "SQ"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "SH"
+- !private "So25MPNowPlayingInfoMediaTypeV"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSNumberC"
+- !private "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "So7NSValueC"
+- "25react_native_track_player22NowPlayingInfoKeyValueP"
+- "25react_native_track_player22NowPlayingInfoPropertyO"
+- !private "SY"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation37_KeyValueCodingAndObservingPublishingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMIDI.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMedia.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/simd.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/AVFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreAudio.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/MediaPlayer.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Swift.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Users/muganwa/Library/Developer/Xcode/DerivedData/audioBook-bduplvmvzlrigdceaflysxpimkwl/Build/Products/Debug-iphonesimulator/react-native-track-player/react_native_track_player.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers/MediaPlayer.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioTypes.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "f27afccbff605842074617fe43d34925"

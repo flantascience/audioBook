@@ -14,13 +14,14 @@ import {
   AudioAndroid, 
   Footer, 
   Header, 
-  Button 
+  Button,
+  Statusbar
 } from '../';
 import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
-import CurricuDumbIntro from "../../Misc/media/CurricuDumb-Intro.mp4";
+import CurricuDumbIntro from "../../Misc/media/intro.mp4";
 //import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
@@ -158,6 +159,7 @@ class Home extends React.Component {
       />;
     return (
       <View style={ styles.Home }>
+        {showVid && Android ? <Statusbar short={true} backgroundColor="#212121" barStyle="light-content" /> : null}
         { !showOverview ?
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>

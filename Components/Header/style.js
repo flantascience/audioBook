@@ -1,7 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet, Dimensions, StatusBar, Platform } from 'react-native';
 const headerWidth = Dimensions.get('window').width;
 const imageContainerFlex = headerWidth < 330?2:2;
 const textContainerFlex = headerWidth < 330?5:4;
+
 export const styles = StyleSheet.create({
     navLogoConatiner: {
         flex: imageContainerFlex,
@@ -9,8 +10,8 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-end"
     },
     navLogo: {
-        height: 57,
-        width: 50,
+        height: Platform.OS === 'ios' ? 57 : 50,
+        width: Platform.OS === 'ios' ? 50 : 43
     },
     header: {
         display: "flex",
@@ -26,6 +27,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
+        marginTop: Platform.OS === 'ios' ? 0 : 20,
     },
     textContainer: {
         flex: textContainerFlex,

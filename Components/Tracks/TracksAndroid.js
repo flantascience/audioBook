@@ -31,7 +31,7 @@ import { slowConnectionDetected, noConnectionDetected } from '../../Actions/conn
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
 import { changeRefsView } from '../../Actions/references';
-import { updateShowPurchaseOverview, updatePurchasing } from '../../Actions/generalActions';
+import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from '../../Actions/generalActions';
 import * as RNIap from 'react-native-iap';
 
 const items = [
@@ -469,7 +469,8 @@ class Tracks extends React.Component {
   }
 
   RestorePurchase = () => {
-    const { updateUserType, store, toggleShowPurchaseOverview } = this.props;
+    const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
+    startPurchasing(true);
     RNIap.getAvailablePurchases().then(response => {
         console.log(response)
         if (response[0].transactionId) {
@@ -480,6 +481,7 @@ class Tracks extends React.Component {
             setTimeout(() => {
                 store({showToast: !showToast, toastText: null });
             }, TOAST_TIMEOUT);
+            startPurchasing(false);
         }
         else {
             updateUserType('free');
@@ -489,16 +491,18 @@ class Tracks extends React.Component {
             setTimeout(() => {
                 store({showToast: !showToast, toastText: null });
             }, LONG_TOAST_TIMEOUT);
+            startPurchasing(false);
         }
     });
   }
 
   buyProduct = () => {
     const { products } = this.state;
-    const { toggleShowPurchaseOverview } = this.props;
-    if (products.length > 0) {
+    const { toggleShowPurchaseOverview, startPurchasing } = this.props;
+    if (products && products.length > 0) {
       const tracksId = items[0];
       const { updateUserType, store } = this.props;
+      startPurchasing(true);
       RNIap.requestPurchase(tracksId, false).then(purchase => {
         if (purchase.transactionReceipt) {
           AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
@@ -510,6 +514,7 @@ class Tracks extends React.Component {
             store({showToast: !showToast, toastText: null});
           }, TOAST_TIMEOUT);
           RNIap.acknowledgePurchaseAndroid(purchase.purchaseToken);
+          startPurchasing(false);
         }
         else {
           updateUserType('free');
@@ -519,6 +524,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null});
           }, LONG_TOAST_TIMEOUT);
+          startPurchasing(false);
         }
       }).
       catch(e => {
@@ -531,6 +537,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null});
           }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
         else {
           updateUserType('free');
@@ -540,6 +547,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null});
           }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
       });
     }
@@ -551,6 +559,7 @@ class Tracks extends React.Component {
       setTimeout(() => {
         store({showToast: !showToast, toastText: null });
       }, LONG_TOAST_TIMEOUT);
+      startPurchasing(false);
     }
   }
 
@@ -640,7 +649,8 @@ class Tracks extends React.Component {
       reportSlowConnection,
       userType,
       toggleShowPurchaseOverview,
-      showPurchaseOverview
+      showPurchaseOverview,
+      isPurchasing
     } = this.props;
     let { referencesInfo } = this.state;
     let type = selectedTrack ? audioFiles[selectedTrack].type : "local";
@@ -681,7 +691,8 @@ class Tracks extends React.Component {
                 }
                 { showPurchaseOverview ? 
                 <PurchaseOverview 
-                  dark={dark} 
+                  dark={dark}
+                  isPurchasing={isPurchasing}
                   toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)} 
                   onPurchase={this.buyProduct} 
                   onRestore={this.RestorePurchase} 
@@ -704,7 +715,7 @@ class Tracks extends React.Component {
                     const lockedItemIcon = "lock";
                     return(
                       <View key={key} style={ styles.trackContainer }>
-                        <TouchableOpacity onPress={ () => { free || userType === 'paid' ? this.toggleNowPlaying(key) : this.buyProduct() }} style={ dark ? styles.trackDark : styles.track }> 
+                        <TouchableOpacity onPress={ () => { free || userType === 'paid' ? this.toggleNowPlaying(key) : toggleShowPurchaseOverview(!showPurchaseOverview) }} style={ dark ? styles.trackDark : styles.track }> 
                           <View style={ styles.trackTextWrapper }>
                             <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
                             <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
@@ -820,7 +831,8 @@ const mapStateToProps = state => {
     loadedFromMemory: state.media.loadedFromMemory,
     showPurchaseOverview: state.generalInfo.showPurchaseOverview,
     media: state.media,
-    userType: state.connectionInfo.userType
+    userType: state.connectionInfo.userType,
+    isPurchasing: state.generalInfo.isPurchasing
   }
 }
 
@@ -855,6 +867,9 @@ const mapDispatchToProps = dispatch => {
     },
     togglePurchasing: value => {
       dispatch(updatePurchasing(value))
+    },
+    startPurchasing: value => {
+        dispatch(updateIsPurchasing(value));
     }
   }
 }

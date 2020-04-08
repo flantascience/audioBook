@@ -28,7 +28,7 @@ import { tracks, connectionFeedback } from '../../Misc/Strings';
 import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, LONG_TOAST_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
-import { updateShowPurchaseOverview, updatePurchasing } from '../../Actions/generalActions';
+import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from '../../Actions/generalActions';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { changeRefsView } from '../../Actions/references';
 //import { eventEmitter } from 'react-native-dark-mode';
@@ -439,7 +439,8 @@ class Tracks extends React.Component {
   }
 
   RestorePurchase = () => {
-    const { updateUserType, store, toggleShowPurchaseOverview } = this.props;
+    const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
+    startPurchasing(true);
     RNIap.getAvailablePurchases().then(response => {
         //console.log(response)
         if (response[0].transactionId) {
@@ -450,6 +451,7 @@ class Tracks extends React.Component {
             setTimeout(() => {
                 store({showToast: !showToast, toastText: null });
             }, TOAST_TIMEOUT);
+            startPurchasing(false);
         }
         else {
             updateUserType('free');
@@ -459,18 +461,20 @@ class Tracks extends React.Component {
             setTimeout(() => {
                 store({showToast: !showToast, toastText: null });
             }, LONG_TOAST_TIMEOUT);
+            startPurchasing(false);
         }
-    })
+    });
   }
 
   buyProduct = () => {
     const { products } = this.state;
-    const { updateUserType, store, toggleShowPurchaseOverview } = this.props;
-    if (products.length > 0) {
+    const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
+    if (products && products.length > 0) {
       const tracksId = items[0];
       /*const successful = items[1];
       const canceled = items[2];
       const unavailable = items[3];*/
+      startPurchasing(true);
       RNIap.requestPurchase(tracksId, false).then(purchase => {
         if (purchase.transactionReceipt) {
           AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
@@ -481,6 +485,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
           }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
         else {
           updateUserType('free');
@@ -490,6 +495,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
           }, LONG_TOAST_TIMEOUT);
+          startPurchasing(false);
         }
       }).
       catch(e => {
@@ -502,6 +508,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
           }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
         else {
           updateUserType('free');
@@ -511,6 +518,7 @@ class Tracks extends React.Component {
           setTimeout(() => {
             store({showToast: !showToast, toastText: null });
           }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
       });
     }
@@ -522,6 +530,7 @@ class Tracks extends React.Component {
       setTimeout(() => {
         store({showToast: !showToast, toastText: null });
       }, LONG_TOAST_TIMEOUT);
+      startPurchasing(false)
     }
   }
 
@@ -544,7 +553,8 @@ class Tracks extends React.Component {
       reportSlowConnection,
       userType,
       toggleShowPurchaseOverview,
-      showPurchaseOverview
+      showPurchaseOverview,
+      isPurchasing
     } = this.props;
     let { referencesInfo } = this.state;
     let height = Dimensions.get('window').height;
@@ -586,6 +596,7 @@ class Tracks extends React.Component {
                 { showPurchaseOverview ? 
                 <PurchaseOverview 
                   dark={dark} 
+                  isPurchasing={isPurchasing}
                   toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)} 
                   onPurchase={this.buyProduct} 
                   onRestore={this.RestorePurchase} 
@@ -730,7 +741,8 @@ const mapStateToProps = state => {
     connectionInfo: state.connectionInfo,
     userType: state.connectionInfo.userType,
     showPurchaseOverview: state.generalInfo.showPurchaseOverview,
-    purchasing: state.generalInfo.purchasing
+    purchasing: state.generalInfo.purchasing,
+    isPurchasing: state.generalInfo.isPurchasing
   }
 }
 
@@ -765,6 +777,9 @@ const mapDispatchToProps = dispatch => {
     },
     togglePurchasing: value => {
       dispatch(updatePurchasing(value))
+    },
+    startPurchasing: value => {
+        dispatch(updateIsPurchasing(value));
     }
   }
 }

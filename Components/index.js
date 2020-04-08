@@ -15,3 +15,4 @@ export { default as TracksAndroid } from './Tracks/TracksAndroid';
 export { default as PreLoad } from './PreLoad/PreLoad';
 export { default as SoundBar } from './SoundBar/SoundBar';
 export { default as PurchaseOverview } from './PurchaseOverview/PurchaseOverview';
+export { default as Statusbar } from './StatusBar/MyStatusbar';

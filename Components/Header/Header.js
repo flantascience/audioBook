@@ -11,6 +11,7 @@ import {
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
+import { Statusbar } from '..';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
 //import { eventEmitter } from 'react-native-dark-mode';
@@ -90,6 +91,7 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
     if (!playingIntro || !Android)
     return(
         <View style={ styles.header }>
+            <Statusbar backgroundColor="#212121" barStyle="light-content" />
             <View style={ styles.headerElementsContainer}>
                 <View style={ styles.navLogoConatiner }>
                     <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />

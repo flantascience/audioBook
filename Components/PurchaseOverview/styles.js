@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     zIndex: 1000
   },
+  activityIndicatorContainer: {
+    width: 200,
+    height: 50
+  },
   closeOverviewDark: {
     display: 'flex',
     alignContent: 'flex-end',
@@ -62,6 +66,14 @@ const styles = StyleSheet.create({
   containerDark: {
     display: 'flex',
     backgroundColor: '#000',
+    padding: 5,
+    margin: 30,
+    borderRadius: 6,
+    zIndex: 1000
+  },
+  containerProcessing: {
+    display: 'flex',
+    backgroundColor: 'rgba(255,255,255, 0)',
     padding: 5,
     margin: 30,
     borderRadius: 6,

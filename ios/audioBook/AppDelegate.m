@@ -19,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+  //keep device awake
+  [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
   // if you are using the TEST key
   [Branch setUseTestBranchKey:YES];
   // listener for Branch Deep Link data

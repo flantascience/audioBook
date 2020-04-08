@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* audioBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* audioBookTests.m */; };
 		04D3A7B050D14969965BA924 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8DAB5352F5D4411F8E863496 /* AntDesign.ttf */; };
@@ -981,7 +980,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1013,7 +1012,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 983ZG46JTF;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = audioBook/Info.plist;
