@@ -282,7 +282,7 @@ export const styles = StyleSheet.create({
         left: 1,
         width: showBorder ? null : 40,
         borderWidth: 0,
-        backgroundColor: showBorder ? "#0D0D0D" : '#7F8787',
+        backgroundColor: showBorder ? "#0D0D0D" : '#000',
         top: showBorder ? -28 : 0,
         borderColor: "#757575",
         borderWidth: showBorder ? 0.5 : 0,

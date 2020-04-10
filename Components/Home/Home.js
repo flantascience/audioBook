@@ -184,26 +184,27 @@ class Home extends React.Component {
                   style={ styles.thumb }
                 />
                 <View style = { styles.mainTextThumb }>
-                  <Image
-                    source={require('./images/book-title-3-lines.png')}
-                    style={ styles.mainTextThumbImg }
-                  />
-                </View>
-                <View style={ styles.playButtonContainer }>
-                  <Button
-                    style={ styles.playButton }
-                    dark={ dark }
-                    textStyle={styles.playButtonText}
-                    imageStyle={styles.playButtonImage}
-                    image={require('./images/play_image.png')}
-                    onPress={ () => {
-                      setTimeout(() => {
-                        this.setState({showVid:true, paused: false, secondaryHide:false});
-                      }, 200);
-                      this.player ? this.player.presentFullscreenPlayer() : null;
-                      storeMedia({playingIntro: true});
-                    } } 
-                  />
+                    <Image
+                        source={require('./images/book-title-3-lines.png')}
+                        style={ styles.mainTextThumbImg }
+                    />
+                    <View style={ styles.playButtonContainer }>
+                        <Button
+                            style={ styles.playButton }
+                            dark={ dark }
+                            textStyle={styles.playButtonText}
+                            imageStyle={styles.playButtonImage}
+                            image={require('./images/play_image.png')}
+                            onPress={ () => {
+                                    setTimeout(() => {
+                                        this.setState({showVid:true, paused: false, secondaryHide:false});
+                                    }, 200);
+                                    this.player ? this.player.presentFullscreenPlayer() : null;
+                                    storeMedia({playingIntro: true});
+                                } 
+                            } 
+                        />
+                    </View>
                 </View>
               </View> :
               null }

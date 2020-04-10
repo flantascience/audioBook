@@ -6,7 +6,7 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>3EC35D56-15DA-4973-BC2B-E3C0DC355850</key>
+		<key>CFAA8819-8CFF-47F9-9D2E-B46D7F38B9BE</key>
 		<dict>
 			<key>className</key>
 			<string>IDECommandLineBuildLog</string>
@@ -15,7 +15,7 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
 			<key>fileName</key>
-			<string>3EC35D56-15DA-4973-BC2B-E3C0DC355850.xcactivitylog</string>
+			<string>CFAA8819-8CFF-47F9-9D2E-B46D7F38B9BE.xcactivitylog</string>
 			<key>hasPrimaryLog</key>
 			<true/>
 			<key>primaryObservable</key>
@@ -32,13 +32,13 @@
 			<key>signature</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>timeStartedRecording</key>
-			<real>607613472.78587401</real>
+			<real>608153573.56155396</real>
 			<key>timeStoppedRecording</key>
-			<real>607613488.68325806</real>
+			<real>608153618.62461305</real>
 			<key>title</key>
 			<string>Building workspace audioBook with scheme audioBook and configuration Debug</string>
 			<key>uniqueIdentifier</key>
-			<string>3EC35D56-15DA-4973-BC2B-E3C0DC355850</string>
+			<string>CFAA8819-8CFF-47F9-9D2E-B46D7F38B9BE</string>
 		</dict>
 	</dict>
 </dict>

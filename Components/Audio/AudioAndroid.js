@@ -25,7 +25,7 @@ import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 import { audioOverview, audio } from '../../Misc/Strings';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
 const Analytics = firebase.analytics();
