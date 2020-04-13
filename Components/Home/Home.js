@@ -164,28 +164,28 @@ class Home extends React.Component {
         <View style = { styles.homeMid }>
           <View style = { styles.centerImageContainer }>
             { !loaded ? 
-            <View>
+            <View style={styles.imagesContainer}>
               <Image
                 source={require('./images/chalkboard-with-hands.jpg')}
                 style={ styles.thumb }
               />
               <View style = { styles.mainTextThumb }>
                   <Image
-                    source={require('./images/book-title-3-lines.png')}
+                    source={require('./images/book-title.png')}
                     style={ styles.mainTextThumbImg }
                   />
                 </View>
             </View> : null }
             {
               loaded && !showVid ?
-              <View>
+              <View style={styles.imagesContainer}>
                 <Image
                   source={require('./images/chalkboard-with-hands.jpg')}
                   style={ styles.thumb }
                 />
                 <View style = { styles.mainTextThumb }>
                     <Image
-                        source={require('./images/book-title-3-lines.png')}
+                        source={require('./images/book-title.png')}
                         style={ styles.mainTextThumbImg }
                     />
                     <View style={ styles.playButtonContainer }>

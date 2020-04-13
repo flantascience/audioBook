@@ -88,9 +88,15 @@ export const styles = StyleSheet.create({
         height: 60,
         backgroundColor: "#212121"
     },
+    imagesContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'flex-start',
+        alignItems: 'flex-start'
+    },
     thumb: {
         height: height > 800 ? height - 190 : 
-        height > 600 ? height - 160 : 
+        height > 600 && height < 800 ? height - 160 : 
         height - 140,
         width,
         resizeMode: 'cover'
@@ -103,11 +109,13 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? 60 : 
-        height > 600 && height < 800 ? 40 : 
-        10
+        top: height > 800 ? 0 : 
+        height > 600 && height < 800 ? -10 : 
+        -40,
     },
     mainTextThumbImg: {
+        flex: 1,
+        marginTop: 0,
         resizeMode: 'contain',
         width: '90%'
     },
@@ -117,14 +125,13 @@ export const styles = StyleSheet.create({
         width: '50%'
     },
     playButtonContainer: {
-        //position: 'absolute',
+        position: 'absolute',
         display:'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width,
-        marginTop: height > 800 ? 40 : 
-        height > 600 && height < 800 ? 10 : 
-        0
+        top: height > 800 ? (height / 3) :
+        height > 600 && height < 800 ? (height / 3) - 10 :
+        (height / 2.8)
         /*bottom: height > 800 ? '38%' : 
         height > 600 ? '35%' : 
         '30%'*/

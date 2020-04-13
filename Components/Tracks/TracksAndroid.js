@@ -216,7 +216,7 @@ class Tracks extends React.Component {
       const trackAvailable = free || userType === 'paid'
       /**If track is cloud based one needs an internet connection*/
       //console.log(currPos)
-      let playable = mediaType === "local"?
+      let playable = mediaType === "local" ?
       true:
       mediaType === "cloud" && trackAvailable && connected ?
       true:
