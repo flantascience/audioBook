@@ -23,6 +23,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
 
     const [mode = currentMode] = useState();
     const [branchLink = BRANCH_LINK, updateBranchLink] = useState();
+    const [shareMessage = "You need to checkout this app!", updateShareMessage] = useState();
 
     //console.log(props)
     const goTo = place => {
@@ -40,8 +41,8 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
 
     const share = async () => {
         try {
-            const message = Android ? "You need to checkout this app! "+ BRANCH_LINK : "You need to checkout this app!";
-            await Share.share({message, url: BRANCH_LINK}).then(result => {
+            const message = Android ? shareMessage + ' ' + branchLink : shareMessage;
+            await Share.share({message, url: branchLink}).then(result => {
                 /** Do something after sharing */
             });
         }catch(e){
@@ -50,8 +51,11 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
     }
 
     useEffect(() => {
-        firebase.database().ref('shareLink').once('value', response => {
-            updateBranchLink(response.val())
+        firebase.database().ref('shareInfo').once('value', response => {
+            console.log(response.val());
+            const { message, link } = response.val();
+            updateBranchLink(link);
+            updateShareMessage(message);
         });
     }, []);
 
