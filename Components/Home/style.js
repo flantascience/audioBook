@@ -109,8 +109,8 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? 0 : 
-        height > 600 && height < 800 ? -10 : 
+        top: height > 800 ? -30 : 
+        height > 600 && height < 800 ? -40 : 
         -40,
     },
     mainTextThumbImg: {
@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         top: height > 800 ? (height / 3) :
-        height > 600 && height < 800 ? (height / 3) - 10 :
+        height > 600 && height < 800 ? (height / 3) +10 :
         (height / 2.8)
         /*bottom: height > 800 ? '38%' : 
         height > 600 ? '35%' : 

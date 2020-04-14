@@ -6,6 +6,7 @@ import {
     Share,
     Platform
 } from 'react-native';
+import firebase from 'react-native-firebase';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
@@ -19,6 +20,10 @@ const currentMode = 'dark'; /* eventEmitter.currentMode; */
 const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
     let hike = currPlayingNameLen > 1 ? true : false;
+
+    const [mode = currentMode] = useState();
+    const [branchLink = BRANCH_LINK, updateBranchLink] = useState();
+
     //console.log(props)
     const goTo = place => {
         toggleOverview().then(res=>{
@@ -44,11 +49,11 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
         }
     }
 
-    const [mode = currentMode, changeMode] = useState();
-
     useEffect(() => {
-        changeMode(currentMode);
-    })
+        firebase.database().ref('shareLink').once('value', response => {
+            updateBranchLink(response.val())
+        });
+    }, []);
 
     return(
         <View 
