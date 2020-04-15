@@ -250,7 +250,8 @@ class Audio extends React.Component{
                 comment
             },
             showQuestionnaire,
-            fetchingRefs
+            fetchingRefs,
+            fetchedRefs
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -406,7 +407,7 @@ class Audio extends React.Component{
                                     size={25} 
                                 />
                             </TouchableOpacity>
-                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } fetching={fetchingRefs} {...this.props} />
+                            <Refs dark={dark} styles={ styles } referencesInfo={ referencesInfo } fetching={fetchingRefs} fetched={fetchedRefs} {...this.props} />
                         </View>
                     </View>
                 </ScrollView> :
@@ -528,6 +529,7 @@ const mapStateToProps = state => {
       loadedFromMemory: state.media.loadedFromMemory,
       connected: state.connectionInfo.connected,
       fetchingRefs: state.refs.fetching,
+      fetchedRefs: state.refs.fetched
     }
 }
 

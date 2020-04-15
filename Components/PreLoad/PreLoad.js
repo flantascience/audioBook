@@ -18,7 +18,7 @@ import { navInfo } from '../../Misc/Strings'
 import firebase from 'react-native-firebase'
 import { withNavigationFocus } from 'react-navigation'
 import { styles } from './styles'
-import { eventEmitter } from 'react-native-dark-mode'
+//import { eventEmitter } from 'react-native-dark-mode'
 
 const tracksRef = firebase.database().ref('/tracks')
 const versionsRef = firebase.database().ref('/versions')

@@ -110,14 +110,14 @@ export const styles = StyleSheet.create({
         left: 0,
         right: 0,
         top: height > 800 ? -30 : 
-        height > 600 && height < 800 ? -40 : 
-        -40,
+        height > 600 && height < 800 ? - 25 : 
+        -25,
     },
     mainTextThumbImg: {
         flex: 1,
         marginTop: 0,
         resizeMode: 'contain',
-        width: '90%'
+        width: '97%'
     },
     pressStart: {
         resizeMode: 'contain',

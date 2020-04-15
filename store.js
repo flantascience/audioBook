@@ -5,7 +5,6 @@ import generalReducer from './Reducers/generalReducer';
 import mediaReducer from './Reducers/mediaReducer';
 import referencesReducer from './Reducers/referencesReducer';
 
-applyMiddleware(thunk, logger);
 const rootReducer = combineReducers({
   input: generalReducer,
   generalInfo: generalReducer,
@@ -15,7 +14,7 @@ const rootReducer = combineReducers({
 });
 
 const configureStore = () => {
-  return createStore(rootReducer);
+  return createStore(rootReducer, applyMiddleware(thunk, logger));
 }
 
 export default configureStore;

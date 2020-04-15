@@ -30,7 +30,7 @@ import { styles } from './style';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
-import { changeRefsView } from '../../Actions/references';
+import { changeRefsView, storeRefs } from '../../Actions/references';
 import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from '../../Actions/generalActions';
 import * as RNIap from 'react-native-iap';
 
@@ -42,6 +42,7 @@ const items = [
   ];
 
 const Analytics = firebase.analytics();
+const referencesRef = firebase.database().ref('/references');
 const tracksRef = firebase.database().ref("/tracks");
 
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
@@ -82,7 +83,8 @@ class Tracks extends React.Component {
   });
 
   componentDidMount(){
-    let { audioFiles, connectionInfo: { connected }, store } = this.props;
+    let { audioFiles, connectionInfo: { connected }, store, references, refsInfo: { fetched } } = this.props;
+    if (!fetched || references.length === 0) this.fetchAndStoreRefs();
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       const playerState = data.state;
       const { media: { currentPosition, trackDuration, currentlyPlaying, userType } } = this.props;
@@ -177,6 +179,21 @@ class Tracks extends React.Component {
       this.fetchAvailableProducts();
     }
     else store({showMessage: false, message: null});
+  }
+
+  fetchAndStoreRefs = () => {
+    const { storeReferences } = this.props
+    let cloudRefs = []
+    //this._getStoredData("audioFiles");
+    referencesRef.once('value', (data) => {
+      data.forEach((refInfo) => {
+        let key = refInfo.key
+        let ref = refInfo.val()
+        cloudRefs[key] = ref
+      })
+      //console.log(cloudRefs)
+      storeReferences(cloudRefs)
+    });
   }
 
   componentDidUpdate(){
@@ -819,6 +836,7 @@ const mapStateToProps = state => {
     loaded: state.media.loaded,
     paused: state.media.paused,
     references: state.refs.references,
+    refsInfo: state.refs,
     selectedTrack: state.media.selectedTrack,
     currentPosition: state.media.currentPosition,
     showTextinput: state.media.showTextinput,
@@ -870,6 +888,9 @@ const mapDispatchToProps = dispatch => {
     },
     startPurchasing: value => {
         dispatch(updateIsPurchasing(value));
+    },
+    storeReferences: refs => {
+        dispatch(storeRefs(refs))
     }
   }
 }

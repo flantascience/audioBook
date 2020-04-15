@@ -214,6 +214,12 @@ class Home extends React.Component {
               ref={ref => {
                 this.player = ref
               }}
+              bufferConfig={{
+                minBufferMs: 500,
+                maxBufferMs: 50000,
+                bufferForPlaybackMs: 2500,
+                bufferForPlaybackAfterRebufferMs: 5000
+              }}
               paused = { !paused && isFocused ? false : true }
               onLoad = { () => {
                 this.setState({loaded:true});

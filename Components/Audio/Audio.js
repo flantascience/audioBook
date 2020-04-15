@@ -25,7 +25,7 @@ import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 import { audioOverview, audio, tracks } from '../../Misc/Strings';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const dbRef = firebase.database().ref("/questionnaire");
 const Analytics = firebase.analytics();
@@ -40,11 +40,12 @@ class Audio extends React.Component{
     }
 
     componentDidMount(){
-        let { audioFiles, trackPlayer } = this.props;
+        let { audioFiles, references } = this.props;
         this.props.store({ showToast: false, toastText: null });
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({lastTrackId});
+        console.log('refs: ', references)
     }
 
     toggleTrack = pos => {
@@ -245,6 +246,7 @@ class Audio extends React.Component{
             showQuestionnaire,
             connected,
             fetchingRefs,
+            fetchedRefs,
             store
         } = this.props;
         /** End reconfigure */
@@ -289,6 +291,13 @@ class Audio extends React.Component{
                     ref={ref => {
                         this.trackPlayer = ref;
                     }}
+                    automaticallyWaitsToMinimizeStalling={false}
+                    bufferConfig={{
+                        minBufferMs: 500,
+                        maxBufferMs: 5000,
+                        bufferForPlaybackMs: 2500,
+                        bufferForPlaybackAfterRebufferMs: 5000
+                    }}
                     source={audioSource}
                     onProgress={data => {
                         let { currentTime } = data;
@@ -330,7 +339,8 @@ class Audio extends React.Component{
                     repeat={true}
                     controls={true}
                     ignoreSilentSwitch={"ignore"}
-                /> : null }
+                /> : 
+                null }
                 { showOverview ?
                 <ScrollView style={{height: 300}}>
                     <View style={ style }>
@@ -452,6 +462,7 @@ class Audio extends React.Component{
                             <Refs 
                                 dark={dark} 
                                 fetching={fetchingRefs} 
+                                fetched={fetchedRefs}
                                 connected={connected} 
                                 styles={ styles } 
                                 referencesInfo={ referencesInfo } 
@@ -575,6 +586,7 @@ const mapStateToProps = state => {
         hideMenu: state.media.hideMenu,
         connected: state.connectionInfo.connected,
         fetchingRefs: state.refs.fetching,
+        fetchedRefs: state.refs.fetched,
         toggleNowPlaying: state.media.toggleNowPlaying
     }
 }

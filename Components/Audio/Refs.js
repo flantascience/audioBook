@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 
 const Analytics = firebase.analytics();
 const width = Dimensions.get('window').width;
-const Refs = ({ styles, fetching, connected, referencesInfo, references, showRefs, currentlyPlayingName, dark }) => {
+const Refs = ({ styles, fetching, fetched, connected, referencesInfo=[], references, showRefs, currentlyPlayingName, dark }) => {
     /*useEffect(() => {
         console.log(connected);
     }, [])*/
@@ -70,7 +70,7 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
                     { connected ? refsStrings.noRefs : refsStrings.noConnection }
                 </Text> :
                 <View style={ styles.refRowContainer }>
-                    { fetching && connected ? 
+                    { fetching || !fetched ? 
                         <View style={{display: 'flex', width: width - 70}}>
                             <ActivityIndicator
                                 size="small" 
