@@ -489,28 +489,50 @@ class Tracks extends React.Component {
     const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
     startPurchasing(true);
     RNIap.getAvailablePurchases().then(response => {
-        console.log(response)
-        if (response[0].transactionId) {
-            updateUserType('paid');
-            let showToast = true;
-            toggleShowPurchaseOverview(false);
-            store({showToast, toastText: tracks.successfullyRestored });
-            setTimeout(() => {
-                store({showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
-            startPurchasing(false);
+        //console.log(response)
+        if (response[0]) {
+            if (response[0].transactionId) {
+                updateUserType('paid');
+                let showToast = true;
+                toggleShowPurchaseOverview(false);
+                store({showToast, toastText: tracks.successfullyRestored });
+                setTimeout(() => {
+                    store({showToast: !showToast, toastText: null });
+                }, TOAST_TIMEOUT);
+                startPurchasing(false);
+            }
+            else {
+                console.log(e.message)
+                let showToast = true
+                toggleShowPurchaseOverview(false)
+                store({ showToast, toastText: tracks.restartApp });
+                setTimeout(() => {
+                store({ showToast: !showToast, toastText: null })
+                }, LONG_TOAST_TIMEOUT)
+                startPurchasing(false);
+            }
         }
         else {
             updateUserType('free');
             let showToast = true;
             toggleShowPurchaseOverview(false);
-            store({showToast, toastText: tracks.restartApp });
+            store({showToast, toastText: tracks.notPurchased });
             setTimeout(() => {
                 store({showToast: !showToast, toastText: null });
             }, LONG_TOAST_TIMEOUT);
             startPurchasing(false);
         }
-    });
+    }).
+    catch(e => {
+        console.log(e.message)
+        let showToast = true
+        toggleShowPurchaseOverview(false)
+        store({ showToast, toastText: tracks.restartApp });
+        setTimeout(() => {
+          store({ showToast: !showToast, toastText: null })
+        }, LONG_TOAST_TIMEOUT)
+        startPurchasing(false)
+    })
   }
 
   buyProduct = () => {

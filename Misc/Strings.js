@@ -28,6 +28,7 @@ export const tracks = {
   nextTrackIsPaid: "You'll need to purchase tracks to play next track.",
   redownloadTrack: "You need to re-download this track.",
   restartApp: "Something went wrong, please restart app and try again.",
+  notPurchased: "You've never purchased our tracks, please press the purchase button.",
   downloadError: "Something went wrong with downloading tracks list, restart app."
 }
 

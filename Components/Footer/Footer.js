@@ -52,7 +52,7 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
 
     useEffect(() => {
         firebase.database().ref('shareInfo').once('value', response => {
-            console.log(response.val());
+            //console.log(response.val());
             const { message, link } = response.val();
             updateBranchLink(link);
             updateShareMessage(message);
