@@ -99,8 +99,8 @@ class Author extends React.Component {
     let { userEmail } = this.props;
     if (userEmail.length > 0) {
       if (userEmail.match(emailregex)) {
-        this.checkAvailability(userEmail).then(available => {
-          if (available) { 
+        /*this.checkAvailability(userEmail).then(available => {
+          if (available) {*/
             NetInfo.fetch().then(state => {
               let conType = state.type;
               //console.log(conType)
@@ -122,7 +122,7 @@ class Author extends React.Component {
                 this.fetchSubscribers();
               }
             });
-          }
+          /*}
           else {
             let showToast = true;
             this.props.storeMediaInf({showToast, toastText: author.messages.alreadySubscribed });
@@ -130,7 +130,7 @@ class Author extends React.Component {
               this.props.storeMediaInf({showToast: !showToast, toastText: null});
             }, TOAST_TIMEOUT);
           }
-        }); 
+        });*/
       }
       else {
         let showToast = true;
