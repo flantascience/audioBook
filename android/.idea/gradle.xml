@@ -19,10 +19,11 @@
             <option value="$PROJECT_DIR$/../node_modules/react-native-firebase/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-fs/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-iap/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-music-control/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-track-player/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android" />
-            <option value="$PROJECT_DIR$/../node_modules/react-native-video/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-video/android-exoplayer" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
