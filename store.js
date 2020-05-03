@@ -8,6 +8,7 @@ import referencesReducer from './Reducers/referencesReducer';
 applyMiddleware(thunk, logger);
 const rootReducer = combineReducers({
   input: generalReducer,
+  generalInfo: generalReducer,
   connectionInfo: generalReducer,
   media: mediaReducer,
   refs: referencesReducer

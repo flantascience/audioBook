@@ -19,9 +19,23 @@ export const navInfo = {
 
 export const tracks = {
   noInternetConnection: "You cannot stream without an active internet connection.",
+  successfullyPaid: "You successfully purchased all tracks, thanks!",
+  successfullyRestored: "You successfully restored your purchase.",
+  alreadyPaid: "You already own the tracks.",
+  productsUnavailable: "Something's not quite right, please try again later.",
+  transactionFailed: "Transaction failed, try again later",
+  payForTracks: "You must purchase the tracks to listen to this track.",
+  nextTrackIsPaid: "You'll need to purchase tracks to play next track.",
   redownloadTrack: "You need to re-download this track.",
   restartApp: "Something went wrong, please restart app and try again.",
+  notPurchased: "You've never purchased our tracks, please press the purchase button.",
   downloadError: "Something went wrong with downloading tracks list, restart app."
+}
+
+export const purchaseOverview = {
+  intro: "You must purchase the locked tracks. If you've already purchased them, click ''Restore'' to restore them to your device.",
+  purchase: "Purchase",
+  restore: "Restore "
 }
 
 export const connectionFeedback = {

@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
 import {
     Colors
-  } from 'react-native/Libraries/NewAppScreen';
-import { eventEmitter } from 'react-native-dark-mode';
+} from 'react-native/Libraries/NewAppScreen';
 
-const mode = 'dark'; // eventEmitter.currentMode;
+//import { eventEmitter } from 'react-native-dark-mode';
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+const mode = currentMode;
 const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({
@@ -22,11 +23,11 @@ export const styles = StyleSheet.create({
         height: "100%"
     },
     homeMid: {
-        flex:6,
+        flex: 6,
         overflow: "hidden"
     },
     homeMidDark: {
-        flex:6,
+        flex: 6,
         overflow: "hidden",
         backgroundColor: '#000'
     },
@@ -60,11 +61,11 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeFooter: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#EBEAEA"
     },
     homeFooterDark: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#212121"
     },
     altHomeFooter: {
@@ -151,11 +152,20 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
         paddingBottom: 20
     },
+    iconsContainer: {
+        display: 'flex',
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: 'row',
+        minWidth: 25,
+        flex: 2
+    },
     trackIcon: {
-        flex: 2,
-        alignContent: "flex-end",
-        justifyContent: "flex-end",
-        alignItems: "flex-end"
+        flex: 1,
+        alignContent: "center",
+        justifyContent: "center",
+        alignItems: "center"
     },
     trackTextWrapper: {
         display: "flex",
