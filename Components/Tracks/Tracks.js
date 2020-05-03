@@ -582,7 +582,6 @@ class Tracks extends React.Component {
                     }
                 })
                 .catch((e) => {
-                    console.log('errror', e.code)
                     if (e.code === 'E_ALREADY_OWNED') {
                         updateUserType('paid')
                         let showToast = true
