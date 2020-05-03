@@ -19,8 +19,6 @@ const Android = Platform.OS === 'android';
 const Header = ({ playingIntro, media, preloader=false }) => {
     const [mode = 'dark' /*eventEmitter.currentMode*/, changeMode] = useState();
     useEffect(() => {
-        let currentMode = 'dark'; // eventEmitter.currentMode;
-        changeMode(currentMode);
         return cleanup = () => {
             if (!preloader) {
                 const {
