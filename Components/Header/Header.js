@@ -4,7 +4,8 @@ import {
     View,
     Text,
     Image,
-    Platform
+    Platform,
+    StatusBar
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
@@ -16,10 +17,8 @@ import { eventEmitter } from 'react-native-dark-mode';
 const Android = Platform.OS === 'android';
 
 const Header = ({ playingIntro, media, preloader=false }) => {
-    const [mode = eventEmitter.currentMode, changeMode] = useState();
+    const [mode = 'dark' /*eventEmitter.currentMode*/, changeMode] = useState();
     useEffect(() => {
-        let currentMode = eventEmitter.currentMode;
-        changeMode(currentMode);
         return cleanup = () => {
             if (!preloader) {
                 const {
@@ -67,6 +66,7 @@ const Header = ({ playingIntro, media, preloader=false }) => {
     if (!playingIntro || !Android)
     return(
         <View style={ styles.header }>
+            <StatusBar backgroundColor={'#212121'} barStyle={'light-content'} />
             <View style={ styles.headerElementsContainer}>
                 <View style={ styles.navLogoConatiner }>
                     <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />

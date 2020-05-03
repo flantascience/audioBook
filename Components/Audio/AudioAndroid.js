@@ -267,7 +267,7 @@ class Audio extends React.Component{
 
         let trackDuration = selectedTrack ? audioFiles[selectedTrack].duration : "";
         let remainingTime = ( trackDuration - currentPosition );
-        let mode = eventEmitter.currentMode;
+        let mode = 'dark' // eventEmitter.currentMode;
         let dark = mode === 'dark';
         const trackTimeSlider = <View style={ dark ? styles.trackTimeContainerDark : styles.trackTimeContainer }>
                 <ProgressBar dark={dark} toggleReached90={this.toggleReached90} reached90={reached90} />
