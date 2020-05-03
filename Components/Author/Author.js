@@ -72,7 +72,10 @@ class Author extends React.Component {
 
   checkAvailability = userEmail => {
     return new Promise(resolve => {
-      let { emails } = this.props;
+        resolve(true);
+      /*
+      *removed check
+      *let { emails } = this.props;
       //console.log(this.props)
       if(emails && emails.length > 0){
         let available = true;
@@ -89,7 +92,7 @@ class Author extends React.Component {
         setTimeout(() => {
           this.props.storeMediaInf({showToast: !showToast, toastText: null });
         }, TOAST_TIMEOUT);
-      }
+      }**/
     });
   }
 
@@ -161,7 +164,7 @@ class Author extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-    
+
     let dark = mode === 'dark';
     
     let height = Dimensions.get('window').height;
