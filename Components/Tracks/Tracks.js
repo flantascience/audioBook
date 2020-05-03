@@ -172,7 +172,7 @@ class Tracks extends React.Component {
             store,
             userType,
         } = this.props
-        const { currentAction } = this.state
+        let currentAction  = [...this.state.currentAction];
         const currPos = audioFiles ? audioFiles[pos] : null
         this.foldAccordions()
         if (currPos !== null && pos !== selectedTrack) {
@@ -236,7 +236,9 @@ class Tracks extends React.Component {
                                 })
                             }
                             //alert that track is streaming
-                            currentAction[pos].action = 'streaming'
+                            currentAction[pos] = currentAction[pos] || {};
+                            currentAction[pos].action = 'streaming';
+                            this.setState({ currentAction })
                         } else {
                             let showToast = true
                             let newAudioFiles
@@ -291,6 +293,7 @@ class Tracks extends React.Component {
                         })
                     }
                     //log streamed audio if title available
+                    currentAction[pos] = currentAction[pos] || {};
                     audioFiles[pos].title
                         ? Analytics.logEvent('consumption_type_prod', {
                             streaming: audioFiles[pos].title,
@@ -339,7 +342,7 @@ class Tracks extends React.Component {
         } = this.props
         if (connected) {
             let { audioFiles } = this.props
-            let { currentAction } = this.state
+            let currentAction = [...this.state.currentAction];
             let { url, id } = audioFiles[pos]
             let path = RNFS.DocumentDirectoryPath + '/' + id + '.mp3'
             let DownloadFileOptions = {
@@ -353,16 +356,18 @@ class Tracks extends React.Component {
                 begin: (res) => {
                     let { statusCode } = res
                     if (statusCode !== 200) {
+                        currentAction[pos] = currentAction[pos] || {};
                         currentAction[pos].action = 'stop'
                         currentAction[pos].error = true
                         this.setState({ currentAction })
                     } else {
                         // console.log(audioFiles[pos].title)
+                        currentAction[pos] = currentAction[pos] || {};
                         audioFiles[pos].title
                             ? Analytics.logEvent('consumption_type_prod', {
                                 downloading: audioFiles[pos].title,
                             })
-                            : null
+                            : null;
                         currentAction[pos].action = 'downloading'
                         this.setState({ currentAction })
                     }
@@ -378,7 +383,8 @@ class Tracks extends React.Component {
                 RNFS.downloadFile(DownloadFileOptions)
                     .promise.then(() => {
                         let newPath = Platform.OS === 'ios' ? 'file:////' + path : path
-                        let newAudioFiles = [...audioFiles]
+                        let newAudioFiles = [...audioFiles];
+                        currentAction[pos] = currentAction[pos] || {};
                         currentAction[pos].action = 'downloaded'
                         newAudioFiles[pos].url = newPath
                         newAudioFiles[pos].type = 'local'
@@ -582,7 +588,6 @@ class Tracks extends React.Component {
                     }
                 })
                 .catch((e) => {
-                    console.log('errror', e.code)
                     if (e.code === 'E_ALREADY_OWNED') {
                         updateUserType('paid')
                         let showToast = true

@@ -221,7 +221,7 @@ class Tracks extends React.Component {
 
     toggleNowPlaying = (pos, prog = false) => {
         let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, store, userType } = this.props;
-        const { currentAction } = this.state;
+        let currentAction = [...this.state.currentAction];
         const currPos = audioFiles ? audioFiles[pos] : null;
         this.foldAccordions();
         if (currPos !== null && pos !== selectedTrack) {
@@ -295,7 +295,9 @@ class Tracks extends React.Component {
                                                 TrackPlayer.play();
                                             }
                                             //alert that track is streaming
+                                            currentAction[pos] = currentAction[pos] || {};
                                             currentAction[pos].action = "streaming";
+                                            this.setState({currentAction});
                                         })
                                     });
                                 }
@@ -362,9 +364,11 @@ class Tracks extends React.Component {
                                         TrackPlayer.play();
                                     }
                                     //log streamed audio
+                                    currentAction[pos] = currentAction[pos] || {};
                                     audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', { streaming: audioFiles[pos].title }) : null;
                                     //alert that track is streaming
                                     currentAction[pos].action = "streaming";
+                                    this.setState({currentAction});
                                 })
                             });
                         }
@@ -410,7 +414,7 @@ class Tracks extends React.Component {
         const { connectionInfo: { connected }, store } = this.props;
         if (connected) {
             let { audioFiles } = this.props;
-            let { currentAction } = this.state;
+            let currentAction = [...this.state.currentAction];
             let { url, id } = audioFiles[pos];
             let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
             let DownloadFileOptions = {
@@ -424,12 +428,14 @@ class Tracks extends React.Component {
                 begin: res => {
                     let { statusCode } = res;
                     if (statusCode !== 200) {
+                        currentAction[pos] = currentAction[pos] || {};
                         currentAction[pos].action = "stop";
                         currentAction[pos].error = true;
                         this.setState({ currentAction });
                     }
                     else {
                         // console.log(audioFiles[pos].title)
+                        currentAction[pos] = currentAction[pos] || {};
                         audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', { downloading: audioFiles[pos].title }) : null;
                         currentAction[pos].action = "downloading";
                         this.setState({ currentAction });
@@ -445,6 +451,7 @@ class Tracks extends React.Component {
             if (currentAction.length > 0) {
                 RNFS.downloadFile(DownloadFileOptions).promise.then(() => {
                     let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
+                    currentAction[pos] = currentAction[pos] || {};
                     currentAction[pos].action = "downloaded";
                     audioFiles[pos].url = newPath;
                     audioFiles[pos].type = "local";

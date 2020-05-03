@@ -88,3 +88,5 @@ RNTester/Pods/Target Support Files
 android/.gradle/5.4.1/executionHistory/executionHistory.bin
 *.hprof
 *.apk
+ios/Leave School.app.dSYM.zip
+.DS_Store
