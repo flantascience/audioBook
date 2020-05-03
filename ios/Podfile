@@ -43,6 +43,8 @@ target 'audioBook' do
 
   pod 'react-native-video', :path => '../node_modules/react-native-video'
   
+  pod 'RNIap', :path => '../node_modules/react-native-iap'
+  
   pod 'Branch'
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
