@@ -1,0 +1,215 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AudioSession"
+provides-nominal:
+- "25react_native_track_player12AudioSessionP"
+- "So14AVAudioSessionC"
+provides-member:
+- ["25react_native_track_player12AudioSessionP", ""]
+- ["So14AVAudioSessionC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AVAudioSession"
+- "AudioSession"
+- "Bool"
+depends-member:
+- ["So14AVAudioSessionC", "Category"]
+- ["So14AVAudioSessionC", "CategoryOptions"]
+- ["So14AVAudioSessionC", "Mode"]
+- ["So14AVAudioSessionC", "RouteSharingPolicy"]
+- ["So14AVAudioSessionC", "SetActiveOptions"]
+- ["So14AVAudioSessionC", "availableCategories"]
+- ["So14AVAudioSessionC", "category"]
+- ["So14AVAudioSessionC", "categoryOptions"]
+- ["So14AVAudioSessionC", "deinit"]
+- ["So14AVAudioSessionC", "isOtherAudioPlaying"]
+- ["So14AVAudioSessionC", "mode"]
+- ["So14AVAudioSessionC", "setActive"]
+- ["So14AVAudioSessionC", "setCategory"]
+- ["25react_native_track_player12AudioSessionP", "AVAudioSession"]
+- ["25react_native_track_player12AudioSessionP", "Bool"]
+- ["25react_native_track_player12AudioSessionP", "Category"]
+- ["25react_native_track_player12AudioSessionP", "CategoryOptions"]
+- ["25react_native_track_player12AudioSessionP", "Mode"]
+- ["25react_native_track_player12AudioSessionP", "RouteSharingPolicy"]
+- ["25react_native_track_player12AudioSessionP", "SetActiveOptions"]
+- ["25react_native_track_player12AudioSessionP", ""]
+- ["25react_native_track_player12AudioSessionP", "availableCategories"]
+- ["25react_native_track_player12AudioSessionP", "category"]
+- ["25react_native_track_player12AudioSessionP", "categoryOptions"]
+- ["25react_native_track_player12AudioSessionP", "isOtherAudioPlaying"]
+- ["25react_native_track_player12AudioSessionP", "mode"]
+- ["25react_native_track_player12AudioSessionP", "setActive"]
+- ["25react_native_track_player12AudioSessionP", "setCategory"]
+- ["s7CVarArgP", "Category"]
+- ["s7CVarArgP", "CategoryOptions"]
+- ["s7CVarArgP", "Mode"]
+- ["s7CVarArgP", "RouteSharingPolicy"]
+- ["s7CVarArgP", "SetActiveOptions"]
+- ["s7CVarArgP", "availableCategories"]
+- ["s7CVarArgP", "category"]
+- ["s7CVarArgP", "categoryOptions"]
+- ["s7CVarArgP", "isOtherAudioPlaying"]
+- ["s7CVarArgP", "mode"]
+- ["s7CVarArgP", "setActive"]
+- ["s7CVarArgP", "setCategory"]
+- ["s28CustomDebugStringConvertibleP", "Category"]
+- ["s28CustomDebugStringConvertibleP", "CategoryOptions"]
+- ["s28CustomDebugStringConvertibleP", "Mode"]
+- ["s28CustomDebugStringConvertibleP", "RouteSharingPolicy"]
+- ["s28CustomDebugStringConvertibleP", "SetActiveOptions"]
+- ["s28CustomDebugStringConvertibleP", "availableCategories"]
+- ["s28CustomDebugStringConvertibleP", "category"]
+- ["s28CustomDebugStringConvertibleP", "categoryOptions"]
+- ["s28CustomDebugStringConvertibleP", "isOtherAudioPlaying"]
+- ["s28CustomDebugStringConvertibleP", "mode"]
+- ["s28CustomDebugStringConvertibleP", "setActive"]
+- ["s28CustomDebugStringConvertibleP", "setCategory"]
+- ["s23CustomStringConvertibleP", "Category"]
+- ["s23CustomStringConvertibleP", "CategoryOptions"]
+- ["s23CustomStringConvertibleP", "Mode"]
+- ["s23CustomStringConvertibleP", "RouteSharingPolicy"]
+- ["s23CustomStringConvertibleP", "SetActiveOptions"]
+- ["s23CustomStringConvertibleP", "availableCategories"]
+- ["s23CustomStringConvertibleP", "category"]
+- ["s23CustomStringConvertibleP", "categoryOptions"]
+- ["s23CustomStringConvertibleP", "isOtherAudioPlaying"]
+- ["s23CustomStringConvertibleP", "mode"]
+- ["s23CustomStringConvertibleP", "setActive"]
+- ["s23CustomStringConvertibleP", "setCategory"]
+- ["SQ", "Category"]
+- ["SQ", "CategoryOptions"]
+- ["SQ", "Mode"]
+- ["SQ", "RouteSharingPolicy"]
+- ["SQ", "SetActiveOptions"]
+- ["SQ", "availableCategories"]
+- ["SQ", "category"]
+- ["SQ", "categoryOptions"]
+- ["SQ", "isOtherAudioPlaying"]
+- ["SQ", "mode"]
+- ["SQ", "setActive"]
+- ["SQ", "setCategory"]
+- ["SH", "Category"]
+- ["SH", "CategoryOptions"]
+- ["SH", "Mode"]
+- ["SH", "RouteSharingPolicy"]
+- ["SH", "SetActiveOptions"]
+- ["SH", "availableCategories"]
+- ["SH", "category"]
+- ["SH", "categoryOptions"]
+- ["SH", "isOtherAudioPlaying"]
+- ["SH", "mode"]
+- ["SH", "setActive"]
+- ["SH", "setCategory"]
+- ["So8NSObjectC", "Category"]
+- ["So8NSObjectC", "CategoryOptions"]
+- ["So8NSObjectC", "Mode"]
+- ["So8NSObjectC", "RouteSharingPolicy"]
+- ["So8NSObjectC", "SetActiveOptions"]
+- ["So8NSObjectC", "availableCategories"]
+- ["So8NSObjectC", "category"]
+- ["So8NSObjectC", "categoryOptions"]
+- ["So8NSObjectC", "isOtherAudioPlaying"]
+- ["So8NSObjectC", "mode"]
+- ["So8NSObjectC", "setActive"]
+- ["So8NSObjectC", "setCategory"]
+- ["So8NSObjectP", "Category"]
+- ["So8NSObjectP", "CategoryOptions"]
+- ["So8NSObjectP", "Mode"]
+- ["So8NSObjectP", "RouteSharingPolicy"]
+- ["So8NSObjectP", "SetActiveOptions"]
+- ["So8NSObjectP", "availableCategories"]
+- ["So8NSObjectP", "category"]
+- ["So8NSObjectP", "categoryOptions"]
+- ["So8NSObjectP", "isOtherAudioPlaying"]
+- ["So8NSObjectP", "mode"]
+- ["So8NSObjectP", "setActive"]
+- ["So8NSObjectP", "setCategory"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Category"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "CategoryOptions"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Mode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "RouteSharingPolicy"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "SetActiveOptions"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "availableCategories"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "category"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "categoryOptions"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "isOtherAudioPlaying"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "mode"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "setActive"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "setCategory"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Category"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "CategoryOptions"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Mode"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "RouteSharingPolicy"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "SetActiveOptions"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "availableCategories"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "category"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "categoryOptions"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isOtherAudioPlaying"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "mode"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "setActive"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "setCategory"]
+depends-nominal:
+- "So14AVAudioSessionC"
+- "25react_native_track_player12AudioSessionP"
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "SQ"
+- "SH"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/ObjectiveC.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMIDI.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreMedia.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/simd.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreImage.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/QuartzCore.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Dispatch.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Metal.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Darwin.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Foundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/AVFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreFoundation.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreAudio.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/MediaPlayer.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/CoreGraphics.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/UIKit.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/SwiftOnoneSupport.swiftmodule/arm64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/Combine.swiftmodule/arm64-apple-ios.swiftmodule"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player-umbrella.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/RNTrackPlayerBridge.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-track-player/ios/RNTrackPlayer/Support/RNTrackPlayer-Bridging-Header.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventEmitter.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h"
+- "/Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/react_native_track_player/react-native-track-player.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreMedia.framework/Headers/CoreMedia.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AVFoundation.framework/Headers/AVFoundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaPlayer.framework/Headers/MediaPlayer.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreAudioTypes.framework/Headers/CoreAudioTypes.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/MediaToolbox.framework/Headers/MediaToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioToolbox.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.4.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "f36c0f561eee15b3ec448b9983b509dc"

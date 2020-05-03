@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { eventEmitter } from 'react-native-dark-mode';
 
-const mode = eventEmitter.currentMode;
+const mode = 'dark' // eventEmitter.currentMode;
 const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({

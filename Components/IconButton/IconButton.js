@@ -7,6 +7,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { styles } from './style';
+
+const mode = 'dark'; //eventEmitter.currentMode;
 const IconButton = ({name, active, onPress, ...props})=>{
 
     return(
@@ -16,7 +18,7 @@ const IconButton = ({name, active, onPress, ...props})=>{
                 size={ props.size }
                 style={ props.iconStyle }
             />
-            <Text style={ active && eventEmitter.currentMode === 'dark' ? styles.iconTextActive : styles.iconText }>{ props.text }</Text>
+            <Text style={ active && mode === 'dark' ? styles.iconTextActive : styles.iconText }>{ props.text }</Text>
         </TouchableOpacity>
     )
 }

@@ -38,10 +38,10 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
         }
     }
 
-    const [mode = eventEmitter.currentMode, changeMode] = useState();
+    const [mode = 'dark' /*eventEmitter.currentMode*/, changeMode] = useState();
 
     useEffect(() => {
-        let currentMode = eventEmitter.currentMode;
+        let currentMode = 'dark'; // eventEmitter.currentMode;
         changeMode(currentMode);
     })
 

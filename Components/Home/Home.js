@@ -26,6 +26,8 @@ import { eventEmitter } from 'react-native-dark-mode';
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
 
+const mode = 'dark' // eventEmitter.currentMode;
+
 class Home extends React.Component {
   constructor(){
     super()
@@ -52,10 +54,10 @@ class Home extends React.Component {
           alignItems: 'center'
       },
       headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
         borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+        borderBottomColor: mode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -126,7 +128,6 @@ class Home extends React.Component {
     } = this.props;
     let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
     let isFocused = navigation.isFocused();
-    let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
     let audioPlaying = !this.props.paused;
 

@@ -32,6 +32,7 @@ const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
 const dbRef = firebase.database().ref("/subscriptions");
 
+const mode = 'dark'; // eventEmitter.currentMode;
 class Author extends React.Component {
 
   static navigationOptions = () => {
@@ -44,10 +45,10 @@ class Author extends React.Component {
           alignItems: 'center'
       },
       headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
         borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: eventEmitter.currentMode === 'dark' ? '#525253' : '#C7C6C6'
+        borderBottomColor: mode === 'dark' ? '#525253' : '#C7C6C6'
       }
     }
   };
@@ -160,8 +161,7 @@ class Author extends React.Component {
       currentlyPlayingName,
       showOverview
     } = this.props;
-
-    let mode = eventEmitter.currentMode;
+    
     let dark = mode === 'dark';
     
     let height = Dimensions.get('window').height;

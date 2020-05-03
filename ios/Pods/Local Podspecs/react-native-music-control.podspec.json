@@ -4,7 +4,9 @@
   "summary": "Add information on lockscreen and control playing music",
   "description": "Add information on lockscreen and control playing music",
   "license": "MIT",
-  "authors": "Tanguy Antoine",
+  "authors": {
+    "name": "Tanguy Antoine"
+  },
   "homepage": "https://github.com/tanguyantoine/react-native-music-control",
   "source": {
     "git": "git://github.com/tanguyantoine/react-native-music-control.git",

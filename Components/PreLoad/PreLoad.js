@@ -26,6 +26,8 @@ const versionsRef = firebase.database().ref("/versions");
 const referencesRef = firebase.database().ref("/references");
 const Android = Platform.OS === 'android';
 
+const mode = 'dark'; //eventEmitter.currentMode
+
 class PreLoad extends React.Component {
 
   static navigationOptions = () => ({
@@ -37,7 +39,7 @@ class PreLoad extends React.Component {
         alignItems: 'center'
     },
     headerStyle: {
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -59,7 +61,7 @@ class PreLoad extends React.Component {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
         headerStyle:{
-          backgroundColor: newMode === 'dark' ? '#212121' : '#EBEAEA',
+          backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
           height: 80,
         }
       });
@@ -267,7 +269,6 @@ class PreLoad extends React.Component {
       navigation,
       currentlyPlayingName,
     } = this.props;
-    let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
 
     let height = Dimensions.get('window').height;

@@ -34,6 +34,8 @@ import { eventEmitter } from 'react-native-dark-mode';
 const Analytics = firebase.analytics();
 const tracksRef = firebase.database().ref("/tracks");
 
+let mode = 'dark'; // eventEmitter.currentMode;
+
 class Tracks extends React.Component {
   constructor(props){
     super(props);
@@ -63,7 +65,7 @@ class Tracks extends React.Component {
         alignItems: 'center'
     },
     headerStyle:{
-        backgroundColor: eventEmitter.currentMode === 'dark' ? '#212121' : '#EBEAEA',
+        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
         height: 80,
     },
   });
@@ -182,6 +184,7 @@ class Tracks extends React.Component {
   toggleNowPlaying = (pos, prog = false) => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, store } = this.props;
     const { currentAction } = this.state;
+    let newCurrentAction = [...currentAction];
     this.foldAccordions();
     if (pos !== selectedTrack) {
       //console.log(res)
@@ -252,7 +255,8 @@ class Tracks extends React.Component {
                         TrackPlayer.play();
                       }
                       //alert that track is streaming
-                      currentAction[pos].action = "streaming";
+                      newCurrentAction[pos].action = "streaming";
+                      this.setState({currentAction: newCurrentAction});
                     })
                   });
                 } 
@@ -321,7 +325,8 @@ class Tracks extends React.Component {
                     //log streamed audio
                     audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {streaming: audioFiles[pos].title}) : null;
                     //alert that track is streaming
-                    currentAction[pos].action = "streaming";
+                    newCurrentAction[pos].action = "streaming";
+                    this.setState({currentAction: newCurrentAction});
                   })
                 });
               }
@@ -348,6 +353,7 @@ class Tracks extends React.Component {
       if (connected) {
         let { audioFiles } = this.props;
         let { currentAction } = this.state;
+        let newCurrentAction = [...currentAction];
         let { url, id } = audioFiles[pos];
         let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
         let DownloadFileOptions = {
@@ -361,33 +367,33 @@ class Tracks extends React.Component {
           begin: res => { 
             let { statusCode } = res;
             if (statusCode !== 200) {
-              currentAction[pos].action = "stop";
-              currentAction[pos].error = true;
-              this.setState({currentAction});
+              newCurrentAction[pos].action = "stop";
+              newCurrentAction[pos].error = true;
+              this.setState({currentAction: newCurrentAction});
             } 
             else {
               // console.log(audioFiles[pos].title)
               audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {downloading: audioFiles[pos].title}) : null;
-              currentAction[pos].action = "downloading";
-              this.setState({currentAction});
+              newCurrentAction[pos].action = "downloading";
+              this.setState({currentAction: newCurrentAction});
             }
           },
           progress: prog => {
             let { bytesWritten, contentLength } = prog;
             let percentage = (bytesWritten/contentLength)*100;
-            currentAction[pos].percentage = percentage
-            this.setState({currentAction});
+            newCurrentAction[pos].percentage = percentage
+            this.setState({currentAction: newCurrentAction});
           }
         };
         if (currentAction.length > 0) {
           RNFS.downloadFile(DownloadFileOptions).promise.then(() => {
             let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
-            currentAction[pos].action = "downloaded";
+            newCurrentAction[pos].action = "downloaded";
             audioFiles[pos].url = newPath;
             audioFiles[pos].type = "local";
             //console.log(audioFiles);
             this._storeData(audioFiles);
-            this.setState({currentAction});
+            this.setState({currentAction: newCurrentAction});
             this.forceUpdate();
           }).catch(err => {
             console.log(err);
@@ -500,7 +506,6 @@ class Tracks extends React.Component {
 
     let audioSource = selectedTrack ? type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url} : "";
 
-    let mode = eventEmitter.currentMode;
     let dark = mode === 'dark';
 
     let loading = audioFiles.length === 0;

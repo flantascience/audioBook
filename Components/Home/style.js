@@ -9,7 +9,7 @@ const iOS = Platform.OS === "ios" ? true : false;
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-const mode = eventEmitter.currentMode;
+const mode = 'dark'; // eventEmitter.currentMode;
 const dark = mode === 'dark';
 
 //console.log(height)
