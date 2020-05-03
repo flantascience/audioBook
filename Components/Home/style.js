@@ -2,14 +2,16 @@ import { StyleSheet, Dimensions, Platform } from 'react-native';
 import {
     Colors
 } from 'react-native/Libraries/NewAppScreen';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const iOS = Platform.OS === "ios" ? true : false;
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-const mode = 'dark'; // eventEmitter.currentMode;
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
+
+const mode = currentMode;
 const dark = mode === 'dark';
 
 //console.log(height)
@@ -86,10 +88,16 @@ export const styles = StyleSheet.create({
         height: 60,
         backgroundColor: "#212121"
     },
+    imagesContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignContent: 'flex-start',
+        alignItems: 'flex-start'
+    },
     thumb: {
-        height: height > 800 ? height - 200 : 
-        height > 600 ? height - 180 : 
-        height - 160,
+        height: height > 800 ? height - 190 : 
+        height > 600 && height < 800 ? height - 160 : 
+        height - 140,
         width,
         resizeMode: 'cover'
     },
@@ -101,13 +109,15 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? '23%' : 
-        height > 600 ? '20%' : 
-        '20%'
+        top: height > 800 ? 10 : 
+        height > 600 && height < 800 ? - 10 : 
+        -25,
     },
     mainTextThumbImg: {
+        flex: 1,
+        marginTop: 0,
         resizeMode: 'contain',
-        width: '90%'
+        width: '97%'
     },
     pressStart: {
         resizeMode: 'contain',
@@ -119,27 +129,25 @@ export const styles = StyleSheet.create({
         display:'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width,
-        left: 0,
-        right: 0,
-        bottom: height > 800 ? '33%' : 
-        height > 600 ? '30%' : 
-        '25%'
+        top: height > 800 ? (height / 3) - 30 :
+        height > 600 && height < 800 ? (height / 3) :
+        (height / 2.8)
+        /*bottom: height > 800 ? '38%' : 
+        height > 600 ? '35%' : 
+        '30%'*/
     },
     playButton: {
         display:'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 30,
-        borderRightWidth: iOS ? 0.5 : 0,
-        borderBottomWidth: iOS ? 0.5 : 0,
-        borderRightColor: '#757575',
-        borderBottomColor: '#757575',
         elevation: iOS ? 0 : 10,
-        width: 130,
-        height: 35,
+        width: 60,
+        height: 60,
         //paddingTop: 5,
-        backgroundColor: '#6FDA44',
+    },
+    playButtonImage: {
+        height: 60,
+        width: 60
     },
     playButtonText: {
         color: '#fff', 

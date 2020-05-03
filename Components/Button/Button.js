@@ -1,25 +1,28 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, Image } from 'react-native';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
 
-const Button = ({ title, onPress, dark, style, textStyle }) => {
+const Button = ({ title, image, imageStyle, onPress, dark, style, textStyle }) => {
     return (
         <TouchableOpacity 
             style={ style ? style : dark ? styles.buttonStyleDark : styles.buttonStyle }
             onPress = { onPress }
         >
-            <Text style={ textStyle ? textStyle : styles.buttonText }>
+            { title ? <Text style={ textStyle ? textStyle : styles.buttonText }>
                 {title}
-            </Text>
+            </Text> : null }
+            <Image style={imageStyle} source={image} />
         </TouchableOpacity>
     )
 }
 
 Button.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     style: PropTypes.object,
-    onPress: PropTypes.func.isRequired
+    onPress: PropTypes.func.isRequired,
+    image: PropTypes.number,
+    imageStyle: PropTypes.object
 }
 
 export default Button;
