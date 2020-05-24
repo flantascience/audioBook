@@ -213,6 +213,7 @@ dependencies {
     implementation project(':react-native-video')
     implementation project(':@react-native-community_async-storage')
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:28.+"
     implementation "com.google.android.gms:play-services-base:17.1.0"
     implementation "com.facebook.react:react-native:0.20.1"  // From node_modules
     implementation "com.google.firebase:firebase-core:17.2.3"

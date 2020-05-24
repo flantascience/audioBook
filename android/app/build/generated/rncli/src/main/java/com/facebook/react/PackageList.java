@@ -27,6 +27,8 @@ import io.invertase.firebase.RNFirebasePackage;
 import com.rnfs.RNFSPackage;
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+// react-native-iap
+import com.dooboolab.RNIap.RNIapPackage;
 // react-native-music-control
 import com.tanguyantoine.react.MusicControl;
 // react-native-track-player
@@ -75,6 +77,7 @@ public class PackageList {
       new RNFirebasePackage(),
       new RNFSPackage(),
       new RNGestureHandlerPackage(),
+      new RNIapPackage(),
       new MusicControl(),
       new TrackPlayer(),
       new VectorIconsPackage(),
