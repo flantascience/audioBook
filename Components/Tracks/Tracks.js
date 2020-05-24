@@ -186,7 +186,7 @@ class Tracks extends React.Component {
             let playable =
                 mediaType === 'local'
                     ? true
-                    : mediaType === 'cloud' && trackAvailable && connected
+                    : mediaType === 'cloud' && connected
                         ? true
                         : false
             if (playable) {
@@ -304,19 +304,13 @@ class Tracks extends React.Component {
                     this.setState({ currentAction })
                 }
             } else {
-                if (!trackAvailable) {
-                    let showToast = true
-                    store({ showToast, toastText: tracks.payForTracks })
-                    setTimeout(() => {
-                        store({ showToast: !showToast, toastText: null })
-                    }, TOAST_TIMEOUT)
-                } else {
-                    let showToast = true
-                    store({ showToast, toastText: tracks.noInternetConnection })
-                    setTimeout(() => {
-                        store({ showToast: !showToast, toastText: null })
-                    }, TOAST_TIMEOUT)
-                }
+                
+                let showToast = true
+                store({ showToast, toastText: tracks.noInternetConnection })
+                setTimeout(() => {
+                    store({ showToast: !showToast, toastText: null })
+                }, TOAST_TIMEOUT)
+                
             }
         } else {
             if (!currPos) {
@@ -713,17 +707,10 @@ class Tracks extends React.Component {
                                                     ? 'pause'
                                                     : 'play-circle'
                                         const downlaodIcon = 'cloud-download'
-                                        const lockedItemIcon = 'lock'
                                         return (
                                             <View key={key} style={styles.trackContainer}>
                                                 <TouchableOpacity
-                                                    onPress={() => {
-                                                        free || userType === 'paid'
-                                                            ? this.toggleNowPlaying(key)
-                                                            : toggleShowPurchaseOverview(
-                                                                !showPurchaseOverview
-                                                            )
-                                                    }}
+                                                    onPress={() => this.toggleNowPlaying(key)}
                                                     style={dark ? styles.trackDark : styles.track}
                                                 >
                                                     <View style={styles.trackTextWrapper}>
@@ -744,7 +731,7 @@ class Tracks extends React.Component {
                                                             {formattedDuration}
                                                         </Text>
                                                     </View>
-                                                    {free || userType === 'paid' ? (
+                                                    {(
                                                         <View style={styles.iconsContainer}>
                                                             <TouchableOpacity
                                                                 onPress={() => this.toggleNowPlaying(key)}
@@ -800,28 +787,7 @@ class Tracks extends React.Component {
                                                                         </View>
                                                                     ) : null}
                                                         </View>
-                                                    ) : (
-                                                            <View style={styles.iconsContainer}>
-                                                                <TouchableOpacity
-                                                                    onPress={() =>
-                                                                        toggleShowPurchaseOverview(
-                                                                            !showPurchaseOverview
-                                                                        )
-                                                                    }
-                                                                    style={styles.trackIcon}
-                                                                >
-                                                                    <Icon
-                                                                        color={dark ? '#fff' : '#000'}
-                                                                        name={
-                                                                            Platform.OS === 'ios'
-                                                                                ? `ios-${lockedItemIcon}`
-                                                                                : `md-${lockedItemIcon}`
-                                                                        }
-                                                                        size={35}
-                                                                    />
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        )}
+                                                    )}
                                                 </TouchableOpacity>
                                             </View>
                                         )
