@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import {
   View,
   ScrollView,
@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { 
+import {
   AudioAndroid,
   Toast,
   Footer,
@@ -35,11 +35,11 @@ import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from
 import * as RNIap from 'react-native-iap';
 
 const items = [
-   '01',
-   'android.test.purchased',
-   'android.test.canceled',
-   'android.test.item_unavailable'
-  ];
+  '01',
+  'android.test.purchased',
+  'android.test.canceled',
+  'android.test.item_unavailable'
+];
 
 const Analytics = firebase.analytics();
 const referencesRef = firebase.database().ref('/references');
@@ -48,15 +48,15 @@ const tracksRef = firebase.database().ref("/tracks");
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Tracks extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     let { audioFiles } = props;
     let currentAction = [];
     audioFiles.forEach(file => {
       let { id } = file;
-      currentAction.push({ 
-        id, 
-        action: "stop", 
+      currentAction.push({
+        id,
+        action: "stop",
         percentage: 1,
         error: null
       });
@@ -68,21 +68,21 @@ class Tracks extends React.Component {
     }
   }
 
-  static navigationOptions = ({navigation}) => ({
+  static navigationOptions = ({ navigation }) => ({
     headerLeft: <Header />,
-    headerTitleStyle :{
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
+    headerTitleStyle: {
+      textAlign: 'center',
+      justifyContent: 'center',
+      color: '#FF6D00',
+      alignItems: 'center'
     },
-    headerStyle:{
-        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
+    headerStyle: {
+      backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+      height: 80,
     },
   });
 
-  componentDidMount(){
+  componentDidMount() {
     let { audioFiles, connectionInfo: { connected }, store, references, refsInfo: { fetched } } = this.props;
     if (!fetched || references.length === 0) this.fetchAndStoreRefs();
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
@@ -99,16 +99,16 @@ class Tracks extends React.Component {
           else {
             console.log('no playing next')
             let showToast = true;
-            store({showToast, toastText: tracks.nextTrackIsPaid });
+            store({ showToast, toastText: tracks.nextTrackIsPaid });
             setTimeout(() => {
-              store({showToast: !showToast, toastText: null });
+              store({ showToast: !showToast, toastText: null });
             }, TOAST_TIMEOUT);
           }
         }
       }
 
       if (playerState === 0 || playerState === 1 || playerState === 2) this.props.store({ paused: true });
-      else if (playerState !== 1) this.props.store({ paused: false});
+      else if (playerState !== 1) this.props.store({ paused: false });
     });
 
     TrackPlayer.addEventListener('remote-play', async () => {
@@ -128,7 +128,7 @@ class Tracks extends React.Component {
 
     TrackPlayer.addEventListener('remote-previous', async () => {
       TrackPlayer.getCurrentTrack().then(res => {
-        const newTrackId = parseInt(res)-1;
+        const newTrackId = parseInt(res) - 1;
         const newTrack = audioFiles[newTrackId];
         if (newTrack) this.toggleNowPlaying(newTrackId);
       })
@@ -136,7 +136,7 @@ class Tracks extends React.Component {
 
     TrackPlayer.addEventListener('remote-next', async () => {
       TrackPlayer.getCurrentTrack().then(res => {
-        const newTrackId = parseInt(res)+1;
+        const newTrackId = parseInt(res) + 1;
         const newTrack = audioFiles[newTrackId];
         if (newTrack) this.toggleNowPlaying(newTrackId);
       })
@@ -145,40 +145,40 @@ class Tracks extends React.Component {
     TrackPlayer.addEventListener('playback-queue-ended', async () => {
       const currentPosition = await TrackPlayer.getPosition();
       if (currentPosition) {
-        this.props.store({paused: true, stopped: true, currentPosition: 0});
+        this.props.store({ paused: true, stopped: true, currentPosition: 0 });
         TrackPlayer.stop();
       }
     });
 
     TrackPlayer.addEventListener('remote-jump-backward', async () => {
       TrackPlayer.getPosition().then(res => {
-          let newPos = res + parseFloat(-15);
-          let newState = {
-              currentPosition: newPos,
-              currentTime: newPos
-          };
-          store(newState);
-          TrackPlayer.seekTo(newPos);
+        let newPos = res + parseFloat(-15);
+        let newState = {
+          currentPosition: newPos,
+          currentTime: newPos
+        };
+        store(newState);
+        TrackPlayer.seekTo(newPos);
       });
     });
 
     TrackPlayer.addEventListener('remote-jump-forward', async () => {
       TrackPlayer.getPosition().then(res => {
-          let newPos = res + parseFloat(15);
-          let newState = {
-              currentPosition: newPos,
-              currentTime: newPos
-          };
-          store(newState);
-          TrackPlayer.seekTo(newPos);
+        let newPos = res + parseFloat(15);
+        let newState = {
+          currentPosition: newPos,
+          currentTime: newPos
+        };
+        store(newState);
+        TrackPlayer.seekTo(newPos);
       });
     });
     if (connected) {
       let showMessage = true;
-      store({showMessage, message: tracks.noInternetConnection });
+      store({ showMessage, message: tracks.noInternetConnection });
       this.fetchAvailableProducts();
     }
-    else store({showMessage: false, message: null});
+    else store({ showMessage: false, message: null });
   }
 
   fetchAndStoreRefs = () => {
@@ -196,20 +196,20 @@ class Tracks extends React.Component {
     });
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     const { connectionInfo: { connected, startTracks }, showMessage, audioFiles, changeStartTracks, store } = this.props;
     const audioFilesLoaded = audioFiles.length > 0;
     if (startTracks && audioFilesLoaded && !this.state.autoPlayStarted) {
-      this.setState({autoPlayStarted: true});
+      this.setState({ autoPlayStarted: true });
       this.toggleNowPlaying("0", true);
       changeStartTracks(false);
     }
     Analytics.setCurrentScreen('Tracks_prod');
     if (!connected) {
       let showMessage = true;
-      this.props.store({showMessage, message: tracks.noInternetConnection });
+      this.props.store({ showMessage, message: tracks.noInternetConnection });
     }
-    else if (connected && showMessage) store({showMessage: false, message: null });
+    else if (connected && showMessage) store({ showMessage: false, message: null });
   }
 
   foldAccordions = () => {
@@ -229,67 +229,65 @@ class Tracks extends React.Component {
       const currPos = audioFiles[pos];
       const mediaType = audioFiles[pos].type;
       const title = audioFiles[pos].title;
-      const free = audioFiles[pos].free;
-      const trackAvailable = free || userType === 'paid'
       /**If track is cloud based one needs an internet connection*/
       //console.log(currPos)
       let playable = mediaType === "local" ?
-      true:
-      mediaType === "cloud" && trackAvailable && connected ?
-      true:
-      false;
+        true :
+        mediaType === "cloud" && connected ?
+          true :
+          false;
       if (playable) {
         // console.log(audioFiles[pos].title)
-        Analytics.logEvent('tracks_played_prod', {tracks: title});
+        Analytics.logEvent('tracks_played_prod', { tracks: title });
         removeTrack().then(res => {
           //this.props.store({hideMenu: true});
           if (res === "removed") {
-            this.updateReferenceInfo( audioFiles[pos].id, audioFiles, references);
+            this.updateReferenceInfo(audioFiles[pos].id, audioFiles, references);
             if (audioFiles[pos].type === "local") {
-              RNFS.exists(audioFiles[pos].url).then(res=>{
+              RNFS.exists(audioFiles[pos].url).then(res => {
                 if (res) {
-                  TrackPlayer.add([currPos]).then(res=>{
-                    getDuration().then(trackDuration=>{
+                  TrackPlayer.add([currPos]).then(res => {
+                    getDuration().then(trackDuration => {
                       //console.log(trackDuration)
                       if (trackDuration > 0) {
                         const formattedDuration = formatTime(trackDuration);
                         store({
                           selectedTrack: pos,
-                          currentPosition:0,
-                          currentTime:0,
+                          currentPosition: 0,
+                          currentTime: 0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
                           currentlyPlayingName: audioFiles[pos].title,
                           initCurrentlyPlaying: true,
                           buttonsActive: true,
                           showOverview: prog ? false : true,
-                          trackDuration, 
-                          paused: false, 
+                          trackDuration,
+                          paused: false,
                           stopped: false,
-                          loaded: true, 
-                          totalLength: trackDuration, 
+                          loaded: true,
+                          totalLength: trackDuration,
                           formattedDuration
                         });
                         TrackPlayer.play();
-                      } 
+                      }
                       else {
                         trackDuration = audioFiles[pos].duration;
                         let formattedDuration = formatTime(trackDuration);
                         store({
                           selectedTrack: pos,
-                          currentPosition:0,
-                          currentTime:0,
+                          currentPosition: 0,
+                          currentTime: 0,
                           selectedTrackId: audioFiles[pos].id,
                           currentlyPlaying: audioFiles[pos].id,
                           currentlyPlayingName: audioFiles[pos].title,
                           initCurrentlyPlaying: true,
                           buttonsActive: true,
                           showOverview: prog ? false : true,
-                          trackDuration, 
-                          paused: false, 
+                          trackDuration,
+                          paused: false,
                           stopped: false,
-                          loaded: true, 
-                          totalLength: trackDuration, 
+                          loaded: true,
+                          totalLength: trackDuration,
                           formattedDuration
                         });
                         TrackPlayer.play();
@@ -298,13 +296,13 @@ class Tracks extends React.Component {
                       currentAction[pos].action = "streaming";
                     })
                   });
-                } 
+                }
                 else {
                   let showToast = true;
                   let newAudioFiles;
-                  store({showToast, toastText: tracks.redownloadTrack });
+                  store({ showToast, toastText: tracks.redownloadTrack });
                   setTimeout(() => {
-                    store({showToast: !showToast, toastText: null });
+                    store({ showToast: !showToast, toastText: null });
                   }, TOAST_TIMEOUT);
                   if (audioFilesCloud.length > 0) {
                     newAudioFiles = [...audioFilesCloud];
@@ -313,174 +311,165 @@ class Tracks extends React.Component {
                   else this.fetchFromFirebase();
                 }
               });
-            } 
-            else {
-                TrackPlayer.add([currPos]).then(res => {
-                  getDuration().then(trackDuration => {
-                    // console.log(trackDuration)
-                    if (trackDuration > 0) {
-                      let formattedDuration = formatTime(trackDuration);
-                      store({
-                        selectedTrack: pos,
-                        currentPosition:0,
-                        currentTime:0,
-                        selectedTrackId: audioFiles[pos].id,
-                        currentlyPlaying: audioFiles[pos].id,
-                        currentlyPlayingName: audioFiles[pos].title,
-                        initCurrentlyPlaying: true,
-                        buttonsActive: true,
-                        showOverview: prog ? false : true,
-                        trackDuration, 
-                        paused: false, 
-                        stopped: false,
-                        loaded: true, 
-                        totalLength: trackDuration, 
-                        formattedDuration
-                      });
-                      TrackPlayer.play();
-                    } 
-                    else {
-                      trackDuration = audioFiles[pos].duration;
-                      let formattedDuration = formatTime(trackDuration);
-                      store({
-                        selectedTrack: pos,
-                        currentPosition:0,
-                        currentTime:0,
-                        selectedTrackId: audioFiles[pos].id,
-                        currentlyPlaying: audioFiles[pos].id,
-                        currentlyPlayingName: audioFiles[pos].title,
-                        initCurrentlyPlaying: true,
-                        buttonsActive: true,
-                        showOverview: prog ? false : true,
-                        trackDuration, 
-                        paused: false, 
-                        stopped: false,
-                        loaded: true, 
-                        totalLength: trackDuration, 
-                        formattedDuration
-                      });
-                      TrackPlayer.play();
-                    }
-                    //log streamed audio
-                    audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {streaming: audioFiles[pos].title}) : null;
-                    //alert that track is streaming
-                    currentAction[pos].action = "streaming";
-                  })
-                });
-              }
             }
-            else console.log(res);
-          });
-        }
-        else {
-          if (!trackAvailable) {
-            let showToast = true;
-            store({showToast, toastText: tracks.payForTracks });
-            setTimeout(() => {
-              store({showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
+            else {
+              TrackPlayer.add([currPos]).then(res => {
+                getDuration().then(trackDuration => {
+                  // console.log(trackDuration)
+                  if (trackDuration > 0) {
+                    let formattedDuration = formatTime(trackDuration);
+                    store({
+                      selectedTrack: pos,
+                      currentPosition: 0,
+                      currentTime: 0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: prog ? false : true,
+                      trackDuration,
+                      paused: false,
+                      stopped: false,
+                      loaded: true,
+                      totalLength: trackDuration,
+                      formattedDuration
+                    });
+                    TrackPlayer.play();
+                  }
+                  else {
+                    trackDuration = audioFiles[pos].duration;
+                    let formattedDuration = formatTime(trackDuration);
+                    store({
+                      selectedTrack: pos,
+                      currentPosition: 0,
+                      currentTime: 0,
+                      selectedTrackId: audioFiles[pos].id,
+                      currentlyPlaying: audioFiles[pos].id,
+                      currentlyPlayingName: audioFiles[pos].title,
+                      initCurrentlyPlaying: true,
+                      buttonsActive: true,
+                      showOverview: prog ? false : true,
+                      trackDuration,
+                      paused: false,
+                      stopped: false,
+                      loaded: true,
+                      totalLength: trackDuration,
+                      formattedDuration
+                    });
+                    TrackPlayer.play();
+                  }
+                  //log streamed audio
+                  audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', { streaming: audioFiles[pos].title }) : null;
+                  //alert that track is streaming
+                  currentAction[pos].action = "streaming";
+                })
+              });
+            }
           }
-          else {
-            let showToast = true;
-            store({showToast, toastText: tracks.noInternetConnection });
-            setTimeout(() => {
-              store({showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
-          }
-        }
+          else console.log(res);
+        });
+      }
+      else {
+        let showToast = true;
+        store({ showToast, toastText: tracks.noInternetConnection });
+        setTimeout(() => {
+          store({ showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      }
     }
     else {
       if (!currPos) {
         let showToast = true;
         let newAudioFiles = [...audioFiles];
         newAudioFiles[pos] = audioFilesCloud[pos];
-        store({showToast, toastText: tracks.redownloadTrack});
+        store({ showToast, toastText: tracks.redownloadTrack });
         this._storeData(newAudioFiles);
-        setTimeout(()=>{
-          store({showToast: !showToast, toastText: null });
+        setTimeout(() => {
+          store({ showToast: !showToast, toastText: null });
         }, TOAST_TIMEOUT);
       } else {
         let showOverview = !this.props.showOverview;
-        store({showOverview});
+        store({ showOverview });
       }
     }
   }
 
   downloadTrack = pos => {
     const { connectionInfo: { connected }, store } = this.props;
-      if (connected) {
-        let { audioFiles } = this.props;
-        let { currentAction } = this.state;
-        let { url, id } = audioFiles[pos];
-        let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
-        let DownloadFileOptions = {
-          fromUrl: url,
-          toFile: path,
-          //headers: Headers,
-          background: true,
-          cacheable: true,
-          progressDivider: 1,
-          discretionary: true,
-          begin: res => { 
-            let { statusCode } = res;
-            if (statusCode !== 200) {
-              currentAction[pos].action = "stop";
-              currentAction[pos].error = true;
-              this.setState({currentAction});
-            } 
-            else {
-              // console.log(audioFiles[pos].title)
-              audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', {downloading: audioFiles[pos].title}) : null;
-              currentAction[pos].action = "downloading";
-              this.setState({currentAction});
-            }
-          },
-          progress: prog => {
-            let { bytesWritten, contentLength } = prog;
-            let percentage = (bytesWritten/contentLength)*100;
-            currentAction[pos].percentage = percentage
-            this.setState({currentAction});
+    if (connected) {
+      let { audioFiles } = this.props;
+      let { currentAction } = this.state;
+      let { url, id } = audioFiles[pos];
+      let path = RNFS.DocumentDirectoryPath + '/' + id + ".mp3";
+      let DownloadFileOptions = {
+        fromUrl: url,
+        toFile: path,
+        //headers: Headers,
+        background: true,
+        cacheable: true,
+        progressDivider: 1,
+        discretionary: true,
+        begin: res => {
+          let { statusCode } = res;
+          if (statusCode !== 200) {
+            currentAction[pos].action = "stop";
+            currentAction[pos].error = true;
+            this.setState({ currentAction });
           }
-        };
-        if (currentAction.length > 0) {
-          RNFS.downloadFile(DownloadFileOptions).promise.then(() => {
-            let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
-            currentAction[pos].action = "downloaded";
-            audioFiles[pos].url = newPath;
-            audioFiles[pos].type = "local";
-            //console.log(audioFiles);
-            this._storeData(audioFiles);
-            this.setState({currentAction});
-            this.forceUpdate();
-          }).catch(err => {
-            console.log(err);
-            let showToast = true;
-            store({showToast, toastText: tracks.restartApp });
-            setTimeout(() => {
-              store({showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
-          });
+          else {
+            // console.log(audioFiles[pos].title)
+            audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', { downloading: audioFiles[pos].title }) : null;
+            currentAction[pos].action = "downloading";
+            this.setState({ currentAction });
+          }
+        },
+        progress: prog => {
+          let { bytesWritten, contentLength } = prog;
+          let percentage = (bytesWritten / contentLength) * 100;
+          currentAction[pos].percentage = percentage
+          this.setState({ currentAction });
         }
-      } 
-      else {
-        console.log('no interent');
-        let showToast = true;
-        store({showToast, toastText: tracks.noInternetConnection });
-        setTimeout(() => {
-          store({showToast: !showToast, toastText: null });
-        }, TOAST_TIMEOUT);
+      };
+      if (currentAction.length > 0) {
+        RNFS.downloadFile(DownloadFileOptions).promise.then(() => {
+          let newPath = Platform.OS === 'ios' ? "file:////" + path : path;
+          currentAction[pos].action = "downloaded";
+          audioFiles[pos].url = newPath;
+          audioFiles[pos].type = "local";
+          //console.log(audioFiles);
+          this._storeData(audioFiles);
+          this.setState({ currentAction });
+          this.forceUpdate();
+        }).catch(err => {
+          console.log(err);
+          let showToast = true;
+          store({ showToast, toastText: tracks.restartApp });
+          setTimeout(() => {
+            store({ showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
+        });
       }
+    }
+    else {
+      console.log('no interent');
+      let showToast = true;
+      store({ showToast, toastText: tracks.noInternetConnection });
+      setTimeout(() => {
+        store({ showToast: !showToast, toastText: null });
+      }, TOAST_TIMEOUT);
+    }
   }
 
   fetchAvailableProducts = () => {
     try {
       RNIap.getProducts(items).then(products => {
-       //handle success of fetch product list
-       this.setState({products});
+        //handle success of fetch product list
+        this.setState({ products });
       }).catch(error => {
         console.log(error.message);
       })
-    } catch(err) {
+    } catch (err) {
       console.warn(err); // standardized err.code and err.message available
     }
   }
@@ -489,41 +478,41 @@ class Tracks extends React.Component {
     const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
     startPurchasing(true);
     RNIap.getAvailablePurchases().then(response => {
-        //console.log(response)
-        if (response[0]) {
-            if (response[0].transactionId) {
-                updateUserType('paid');
-                let showToast = true;
-                toggleShowPurchaseOverview(false);
-                store({showToast, toastText: tracks.successfullyRestored });
-                setTimeout(() => {
-                    store({showToast: !showToast, toastText: null });
-                }, TOAST_TIMEOUT);
-                startPurchasing(false);
-            }
-            else {
-                console.log(e.message)
-                let showToast = true
-                toggleShowPurchaseOverview(false)
-                store({ showToast, toastText: tracks.restartApp });
-                setTimeout(() => {
-                store({ showToast: !showToast, toastText: null })
-                }, LONG_TOAST_TIMEOUT)
-                startPurchasing(false);
-            }
+      //console.log(response)
+      if (response[0]) {
+        if (response[0].transactionId) {
+          updateUserType('paid');
+          let showToast = true;
+          toggleShowPurchaseOverview(false);
+          store({ showToast, toastText: tracks.successfullyRestored });
+          setTimeout(() => {
+            store({ showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
+          startPurchasing(false);
         }
         else {
-            updateUserType('free');
-            let showToast = true;
-            toggleShowPurchaseOverview(false);
-            store({showToast, toastText: tracks.notPurchased });
-            setTimeout(() => {
-                store({showToast: !showToast, toastText: null });
-            }, LONG_TOAST_TIMEOUT);
-            startPurchasing(false);
+          console.log(e.message)
+          let showToast = true
+          toggleShowPurchaseOverview(false)
+          store({ showToast, toastText: tracks.restartApp });
+          setTimeout(() => {
+            store({ showToast: !showToast, toastText: null })
+          }, LONG_TOAST_TIMEOUT)
+          startPurchasing(false);
         }
+      }
+      else {
+        updateUserType('free');
+        let showToast = true;
+        toggleShowPurchaseOverview(false);
+        store({ showToast, toastText: tracks.notPurchased });
+        setTimeout(() => {
+          store({ showToast: !showToast, toastText: null });
+        }, LONG_TOAST_TIMEOUT);
+        startPurchasing(false);
+      }
     }).
-    catch(e => {
+      catch(e => {
         console.log(e.message)
         let showToast = true
         toggleShowPurchaseOverview(false)
@@ -532,7 +521,7 @@ class Tracks extends React.Component {
           store({ showToast: !showToast, toastText: null })
         }, LONG_TOAST_TIMEOUT)
         startPurchasing(false)
-    })
+      })
   }
 
   buyProduct = () => {
@@ -548,9 +537,9 @@ class Tracks extends React.Component {
           updateUserType('paid');
           let showToast = true;
           toggleShowPurchaseOverview(false);
-          store({showToast, toastText: tracks.successfullyPaid});
+          store({ showToast, toastText: tracks.successfullyPaid });
           setTimeout(() => {
-            store({showToast: !showToast, toastText: null});
+            store({ showToast: !showToast, toastText: null });
           }, TOAST_TIMEOUT);
           RNIap.acknowledgePurchaseAndroid(purchase.purchaseToken);
           startPurchasing(false);
@@ -559,44 +548,44 @@ class Tracks extends React.Component {
           updateUserType('free');
           let showToast = true;
           toggleShowPurchaseOverview(false);
-          store({showToast, toastText: tracks.restartApp});
+          store({ showToast, toastText: tracks.restartApp });
           setTimeout(() => {
-            store({showToast: !showToast, toastText: null});
+            store({ showToast: !showToast, toastText: null });
           }, LONG_TOAST_TIMEOUT);
           startPurchasing(false);
         }
       }).
-      catch(e => {
-        // console.log(e.code)
-        if (e.code === 'E_ALREADY_OWNED') {
-          updateUserType('paid');
-          let showToast = true;
-          toggleShowPurchaseOverview(false);
-          store({showToast, toastText: tracks.alreadyPaid});
-          setTimeout(() => {
-            store({showToast: !showToast, toastText: null});
-          }, TOAST_TIMEOUT);
-          startPurchasing(false);
-        }
-        else {
-          updateUserType('free');
-          let showToast = true;
-          toggleShowPurchaseOverview(false);
-          store({showToast, toastText: tracks.transactionFailed});
-          setTimeout(() => {
-            store({showToast: !showToast, toastText: null});
-          }, TOAST_TIMEOUT);
-          startPurchasing(false);
-        }
-      });
+        catch(e => {
+          // console.log(e.code)
+          if (e.code === 'E_ALREADY_OWNED') {
+            updateUserType('paid');
+            let showToast = true;
+            toggleShowPurchaseOverview(false);
+            store({ showToast, toastText: tracks.alreadyPaid });
+            setTimeout(() => {
+              store({ showToast: !showToast, toastText: null });
+            }, TOAST_TIMEOUT);
+            startPurchasing(false);
+          }
+          else {
+            updateUserType('free');
+            let showToast = true;
+            toggleShowPurchaseOverview(false);
+            store({ showToast, toastText: tracks.transactionFailed });
+            setTimeout(() => {
+              store({ showToast: !showToast, toastText: null });
+            }, TOAST_TIMEOUT);
+            startPurchasing(false);
+          }
+        });
     }
     else {
       updateUserType('free');
       let showToast = true;
       toggleShowPurchaseOverview(false);
-      store({showToast, toastText: tracks.productsUnavailable });
+      store({ showToast, toastText: tracks.productsUnavailable });
       setTimeout(() => {
-        store({showToast: !showToast, toastText: null });
+        store({ showToast: !showToast, toastText: null });
       }, LONG_TOAST_TIMEOUT);
       startPurchasing(false);
     }
@@ -604,34 +593,34 @@ class Tracks extends React.Component {
 
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
     return new Promise(resolve => {
-        let currentReferences = [];
-        let referencesInfo = [];
-        audioFiles.forEach(file => {
-            let id = file.id;
-            if(id === currentlyPlaying){
-                currentReferences = file.references;
-            }
+      let currentReferences = [];
+      let referencesInfo = [];
+      audioFiles.forEach(file => {
+        let id = file.id;
+        if (id === currentlyPlaying) {
+          currentReferences = file.references;
+        }
+      });
+      if (currentReferences && currentReferences.length > 0) {
+        currentReferences.forEach(ref => {
+          referencesInfo.push(references[ref]);
         });
-        if (currentReferences && currentReferences.length > 0) {
-            currentReferences.forEach(ref => {
-                referencesInfo.push(references[ref]);
-            });
-            this.setState({referencesInfo});
-            resolve("has");
-        }
-        else {
-            this.setState({referencesInfo: []});
-            resolve("doesnt");
-        }
+        this.setState({ referencesInfo });
+        resolve("has");
+      }
+      else {
+        this.setState({ referencesInfo: [] });
+        resolve("doesnt");
+      }
     });
-  } 
+  }
 
 
   _storeData = async audioFiles => {
     try {
       let stringAudioFiles = JSON.stringify(audioFiles);
       await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-      this.props.store({audioFiles});
+      this.props.store({ audioFiles });
     } catch (error) {
       console.log(error);
     }
@@ -640,7 +629,7 @@ class Tracks extends React.Component {
   fetchFromFirebase = () => {
     let { connectionInfo: { connected }, store } = this.props;
     let cloudAudio = [];
-    if (connected ) {
+    if (connected) {
       tracksRef.once('value', data => {
         data.forEach(trackInf => {
           //console.log(trackInf);
@@ -648,31 +637,31 @@ class Tracks extends React.Component {
           if (track) cloudAudio.push(track);
         });
         let newAudioFiles = [...cloudAudio];
-        store({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+        store({ audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles });
         this._storeAudioFilesData(newAudioFiles);
       }).catch(err => {
         console.log(err)
         let showToast = true;
-        store({showToast, toastText: tracks.downloadError });
+        store({ showToast, toastText: tracks.downloadError });
         setTimeout(() => {
-          store({showToast: !showToast, toastText: null });
+          store({ showToast: !showToast, toastText: null });
         }, TOAST_TIMEOUT);
-        });
+      });
     }
     else {
       let showToast = true;
-      store({showToast, toastText: tracks.noInternetConnection });
+      store({ showToast, toastText: tracks.noInternetConnection });
       setTimeout(() => {
-        store({showToast: !showToast, toastText: null });
+        store({ showToast: !showToast, toastText: null });
       }, TOAST_TIMEOUT);
     }
   }
 
 
-  render(){
+  render() {
     let {
-      navigation, 
-      paused, 
+      navigation,
+      paused,
       selectedTrack,
       initCurrentlyPlaying,
       audioFiles,
@@ -695,7 +684,7 @@ class Tracks extends React.Component {
     let type = selectedTrack ? audioFiles[selectedTrack].type : "local";
     let height = Dimensions.get('window').height;
 
-    let audioSource = selectedTrack ? type === "local" ? audioFiles[selectedTrack].url : {uri: audioFiles[selectedTrack].url} : "";
+    let audioSource = selectedTrack ? type === "local" ? audioFiles[selectedTrack].url : { uri: audioFiles[selectedTrack].url } : "";
 
     let mode = currentMode;
     let dark = mode === 'dark';
@@ -706,147 +695,135 @@ class Tracks extends React.Component {
       if (loading) reportSlowConnection();
     }, SLOW_CONNECTION_TIMER);
 
-    const playing = 
-    <AudioAndroid
-        navigate = { navigation.navigate }
-        audioSource={ audioSource } // Can be a URL or a local file
+    const playing =
+      <AudioAndroid
+        navigate={navigation.navigate}
+        audioSource={audioSource} // Can be a URL or a local file
         referencesInfo={referencesInfo}
         audioFiles={audioFiles}
-        pos={ selectedTrack }
-        initCurrentlyPlaying = { initCurrentlyPlaying }
-        style={ dark ? styles.audioElementDark : styles.audioElement }
-        currentlyPlayingName={ currentlyPlayingName }
-    />;
+        pos={selectedTrack}
+        initCurrentlyPlaying={initCurrentlyPlaying}
+        style={dark ? styles.audioElementDark : styles.audioElement}
+        currentlyPlayingName={currentlyPlayingName}
+      />;
 
     return (
-      <View style={ styles.Home }>
-        
-          { !showOverview ?
-              <View style = { dark ? styles.homeMidDark : styles.homeMid }>
-                { showToast ?
-                  <View style={ styles.toastContainer }>
-                    <Toast dark={dark} text={ toastText } /></View> : 
-                  null
-                }
-                { showPurchaseOverview ? 
-                <PurchaseOverview 
-                  dark={dark}
-                  isPurchasing={isPurchasing}
-                  toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)} 
-                  onPurchase={this.buyProduct} 
-                  onRestore={this.RestorePurchase} 
-                /> : 
-                null }
-                { !loading ?
-                <ScrollView>{ 
-                  Object.keys(audioFiles).map(key => {
-                    const { title, type, formattedDuration, free } = audioFiles[key];
-                    const { currentAction } = this.state;
-                    /**Set default action */
-                    const action = currentAction[key] ? currentAction[key].action : "stop";
-                    /**set default percentage */
-                    const percentage = currentAction[key] ? Math.floor(currentAction[key].percentage) : 1;
-                    const playIcon = key !== selectedTrack ?
-                    "play-circle" : 
+      <View style={styles.Home}>
+
+        {!showOverview ?
+          <View style={dark ? styles.homeMidDark : styles.homeMid}>
+            {showToast ?
+              <View style={styles.toastContainer}>
+                <Toast dark={dark} text={toastText} /></View> :
+              null
+            }
+            {showPurchaseOverview ?
+              <PurchaseOverview
+                dark={dark}
+                isPurchasing={isPurchasing}
+                toggleView={() => toggleShowPurchaseOverview(!showPurchaseOverview)}
+                onPurchase={this.buyProduct}
+                onRestore={this.RestorePurchase}
+              /> :
+              null}
+            {!loading ?
+              <ScrollView>{
+                Object.keys(audioFiles).map(key => {
+                  const { title, type, formattedDuration, free } = audioFiles[key];
+                  const { currentAction } = this.state;
+                  /**Set default action */
+                  const action = currentAction[key] ? currentAction[key].action : "stop";
+                  /**set default percentage */
+                  const percentage = currentAction[key] ? Math.floor(currentAction[key].percentage) : 1;
+                  const playIcon = key !== selectedTrack ?
+                    "play-circle" :
                     key === selectedTrack && !paused ? "pause" :
-                    "play-circle";
-                    const downlaodIcon = "cloud-download";
-                    const lockedItemIcon = "lock";
-                    return(
-                      <View key={key} style={ styles.trackContainer }>
-                        <TouchableOpacity onPress={ () => { free || userType === 'paid' ? this.toggleNowPlaying(key) : toggleShowPurchaseOverview(!showPurchaseOverview) }} style={ dark ? styles.trackDark : styles.track }> 
-                          <View style={ styles.trackTextWrapper }>
-                            <Text style={ dark ? styles.trackTitleDark : styles.trackTitle }>{ title }</Text>
-                            <Text style={ dark ? styles.trackLengthDark : styles.trackLength }>{ formattedDuration }</Text>
-                          </View>
-                          { free || userType === 'paid' ?
-                          <View style={styles.iconsContainer}>
-                            <TouchableOpacity onPress={ () => this.toggleNowPlaying(key) } style={ styles.trackIcon }>
-                              { playIcon !== "pause" ? 
+                      "play-circle";
+                  const downlaodIcon = "cloud-download";
+                  return (
+                    <View key={key} style={styles.trackContainer}>
+                      <TouchableOpacity onPress={() => this.toggleNowPlaying(key)} style={dark ? styles.trackDark : styles.track}>
+                        <View style={styles.trackTextWrapper}>
+                          <Text style={dark ? styles.trackTitleDark : styles.trackTitle}>{title}</Text>
+                          <Text style={dark ? styles.trackLengthDark : styles.trackLength}>{formattedDuration}</Text>
+                        </View>
+                        {<View style={styles.iconsContainer}>
+                          <TouchableOpacity onPress={() => this.toggleNowPlaying(key)} style={styles.trackIcon}>
+                            {playIcon !== "pause" ?
                               <Icon
-                                color={ dark ? '#fff' : '#000' }
-                                name={ Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
-                                size={ 40 }
+                                color={dark ? '#fff' : '#000'}
+                                name={Platform.OS === "ios" ? `ios-${playIcon}` : `md-${playIcon}`}
+                                size={40}
                               /> :
-                              <SoundBar dark={dark} playing={currentPosition > 0} /> }
-                            </TouchableOpacity>
-                            { type === "cloud" && action !== "downloading" ?
-                            <TouchableOpacity onPress={ () => this.downloadTrack(key) } style={ styles.trackIcon }>
-                              <Icon 
-                                color={ dark ? '#fff' : '#000' }
-                                name={ Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}` }
-                                size={ 35 }
+                              <SoundBar dark={dark} playing={currentPosition > 0} />}
+                          </TouchableOpacity>
+                          {type === "cloud" && action !== "downloading" ?
+                            <TouchableOpacity onPress={() => this.downloadTrack(key)} style={styles.trackIcon}>
+                              <Icon
+                                color={dark ? '#fff' : '#000'}
+                                name={Platform.OS === "ios" ? `ios-${downlaodIcon}` : `md-${downlaodIcon}`}
+                                size={35}
                               />
                             </TouchableOpacity> :
                             type === "cloud" && action === "downloading" ?
-                            <TouchableOpacity style={styles.trackIcon}>
-                              <ProgressCircle
-                                percent={percentage}
-                                radius={14}
-                                borderWidth={2}
-                                color="#3399FF"
-                                shadowColor="#999"
-                                bgColor="#fff"
-                              >
-                                <Text style={{ fontSize: 8 }}>{ percentage + '%'}</Text>
-                              </ProgressCircle>
-                            </TouchableOpacity> : 
-                          null } 
-                        </View> :
-                        <View style={styles.iconsContainer}>
-                            <TouchableOpacity onPress={() => toggleShowPurchaseOverview(!showPurchaseOverview)} style={ styles.trackIcon }>
-                              <Icon 
-                                color={ dark ? '#fff' : '#000' }
-                                name={ Platform.OS === "ios" ? `ios-${lockedItemIcon}` : `md-${lockedItemIcon}` }
-                                size={ 35 }
-                              />
-                            </TouchableOpacity> 
-                        </View>
-                        }
+                              <TouchableOpacity style={styles.trackIcon}>
+                                <ProgressCircle
+                                  percent={percentage}
+                                  radius={14}
+                                  borderWidth={2}
+                                  color="#3399FF"
+                                  shadowColor="#999"
+                                  bgColor="#fff"
+                                >
+                                  <Text style={{ fontSize: 8 }}>{percentage + '%'}</Text>
+                                </ProgressCircle>
+                              </TouchableOpacity> :
+                              null}
+                        </View>}
                       </TouchableOpacity>
                     </View>
                   )
-                }) }
-                </ScrollView> :
-                <View>
-                  { connected ? 
-                    <View>
-                      <ActivityIndicator 
-                        size="large" 
-                        color="#D4D4D4"
-                        style={{ marginTop: "10%" }}
-                      />
-                      { connection === 'slow' ? <Text style={ styles.text }>{ connectionFeedback.slowConnection }</Text> : null }
-                    </View> : 
-                    <Text style={ styles.text }>{ connectionFeedback.needConnectionToFetchTracks }</Text> 
-                  }
-                </View>
+                })}
+              </ScrollView> :
+              <View>
+                {connected ?
+                  <View>
+                    <ActivityIndicator
+                      size="large"
+                      color="#D4D4D4"
+                      style={{ marginTop: "10%" }}
+                    />
+                    {connection === 'slow' ? <Text style={styles.text}>{connectionFeedback.slowConnection}</Text> : null}
+                  </View> :
+                  <Text style={styles.text}>{connectionFeedback.needConnectionToFetchTracks}</Text>
                 }
-              </View> : null }
-            { selectedTrack ?
-            <View 
-              style={ showOverview ? styles.overviewContainer :
-                height < 570 ? styles.altAltOverviewContainer :
+              </View>
+            }
+          </View> : null}
+        {selectedTrack ?
+          <View
+            style={showOverview ? styles.overviewContainer :
+              height < 570 ? styles.altAltOverviewContainer :
                 height > 700 && height < 800 ? styles.longAltOverviewContanier :
-                height > 800 ? styles.longerAltOverviewContanier :
-                styles.altOverviewContainer 
-              } 
-            >
-            { playing }
-            </View> : null }
-          <View style = { currentlyPlayingName && height < 570 ? 
-            mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
-            mode === 'light' ? styles.homeFooter : styles.homeFooterDark
-          }>
-            <Footer navigation={ navigation } />
-          </View>
+                  height > 800 ? styles.longerAltOverviewContanier :
+                    styles.altOverviewContainer
+            }
+          >
+            {playing}
+          </View> : null}
+        <View style={currentlyPlayingName && height < 570 ?
+          mode === 'light' ? styles.altHomeFooter : styles.altHomeFooterDark :
+          mode === 'light' ? styles.homeFooter : styles.homeFooterDark
+        }>
+          <Footer navigation={navigation} />
+        </View>
       </View>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return{
+  return {
     currentlyPlayingName: state.media.currentlyPlayingName,
     initCurrentlyPlaying: state.media.initCurrentlyPlaying,
     screen: state.media.screen,
@@ -909,10 +886,10 @@ const mapDispatchToProps = dispatch => {
       dispatch(updatePurchasing(value))
     },
     startPurchasing: value => {
-        dispatch(updateIsPurchasing(value));
+      dispatch(updateIsPurchasing(value));
     },
     storeReferences: refs => {
-        dispatch(storeRefs(refs))
+      dispatch(storeRefs(refs))
     }
   }
 }
