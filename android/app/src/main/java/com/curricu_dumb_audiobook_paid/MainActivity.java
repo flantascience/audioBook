@@ -1,4 +1,4 @@
-package com.curricu_dumb_audiobook;
+package com.curricu_dumb_audiobook_paid;
 
 import android.content.Intent;
 import android.util.Log;

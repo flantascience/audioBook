@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.curricu_dumb_audiobook"
+  package="com.curricu_dumb_audiobook_paid"
     >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -10,7 +10,7 @@
 
 
     <application
-      android:name="com.curricu_dumb_audiobook.MainApplication"
+      android:name=".MainApplication"
       android:screenOrientation="portrait"
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
@@ -18,7 +18,7 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
       <activity
-        android:name="com.curricu_dumb_audiobook.MainActivity"
+        android:name=".MainActivity"
         android:screenOrientation="portrait"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"

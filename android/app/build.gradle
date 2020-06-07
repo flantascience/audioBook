@@ -134,11 +134,11 @@ android {
     }
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.curricu_dumb_audiobook"
+        applicationId "com.curricu_dumb_audiobook_paid"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 301
-        versionName "3.0.1"
+        versionCode 1
+        versionName "0.0.1"
         resConfigs "en"
     }
     splits {
