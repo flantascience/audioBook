@@ -88,3 +88,4 @@ RNTester/Pods/Target Support Files
 android/.gradle/5.4.1/executionHistory/executionHistory.bin
 *.hprof
 *.apk
+.DS_Store
