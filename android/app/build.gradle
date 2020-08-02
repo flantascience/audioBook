@@ -137,8 +137,8 @@ android {
         applicationId "com.curricu_dumb_audiobook_paid"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "0.0.3"
+        versionCode 4
+        versionName "0.0.4"
         resConfigs "en"
     }
     splits {
@@ -182,7 +182,7 @@ android {
             //minifyEnabled enableProguardInReleaseBuilds
             //proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
             //shrinkResources true
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
             //other size reducing configs
             debuggable false
             jniDebuggable false
