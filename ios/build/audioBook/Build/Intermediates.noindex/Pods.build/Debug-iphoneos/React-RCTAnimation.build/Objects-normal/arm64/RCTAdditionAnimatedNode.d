@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAdditionAnimatedNode.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-RCTAnimation/React-RCTAnimation-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAdditionAnimatedNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAdditionAnimatedNode.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-RCTAnimation/React-RCTAnimation-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAdditionAnimatedNode.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h

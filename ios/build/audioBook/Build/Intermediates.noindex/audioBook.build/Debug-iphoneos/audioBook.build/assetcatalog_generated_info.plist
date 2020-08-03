@@ -12,8 +12,6 @@
 			</array>
 			<key>CFBundleIconName</key>
 			<string>AppIcon</string>
-			<key>UIPrerenderedIcon</key>
-			<true/>
 		</dict>
 	</dict>
 </dict>

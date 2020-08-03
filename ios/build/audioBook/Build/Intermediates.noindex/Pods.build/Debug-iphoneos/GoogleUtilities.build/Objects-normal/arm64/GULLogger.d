@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/GULLogger.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/GoogleUtilities/GoogleUtilities-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Private/GULLogger.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Public/GULLoggerLevel.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/GULLogger.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/GoogleUtilities/GoogleUtilities-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Private/GULLogger.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Logger/Public/GULLoggerLevel.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/GoogleUtilities/GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.h

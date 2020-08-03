@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRAnalyticsConfiguration.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAnalyticsConfiguration.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRAnalyticsConfiguration.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAnalyticsConfiguration.h

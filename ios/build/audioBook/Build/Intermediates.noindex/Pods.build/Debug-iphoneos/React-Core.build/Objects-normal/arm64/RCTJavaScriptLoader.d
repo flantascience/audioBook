@@ -1,31 +1,31 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTJavaScriptLoader.mm \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTDefines.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-cxxreact/cxxreact/JSBundleType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/Portability.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/portability/Config.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Folly/folly/CPortability.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTBridge.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBridgeDelegate.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTJavaScriptLoader.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBridgeModule.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTFrameUpdate.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTInvalidating.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTConvert.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTAnimationType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBorderStyle.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTLog.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTAssert.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTUtils.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTPointerEvents.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTTextDecorationLineType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/Yoga.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGEnums.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGMacros.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGValue.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTMultipartDataTask.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTMultipartStreamReader.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/React/Base/RCTUtils.h
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTJavaScriptLoader.mm \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-Core/React-Core-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTDefines.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-cxxreact/cxxreact/JSBundleType.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Folly/folly/Portability.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Folly/folly/portability/Config.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Folly/folly/CPortability.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTBridge.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBridgeDelegate.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTJavaScriptLoader.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBridgeModule.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTFrameUpdate.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTInvalidating.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTConvert.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTAnimationType.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTBorderStyle.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTLog.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTAssert.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTUtils.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTPointerEvents.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTTextDecorationLineType.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/yoga/Yoga.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGEnums.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGMacros.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/yoga/YGValue.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTMultipartDataTask.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Private/React-Core/React/RCTMultipartStreamReader.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTPerformanceLogger.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/React/Base/RCTUtils.h

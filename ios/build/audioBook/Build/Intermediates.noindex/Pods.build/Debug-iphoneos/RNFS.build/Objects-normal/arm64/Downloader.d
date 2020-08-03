@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-fs/Downloader.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNFS/RNFS-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native-fs/Downloader.h
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native-fs/Downloader.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNFS/RNFS-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native-fs/Downloader.h

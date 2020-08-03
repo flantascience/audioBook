@@ -1,14 +1,14 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTEventAnimation.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-RCTAnimation/React-RCTAnimation-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTEventAnimation.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventDispatcher.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTEventAnimation.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/React-RCTAnimation/React-RCTAnimation-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Drivers/RCTEventAnimation.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTEventDispatcher.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridge.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeDelegate.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTJavaScriptLoader.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTBridgeModule.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTFrameUpdate.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Headers/Public/React-Core/React/RCTInvalidating.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTValueAnimatedNode.h \
+  /Volumes/Misc/GitHub/audioBook/node_modules/react-native/Libraries/NativeAnimation/Nodes/RCTAnimatedNode.h

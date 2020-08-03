@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAPNSInfo.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAPNSInfo.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAPNSInfo.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDAPNSInfo.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h

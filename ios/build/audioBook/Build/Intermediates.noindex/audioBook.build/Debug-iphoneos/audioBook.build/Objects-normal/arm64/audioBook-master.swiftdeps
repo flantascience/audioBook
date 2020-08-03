@@ -1,5 +1,5 @@
-version: "Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)"
-options: "e7cd2ec8e06d784812bc90e6f50ec8f3"
-build_time: [1588522763, 944564000]
+version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
+options: "3cea43b9d99eec4df49a62846fee0c05"
+build_time: [1596486728, 111141000]
 inputs:
-  "/Users/muganwa/Documents/GitHub/audioBook/ios/audioBookSwift.swift": [1587931253, 740355392]
+  "/Volumes/Misc/GitHub/audioBook/ios/audioBookSwift.swift": [1591542975, 0]

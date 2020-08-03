@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRDependency.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRDependency.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRDependency.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRDependency.h

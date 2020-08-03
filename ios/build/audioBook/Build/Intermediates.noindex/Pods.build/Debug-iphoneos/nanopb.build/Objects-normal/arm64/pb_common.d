@@ -1,5 +1,4 @@
-dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/nanopb/pb_common.c \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/nanopb/nanopb-prefix.pch \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/nanopb/pb_common.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/nanopb/pb.h
+dependencies: /Volumes/Misc/GitHub/audioBook/ios/Pods/nanopb/pb_common.c \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/nanopb/nanopb-prefix.pch \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/nanopb/pb_common.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/nanopb/pb.h

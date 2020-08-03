@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNVectorIcons/RNVectorIcons-dummy.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNVectorIcons/RNVectorIcons-prefix.pch
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNVectorIcons/RNVectorIcons-dummy.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/RNVectorIcons/RNVectorIcons-prefix.pch

@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRAppAssociationRegistration.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAppAssociationRegistration.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/FIRAppAssociationRegistration.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseCore/Firebase/Core/Private/FIRAppAssociationRegistration.h

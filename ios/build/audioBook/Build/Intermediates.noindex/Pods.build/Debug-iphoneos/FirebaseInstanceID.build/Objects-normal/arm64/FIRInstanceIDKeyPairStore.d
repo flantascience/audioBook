@@ -1,12 +1,12 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairStore.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairStore.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDBackupExcludedPlist.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPair.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairUtilities.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeychain.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDLogger.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRIMessageCode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDUtilities.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairStore.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairStore.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDBackupExcludedPlist.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDConstants.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPair.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeyPairUtilities.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDKeychain.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDLogger.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRIMessageCode.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/FIRInstanceIDUtilities.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseInstanceID/Firebase/InstanceID/NSError+FIRInstanceID.h

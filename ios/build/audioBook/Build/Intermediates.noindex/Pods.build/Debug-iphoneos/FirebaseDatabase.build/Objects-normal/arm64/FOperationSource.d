@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Operation/FOperationSource.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Operation/FOperationSource.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Operation/FOperationSource.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Operation/FOperationSource.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h

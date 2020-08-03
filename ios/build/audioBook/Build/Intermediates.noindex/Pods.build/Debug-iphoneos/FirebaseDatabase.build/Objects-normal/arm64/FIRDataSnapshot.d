@@ -1,24 +1,24 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/FIRDataSnapshot.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDataSnapshot_Private.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FChildrenNode.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FImmutableSortedDictionary.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FValidation.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FTransformedEnumerator.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseReference.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseQuery.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabase.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRMutableData.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRTransactionResult.h \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRServerValue.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/FIRDataSnapshot.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDataSnapshot_Private.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FChildrenNode.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FImmutableSortedDictionary.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FValidation.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FTransformedEnumerator.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseReference.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseQuery.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabase.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRMutableData.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRTransactionResult.h \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/Public/FIRServerValue.h

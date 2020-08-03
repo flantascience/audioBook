@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.m \
-  /Users/muganwa/Documents/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.m \
+  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/FClock.h
