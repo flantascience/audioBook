@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/NSError+Branch.h
+../../../Branch/Branch-SDK/NSError+Branch.h

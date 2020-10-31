@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/BNCAppleAdClient.h
+../../../Branch/Branch-SDK/BNCAppleAdClient.h

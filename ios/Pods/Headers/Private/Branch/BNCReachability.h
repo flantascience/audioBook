@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/BNCReachability.h
+../../../Branch/Branch-SDK/BNCReachability.h

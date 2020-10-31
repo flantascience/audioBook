@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/BNCAppleSearchAds.h
+../../../Branch/Branch-SDK/BNCAppleSearchAds.h

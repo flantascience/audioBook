@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/BNCFacebookAppLinks.h
+../../../Branch/Branch-SDK/BNCFacebookAppLinks.h

@@ -1,1 +1,1 @@
-../../../Branch/Branch-SDK/Branch-SDK/BNCTelephony.h
+../../../Branch/Branch-SDK/BNCTelephony.h
