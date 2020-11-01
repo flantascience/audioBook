@@ -1,1 +1,1 @@
-../../../GoogleUtilities/GoogleUtilities/ISASwizzler/Private/GULSwizzledObject.h
+../../../GoogleUtilities/GoogleUtilities/ISASwizzler/Public/GoogleUtilities/GULSwizzledObject.h
