@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-ads:17.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27ea186ab0ef4b5453a2bf1535371e8d/jetified-firebase-ads-17.2.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27ea186ab0ef4b5453a2bf1535371e8d/jetified-firebase-ads-17.2.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/27ea186ab0ef4b5453a2bf1535371e8d/jetified-firebase-ads-17.2.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79cf31ff30e928eea0c1e62ab1382b8a/jetified-firebase-ads-17.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79cf31ff30e928eea0c1e62ab1382b8a/jetified-firebase-ads-17.2.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/79cf31ff30e928eea0c1e62ab1382b8a/jetified-firebase-ads-17.2.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-ads/17.2.1/b884044d2f8732260837f470f4ed231a876cb2e3/firebase-ads-17.2.1-javadoc.jar!/" />
