@@ -79,11 +79,11 @@ project.ext.react = [
     entryFile: "index.js",
     enableHermes: false,  // clean and rebuild if changing
 ]
-
+apply plugin: 'com.google.gms.google-services'
 apply from: "../../node_modules/react-native/react.gradle"
 /**Add icon fonts*/
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
-apply plugin: 'io.fabric'
+apply plugin: 'com.google.firebase.crashlytics'
 
 // Apply the Performance Monitoring plugin
 apply plugin: 'com.google.firebase.firebase-perf'
@@ -218,17 +218,17 @@ android {
 
 dependencies {
     implementation project(':react-native-video')
-    implementation project(':@react-native-community_async-storage')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
-    implementation "com.google.android.gms:play-services-base:17.1.0"
-    implementation "com.google.firebase:firebase-core:17.2.3"
+    implementation "com.google.android.gms:play-services-base:17.5.0"
+    implementation "com.google.firebase:firebase-core:18.0.0"
     implementation "com.google.firebase:firebase-database:19.2.1"
     implementation "com.google.firebase:firebase-storage:19.1.1"
     implementation project(':react-native-track-player')
     implementation project(':react-native-fs')
-    implementation 'com.google.firebase:firebase-analytics:17.2.3'
-    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:17.2.2'
+    implementation 'com.google.firebase:firebase-crashlytics-ndk:17.2.2'
     // Add the dependency for the Performance Monitoring library
     implementation 'com.google.firebase:firebase-perf:19.0.5'
     // def multidex_version = "2.0.1"

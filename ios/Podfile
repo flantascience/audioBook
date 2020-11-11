@@ -37,7 +37,6 @@ target 'audioBook' do
   pod 'react-native-netinfo', :path => '../node_modules/@react-native-community/netinfo'
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
   pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
 
