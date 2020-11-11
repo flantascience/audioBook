@@ -94,3 +94,5 @@ android/app/release/app-release.aab
 android/.idea/gradle.xml
 android/.idea/modules.xml
 android/.idea/workspace.xml
+android/.gradle/buildOutputCleanup/outputFiles.bin
+android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
