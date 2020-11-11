@@ -10,6 +10,7 @@ export { default as IconButton } from './IconButton/IconButton';
 export { default as Button } from './Button/Button';
 export { default as Toast } from './Toast/Toast';
 export { default as Author } from './Author/Author';
+export { default as Tip } from './Tip';
 export { default as Tracks } from './Tracks/Tracks';
 export { default as TracksAndroid } from './Tracks/TracksAndroid';
 export { default as PreLoad } from './PreLoad/PreLoad';
