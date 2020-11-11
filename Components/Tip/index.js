@@ -52,6 +52,15 @@ const itemSkus = Platform.select({
 const mode = 'dark';
 class Tip extends React.Component {
 
+  constructor() {
+    super();
+    this.purchaseUpdateSubscription = null;
+    this.purchaseErrorSubscription = null;
+    this.state = {
+      Tips: TIPS
+    }
+  }
+
   static navigationOptions = () => {
     return {
       headerLeft: <Header />,
@@ -72,9 +81,60 @@ class Tip extends React.Component {
 
   componentDidMount() {
     Analytics.setCurrentScreen('Tip_prod');
-    /*RNIap.getProducts().then(products => {
-      console.log('products --', products)
-    })*/
+    RNIap.initConnection().then(async () => {
+      let products = await RNIap.getProducts(itemSkus);
+      console.log('products', products);
+      this.setState({ Tips: products });
+      RNIap.flushFailedPurchasesCachedAsPendingAndroid().catch(error => {
+        console.log('purchase error')
+        let showToast = true;
+        this.props.storeMediaInf({ showToast, toastText: 'Something went wrong, please try again' });
+        setTimeout(() => {
+          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      }).then(() => {
+        this.purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async purchase => {
+          console.log('purchaseUpdatedListener', purchase);
+          const receipt = purchase.transactionReceipt;
+          if (receipt) {
+            // Tell the store that you have delivered what has been paid for.
+            // Failure to do this will result in the purchase being refunded on Android and
+            // the purchase event will reappear on every relaunch of the app until you succeed
+            // in doing the below. It will also be impossible for the user to purchase consumables
+            // again until you do this.
+            if (Platform.OS === 'ios') {
+              await RNIap.finishTransactionIOS(purchase.transactionId);
+            } else if (Platform.OS === 'android') {
+              await RNIap.consumePurchaseAndroid(purchase.purchaseToken);
+            }
+            // From react-native-iap@4.1.0 you can simplify above `method`. Try to wrap the statement with `try` and `catch` to also grab the `error` message.
+            await RNIap.finishTransaction(purchase, true);
+          }
+        });
+        this.purchaseErrorSubscription = RNIap.purchaseErrorListener(error => {
+          console.warn('purchase Error', error);
+        });
+      });
+    });
+  }
+
+  tipAuthor = async sku => {
+    try {
+      await RNIap.requestPurchase(sku, false);
+    } catch (err) {
+      console.warn(err.code, err.message);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.purchaseUpdateSubscription) {
+      this.purchaseUpdateSubscription.remove();
+      this.purchaseUpdateSubscription = null;
+    }
+    if (this.purchaseErrorSubscription) {
+      this.purchaseErrorSubscription.remove();
+      this.purchaseErrorSubscription = null;
+    }
   }
 
   render() {
@@ -126,18 +186,23 @@ class Tip extends React.Component {
           </Text>
           <ScrollView style={{ paddingHorizontal: 20 }}>
             {
-              TIPS.map(tip => {
+              this.state.Tips.map((tip, index) => {
                 return <TouchableOpacity
-                  key={tip}
+                  key={index}
                   style={styles.tip_button}
                   onPress={() => {
-                    let showToast = true;
-                    this.props.storeMediaInf({ showToast, toastText: 'Thank you for the $' + tip });
-                    setTimeout(() => {
-                      this.props.storeMediaInf({ showToast: !showToast, toastText: null });
-                    }, TOAST_TIMEOUT);
+                    if (typeof tip === 'object') {
+                      this.tipAuthor(tip.productId)
+                    }
+                    else {
+                      let showToast = true;
+                      this.props.storeMediaInf({ showToast, toastText: 'Please try again later, something went wrong!' });
+                      setTimeout(() => {
+                        this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+                      }, TOAST_TIMEOUT);
+                    }
                   }} >
-                  <Text style={{ color: '#ffffff' }}>{`$${tip}.00`}</Text>
+                  <Text style={{ color: '#ffffff' }}>{`$${tip.price}.00`}</Text>
                 </TouchableOpacity>
               })
             }
