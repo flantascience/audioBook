@@ -45,7 +45,6 @@ class Audio extends React.Component{
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({lastTrackId});
-        console.log('refs: ', references)
     }
 
     toggleTrack = pos => {

@@ -8,7 +8,7 @@ import styles from './styles';
 
 const PurchaseOverview = ({dark, isPurchasing, toggleView, onPurchase, onRestore, textStyle, containerStyle}) => {
     useEffect(() => {
-        console.log(isPurchasing)
+        //console.log(isPurchasing)
     })
   return (
     <View style={ dark ? styles.mainContainerDark : styles.mainContainer}>

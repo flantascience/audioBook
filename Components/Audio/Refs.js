@@ -13,16 +13,13 @@ import PropTypes from 'prop-types';
 const Analytics = firebase.analytics();
 const width = Dimensions.get('window').width;
 const Refs = ({ styles, fetching, fetched, connected, referencesInfo=[], references, showRefs, currentlyPlayingName, dark }) => {
-    /*useEffect(() => {
-        console.log(connected);
-    }, [])*/
     const showStatement = references.length > 0;
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
             if (supported) {
                 Analytics.logEvent('references_clicked_prod', {tracks: currentlyPlayingName, urls: url});
                 Linking.openURL(url).catch(error => {
-                    console.log(error);
+                    //console.log(error);
                 });
             }
             else console.log("unsupported");

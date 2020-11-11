@@ -72,10 +72,9 @@ class Tip extends React.Component {
 
   componentDidMount() {
     Analytics.setCurrentScreen('Tip_prod');
-    RNIap.getProducts().then(products => {
+    /*RNIap.getProducts().then(products => {
       console.log('products --', products)
-    })
-
+    })*/
   }
 
   render() {

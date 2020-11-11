@@ -138,7 +138,7 @@ class PreLoad extends React.Component {
               TrackPlayer.add([audioFiles[parseInt(currentlyPlaying)]]).then(
                 res => {
                   // track loaded
-                  console.log('track loaded')
+                  //console.log('track loaded')
                 }
               )
             }
@@ -294,8 +294,6 @@ class PreLoad extends React.Component {
   componentDidUpdate(){
       const { audioFiles, navigation: { navigate }, screen } = this.props;
       if (audioFiles.length > 0) {
-          console.log('files loaded')
-          console.log(screen)
         setTimeout(() => {
             navigate(navInfo[screen])
         }, REDIRECT_TIMER)

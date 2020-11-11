@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.content.Context;
 
 //import com.facebook.react.BuildConfig; /*caused crashes*/
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
