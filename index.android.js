@@ -5,7 +5,7 @@ import React from 'react';
 import { AppRegistry, Easing } from 'react-native';
 import { Home, Author, TracksAndroid, PreLoad, Tip } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, { Capability } from 'react-native-track-player';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
@@ -13,37 +13,37 @@ import { DarkModeProvider } from 'react-native-dark-mode'
 
 const store = configureStore();
 
-TrackPlayer.setupPlayer().then(()=>{
+TrackPlayer.setupPlayer().then(data=>{
   TrackPlayer.updateOptions({
     alwaysPauseOnInterruption: true,
 		waitForBuffer: true,
 		stopWithApp: true,
     capabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpBackward,
+      Capability.JumpForward,
+      Capability.Stop
     ],
     notificationCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpBackward,
+      Capability.JumpForward,
+      Capability.Stop
     ],
     compactCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_STOP,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+      Capability.Play,
+      Capability.Pause,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.Stop
     ]
   });
 });
@@ -99,4 +99,4 @@ const App = () => (
 );
 
 AppRegistry.registerComponent(appName, () => App);
-TrackPlayer.registerEventHandler(() => require('./service'));
+TrackPlayer.registerPlaybackService(() => require('./service'));

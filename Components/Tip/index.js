@@ -97,17 +97,11 @@ class Tip extends React.Component {
           console.log('purchaseUpdatedListener', purchase);
           const receipt = purchase.transactionReceipt;
           if (receipt) {
-            // Tell the store that you have delivered what has been paid for.
-            // Failure to do this will result in the purchase being refunded on Android and
-            // the purchase event will reappear on every relaunch of the app until you succeed
-            // in doing the below. It will also be impossible for the user to purchase consumables
-            // again until you do this.
             if (Platform.OS === 'ios') {
               await RNIap.finishTransactionIOS(purchase.transactionId);
             } else if (Platform.OS === 'android') {
               await RNIap.consumePurchaseAndroid(purchase.purchaseToken);
             }
-            // From react-native-iap@4.1.0 you can simplify above `method`. Try to wrap the statement with `try` and `catch` to also grab the `error` message.
             await RNIap.finishTransaction(purchase, true);
           }
         });
@@ -202,7 +196,7 @@ class Tip extends React.Component {
                       }, TOAST_TIMEOUT);
                     }
                   }} >
-                  <Text style={{ color: '#ffffff' }}>{`$${tip.price}.00`}</Text>
+                  <Text style={{ color: '#ffffff' }}>{`$${tip.price || tip}.00`}</Text>
                 </TouchableOpacity>
               })
             }

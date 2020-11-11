@@ -8,30 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/assets/index.android.bundle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_author_images_authorpic.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_header_images_crzyheadshottrans.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_home_images_booktitle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_home_images_chalkboardwithhands.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_home_images_play_image.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_soundbar_images_sound_before_start_clear.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_soundbar_images_sound_before_start_white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_soundbar_images_soundplay_clear_bg.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/components_soundbar_images_soundplay_white_bg.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/node_modules_reactnative_libraries_newappscreen_components_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-mdpi/node_modules_reactnavigationstack_lib_module_views_assets_backiconmask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xhdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/node_modules_reactnavigationstack_lib_module_views_assets_backicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/app.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/misc_media_intro.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Tip/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.project" beforeDir="false" afterPath="$PROJECT_DIR$/app/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/app/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook_paid/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook_paid/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.android.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.android.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.ios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.ios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
     </list>
@@ -250,10 +237,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1480" height="783" key="AVDManager" timestamp="1605126099993">
+    <state x="100" y="123" width="1480" height="783" key="AVDManager" timestamp="1605135135004">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="100" y="123" width="1480" height="783" key="AVDManager/0.23.1680.983@0.23.1680.983" timestamp="1605126099993" />
+    <state x="100" y="123" width="1480" height="783" key="AVDManager/0.23.1680.983@0.23.1680.983" timestamp="1605135135004" />
     <state width="1636" height="224" key="GridCell.Tab.0.bottom" timestamp="1605129259332">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
