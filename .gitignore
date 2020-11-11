@@ -91,3 +91,6 @@ android/.gradle/5.4.1/executionHistory/executionHistory.bin
 *.apk
 .DS_Store
 android/app/release/app-release.aab
+android/.idea/gradle.xml
+android/.idea/modules.xml
+android/.idea/workspace.xml
