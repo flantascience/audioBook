@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Components/Tip/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,21 +228,21 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="266" key="GridCell.Tab.0.bottom" timestamp="1596406954374">
-      <screen x="0" y="23" width="1680" height="984" />
+    <state width="1636" height="224" key="GridCell.Tab.0.bottom" timestamp="1605103733868">
+      <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.bottom/0.23.1680.984@0.23.1680.984" timestamp="1596406954374" />
-    <state width="1638" height="266" key="GridCell.Tab.0.center" timestamp="1596406954373">
-      <screen x="0" y="23" width="1680" height="984" />
+    <state width="1636" height="224" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1605103733868" />
+    <state width="1636" height="224" key="GridCell.Tab.0.center" timestamp="1605103733868">
+      <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.center/0.23.1680.984@0.23.1680.984" timestamp="1596406954373" />
-    <state width="1638" height="266" key="GridCell.Tab.0.left" timestamp="1596406954372">
-      <screen x="0" y="23" width="1680" height="984" />
+    <state width="1636" height="224" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1605103733868" />
+    <state width="1636" height="224" key="GridCell.Tab.0.left" timestamp="1605103733867">
+      <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.left/0.23.1680.984@0.23.1680.984" timestamp="1596406954372" />
-    <state width="1638" height="266" key="GridCell.Tab.0.right" timestamp="1596406954373">
-      <screen x="0" y="23" width="1680" height="984" />
+    <state width="1636" height="224" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1605103733867" />
+    <state width="1636" height="224" key="GridCell.Tab.0.right" timestamp="1605103733868">
+      <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="266" key="GridCell.Tab.0.right/0.23.1680.984@0.23.1680.984" timestamp="1596406954373" />
+    <state width="1636" height="224" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1605103733868" />
   </component>
 </project>
