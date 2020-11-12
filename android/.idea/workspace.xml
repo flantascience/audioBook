@@ -7,20 +7,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Components/Tip/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Components/Tip/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/style.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/misc_media_intro.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/raw/node_modules_reactnativevectoricons_glyphmaps_ionicons.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../android_fix/android_gradle_fix" beforeDir="false" afterPath="$PROJECT_DIR$/../android_fix/android_gradle_fix" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-    </list>
+    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
