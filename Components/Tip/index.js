@@ -83,6 +83,7 @@ class Tip extends React.Component {
     Analytics.setCurrentScreen('Tip_prod');
     RNIap.initConnection().then(async () => {
       let products = await RNIap.getProducts(itemSkus);
+      let newProducts = products.sort((a, b) => Number(a.price) - Number(b.price));
       this.setState({ Tips: products });
       RNIap.flushFailedPurchasesCachedAsPendingAndroid().catch(error => {
         console.log('purchase error')
