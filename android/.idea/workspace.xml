@@ -7,21 +7,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.project" beforeDir="false" afterPath="$PROJECT_DIR$/app/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.settings/org.eclipse.buildship.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/app/.settings/org.eclipse.buildship.core.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook_paid/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook_paid/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.android.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.android.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.ios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.ios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
