@@ -4,7 +4,8 @@ import {
   Platform,
   Text,
   Dimensions,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import NetInfo from "@react-native-community/netinfo";
@@ -23,12 +24,10 @@ import { storeInput } from '../../Actions/userInput';
 import { storeMedia } from '../../Actions/mediaFiles';
 import * as RNIap from 'react-native-iap';
 import { tip_jar } from '../../Misc/Strings';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
-const dbRef = firebase.database().ref("/subscriptions");
 
 const itemSkus = Platform.select({
   ios: [
@@ -83,18 +82,10 @@ class Tip extends React.Component {
     Analytics.setCurrentScreen('Tip_prod');
     RNIap.initConnection().then(async () => {
       let products = await RNIap.getProducts(itemSkus);
-      let newProducts = products.sort((a, b) => Number(a.price) - Number(b.price));
+      products.sort((a, b) => Number(a.price) - Number(b.price));
       this.setState({ Tips: products });
-      RNIap.flushFailedPurchasesCachedAsPendingAndroid().catch(error => {
-        console.log('purchase error')
-        let showToast = true;
-        this.props.storeMediaInf({ showToast, toastText: 'Something went wrong, please try again' });
-        setTimeout(() => {
-          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
-        }, TOAST_TIMEOUT);
-      }).then(() => {
+      RNIap.flushFailedPurchasesCachedAsPendingAndroid().then(() => {
         this.purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async purchase => {
-          console.log('purchaseUpdatedListener', purchase);
           const receipt = purchase.transactionReceipt;
           if (receipt) {
             if (Platform.OS === 'ios') {
@@ -106,9 +97,19 @@ class Tip extends React.Component {
           }
         });
         this.purchaseErrorSubscription = RNIap.purchaseErrorListener(error => {
-          console.warn('purchase Error', error);
+          let showToast = true;
+          this.props.storeMediaInf({ showToast, toastText: 'Something went wrong, please try again.' });
+          setTimeout(() => {
+            this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+          }, TOAST_TIMEOUT);
         });
-      });
+      }).catch(error => {
+        let showToast = true;
+        this.props.storeMediaInf({ showToast, toastText: 'Something went wrong, please try again.' });
+        setTimeout(() => {
+          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+        }, TOAST_TIMEOUT);
+      })
     });
   }
 
@@ -116,7 +117,11 @@ class Tip extends React.Component {
     try {
       await RNIap.requestPurchase(sku, false);
     } catch (err) {
-      console.warn(err.code, err.message);
+      let showToast = true;
+      this.props.storeMediaInf({ showToast, toastText: 'Something went wrong, please try again' });
+      setTimeout(() => {
+        this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+      }, TOAST_TIMEOUT);
     }
   }
 
@@ -171,36 +176,36 @@ class Tip extends React.Component {
       <View
         style={styles.Home}
       >
-        {showToast ?
-          <Toast dark={dark} text={toastText} /> :
-          null}
         <View style={dark ? styles.homeMidDark : styles.homeMid}>
+          {showToast ?
+            <Toast dark={dark} text={toastText} /> :
+            null}
           <Text style={dark ? styles.callToActionDark : styles.callToAction}>
             {tip_jar.cto}
           </Text>
-          <ScrollView style={{ paddingHorizontal: 20 }}>
-            {
-              this.state.Tips.map((tip, index) => {
-                return <TouchableOpacity
-                  key={index}
-                  style={styles.tip_button}
-                  onPress={() => {
-                    if (typeof tip === 'object') {
-                      this.tipAuthor(tip.productId)
-                    }
-                    else {
-                      let showToast = true;
-                      this.props.storeMediaInf({ showToast, toastText: 'Please try again later, something went wrong!' });
-                      setTimeout(() => {
-                        this.props.storeMediaInf({ showToast: !showToast, toastText: null });
-                      }, TOAST_TIMEOUT);
-                    }
-                  }} >
-                  <Text style={{ color: '#ffffff' }}>{`$${tip.price || tip}.00`}</Text>
-                </TouchableOpacity>
-              })
-            }
-          </ScrollView>
+          <View style={dark ? styles.scrollViewDark : styles.scrollView}>
+            <ScrollView style={{ padding: 20 }} >
+                {this.state.Tips.map((tip, index) => {
+                  return <TouchableOpacity
+                    key={index}
+                    style={styles.tip_button}
+                    onPress={() => {
+                      if (typeof tip === 'object') {
+                        this.tipAuthor(tip.productId)
+                      }
+                      else {
+                        let showToast = true;
+                        this.props.storeMediaInf({ showToast, toastText: 'Please try again later, something went wrong!' });
+                        setTimeout(() => {
+                          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+                        }, TOAST_TIMEOUT);
+                      }
+                    }} >
+                    <Text style={{ color: '#ffffff' }}>{`$${tip.price || tip}.00`}</Text>
+                  </TouchableOpacity>
+                })}
+            </ScrollView>
+          </View>
         </View>
         { selectedTrack ?
           <View

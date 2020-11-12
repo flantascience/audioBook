@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#000' : '#fff',
     },
     scrollViewDark: {
-        backgroundColor: "#000"
+        backgroundColor: "#000",
+        zIndex: 0
     },
     Home: {
         display: "flex",
@@ -18,6 +19,7 @@ export const styles = StyleSheet.create({
     tip_button: {
         padding: 10,
         marginVertical: 3,
+        marginHorizontal: 20,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
