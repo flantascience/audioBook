@@ -5,7 +5,9 @@ import {
   Text,
   Dimensions,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  ActivityIndicator,
+  Modal
 } from 'react-native';
 import { connect } from 'react-redux';
 import NetInfo from "@react-native-community/netinfo";
@@ -56,7 +58,8 @@ class Tip extends React.Component {
     this.purchaseUpdateSubscription = null;
     this.purchaseErrorSubscription = null;
     this.state = {
-      Tips: TIPS
+      Tips: TIPS,
+      loaded: false
     }
   }
 
@@ -83,7 +86,7 @@ class Tip extends React.Component {
     RNIap.initConnection().then(async () => {
       let products = await RNIap.getProducts(itemSkus);
       products.sort((a, b) => Number(a.price) - Number(b.price));
-      this.setState({ Tips: products });
+      this.setState({ Tips: products, loaded: true });
       RNIap.flushFailedPurchasesCachedAsPendingAndroid().then(() => {
         this.purchaseUpdateSubscription = RNIap.purchaseUpdatedListener(async purchase => {
           const receipt = purchase.transactionReceipt;
@@ -176,6 +179,9 @@ class Tip extends React.Component {
       <View
         style={styles.Home}
       >
+        { !this.state.loaded && <View style={styles.loading_overlay} >
+            <ActivityIndicator size={'small'} color={'white'} />
+          </View> }
         <View style={dark ? styles.homeMidDark : styles.homeMid}>
           {showToast ?
             <Toast dark={dark} text={toastText} /> :
@@ -201,7 +207,7 @@ class Tip extends React.Component {
                         }, TOAST_TIMEOUT);
                       }
                     }} >
-                    <Text style={{ color: '#ffffff' }}>{`$${tip.price || tip}.00`}</Text>
+                    <Text style={{ color: '#ffffff' }}>${tip.price || tip}</Text>
                   </TouchableOpacity>
                 })}
             </ScrollView>

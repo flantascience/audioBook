@@ -7,13 +7,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="" />
+    <list default="true" id="9ae84e21-6f1b-432d-b6fa-29e1199bc6b5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Tip/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Tip/style.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/style.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_29]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -227,10 +234,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="100" y="123" width="1480" height="783" key="AVDManager" timestamp="1605135135004">
+    <state x="100" y="123" width="1480" height="783" key="AVDManager" timestamp="1605249097638">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="100" y="123" width="1480" height="783" key="AVDManager/0.23.1680.983@0.23.1680.983" timestamp="1605135135004" />
+    <state x="100" y="123" width="1480" height="783" key="AVDManager/0.23.1680.983@0.23.1680.983" timestamp="1605249097638" />
     <state width="1636" height="224" key="GridCell.Tab.0.bottom" timestamp="1605129259332">
       <screen x="0" y="23" width="1680" height="983" />
     </state>

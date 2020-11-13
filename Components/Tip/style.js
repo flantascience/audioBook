@@ -8,8 +8,7 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#000' : '#fff',
     },
     scrollViewDark: {
-        backgroundColor: "#000",
-        zIndex: 0
+        backgroundColor: "#000"
     },
     Home: {
         display: "flex",
@@ -19,7 +18,6 @@ export const styles = StyleSheet.create({
     tip_button: {
         padding: 10,
         marginVertical: 3,
-        marginHorizontal: 20,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
@@ -150,6 +148,18 @@ export const styles = StyleSheet.create({
         padding: 10,
         fontSize: 17,
         color: '#fff'
+    },
+    loading_overlay: {
+        position: 'absolute', 
+        left: 0, 
+        top: 0, 
+        bottom: 100,
+        right: 0, 
+        display: 'flex', 
+        backgroundColor: 'rgba(0,0,0, 0.9)', 
+        justifyContent:'center', 
+        alignItems: 'center',
+        zIndex: 1000
     },
     callToAction: {
         paddingLeft: 5,
