@@ -10,7 +10,6 @@ import firebase from 'react-native-firebase';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode';
 import { BRANCH_LINK } from 'react-native-dotenv';
 
 const Android = Platform.OS === 'android';
@@ -104,6 +103,20 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
                     mode === 'light' ? styles.iconText : styles.iconTextDark }
                     text={ footer.author.text }
+                />
+                <IconButton
+                    onPress={ () => {
+                        store({screen: 'Tip'});
+                        goTo(footer.tip.place);
+                    } }
+                    name={footer.tip.icon}
+                    size={ 25 }
+                    active = { screen === 'Tip' }
+                    style = { styles.icon }
+                     iconStyle = { screen === "Tip" ? 
+                    mode === 'light' ? styles.altIconText : styles.altIconTextDark :
+                    mode === 'light' ? styles.iconText : styles.iconTextDark }
+                    text={ footer.tip.text }
                 />
                 <IconButton
                     onPress={ share }

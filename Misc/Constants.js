@@ -21,6 +21,7 @@ export const firebaseConfig = {
     messagingSenderId: FIREBASE_SENDER_MESSAGING_ID,
     appId: OS === 'android'? FIREBASE_ANDROID_APP_ID : FIREBASE_IOS_APP_ID
 };
+export const TIPS = [5,20,50, 120, 240, 1000];
 export const SLOW_CONNECTION_TIMER = 5000;
 export const TOAST_TIMEOUT = 1500;
 export const LONG_TOAST_TIMEOUT = 2000;

@@ -1,20 +1,26 @@
 export const posterURL = "https://firebasestorage.googleapis.com/v0/b/audiobook-cac7d.appspot.com/o/images%2Fpart2-unschooling.jpg?alt=media&token=955a541e-cbcb-4388-a3cb-f4fc80a4939c";
 export const header = {
-  headerText: "Leave School",
+  headerText: "LEAVE SCHOOL",
   subHeaderText: "what teachers can't tell you"
 }
 export const footer = {
   home: { text:"Intro", icon: 'home', place: "Second" },
   tracks: { text:"Tracks", icon: 'volume-high', place: "Third" },
   author: { text:"Author", icon: 'person', place: "Fourth" },
-  share: { text: "Share", icon: 'share' }
+  share: { text: "Share", icon: 'share' },
+  tip: { text: "Tip Jar", icon: 'gift', place: "Fifth" }
+}
+
+export const tip_jar = {
+  cto: 'If you you like LEAVE SCHOOL, and fancy dropping a few coins into the tip jar, it\'ll be most appreciated.'
 }
 
 export const navInfo = {
   PreLoad: 'First',
   Intro: 'Second',
   Tracks: 'Third',
-  Author: 'Fourth'
+  Author: 'Fourth',
+  Tip: 'Fifth'
 }
 
 export const tracks = {
@@ -46,7 +52,7 @@ export const connectionFeedback = {
 
 export const author = {
   name: "Jim Flannery",
-  title: "Author of Leave School",
+  title: "Author of LEAVE SCHOOL",
   intro: "I am a former high school teacher who became fed up with how poorly the system treats young people." +
   " Join me on my mission to liberate young people from schools to thrive in freedom.",
   callToAction: "Want updates about future projects?",

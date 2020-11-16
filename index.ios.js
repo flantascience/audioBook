@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { AppRegistry, Easing } from 'react-native';
-import { Home, Author, Tracks, PreLoad } from './Components';
+import { Home, Author, Tracks, PreLoad, Tip } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
@@ -21,7 +21,8 @@ const MainNavigator = createStackNavigator({
   First: { screen: PreLoad },
   Second: { screen: Home },
   Third: { screen: Tracks },
-  Fourth: { screen: Author }
+  Fourth: { screen: Author },
+  Fifth: { screen: Tip }
 },
 {
     initialRouteName: 'First',
