@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: io.fabric.sdk.android:fabric:1.4.8@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1dda07c94353ff3c621f84b147e6d186/jetified-fabric-1.4.8/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1dda07c94353ff3c621f84b147e6d186/jetified-fabric-1.4.8/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1dda07c94353ff3c621f84b147e6d186/jetified-fabric-1.4.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c2fe786b5bd1df621eae630a202d025c/jetified-fabric-1.4.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4dc658bf708f0da37cb678a9525aa466/jetified-fabric-1.4.8/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4dc658bf708f0da37cb678a9525aa466/jetified-fabric-1.4.8/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/4dc658bf708f0da37cb678a9525aa466/jetified-fabric-1.4.8/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
