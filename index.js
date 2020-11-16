@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { AppRegistry, Easing, Platform } from 'react-native';
-import { Home, Author, Tracks, TracksAndroid, PreLoad } from './Components';
+import { Home, Author, Tracks, TracksAndroid, PreLoad, Tip } from './Components';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import TrackPlayer from 'react-native-track-player';
 import { name as appName } from './app.json';
@@ -59,7 +59,8 @@ const MainNavigator = createStackNavigator({
   First: { screen: PreLoad },
   Second: { screen: Home },
   Third: { screen: Android ? TracksAndroid : Tracks },
-  Fourth: { screen: Author}
+  Fourth: { screen: Author},
+  Fifth: { screen: Tip}
 },  
 {
     initialRouteName: 'First',

@@ -7,14 +7,20 @@ export const footer = {
   home: { text:"Intro", icon: 'home', place: "Second" },
   tracks: { text:"Tracks", icon: 'volume-high', place: "Third" },
   author: { text:"Author", icon: 'person', place: "Fourth" },
-  share: { text: "Share", icon: 'share' }
+  share: { text: "Share", icon: 'share' },
+  tip: { text: "Tip Jar", icon: 'gift', place: "Fifth" }
 }
 
 export const navInfo = {
   PreLoad: 'First',
   Intro: 'Second',
   Tracks: 'Third',
-  Author: 'Fourth'
+  Author: 'Fourth',
+  Tip: 'Fifth'
+}
+
+export const tip_jar = {
+  cto: 'If you you like LEAVE SCHOOL, and fancy dropping a few coins into the tip jar, it\'ll be most appreciated.'
 }
 
 export const tracks = {

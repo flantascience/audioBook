@@ -10,21 +10,14 @@ import firebase from 'react-native-firebase';
 import { footer } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { styles } from './style';
-//import { eventEmitter } from 'react-native-dark-mode';
+import { eventEmitter } from 'react-native-dark-mode';
 import { BRANCH_LINK } from 'react-native-dotenv';
 
 const Android = Platform.OS === 'android';
 
-const currentMode = 'dark'; /* eventEmitter.currentMode; */
-
 const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate } }) => {
     let currPlayingNameLen = currentlyPlayingName ? currentlyPlayingName.length: 0;
     let hike = currPlayingNameLen > 1 ? true : false;
-
-    const [mode = currentMode] = useState();
-    const [branchLink = BRANCH_LINK, updateBranchLink] = useState();
-    const [shareMessage = "You need to checkout this app!", updateShareMessage] = useState();
-
     //console.log(props)
     const goTo = place => {
         toggleOverview().then(res=>{
@@ -38,6 +31,10 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
             resolve('hidden');
         });
     }
+
+    const [mode = 'dark' /*eventEmitter.currentMode*/] = useState();
+    const [branchLink = BRANCH_LINK, updateBranchLink] = useState();
+    const [shareMessage = "You need to checkout this app!", updateShareMessage] = useState();
 
     const share = async () => {
         try {
@@ -107,6 +104,20 @@ const Footer =  ({ store, screen, currentlyPlayingName, navigation: { navigate }
                     mode === 'light' ? styles.altIconText : styles.altIconTextDark :
                     mode === 'light' ? styles.iconText : styles.iconTextDark }
                     text={ footer.author.text }
+                />
+                <IconButton
+                    onPress={ () => {
+                        store({screen: 'Tip'});
+                        goTo(footer.tip.place);
+                    } }
+                    name={footer.tip.icon}
+                    size={ 25 }
+                    active = { screen === 'Tip' }
+                    style = { styles.icon }
+                     iconStyle = { screen === "Tip" ? 
+                    mode === 'light' ? styles.altIconText : styles.altIconTextDark :
+                    mode === 'light' ? styles.iconText : styles.iconTextDark }
+                    text={ footer.tip.text }
                 />
                 <IconButton
                     onPress={ share }
