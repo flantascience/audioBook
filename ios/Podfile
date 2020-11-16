@@ -31,8 +31,7 @@ target 'audioBook' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
-  pod 'Fabric'
-  pod 'FirebaseCrashlytics'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'

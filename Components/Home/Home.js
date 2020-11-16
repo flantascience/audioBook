@@ -21,7 +21,6 @@ import firebase from 'react-native-firebase';
 import { withNavigationFocus } from 'react-navigation';
 import { styles } from './style';
 import LeaveSchoolIntro from "../../Misc/media/LeaveSchool-Intro.mp4";
-import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
