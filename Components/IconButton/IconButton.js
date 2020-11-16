@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from "react-native-vector-icons/Ionicons";
-import { eventEmitter } from 'react-native-dark-mode'
 import {
     Platform,
     Text,

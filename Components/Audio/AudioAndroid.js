@@ -368,7 +368,7 @@ class Audio extends React.Component{
                                 <Icon 
                                     color={ dark ? '#fff' : '#000' }
                                     style={{ flex:1, zIndex: 1 }} 
-                                    name="ios-arrow-dropdown" 
+                                    name="caret-down-circle-outline" 
                                     size={25} 
                                 />
                             </TouchableOpacity>
@@ -400,7 +400,7 @@ class Audio extends React.Component{
                                 <Icon 
                                     color={ dark ? '#fff' : '#000' }
                                     style={{ flex:1, zIndex: 1 }} 
-                                    name="ios-arrow-dropdown" 
+                                    name="caret-down-circle-outline" 
                                     size={25} 
                                 />
                             </TouchableOpacity>
