@@ -283,7 +283,7 @@ class Audio extends React.Component {
         </View>;
         return (
             <View style={dark ? styles.elContainerDark : styles.elContainer}>
-                {originScreen !== 'Tracks' && originScreen !== 'Author' ?
+                {originScreen !== 'Tracks' && originScreen !== 'Author' && originScreen !== 'Tip' ?
                     <TrackPlayer
                         ref={ref => {
                             this.trackPlayer = ref;
