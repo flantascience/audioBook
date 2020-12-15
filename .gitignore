@@ -89,3 +89,4 @@ android/.gradle/5.4.1/executionHistory/executionHistory.bin
 *.hprof
 *.apk
 /ios/Pods/*
+.DS_Store
