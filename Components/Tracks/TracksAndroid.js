@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   View,
@@ -491,7 +492,6 @@ class Tracks extends React.Component {
           startPurchasing(false);
         }
         else {
-          console.log(e.message)
           let showToast = true
           toggleShowPurchaseOverview(false)
           store({ showToast, toastText: tracks.restartApp });
@@ -527,9 +527,9 @@ class Tracks extends React.Component {
   buyProduct = () => {
     const { products } = this.state;
     const { toggleShowPurchaseOverview, startPurchasing } = this.props;
+    const { updateUserType, store } = this.props;
     if (products && products.length > 0) {
       const tracksId = items[0];
-      const { updateUserType, store } = this.props;
       startPurchasing(true);
       RNIap.requestPurchase(tracksId, false).then(purchase => {
         if (purchase.transactionReceipt) {

@@ -16,7 +16,7 @@ import {
 import { REDIRECT_TIMER } from '../../Misc/Constants'
 import { navInfo } from '../../Misc/Strings'
 import firebase from 'react-native-firebase'
-import { withNavigationFocus } from 'react-navigation'
+import { useIsFocused } from '@react-navigation/native'
 import { styles } from './styles'
 //import { eventEmitter } from 'react-native-dark-mode'
 
@@ -79,10 +79,10 @@ class PreLoad extends React.Component {
   }
 
   loadFromMemory = () => {
-      
+
     const {
-        loadedFromMemory,
-        storeMedia
+      loadedFromMemory,
+      storeMedia
     } = this.props
     if (!loadedFromMemory) {
       AsyncStorage.getItem('media').then(res => {
@@ -143,11 +143,11 @@ class PreLoad extends React.Component {
               )
             }
           }
-        } 
+        }
         else {
-            storeMedia({ loadedFromMemory: true });
-            this.fetchAndStoreMedia();
-            this.fetchAndStoreRefs();
+          storeMedia({ loadedFromMemory: true });
+          this.fetchAndStoreMedia();
+          this.fetchAndStoreRefs();
         }
       })
     }
@@ -291,15 +291,15 @@ class PreLoad extends React.Component {
     }
   }
 
-  componentDidUpdate(){
-      const { audioFiles, navigation: { navigate }, screen } = this.props;
-      if (audioFiles.length > 0) {
-          console.log('files loaded')
-          console.log(screen)
-        setTimeout(() => {
-            navigate(navInfo[screen])
-        }, REDIRECT_TIMER)
-      }
+  componentDidUpdate() {
+    const { audioFiles, navigation: { navigate }, screen } = this.props;
+    if (audioFiles.length > 0) {
+      console.log('files loaded')
+      console.log(screen)
+      setTimeout(() => {
+        navigate(navInfo[screen])
+      }, REDIRECT_TIMER)
+    }
   }
 
   render() {
@@ -324,8 +324,8 @@ class PreLoad extends React.Component {
                 ? styles.altHomeFooter
                 : styles.altHomeFooterDark
               : !dark
-              ? styles.homeFooter
-              : styles.homeFooterDark
+                ? styles.homeFooter
+                : styles.homeFooterDark
           }
         >
           <Footer navigation={navigation} />
@@ -379,7 +379,13 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
+const wrappedPreload = (props) => {
+  const isFocused = useIsFocused();
+
+  return <PreLoad {...props} isFocused={isFocused} />
+}
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withNavigationFocus(PreLoad))
+)(wrappedPreload)

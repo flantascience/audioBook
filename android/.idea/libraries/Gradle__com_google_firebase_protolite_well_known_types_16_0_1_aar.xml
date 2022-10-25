@@ -4,8 +4,8 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d88c494a86517c22622f212a254000a6/jetified-protolite-well-known-types-16.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d2812e4d7a56a5245f12b912c4287a7e/jetified-protolite-well-known-types-16.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f562c4a149d3ca8c6d1fd12aff467097/jetified-protolite-well-known-types-16.0.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f562c4a149d3ca8c6d1fd12aff467097/jetified-protolite-well-known-types-16.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f562c4a149d3ca8c6d1fd12aff467097/jetified-protolite-well-known-types-16.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/cffbc716b66f8d1fc6cfedd7b46fba76/transformed/jetified-protolite-well-known-types-16.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cffbc716b66f8d1fc6cfedd7b46fba76/transformed/jetified-protolite-well-known-types-16.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

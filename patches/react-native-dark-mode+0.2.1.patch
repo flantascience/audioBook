@@ -1,0 +1,31 @@
+diff --git a/node_modules/react-native-dark-mode/android/build.gradle b/node_modules/react-native-dark-mode/android/build.gradle
+index 11c2a43..e2e4ff1 100644
+--- a/node_modules/react-native-dark-mode/android/build.gradle
++++ b/node_modules/react-native-dark-mode/android/build.gradle
+@@ -12,15 +12,16 @@ buildscript {
+ 		repositories {
+ 			google()
+ 			jcenter()
++			mavenCentral()
+ 		}
+ 		dependencies {
+-			classpath 'com.android.tools.build:gradle:3.4.1'
++			classpath 'com.android.tools.build:gradle:3.4.3'
+ 		}
+ 	}
+ }
+ 
+ apply plugin: 'com.android.library'
+-apply plugin: 'maven'
++apply plugin: 'maven-publish'
+ 
+ // Matches values in recent template from React Native 0.59 / 0.60
+ // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+@@ -56,6 +57,7 @@ repositories {
+ 	}
+ 	google()
+ 	jcenter()
++	mavenCentral()
+ }
+ 
+ dependencies {
