@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -5,7 +6,7 @@ import {
   Dimensions,
   Image,
   AppState,
-  Platform
+  Platform,
 } from 'react-native';
 import { storeMedia, toggleStartTracks } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
@@ -15,13 +16,13 @@ import {
   Footer,
   Header,
   Button,
-  Statusbar
+  Statusbar,
 } from '../';
 import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
-import { useIsFocused } from '@react-navigation/native'
+import { useIsFocused } from '@react-navigation/native';
 import { styles } from './style';
-import CurricuDumbIntro from "../../Misc/media/intro.mp4";
+import CurricuDumbIntro from '../../Misc/media/intro.mp4';
 //import { eventEmitter } from 'react-native-dark-mode';
 
 const Analytics = firebase.analytics();
@@ -31,7 +32,7 @@ const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Home extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       loaded: false,
       showVid: false,

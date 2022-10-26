@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /**
  * @format
  */
@@ -7,53 +8,52 @@ import { Home, Author, TracksAndroid, PreLoad, Tip } from './Components';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import TrackPlayer from 'react-native-track-player';
+import TrackPlayer, { Capability } from 'react-native-track-player';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
-import { DarkModeProvider } from 'react-native-dark-mode'
+import { DarkModeProvider } from 'react-native-dark-mode';
 
 const store = configureStore();
 
-TrackPlayer.setupPlayer().then(() => {
-  TrackPlayer.updateOptions({
-    alwaysPauseOnInterruption: true,
-    waitForBuffer: true,
-    stopWithApp: true,
-    capabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
-    ],
-    notificationCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
-    ],
-    compactCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_STOP,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-    ]
-  });
+TrackPlayer.setupPlayer();
+TrackPlayer.updateOptions({
+  alwaysPauseOnInterruption: true,
+  waitForBuffer: true,
+  stopWithApp: true,
+  capabilities: [
+    Capability.Play,
+    Capability.Pause,
+    Capability.SeekTo,
+    Capability.SkipToNext,
+    Capability.SkipToPrevious,
+    Capability.JumpForward,
+    Capability.JumpBackward,
+    Capability.Stop,
+  ],
+  notificationCapabilities: [
+    Capability.Play,
+    Capability.Pause,
+    Capability.SeekTo,
+    Capability.SkipToNext,
+    Capability.SkipToPrevious,
+    Capability.JumpForward,
+    Capability.JumpBackward,
+    Capability.Stop,
+  ],
+  compactCapabilities: [
+    Capability.Play,
+    Capability.Pause,
+    Capability.SkipToNext,
+    Capability.SkipToPrevious,
+    Capability.Stop,
+  ],
 });
 
-const screenConfig = {
-  duration: 1,
-  easing: Easing.out(Easing.poly(4))
-};
+// const screenConfig = {
+//   duration: 1,
+//   easing: Easing.out(Easing.poly(4)),
+// };
 
 const Stack = createStackNavigator();
 

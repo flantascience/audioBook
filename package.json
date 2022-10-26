@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@react-native-community/async-storage": "^1.12.1",
 		"@react-native-community/masked-view": "^0.1.11",
-		"@react-native-community/netinfo": "^9.3.5",
+		"@react-native-community/netinfo": "^9.3.6",
 		"@react-native-community/slider": "^4.3.2",
 		"@react-navigation/core": "^6.4.0",
 		"@react-navigation/native": "^6.0.13",
@@ -40,7 +40,7 @@
 		"react-native-safe-area-view": "^1.1.1",
 		"react-native-simple-animations": "^0.2.1",
 		"react-native-swift": "^1.2.2",
-		"react-native-track-player": "^2.2.0-rc4-e36a016d1640e75649d6da4056f8977da33864e1",
+		"react-native-track-player": "^3.2.0",
 		"react-native-vector-icons": "^6.6.0",
 		"react-native-video": "^6.0.0-alpha.3",
 		"react-navigation": "^3.11.1",

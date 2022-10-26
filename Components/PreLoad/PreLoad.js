@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import { connect } from 'react-redux'
 import { View, Dimensions, ActivityIndicator, Platform } from 'react-native'
@@ -49,22 +50,23 @@ class PreLoad extends React.Component {
       reportSlowConnection,
     } = this.props
     this.loadFromMemory();
-    NetInfo.isConnected.addEventListener('connectionChange', () => {
-      NetInfo.getConnectionInfo().then(info => {
-        const { type, effectiveType } = info
-        if (type === 'none') reportNoConnection()
-        else if (type === 'wifi') reportConnection('fast')
-        else if (
-          (type === 'cellular' && effectiveType === '4g') ||
-          (type === 'cellular' && effectiveType === 'unknown')
-        )
-          reportConnection('normal')
-        else if (
-          (type === 'cellular' && effectiveType === '3g') ||
-          (type === 'cellular' && effectiveType === '2g')
-        )
-          reportSlowConnection()
-      })
+    NetInfo.addEventListener((state) => {
+      console.log({ state })
+      // NetInfo.getConnectionInfo().then(info => {
+      //   const { type, effectiveType } = info
+      //   if (type === 'none') reportNoConnection()
+      //   else if (type === 'wifi') reportConnection('fast')
+      //   else if (
+      //     (type === 'cellular' && effectiveType === '4g') ||
+      //     (type === 'cellular' && effectiveType === 'unknown')
+      //   )
+      //     reportConnection('normal')
+      //   else if (
+      //     (type === 'cellular' && effectiveType === '3g') ||
+      //     (type === 'cellular' && effectiveType === '2g')
+      //   )
+      //     reportSlowConnection()
+      // })
     })
     /*eventEmitter.on('currentModeChanged', newMode => {
       // console.log('Switched to', newMode, 'mode');
