@@ -21,7 +21,6 @@ import { storeRefs } from '../../Actions/references';
 import Audio from '../Audio/Audio';
 import AudioAndroid from '../Audio/AudioAndroid';
 import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
 import Button from '../Button/Button';
 import Statusbar from '../StatusBar/MyStatusbar';
 import Video from 'react-native-video';
@@ -50,25 +49,8 @@ class Home extends React.Component {
       willResume: false,
       startButtonTitle: 'Start',
     };
+    this.player = null;
   }
-
-  static navigationOptions = () => {
-    return {
-      headerLeft: <Header Android={Android} />,
-      headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center',
-      },
-      headerStyle: {
-        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-        borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6'
-      }
-    }
-  };
 
   componentDidMount() {
     // console.log(this.props.audioFiles)
@@ -92,7 +74,6 @@ class Home extends React.Component {
       playingIntro,
       storeMedia,
     } = this.props;
-
     if (!currentlyPlaying) {
       let vidPlaying = !this.state.paused;
       let isFocused = navigation.isFocused();
@@ -137,17 +118,12 @@ class Home extends React.Component {
     } = this.props;
     let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
 
-    console.log({
-      loaded,
-      showVid
-    })
-
     //let isFocused = navigation.isFocused();
     let mode = currentMode;
     let dark = mode === 'dark';
     let audioPlaying = !this.props.paused;
 
-    if (!isFocused && !paused) this.setState({ paused: true });
+    if (!isFocused && !paused) { this.setState({ paused: true }); }
 
     let height = Dimensions.get('window').height;
 
@@ -222,7 +198,7 @@ class Home extends React.Component {
                     </View>
                   </View> :
                   null}
-              {!audioPlaying ?
+              {!audioPlaying &&
                 <Video
                   source={CurricuDumbIntro} // Can be a URL or a local file.
                   ref={ref => {
@@ -235,9 +211,9 @@ class Home extends React.Component {
                     bufferForPlaybackAfterRebufferMs: 5000,
                   }}
                   paused={!paused && isFocused ? false : true}
-                  onLoadStart={() => console.log('loading started')}
+                  onVideoLoad={() => console.log('video loaded')}
                   onLoad={() => {
-                    console.log('video loaded ..')
+                    console.log('video loaded ..');
                     this.setState({ loaded: true });
                   }}
                   onEnd={() => {
@@ -271,7 +247,7 @@ class Home extends React.Component {
                     });
                   }}
                   onTouchEnd={() => {
-                    const { paused, showVid } = this.state
+                    const { paused, showVid } = this.state;
                     const { playingIntro } = this.props;
                     Android ? this.setState({
                       showVid: !showVid,
@@ -287,8 +263,7 @@ class Home extends React.Component {
                   resizeMode={"cover"}
                   controls={false}
                   style={!showVid || !isFocused ? styles.IntroductionVideoBeforeLoad : styles.IntroductionVideo}
-                /> :
-                null}
+                />}
             </View>
           </View> :
           null}
@@ -332,7 +307,7 @@ const mapStateToProps = state => {
     currentPostion: state.media.currentPostion,
     showTextinput: state.media.showTextinput,
     paused: state.media.paused,
-    playingIntro: state.media.playingIntro
+    playingIntro: state.media.playingIntro,
   }
 }
 

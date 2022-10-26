@@ -7,7 +7,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import NetInfo from '@react-native-community/netinfo'
 import { storeMedia } from '../../Actions/mediaFiles'
-import TrackPlayer from 'react-native-track-player'
+import TrackPlayer, { Capability } from 'react-native-track-player'
 import { storeRefs, fetchingRefs } from '../../Actions/references'
 import {
   slowConnectionDetected,
@@ -49,6 +49,7 @@ class PreLoad extends React.Component {
       reportNoConnection,
       reportSlowConnection,
     } = this.props;
+
     this.loadFromMemory();
     NetInfo.addEventListener((state) => {
       const { type, effectiveType } = state;

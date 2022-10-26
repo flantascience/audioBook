@@ -26,38 +26,39 @@ const Android = Platform.OS === 'android';
 
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
-TrackPlayer.setupPlayer();
-TrackPlayer.updateOptions({
-  alwaysPauseOnInterruption: true,
-  waitForBuffer: true,
-  stopWithApp: true,
-  capabilities: [
-    Capability.Play,
-    Capability.Pause,
-    Capability.SeekTo,
-    Capability.SkipToNext,
-    Capability.SkipToPrevious,
-    Capability.JumpForward,
-    Capability.JumpBackward,
-    Capability.Stop,
-  ],
-  notificationCapabilities: [
-    Capability.Play,
-    Capability.Pause,
-    Capability.SeekTo,
-    Capability.SkipToNext,
-    Capability.SkipToPrevious,
-    Capability.JumpForward,
-    Capability.JumpBackward,
-    Capability.Stop,
-  ],
-  compactCapabilities: [
-    Capability.Play,
-    Capability.Pause,
-    Capability.SkipToNext,
-    Capability.SkipToPrevious,
-    Capability.Stop,
-  ],
+TrackPlayer.setupPlayer().then(() => {
+  TrackPlayer.updateOptions({
+    alwaysPauseOnInterruption: true,
+    waitForBuffer: true,
+    stopWithApp: true,
+    capabilities: [
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpForward,
+      Capability.JumpBackward,
+      Capability.Stop,
+    ],
+    notificationCapabilities: [
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpForward,
+      Capability.JumpBackward,
+      Capability.Stop,
+    ],
+    compactCapabilities: [
+      Capability.Play,
+      Capability.Pause,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.Stop,
+    ],
+  });
 });
 
 // const screenConfig = {
