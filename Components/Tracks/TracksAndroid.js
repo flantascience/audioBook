@@ -13,14 +13,20 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
-  AudioAndroid,
-  Toast,
-  Footer,
-  Header,
-  SoundBar,
-  PurchaseOverview
-} from '..';
+// import {
+//   AudioAndroid,
+//   Toast,
+//   Footer,
+//   Header,
+//   SoundBar,
+//   PurchaseOverview
+// } from '..';
+import Toast from '../Toast/Toast';
+import AudioAndroid from '../Audio/AudioAndroid';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import SoundBar from '../SoundBar/SoundBar';
+import PurchaseOverview from '../PurchaseOverview/PurchaseOverview';
 import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';

@@ -55,6 +55,7 @@ public class MainApplication extends Application implements ReactApplication {
       }
       packages.add(new RNFirebaseDatabasePackage());
       packages.add(new RNFirebaseAnalyticsPackage());
+
       return packages;
     }
 

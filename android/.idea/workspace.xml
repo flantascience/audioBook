@@ -13,14 +13,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1e67d8e-708d-4777-bc40-2784da1e5ec5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/Audio.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/Audio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/AudioAndroid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/AudioAndroid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/ProgressBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/Questionnaire.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/Questionnaire.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/Refs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/Refs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Audio/styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Audio/styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Author/Author.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Author/Author.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Button/Button.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Button/Button.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Footer/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Header/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/IconButton/IconButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/IconButton/IconButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Components/PreLoad/PreLoad.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/PreLoad/PreLoad.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/PurchaseOverview/PurchaseOverview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/PurchaseOverview/PurchaseOverview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/SoundBar/SoundBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/SoundBar/SoundBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/StatusBar/MyStatusbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/StatusBar/MyStatusbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Tip/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tip/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Toast/Toast.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Toast/Toast.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Tracks/Tracks.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tracks/Tracks.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/Tracks/TracksAndroid.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Components/Tracks/TracksAndroid.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Components/index.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/curricu_dumb_audiobook/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.android.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.android.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.ios.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.ios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

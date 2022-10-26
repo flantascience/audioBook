@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   View,
@@ -6,20 +7,23 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
-  ActivityIndicator,
-  Modal
+  ActivityIndicator
 } from 'react-native';
 import { connect } from 'react-redux';
-import NetInfo from "@react-native-community/netinfo";
+// import NetInfo from "@react-native-community/netinfo";
 import firebase from 'react-native-firebase';
-import {
-  Header,
-  Footer,
-  Toast,
-  Audio,
-  AudioAndroid,
-  Button
-} from '../'
+// import {
+//   Header,
+//   Footer,
+//   Toast,
+//   Audio,
+//   AudioAndroid,
+// } from '../'
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import Toast from '../Toast/Toast';
+import Audio from '../Audio/Audio';
+import AudioAndroid from '../Audio/AudioAndroid';
 import { styles } from './style';
 import { TOAST_TIMEOUT, TIPS } from '../../Misc/Constants';
 import { storeInput } from '../../Actions/userInput';
@@ -38,7 +42,7 @@ const itemSkus = Platform.select({
     'tipjar50',
     'tipjar120',
     'tipjar240',
-    'tipjar333'
+    'tipjar333',
   ],
   android: [
     'tipjar5',
@@ -46,7 +50,7 @@ const itemSkus = Platform.select({
     'tipjar50',
     'tipjar120',
     'tipjar240',
-    'tipjar333'
+    'tipjar333',
   ]
 });
 
@@ -179,9 +183,9 @@ class Tip extends React.Component {
       <View
         style={styles.Home}
       >
-        { !this.state.loaded && <View style={styles.loading_overlay} >
-            <ActivityIndicator size={'small'} color={'white'} />
-          </View> }
+        {!this.state.loaded && <View style={styles.loading_overlay} >
+          <ActivityIndicator size={'small'} color={'white'} />
+        </View>}
         <View style={dark ? styles.homeMidDark : styles.homeMid}>
           {showToast ?
             <Toast dark={dark} text={toastText} /> :
@@ -191,29 +195,29 @@ class Tip extends React.Component {
           </Text>
           <View style={dark ? styles.scrollViewDark : styles.scrollView}>
             <ScrollView style={{ padding: 20 }} >
-                {this.state.Tips.map((tip, index) => {
-                  return <TouchableOpacity
-                    key={index}
-                    style={styles.tip_button}
-                    onPress={() => {
-                      if (typeof tip === 'object') {
-                        this.tipAuthor(tip.productId)
-                      }
-                      else {
-                        let showToast = true;
-                        this.props.storeMediaInf({ showToast, toastText: 'Please try again later, something went wrong!' });
-                        setTimeout(() => {
-                          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
-                        }, TOAST_TIMEOUT);
-                      }
-                    }} >
-                    <Text style={{ color: '#ffffff' }}>${tip.price || tip}</Text>
-                  </TouchableOpacity>
-                })}
+              {this.state.Tips.map((tip, index) => {
+                return <TouchableOpacity
+                  key={index}
+                  style={styles.tip_button}
+                  onPress={() => {
+                    if (typeof tip === 'object') {
+                      this.tipAuthor(tip.productId)
+                    }
+                    else {
+                      let showToast = true;
+                      this.props.storeMediaInf({ showToast, toastText: 'Please try again later, something went wrong!' });
+                      setTimeout(() => {
+                        this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+                      }, TOAST_TIMEOUT);
+                    }
+                  }} >
+                  <Text style={{ color: '#ffffff' }}>${tip.price || tip}</Text>
+                </TouchableOpacity>
+              })}
             </ScrollView>
           </View>
         </View>
-        { selectedTrack ?
+        {selectedTrack ?
           <View
             style={showOverview ? styles.overviewContainer :
               height < 570 ? styles.altAltOverviewContainer :

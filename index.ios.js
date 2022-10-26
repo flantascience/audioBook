@@ -1,10 +1,17 @@
+/* eslint-disable prettier/prettier */
 /**
  * @format
  */
 import React from 'react';
-import { AppRegistry, Easing } from 'react-native';
-import { Home, Author, Tracks, PreLoad } from './Components';
+import { AppRegistry } from 'react-native';
+// import { Home, Author, Tracks, PreLoad } from './Components';
+import Home from './Components/Home/Home';
+import Author from './Components/Author/Author';
+import Tracks from './Components/Tracks/Tracks';
+import PreLoad from './Components/PreLoad/PreLoad';
+import Tip from './Components/Tip';
 import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';

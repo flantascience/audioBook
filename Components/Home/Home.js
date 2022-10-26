@@ -10,14 +10,20 @@ import {
 } from 'react-native';
 import { storeMedia, toggleStartTracks } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
-import {
-  Audio,
-  AudioAndroid,
-  Footer,
-  Header,
-  Button,
-  Statusbar,
-} from '../';
+// import {
+//   Audio,
+//   AudioAndroid,
+//   Footer,
+//   Header,
+//   Button,
+//   Statusbar,
+// } from '../';
+import Audio from '../Audio/Audio';
+import AudioAndroid from '../Audio/AudioAndroid';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import Button from '../Button/Button';
+import Statusbar from '../StatusBar/MyStatusbar';
 import Video from 'react-native-video';
 import firebase from 'react-native-firebase';
 import { useIsFocused } from '@react-navigation/native';
@@ -42,8 +48,8 @@ class Home extends React.Component {
       paused: true,
       fullscreen: false,
       willResume: false,
-      startButtonTitle: "Start"
-    }
+      startButtonTitle: 'Start',
+    };
   }
 
   static navigationOptions = () => {
@@ -53,7 +59,7 @@ class Home extends React.Component {
         textAlign: 'center',
         justifyContent: 'center',
         color: '#FF6D00',
-        alignItems: 'center'
+        alignItems: 'center',
       },
       headerStyle: {
         backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
@@ -75,7 +81,7 @@ class Home extends React.Component {
           this.setState({ paused: true, showVid: false });
         }
       }
-    )
+    );
   }
 
   componentDidUpdate() {
@@ -84,7 +90,7 @@ class Home extends React.Component {
       paused,
       currentlyPlaying,
       playingIntro,
-      storeMedia
+      storeMedia,
     } = this.props;
 
     if (!currentlyPlaying) {
@@ -100,7 +106,7 @@ class Home extends React.Component {
   }
 
   componentWillUnmount() {
-    this.blurSubscription.remove();
+    if (this.blurSubscription.remove && typeof this.blurSubscription.remove === 'function') { this.blurSubscription.remove(); }
   }
 
   startTracks = () => {
@@ -126,10 +132,17 @@ class Home extends React.Component {
       currentlyPlayingName,
       showOverview,
       storeMedia,
-      playingIntro
+      isFocused,
+      playingIntro,
     } = this.props;
     let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
-    let isFocused = navigation.isFocused();
+
+    console.log({
+      loaded,
+      showVid
+    })
+
+    //let isFocused = navigation.isFocused();
     let mode = currentMode;
     let dark = mode === 'dark';
     let audioPlaying = !this.props.paused;
@@ -138,7 +151,7 @@ class Home extends React.Component {
 
     let height = Dimensions.get('window').height;
 
-    let audioSource = selectedTrack ? { uri: audioFiles[selectedTrack].url } : "";
+    let audioSource = selectedTrack ? { uri: audioFiles[selectedTrack].url } : '';
 
     const audioControls = Android ?
       <AudioAndroid
@@ -213,16 +226,18 @@ class Home extends React.Component {
                 <Video
                   source={CurricuDumbIntro} // Can be a URL or a local file.
                   ref={ref => {
-                    this.player = ref
+                    this.player = ref;
                   }}
                   bufferConfig={{
                     minBufferMs: 500,
                     maxBufferMs: 50000,
                     bufferForPlaybackMs: 2500,
-                    bufferForPlaybackAfterRebufferMs: 5000
+                    bufferForPlaybackAfterRebufferMs: 5000,
                   }}
                   paused={!paused && isFocused ? false : true}
+                  onLoadStart={() => console.log('loading started')}
                   onLoad={() => {
+                    console.log('video loaded ..')
                     this.setState({ loaded: true });
                   }}
                   onEnd={() => {
@@ -335,9 +350,9 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const wrappedHome = (props) => {
+const WrappedHome = (props) => {
   const isFocused = useIsFocused();
   return <Home {...props} isFocused={isFocused} />
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(wrappedHome);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedHome);

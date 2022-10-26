@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -6,12 +7,13 @@ import {
     Image,
     Platform,
     BackHandler,
-    Alert
+    Alert,
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
-import { Statusbar } from '..';
+// import { Statusbar } from '..';
+import Statusbar from '../StatusBar/MyStatusbar';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
 //import { eventEmitter } from 'react-native-dark-mode';
@@ -20,31 +22,31 @@ const Android = Platform.OS === 'android';
 
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
-const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
+const Header = ({ playingIntro, media, preloader = false, updateUserType }) => {
 
     const [mode = currentMode, changeMode] = useState();
 
     useEffect(() => {
         AsyncStorage.getItem('userType').then(userType => {
-            if(userType) updateUserType(userType);
+            if (userType) updateUserType(userType);
         });
         BackHandler.addEventListener('hardwareBackPress', () => {
             Alert.alert(
                 'Exit App',
                 'Do you want to exit?',
                 [
-                  {text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-                  {text: 'Yes', onPress: () => BackHandler.exitApp()},
+                    { text: 'No', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                    { text: 'Yes', onPress: () => BackHandler.exitApp() },
                 ],
                 { cancelable: false }
             );
             return true;
         });
-    }, []);
+    }, [updateUserType]);
 
     useEffect(() => {
         /**not component will unmount just periodic updates */
-        return cleanup = () => {
+        return function cleanup() {
             if (!preloader) {
                 const {
                     screen,
@@ -58,10 +60,10 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
                     initCurrentlyPlaying,
                     buttonsActive,
                     showOverview,
-                    trackDuration, 
+                    trackDuration,
                     stopped,
-                    loaded, 
-                    totalLength, 
+                    loaded,
+                    totalLength,
                     formattedDuration
                 } = media;
 
@@ -89,20 +91,20 @@ const Header = ({ playingIntro, media, preloader=false, updateUserType }) => {
     })
 
     if (!playingIntro || !Android)
-    return(
-        <View style={ styles.header }>
-            <Statusbar backgroundColor="#212121" barStyle="light-content" />
-            <View style={ styles.headerElementsContainer}>
-                <View style={ styles.navLogoConatiner }>
-                    <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />
-                </View>
-                <View style={ styles.textContainer }>
-                    <Text style={ mode === 'light' ? styles.headerText : styles.headerTextAlt }>{ header.headerText }</Text>
-                    <Text style = { mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt }>{ header.subHeaderText }</Text>
+        return (
+            <View style={styles.header}>
+                <Statusbar backgroundColor="#212121" barStyle="light-content" />
+                <View style={styles.headerElementsContainer}>
+                    <View style={styles.navLogoConatiner}>
+                        <Image style={styles.navLogo} source={require('./images/crzy-head-shot-trans.png')} />
+                    </View>
+                    <View style={styles.textContainer}>
+                        <Text style={mode === 'light' ? styles.headerText : styles.headerTextAlt}>{header.headerText}</Text>
+                        <Text style={mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt}>{header.subHeaderText}</Text>
+                    </View>
                 </View>
             </View>
-        </View>
-    ) 
+        )
     else return null;
 }
 
@@ -122,7 +124,7 @@ const mapStateToProps = state => {
         playingIntro: state.media.playingIntro,
         loadedFromMemory: state.media.loadedFromMemory,
         media: state.media
-    }  
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

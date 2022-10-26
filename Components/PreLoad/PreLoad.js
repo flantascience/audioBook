@@ -48,25 +48,22 @@ class PreLoad extends React.Component {
       reportConnection,
       reportNoConnection,
       reportSlowConnection,
-    } = this.props
+    } = this.props;
     this.loadFromMemory();
     NetInfo.addEventListener((state) => {
-      console.log({ state })
-      // NetInfo.getConnectionInfo().then(info => {
-      //   const { type, effectiveType } = info
-      //   if (type === 'none') reportNoConnection()
-      //   else if (type === 'wifi') reportConnection('fast')
-      //   else if (
-      //     (type === 'cellular' && effectiveType === '4g') ||
-      //     (type === 'cellular' && effectiveType === 'unknown')
-      //   )
-      //     reportConnection('normal')
-      //   else if (
-      //     (type === 'cellular' && effectiveType === '3g') ||
-      //     (type === 'cellular' && effectiveType === '2g')
-      //   )
-      //     reportSlowConnection()
-      // })
+      const { type, effectiveType } = state;
+      if (type === 'none') reportNoConnection()
+      else if (type === 'wifi') reportConnection('fast')
+      else if (
+        (type === 'cellular' && effectiveType === '4g') ||
+        (type === 'cellular' && effectiveType === 'unknown')
+      )
+        reportConnection('normal');
+      else if (
+        (type === 'cellular' && effectiveType === '3g') ||
+        (type === 'cellular' && effectiveType === '2g')
+      )
+        reportSlowConnection();
     })
     /*eventEmitter.on('currentModeChanged', newMode => {
       // console.log('Switched to', newMode, 'mode');
@@ -381,7 +378,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-const wrappedPreload = (props) => {
+const WrappedPreload = (props) => {
   const isFocused = useIsFocused();
 
   return <PreLoad {...props} isFocused={isFocused} />
@@ -390,4 +387,4 @@ const wrappedPreload = (props) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(wrappedPreload)
+)(WrappedPreload)

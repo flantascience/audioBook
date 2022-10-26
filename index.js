@@ -1,16 +1,23 @@
+/* eslint-disable prettier/prettier */
 /**
  * @format
  */
 import React from 'react';
-import { AppRegistry, Easing, Platform } from 'react-native';
-import { Home, Author, Tracks, TracksAndroid, PreLoad, Tip } from './Components';
+import { AppRegistry, Platform } from 'react-native';
+// import { Home, Author, Tracks, TracksAndroid, PreLoad, Tip } from './Components';
+import Home from './Components/Home/Home';
+import Author from './Components/Author/Author';
+import Tracks from './Components/Tracks/Tracks';
+import TracksAndroid from './Components/Tracks/TracksAndroid';
+import PreLoad from './Components/PreLoad/PreLoad';
+import Tip from './Components/Tip';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TrackPlayer from 'react-native-track-player';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
-import { DarkModeProvider } from 'react-native-dark-mode'
+import { DarkModeProvider } from 'react-native-dark-mode';
 
 const store = configureStore();
 const Android = Platform.OS === 'android';

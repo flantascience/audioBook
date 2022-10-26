@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import {
     View,
@@ -7,13 +8,19 @@ import {
     Platform,
     Dimensions,
     ActivityIndicator,
-} from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
+} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 // import TrackPlayer from 'react-native-video';
-import { connect } from 'react-redux'
-import { Toast, Audio, Header, Footer, SoundBar, PurchaseOverview } from '../'
-import Icon from 'react-native-vector-icons/Ionicons'
-import ProgressCircle from 'react-native-progress-circle'
+import { connect } from 'react-redux';
+// import { Toast, Audio, Header, Footer, SoundBar, PurchaseOverview } from '../';
+import Toast from '../Toast/Toast';
+import Audio from '../Audio/Audio';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import SoundBar from '../SoundBar/SoundBar';
+import PurchaseOverview from '../PurchaseOverview/PurchaseOverview';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ProgressCircle from 'react-native-progress-circle';
 import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
@@ -509,7 +516,6 @@ class Tracks extends React.Component {
                     }, TOAST_TIMEOUT)
                     startPurchasing(false)
                 } else {
-                    console.log(e.message)
                     let showToast = true
                     toggleShowPurchaseOverview(false)
                     store({ showToast, toastText: tracks.restartApp });
@@ -529,16 +535,16 @@ class Tracks extends React.Component {
                 startPurchasing(false)
             }
         }).
-        catch(e => {
-            console.log(e.message)
-            let showToast = true
-            toggleShowPurchaseOverview(false)
-            store({ showToast, toastText: tracks.restartApp });
-            setTimeout(() => {
-                store({ showToast: !showToast, toastText: null })
-            }, LONG_TOAST_TIMEOUT)
-            startPurchasing(false)
-        })
+            catch(e => {
+                console.log(e.message)
+                let showToast = true
+                toggleShowPurchaseOverview(false)
+                store({ showToast, toastText: tracks.restartApp });
+                setTimeout(() => {
+                    store({ showToast: !showToast, toastText: null })
+                }, LONG_TOAST_TIMEOUT)
+                startPurchasing(false)
+            })
     }
 
     buyProduct = () => {
@@ -756,11 +762,11 @@ class Tracks extends React.Component {
                                                                         size={40}
                                                                     />
                                                                 ) : (
-                                                                        <SoundBar
-                                                                            dark={dark}
-                                                                            playing={currentPosition > 0}
-                                                                        />
-                                                                    )}
+                                                                    <SoundBar
+                                                                        dark={dark}
+                                                                        playing={currentPosition > 0}
+                                                                    />
+                                                                )}
                                                             </TouchableOpacity>
                                                             {type === 'cloud' && action !== 'downloading' ? (
                                                                 <TouchableOpacity
@@ -779,44 +785,44 @@ class Tracks extends React.Component {
                                                                 </TouchableOpacity>
                                                             ) : type === 'cloud' &&
                                                                 action === 'downloading' ? (
-                                                                        <View style={{ marginLeft: 20 }}>
-                                                                            <ProgressCircle
-                                                                                percent={percentage}
-                                                                                radius={14}
-                                                                                borderWidth={2}
-                                                                                color='#3399FF'
-                                                                                shadowColor='#999'
-                                                                                bgColor='#fff'
-                                                                            >
-                                                                                <Text style={{ fontSize: 8 }}>
-                                                                                    {percentage + '%'}
-                                                                                </Text>
-                                                                            </ProgressCircle>
-                                                                        </View>
-                                                                    ) : null}
+                                                                <View style={{ marginLeft: 20 }}>
+                                                                    <ProgressCircle
+                                                                        percent={percentage}
+                                                                        radius={14}
+                                                                        borderWidth={2}
+                                                                        color='#3399FF'
+                                                                        shadowColor='#999'
+                                                                        bgColor='#fff'
+                                                                    >
+                                                                        <Text style={{ fontSize: 8 }}>
+                                                                            {percentage + '%'}
+                                                                        </Text>
+                                                                    </ProgressCircle>
+                                                                </View>
+                                                            ) : null}
                                                         </View>
                                                     ) : (
-                                                            <View style={styles.iconsContainer}>
-                                                                <TouchableOpacity
-                                                                    onPress={() =>
-                                                                        toggleShowPurchaseOverview(
-                                                                            !showPurchaseOverview
-                                                                        )
+                                                        <View style={styles.iconsContainer}>
+                                                            <TouchableOpacity
+                                                                onPress={() =>
+                                                                    toggleShowPurchaseOverview(
+                                                                        !showPurchaseOverview
+                                                                    )
+                                                                }
+                                                                style={styles.trackIcon}
+                                                            >
+                                                                <Icon
+                                                                    color={dark ? '#fff' : '#000'}
+                                                                    name={
+                                                                        Platform.OS === 'ios'
+                                                                            ? `ios-${lockedItemIcon}`
+                                                                            : `md-${lockedItemIcon}`
                                                                     }
-                                                                    style={styles.trackIcon}
-                                                                >
-                                                                    <Icon
-                                                                        color={dark ? '#fff' : '#000'}
-                                                                        name={
-                                                                            Platform.OS === 'ios'
-                                                                                ? `ios-${lockedItemIcon}`
-                                                                                : `md-${lockedItemIcon}`
-                                                                        }
-                                                                        size={35}
-                                                                    />
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        )}
+                                                                    size={35}
+                                                                />
+                                                            </TouchableOpacity>
+                                                        </View>
+                                                    )}
                                                 </TouchableOpacity>
                                             </View>
                                         )
@@ -824,27 +830,27 @@ class Tracks extends React.Component {
                                 })}
                             </ScrollView>
                         ) : (
-                                <View>
-                                    {connected ? (
-                                        <View>
-                                            <ActivityIndicator
-                                                size='large'
-                                                color='#D4D4D4'
-                                                style={{ marginTop: '10%' }}
-                                            />
-                                            {connection === 'slow' ? (
-                                                <Text style={styles.text}>
-                                                    {connectionFeedback.slowConnection}
-                                                </Text>
-                                            ) : null}
-                                        </View>
-                                    ) : (
+                            <View>
+                                {connected ? (
+                                    <View>
+                                        <ActivityIndicator
+                                            size='large'
+                                            color='#D4D4D4'
+                                            style={{ marginTop: '10%' }}
+                                        />
+                                        {connection === 'slow' ? (
                                             <Text style={styles.text}>
-                                                {connectionFeedback.needConnectionToFetchTracks}
+                                                {connectionFeedback.slowConnection}
                                             </Text>
-                                        )}
-                                </View>
-                            )}
+                                        ) : null}
+                                    </View>
+                                ) : (
+                                    <Text style={styles.text}>
+                                        {connectionFeedback.needConnectionToFetchTracks}
+                                    </Text>
+                                )}
+                            </View>
+                        )}
                     </View>
                 ) : null}
                 {selectedTrack ? (
