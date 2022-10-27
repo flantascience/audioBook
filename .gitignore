@@ -19,7 +19,7 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
+ios/.xcode.env.local
 
 # Gradle
 /build/
@@ -46,6 +46,10 @@ buck-out
 local.properties
 /android/app/build/
 *.iml
+
+*.hprof
+.cxx/
+
 #env
 .env
 .env.development
@@ -88,5 +92,7 @@ RNTester/Pods/Target Support Files
 android/.gradle/5.4.1/executionHistory/executionHistory.bin
 *.hprof
 *.apk
-/ios/Pods/*
+# Ruby / CocoaPods
+/ios/Pods/
+/vendor/bundle/
 .DS_Store
