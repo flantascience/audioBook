@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { Platform } from 'react-native'
 import { connect } from 'react-redux';
-import TrackPlayer, { useTrackPlayerProgress } from 'react-native-track-player';
+import TrackPlayer, { useProgress } from 'react-native-track-player';
 //import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
 import firebase from 'react-native-firebase';
@@ -14,7 +14,7 @@ const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
 
 const ProgressBar = ({ iOSTrackPlayer, paused, trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, buttonsActive, dark, currentPosition, store }) => {
-    const { position, duration } = useTrackPlayerProgress();
+    const { position, duration } = useProgress();
     useEffect(() => {
         let tempPosition = Android ? position : currentPosition;
         let flooredCurrentPosition = Math.floor(parseFloat(tempPosition));
@@ -40,7 +40,7 @@ const ProgressBar = ({ iOSTrackPlayer, paused, trackDuration, audioFiles, curren
             onSlidingComplete={currentPosition => {
                 if (Android) {
                     store({ currentPosition });
-                    setTimeout(() => TrackPlayer.seekTo(currentPosition), POST_SEEK_TIMEOUT)
+                    setTimeout(() => TrackPlayer.seekTo(currentPosition), POST_SEEK_TIMEOUT);
                 } else {
                     store({ currentPosition });
                     iOSTrackPlayer ? setTimeout(() => iOSTrackPlayer.seek(currentPosition), POST_SEEK_TIMEOUT) : null;

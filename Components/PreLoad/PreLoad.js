@@ -7,7 +7,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import NetInfo from '@react-native-community/netinfo'
 import { storeMedia } from '../../Actions/mediaFiles'
-import TrackPlayer, { Capability } from 'react-native-track-player'
+import TrackPlayer from 'react-native-track-player'
 import { storeRefs, fetchingRefs } from '../../Actions/references'
 import {
   slowConnectionDetected,

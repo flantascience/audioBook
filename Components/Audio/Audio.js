@@ -14,12 +14,6 @@ import {
     removeTrack
 } from '../../Misc/helpers';
 import TrackPlayer from 'react-native-video';
-// import { 
-//     Toast,
-//     ProgressBar,
-//     Questionnaire,
-//     Refs
-// } from '../';
 import Toast from '../Toast/Toast';
 import ProgressBar from './ProgressBar';
 import Questionnaire from './Questionnaire';

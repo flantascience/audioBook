@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import { AppRegistry, Platform } from 'react-native';
-// import { Home, Author, TracksAndroid, PreLoad, Tip } from './Components';
 import Home from './Components/Home/Home';
 import Author from './Components/Author/Author';
 import TracksAndroid from './Components/Tracks/TracksAndroid';
@@ -149,9 +148,63 @@ const App = () => (
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
-            <Stack.Screen name='Third' component={TracksAndroid} />
-            <Stack.Screen name='Fourth' component={Author} />
-            <Stack.Screen name='Fifth' component={Tip} />
+            <Stack.Screen
+              name='Third'
+              component={TracksAndroid}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 120,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            <Stack.Screen
+              name='Fourth'
+              component={Author}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 120,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            <Stack.Screen
+              name='Fifth'
+              component={Tip}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 120,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </DarkModeProvider>

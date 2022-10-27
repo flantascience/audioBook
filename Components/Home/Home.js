@@ -10,14 +10,6 @@ import {
 } from 'react-native';
 import { storeMedia, toggleStartTracks } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
-// import {
-//   Audio,
-//   AudioAndroid,
-//   Footer,
-//   Header,
-//   Button,
-//   Statusbar,
-// } from '../';
 import Audio from '../Audio/Audio';
 import AudioAndroid from '../Audio/AudioAndroid';
 import Footer from '../Footer/Footer';
@@ -213,7 +205,6 @@ class Home extends React.Component {
                   paused={!paused && isFocused ? false : true}
                   onVideoLoad={() => console.log('video loaded')}
                   onLoad={() => {
-                    console.log('video loaded ..');
                     this.setState({ loaded: true });
                   }}
                   onEnd={() => {

@@ -13,17 +13,8 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons';
-// import {
-//   AudioAndroid,
-//   Toast,
-//   Footer,
-//   Header,
-//   SoundBar,
-//   PurchaseOverview
-// } from '..';
 import Toast from '../Toast/Toast';
 import AudioAndroid from '../Audio/AudioAndroid';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import SoundBar from '../SoundBar/SoundBar';
 import PurchaseOverview from '../PurchaseOverview/PurchaseOverview';
@@ -74,20 +65,6 @@ class Tracks extends React.Component {
       autoPlayStarted: false
     }
   }
-
-  static navigationOptions = ({ navigation }) => ({
-    headerLeft: <Header />,
-    headerTitleStyle: {
-      textAlign: 'center',
-      justifyContent: 'center',
-      color: '#FF6D00',
-      alignItems: 'center'
-    },
-    headerStyle: {
-      backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-      height: 80,
-    },
-  });
 
   componentDidMount() {
     let { audioFiles, connectionInfo: { connected }, store, references, refsInfo: { fetched } } = this.props;
@@ -229,11 +206,11 @@ class Tracks extends React.Component {
   toggleNowPlaying = (pos, prog = false) => {
     let { audioFiles, selectedTrack, audioFilesCloud, references, connectionInfo: { connected }, store, userType } = this.props;
     const { currentAction } = this.state;
-    const currPos = audioFiles ? audioFiles[pos] : null;
+    var currPos = audioFiles ? audioFiles[pos] : null;
     this.foldAccordions();
     if (currPos !== null && pos !== selectedTrack) {
       //console.log(res)
-      const currPos = audioFiles[pos];
+      var currPos = audioFiles[pos];
       const mediaType = audioFiles[pos].type;
       const title = audioFiles[pos].title;
       /**If track is cloud based one needs an internet connection*/

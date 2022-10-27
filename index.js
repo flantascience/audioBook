@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import { AppRegistry, Platform } from 'react-native';
-// import { Home, Author, Tracks, TracksAndroid, PreLoad, Tip } from './Components';
 import Home from './Components/Home/Home';
 import Author from './Components/Author/Author';
 import Tracks from './Components/Tracks/Tracks';

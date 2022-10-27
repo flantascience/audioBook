@@ -14,12 +14,6 @@ import {
     formatTime,
     removeTrack
 } from '../../Misc/helpers';
-// import { 
-//   Toast,
-//   Questionnaire,
-//   ProgressBar,
-//   Refs
-// } from '../';
 import Toast from '../Toast/Toast';
 import Questionnaire from './Questionnaire';
 import ProgressBar from './ProgressBar';
@@ -119,7 +113,6 @@ class Audio extends React.Component {
                         };
                         this.props.store(newState);
                         TrackPlayer.pause();
-                        //TrackPlayer.stop()
                     }
                 }
                 resolve("same");
@@ -221,7 +214,8 @@ class Audio extends React.Component {
     }
 
     closeMiniPlayer = () => {
-        TrackPlayer.stop();
+        TrackPlayer.pause();
+        TrackPlayer.reset();
         this.props.store({
             selectedTrack: null,
             currentlyPlaying: null,

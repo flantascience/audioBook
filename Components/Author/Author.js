@@ -12,15 +12,6 @@ import {
 import { connect } from 'react-redux';
 import NetInfo from "@react-native-community/netinfo";
 import firebase from 'react-native-firebase';
-// import {
-//   Header,
-//   Footer,
-//   Toast,
-//   Audio,
-//   AudioAndroid,
-//   Button
-// } from '../'
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Toast from '../Toast/Toast';
 import Audio from '../Audio/Audio';
@@ -43,24 +34,6 @@ const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Author extends React.Component {
 
-  static navigationOptions = () => {
-    return {
-      headerLeft: <Header />,
-      headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
-      },
-      headerStyle: {
-        backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-        borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6'
-      }
-    }
-  };
-
   componentDidMount() {
     Analytics.setCurrentScreen('Author_prod');
     this.fetchSubscribers();
@@ -72,7 +45,6 @@ class Author extends React.Component {
       data.forEach(inf => {
         let email = inf.val();
         emails.push(email);
-        //console.log(email);
       });
       this.props.storeMediaInf({ emails });
     })
@@ -81,13 +53,11 @@ class Author extends React.Component {
   checkAvailability = userEmail => {
     return new Promise(resolve => {
       let { emails } = this.props;
-      //console.log(this.props)
       if (emails && emails.length > 0) {
         let available = true;
         emails.map(email => {
           if (userEmail.toLowerCase() === email.toLowerCase()) {
             available = false;
-            //console.log(available);
           }
         });
         resolve(available);
@@ -106,38 +76,37 @@ class Author extends React.Component {
     let { userEmail } = this.props;
     if (userEmail.length > 0) {
       if (userEmail.match(emailregex)) {
-        /*this.checkAvailability(userEmail).then(available => {
-          if (available) {*/
-        NetInfo.fetch().then(state => {
-          let conType = state.type;
-          //console.log(conType)
-          if (conType !== "wifi" && conType !== "cellular") {
-            let showToast = true;
-            this.props.storeMediaInf({ showToast, toastText: connectionFeedback.noConnection });
-            setTimeout(() => {
-              this.props.storeMediaInf({ showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
+        this.checkAvailability(userEmail).then(available => {
+          if (available) {
+            NetInfo.fetch().then(state => {
+              let conType = state.type;
+              if (conType !== "wifi" && conType !== "cellular") {
+                let showToast = true;
+                this.props.storeMediaInf({ showToast, toastText: connectionFeedback.noConnection });
+                setTimeout(() => {
+                  this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+                }, TOAST_TIMEOUT);
+              }
+              else {
+                dbRef.push(userEmail);
+                let showToast = true;
+                this.props.storeMediaInf({ showToast, toastText: author.messages.subscribed });
+                setTimeout(() => {
+                  this.props.storeMediaInf({ showToast: !showToast, toastText: null });
+                }, TOAST_TIMEOUT);
+                userEmail ? Analytics.logEvent('subscribed_users_prod', { emailAddress: userEmail }) : null;
+                this.fetchSubscribers();
+              }
+            });
           }
           else {
-            dbRef.push(userEmail);
             let showToast = true;
-            this.props.storeMediaInf({ showToast, toastText: author.messages.subscribed });
+            this.props.storeMediaInf({ showToast, toastText: author.messages.alreadySubscribed });
             setTimeout(() => {
               this.props.storeMediaInf({ showToast: !showToast, toastText: null });
             }, TOAST_TIMEOUT);
-            userEmail ? Analytics.logEvent('subscribed_users_prod', { emailAddress: userEmail }) : null;
-            this.fetchSubscribers();
           }
         });
-        /*}
-        else {
-          let showToast = true;
-          this.props.storeMediaInf({showToast, toastText: author.messages.alreadySubscribed });
-          setTimeout(() => {
-            this.props.storeMediaInf({showToast: !showToast, toastText: null});
-          }, TOAST_TIMEOUT);
-        }
-      });*/
       }
       else {
         let showToast = true;

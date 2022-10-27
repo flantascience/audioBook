@@ -7,18 +7,10 @@ import {
   Dimensions,
   ScrollView,
   TouchableOpacity,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
-// import NetInfo from "@react-native-community/netinfo";
 import firebase from 'react-native-firebase';
-// import {
-//   Header,
-//   Footer,
-//   Toast,
-//   Audio,
-//   AudioAndroid,
-// } from '../'
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Toast from '../Toast/Toast';
@@ -66,24 +58,6 @@ class Tip extends React.Component {
       loaded: false
     }
   }
-
-  static navigationOptions = () => {
-    return {
-      headerLeft: <Header />,
-      headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
-      },
-      headerStyle: {
-        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-        borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: mode === 'dark' ? '#525253' : '#C7C6C6'
-      }
-    }
-  };
 
   componentDidMount() {
     Analytics.setCurrentScreen('Tip_prod');
