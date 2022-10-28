@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
     View,
     Text,
-    Image,
+    //Image,
     Platform,
     BackHandler,
     Alert,
@@ -95,9 +95,9 @@ const Header = ({ playingIntro, media, preloader = false, updateUserType }) => {
             <View style={styles.header}>
                 <Statusbar backgroundColor="#212121" barStyle="light-content" />
                 <View style={styles.headerElementsContainer}>
-                    <View style={styles.navLogoConatiner}>
+                    {/* <View style={styles.navLogoConatiner}>
                         <Image style={styles.navLogo} source={require('./images/crzy-head-shot-trans.png')} />
-                    </View>
+                    </View> */}
                     <View style={styles.textContainer}>
                         <Text style={mode === 'light' ? styles.headerText : styles.headerTextAlt}>{header.headerText}</Text>
                         <Text style={mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt}>{header.subHeaderText}</Text>

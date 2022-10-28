@@ -121,7 +121,7 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 120,
+                  height: 100,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
@@ -141,7 +141,7 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 120,
+                  height: 100,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
@@ -160,7 +160,7 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 120,
+                  height: 100,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
@@ -179,7 +179,7 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 120,
+                  height: 100,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
@@ -198,7 +198,7 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 120,
+                  height: 100,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
