@@ -1,6 +1,0 @@
-dependencies: \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/cached-powers.cc \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/Target\ Support\ Files/DoubleConversion/DoubleConversion-prefix.pch \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/utils.h \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/cached-powers.h \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/DoubleConversion/double-conversion/diy-fp.h

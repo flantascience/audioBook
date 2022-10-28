@@ -1,5 +1,0 @@
-dependencies: \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FLLRBValueNode.m \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FLLRBValueNode.h \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FLLRBNode.h \
-  /Volumes/Misc/GitHub/audioBook/ios/Pods/FirebaseDatabase/Firebase/Database/third_party/FImmutableSortedDictionary/FImmutableSortedDictionary/FLLRBEmptyNode.h
