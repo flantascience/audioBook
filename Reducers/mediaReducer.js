@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from '../Actions/types';
 
 const initialState = {
@@ -38,7 +39,7 @@ const initialState = {
 };
 
 const mediaReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case STORE_MEDIA:
       return {
         ...state,

@@ -49,8 +49,9 @@ class Audio extends React.Component {
         }
     }
 
-    toggleTrack = pos => {
-        let { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs } = this.props;
+    toggleTrack = props => {
+        const { audioFiles, paused, currentlyPlaying, currentPosition, trackDuration, updateShowRefs, selectedTrack: pos } = props;
+        if (!pos) { return; }
         let title = audioFiles[pos].title;
         return new Promise(resolve => {
             if (currentlyPlaying !== undefined && currentlyPlaying !== null && parseInt(currentlyPlaying) !== parseInt(pos)) {
@@ -92,7 +93,7 @@ class Audio extends React.Component {
                                 currentlyPlayingName: title,
                                 showTextinput: false,
                                 paused: false,
-                                loaded: true
+                                loaded: true,
                             };
                             this.props.store(newState);
                             TrackPlayer.play();
@@ -102,14 +103,14 @@ class Audio extends React.Component {
                 else {
                     if (paused) {
                         let newState = {
-                            paused: false
+                            paused: false,
                         };
                         this.props.store(newState);
                         TrackPlayer.play();
                     }
                     else {
                         let newState = {
-                            paused: true
+                            paused: true,
                         };
                         this.props.store(newState);
                         TrackPlayer.pause();
@@ -119,6 +120,10 @@ class Audio extends React.Component {
             }
             else {
                 //console.log("other")
+                const newState = {
+                    paused: false,
+                };
+                this.props.store(newState);
                 TrackPlayer.play();
                 resolve("not");
             }
@@ -259,13 +264,10 @@ class Audio extends React.Component {
         let realOtherQuestion = lastTrackId === currentlyPlaying ? otherQuestionFinal : otherQuestion1;
         /**Input text config */
         let multiLine = lastTrackId === currentlyPlaying ? true : false;
-        //console.log(loaded)
         selectedTrack = pos !== selectedTrack ? pos : selectedTrack;
 
         let playIcon = "play-circle";
-        if (!currentlyPlayingName && paused && !loaded) playIcon = "play-circle"
-        else if (paused && loaded) playIcon = "play-circle";
-        else if (!paused && loaded) playIcon = "pause";
+        if (!paused && loaded) playIcon = "pause";
 
         let trackDuration = selectedTrack ? audioFiles[selectedTrack].duration : "";
         let remainingTime = (trackDuration - currentPosition);
@@ -321,7 +323,7 @@ class Audio extends React.Component {
                                             <TouchableOpacity
                                                 disabled={!buttonsActive}
                                                 style={styles.groupedButtons}
-                                                onPress={selectedTrack ? () => this.toggleTrack(selectedTrack) : () => { }}
+                                                onPress={() => this.toggleTrack({ ...this.props, selectedTrack })}
                                             >
                                                 <Icon
                                                     color={dark ? '#fff' : '#000'}
@@ -457,7 +459,7 @@ class Audio extends React.Component {
                                         <TouchableOpacity
                                             disabled={!buttonsActive}
                                             style={styles.groupedButtons}
-                                            onPress={selectedTrack ? () => this.toggleTrack(selectedTrack) : () => { }}
+                                            onPress={() => this.toggleTrack({ ...this.props, selectedTrack })}
                                         >
                                             <Icon
                                                 color={dark ? '#fff' : '#000'}

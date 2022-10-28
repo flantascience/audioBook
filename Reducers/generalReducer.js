@@ -1,9 +1,10 @@
-import { 
-  STORE_INPUT, 
-  SLOW_CONNECTION, 
-  NO_CONNECTION, 
-  CONNECTED, 
-  SET_START_TRACKS ,
+/* eslint-disable prettier/prettier */
+import {
+  STORE_INPUT,
+  SLOW_CONNECTION,
+  NO_CONNECTION,
+  CONNECTED,
+  SET_START_TRACKS,
   SET_USER_TYPE,
   UPDATE_SHOW_PURCHASE_OVERVIEW,
   UPDATE_PURCHASING,
@@ -23,19 +24,19 @@ const initialState = {
 };
 
 const generalReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case STORE_INPUT:
       return {
         ...state,
         userEmail: action.payload,
       };
-    case SLOW_CONNECTION: 
+    case SLOW_CONNECTION:
       return {
         ...state,
         connection: 'slow',
         connectionChecked: true
       }
-    case CONNECTED: 
+    case CONNECTED:
       return {
         ...state,
         connection: action.payload,
@@ -74,10 +75,10 @@ const generalReducer = (state = initialState, action) => {
       }
     }
     case UPDATE_IS_PURCHASING: {
-        return {
-            ...state,
-            isPurchasing: action.payload
-        }
+      return {
+        ...state,
+        isPurchasing: action.payload
+      }
     }
     default:
       return state;

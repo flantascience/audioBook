@@ -1,7 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Dimensions } from 'react-native';
 import {
     Colors
-  } from 'react-native/Libraries/NewAppScreen';
+} from 'react-native/Libraries/NewAppScreen';
 
 export const styles = StyleSheet.create({
     scrollView: {
@@ -13,7 +14,7 @@ export const styles = StyleSheet.create({
         height: "100%"
     },
     homeMid: {
-        flex:6,
+        flex: 6,
         overflow: "hidden"
     },
     overviewContainer: {
@@ -41,26 +42,26 @@ export const styles = StyleSheet.create({
         marginBottom: -35,
     },
     IntroductionVideoBeforeLoad: {
-      display: "none",
+        display: "none",
     },
     IntroductionVideo: {
         position: "absolute",
         backgroundColor: "#000",
-        bottom:0,
+        bottom: 0,
         left: 0,
-        right:0,
-        top:0
+        right: 0,
+        top: 0
     },
     thumb: {
         height: Dimensions.get('window').height,
         width: Dimensions.get('window').width
     },
     homeFooter: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#EBEAEA"
     },
     homeFooterDark: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#000"
     },
     altHomeFooter: {
@@ -74,7 +75,7 @@ export const styles = StyleSheet.create({
     centerImageContainer: {
         display: "flex",
         flexDirection: "column",
-        flex:1,
+        flex: 1,
         alignContent: "center",
         justifyContent: "center"
     },

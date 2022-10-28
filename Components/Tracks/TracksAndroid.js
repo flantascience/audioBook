@@ -78,7 +78,6 @@ class Tracks extends React.Component {
           const nextTrackInfo = audioFiles[nextTrackId];
           const free = audioFiles[nextTrackId].free;
           const trackAvailable = free || userType === 'paid';
-          // console.log(nextTrackId)
           if (nextTrackInfo && trackAvailable) setTimeout(() => this.toggleNowPlaying(String(nextTrackId), true), NEXT_TRACK_TIMEOUT);
           else {
             console.log('no playing next')
@@ -90,9 +89,6 @@ class Tracks extends React.Component {
           }
         }
       }
-
-      if (playerState === 0 || playerState === 1 || playerState === 2) this.props.store({ paused: true });
-      else if (playerState !== 1) this.props.store({ paused: false });
     });
 
     TrackPlayer.addEventListener('remote-play', async () => {
