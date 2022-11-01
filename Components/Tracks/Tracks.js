@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import {
     View,
@@ -10,11 +11,14 @@ import {
 } from 'react-native'
 import AsyncStorage from '@react-native-community/async-storage'
 // import TrackPlayer from 'react-native-video';
-import { connect } from 'react-redux'
-import { Toast, Audio, Header, Footer, SoundBar, PurchaseOverview } from '../'
-import Icon from 'react-native-vector-icons/Ionicons'
-import ProgressCircle from 'react-native-progress-circle'
-import firebase from 'react-native-firebase';
+import { connect } from 'react-redux';
+import Toast from '../Toast/Toast';
+import Audio from '../Audio/Audio';
+import Footer from '../Footer/Footer';
+import SoundBar from '../SoundBar/SoundBar';
+import PurchaseOverview from '../PurchaseOverview/PurchaseOverview';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ProgressCircle from 'react-native-progress-circle';
 import RNFS from 'react-native-fs';
 import { formatTime } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
@@ -34,30 +38,32 @@ import {
     updateShowPurchaseOverview,
     updatePurchasing,
     updateIsPurchasing,
-} from '../../Actions/generalActions'
+} from '../../Actions/generalActions';
 import {
     slowConnectionDetected,
     noConnectionDetected,
-} from '../../Actions/connection'
-import { changeRefsView, storeRefs } from '../../Actions/references'
+} from '../../Actions/connection';
+import { changeRefsView, storeRefs } from '../../Actions/references';
 //import { eventEmitter } from 'react-native-dark-mode';
-import { setUserType } from '../../Actions/userInput'
-import * as RNIap from 'react-native-iap'
+import { setUserType } from '../../Actions/userInput';
+import * as RNIap from 'react-native-iap';
+import analytics from '@react-native-firebase/analytics';
+import database from '@react-native-firebase/database';
 
 const items = Platform.select({
     ios: ['01'],
 })
 
-const Analytics = firebase.analytics()
-const tracksRef = firebase.database().ref('/tracks')
-const referencesRef = firebase.database().ref('/references')
-const Android = Platform.OS === 'android'
+const Analytics = analytics();
+const tracksRef = database().ref('/tracks');
+const referencesRef = database().ref('/references');
+const Android = Platform.OS === 'android';
 
 const currentMode = 'dark' /* eventEmitter.currentMode; */
 
 class Tracks extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         let { audioFiles } = props
         let currentAction = []
 
@@ -80,26 +86,8 @@ class Tracks extends React.Component {
         }
     }
 
-    static navigationOptions = () => {
-        return {
-            headerLeft: <Header />,
-            headerTitleStyle: {
-                textAlign: 'center',
-                justifyContent: 'center',
-                color: '#FF6D00',
-                alignItems: 'center',
-            },
-            headerStyle: {
-                backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                height: 80,
-                borderBottomWidth: Android ? 0 : 1,
-                borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
-            },
-        }
-    }
-
     componentDidMount() {
-        Analytics.setCurrentScreen('Tracks_prod')
+        Analytics.setCurrentScreen('Tracks_prod');
         const {
             connectionInfo: { connected },
             refsInfo: { fetched },
@@ -172,7 +160,7 @@ class Tracks extends React.Component {
             store,
             userType,
         } = this.props
-        let currentAction  = [...this.state.currentAction];
+        let currentAction = [...this.state.currentAction];
         const currPos = audioFiles ? audioFiles[pos] : null
         this.foldAccordions()
         if (currPos !== null && pos !== selectedTrack) {
@@ -190,7 +178,7 @@ class Tracks extends React.Component {
                         ? true
                         : false
             if (playable) {
-                Analytics.logEvent('tracks_played_prod', { tracks: title })
+                Analytics.logEvent('tracks_played_prod', { tracks: title });
                 // console.log(audioFiles[pos].title)
                 this.updateReferenceInfo(audioFiles[pos].id, audioFiles, references)
                 if (mediaType === 'local') {
@@ -304,13 +292,13 @@ class Tracks extends React.Component {
                     this.setState({ currentAction })
                 }
             } else {
-                
+
                 let showToast = true
                 store({ showToast, toastText: tracks.noInternetConnection })
                 setTimeout(() => {
                     store({ showToast: !showToast, toastText: null })
                 }, TOAST_TIMEOUT)
-                
+
             }
         } else {
             if (!currPos) {
@@ -509,7 +497,6 @@ class Tracks extends React.Component {
                     }, TOAST_TIMEOUT)
                     startPurchasing(false)
                 } else {
-                    console.log(e.message)
                     let showToast = true
                     toggleShowPurchaseOverview(false)
                     store({ showToast, toastText: tracks.restartApp });
@@ -628,13 +615,13 @@ class Tracks extends React.Component {
             showToast,
             connectionInfo: { connection, connected },
             reportSlowConnection,
-            userType,
+            //userType,
             toggleShowPurchaseOverview,
             showPurchaseOverview,
             isPurchasing,
-        } = this.props
-        let { referencesInfo } = this.state
-        let height = Dimensions.get('window').height
+        } = this.props;
+        let { referencesInfo } = this.state;
+        let height = Dimensions.get('window').height;
 
         // console.log(showPurchaseOverview);
 
@@ -648,7 +635,7 @@ class Tracks extends React.Component {
         let loading = audioFiles.length === 0
         // set timeout to determine whether the connection is slow
         setTimeout(() => {
-            if (loading) reportSlowConnection()
+            if (loading) { reportSlowConnection(); }
         }, SLOW_CONNECTION_TIMER)
 
         const audioControls = (
@@ -748,11 +735,11 @@ class Tracks extends React.Component {
                                                                         size={40}
                                                                     />
                                                                 ) : (
-                                                                        <SoundBar
-                                                                            dark={dark}
-                                                                            playing={currentPosition > 0}
-                                                                        />
-                                                                    )}
+                                                                    <SoundBar
+                                                                        dark={dark}
+                                                                        playing={currentPosition > 0}
+                                                                    />
+                                                                )}
                                                             </TouchableOpacity>
                                                             {type === 'cloud' && action !== 'downloading' ? (
                                                                 <TouchableOpacity
@@ -771,21 +758,21 @@ class Tracks extends React.Component {
                                                                 </TouchableOpacity>
                                                             ) : type === 'cloud' &&
                                                                 action === 'downloading' ? (
-                                                                        <View style={{ marginLeft: 20 }}>
-                                                                            <ProgressCircle
-                                                                                percent={percentage}
-                                                                                radius={14}
-                                                                                borderWidth={2}
-                                                                                color='#3399FF'
-                                                                                shadowColor='#999'
-                                                                                bgColor='#fff'
-                                                                            >
-                                                                                <Text style={{ fontSize: 8 }}>
-                                                                                    {percentage + '%'}
-                                                                                </Text>
-                                                                            </ProgressCircle>
-                                                                        </View>
-                                                                    ) : null}
+                                                                <View style={{ marginLeft: 20 }}>
+                                                                    <ProgressCircle
+                                                                        percent={percentage}
+                                                                        radius={14}
+                                                                        borderWidth={2}
+                                                                        color='#3399FF'
+                                                                        shadowColor='#999'
+                                                                        bgColor='#fff'
+                                                                    >
+                                                                        <Text style={{ fontSize: 8 }}>
+                                                                            {percentage + '%'}
+                                                                        </Text>
+                                                                    </ProgressCircle>
+                                                                </View>
+                                                            ) : null}
                                                         </View>
                                                     )}
                                                 </TouchableOpacity>
@@ -795,27 +782,27 @@ class Tracks extends React.Component {
                                 })}
                             </ScrollView>
                         ) : (
-                                <View>
-                                    {connected ? (
-                                        <View>
-                                            <ActivityIndicator
-                                                size='large'
-                                                color='#D4D4D4'
-                                                style={{ marginTop: '10%' }}
-                                            />
-                                            {connection === 'slow' ? (
-                                                <Text style={styles.text}>
-                                                    {connectionFeedback.slowConnection}
-                                                </Text>
-                                            ) : null}
-                                        </View>
-                                    ) : (
+                            <View>
+                                {connected ? (
+                                    <View>
+                                        <ActivityIndicator
+                                            size='large'
+                                            color='#D4D4D4'
+                                            style={{ marginTop: '10%' }}
+                                        />
+                                        {connection === 'slow' ? (
                                             <Text style={styles.text}>
-                                                {connectionFeedback.needConnectionToFetchTracks}
+                                                {connectionFeedback.slowConnection}
                                             </Text>
-                                        )}
-                                </View>
-                            )}
+                                        ) : null}
+                                    </View>
+                                ) : (
+                                    <Text style={styles.text}>
+                                        {connectionFeedback.needConnectionToFetchTracks}
+                                    </Text>
+                                )}
+                            </View>
+                        )}
                     </View>
                 ) : null}
                 {selectedTrack ? (

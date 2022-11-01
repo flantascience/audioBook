@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -6,30 +7,29 @@ import {
     View,
     Text,
     Platform,
-    ScrollView
+    ScrollView,
 } from 'react-native';
 import {
     formatTime,
-    removeTrack
+    removeTrack,
 } from '../../Misc/helpers';
 import TrackPlayer from 'react-native-video';
-import {
-    Toast,
-    ProgressBar,
-    Questionnaire,
-    Refs
-} from '../';
-import firebase from 'react-native-firebase';
+import Toast from '../Toast/Toast';
+import ProgressBar from './ProgressBar';
+import Questionnaire from './Questionnaire';
+import Refs from './Refs';
 import { TOAST_TIMEOUT } from '../../Misc/Constants';
 import { storeMedia, changeQuestionnaireVew } from '../../Actions/mediaFiles';
-import { NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
+//import { NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { changeRefsView } from '../../Actions/references';
 import { styles } from './styles';
 import { audioOverview, audio } from '../../Misc/Strings';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
+import analytics from '@react-native-firebase/analytics';
+import database from '@react-native-firebase/database';
 
-const dbRef = firebase.database().ref("/questionnaire");
-const Analytics = firebase.analytics();
+const dbRef = database().ref("/questionnaire");
+const Analytics = analytics();
 
 class Audio extends React.Component {
     state = {
@@ -405,7 +405,7 @@ class Audio extends React.Component {
                                 >
                                     <Text style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold", color: dark ? '#fff' : '#000' }}>
                                         Give Feedback on This Track
-                                </Text>
+                                    </Text>
                                     <Icon
                                         color={dark ? '#fff' : '#000'}
                                         style={{ flex: 1, zIndex: 1 }}
@@ -437,7 +437,7 @@ class Audio extends React.Component {
                                         style={{ flex: 8, zIndex: 0, textAlign: "center", fontWeight: "bold", color: dark ? '#fff' : '#000' }}
                                     >
                                         References and Links
-                                </Text>
+                                    </Text>
                                     <Icon
                                         color={dark ? '#fff' : '#000'}
                                         style={{ flex: 1, zIndex: 1 }}
@@ -467,7 +467,7 @@ class Audio extends React.Component {
                                         style={dark ? styles.closePlayerDark : styles.closePlayer}
                                     >
                                         X
-                                </Text>
+                                    </Text>
                                 </TouchableOpacity>
                                 <View style={styles.controllerContainer}>
                                     <TouchableOpacity onPress={this.toggleOverview} style={styles.textDisplay}>
@@ -555,7 +555,6 @@ const mapStateToProps = state => {
         references: state.refs.references,
         showQuestionnaire: state.media.showQuestionnaire,
         showRefs: state.refs.showRefs,
-        screen: state.media.screen,
         buttonsActive: state.media.buttonsActive,
         showOverview: state.media.showOverview,
         showTextinput: state.media.showTextinput,
@@ -569,7 +568,7 @@ const mapStateToProps = state => {
         hideMenu: state.media.hideMenu,
         connected: state.connectionInfo.connected,
         fetchingRefs: state.refs.fetching,
-        toggleNowPlaying: state.media.toggleNowPlaying
+        toggleNowPlaying: state.media.toggleNowPlaying,
     }
 }
 

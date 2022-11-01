@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet } from 'react-native';
 
-const mode = 'dark' // eventEmitter.currentMode;
+const mode = 'dark'; // eventEmitter.currentMode;
 const dark = mode === 'dark';
 
 export const styles = StyleSheet.create({
@@ -150,14 +151,14 @@ export const styles = StyleSheet.create({
         color: '#fff'
     },
     loading_overlay: {
-        position: 'absolute', 
-        left: 0, 
-        top: 0, 
+        position: 'absolute',
+        left: 0,
+        top: 0,
         bottom: 100,
-        right: 0, 
-        display: 'flex', 
-        backgroundColor: 'rgba(0,0,0, 0.9)', 
-        justifyContent:'center', 
+        right: 0,
+        display: 'flex',
+        backgroundColor: 'rgba(0,0,0, 0.9)',
+        justifyContent: 'center',
         alignItems: 'center',
         zIndex: 1000
     },

@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Dimensions, Platform } from 'react-native';
 import {
-    Colors
+    Colors,
 } from 'react-native/Libraries/NewAppScreen';
 //import { eventEmitter } from 'react-native-dark-mode';
 
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeMid: {
-        flex:6,
+        flex: 6,
         display: "flex",
         flexDirection: "row",
         alignContent: "center",
@@ -48,9 +49,9 @@ export const styles = StyleSheet.create({
         position: "absolute",
         backgroundColor: "#000",
         height: height > 600 ? height - 100 : height - 50,
-        bottom:0,
+        bottom: 0,
         left: 0,
-        right:0,
+        right: 0,
         top: 0
     },
     altOverviewContainer: {
@@ -73,11 +74,11 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeFooter: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#EBEAEA"
     },
     homeFooterDark: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#212121"
     },
     altHomeFooter: {
@@ -95,23 +96,23 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start'
     },
     thumb: {
-        height: height > 800 ? height - 190 : 
-        height > 600 && height < 800 ? height - 160 : 
-        height - 140,
+        height: height > 800 ? height - 190 :
+            height > 600 && height < 800 ? height - 160 :
+                height - 140,
         width,
         resizeMode: 'cover'
     },
     mainTextThumb: {
         position: 'absolute',
-        display:'flex',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? 10 : 
-        height > 600 && height < 800 ? - 10 : 
-        -25,
+        top: height > 800 ? 10 :
+            height > 600 && height < 800 ? - 10 :
+                -25,
     },
     mainTextThumbImg: {
         flex: 1,
@@ -126,18 +127,18 @@ export const styles = StyleSheet.create({
     },
     playButtonContainer: {
         position: 'absolute',
-        display:'flex',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         top: height > 800 ? (height / 3) - 30 :
-        height > 600 && height < 800 ? (height / 3) :
-        (height / 2.8)
+            height > 600 && height < 800 ? (height / 3) :
+                (height / 2.8)
         /*bottom: height > 800 ? '38%' : 
         height > 600 ? '35%' : 
         '30%'*/
     },
     playButton: {
-        display:'flex',
+        display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: iOS ? 0 : 10,
@@ -150,18 +151,18 @@ export const styles = StyleSheet.create({
         width: 60
     },
     playButtonText: {
-        color: '#fff', 
-        fontSize: 15, 
-        fontFamily: 'Arial', 
+        color: '#fff',
+        fontSize: 15,
+        fontFamily: 'Arial',
         fontWeight: 'bold'
     },
     centerImageContainer: {
         display: "flex",
         flexDirection: "column",
-        flex:1,
-        height: height > 800 ? 
-        height - 220 : height > 600 ? 
-        height - 180 : height - 160,
+        flex: 1,
+        height: height > 800 ?
+            height - 220 : height > 600 ?
+                height - 180 : height - 160,
         width,
         borderWidth: 0,
         backgroundColor: dark ? '#000' : '#fff',

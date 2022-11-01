@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 const showBorder = Platform.OS === "ios" ? true : false;
 const height = Math.round(Dimensions.get('window').height);
@@ -7,24 +8,24 @@ export const styles = StyleSheet.create({
         transform: [{ scaleX: -1 }],
     },
     elContainer: {
-        flex:2,
+        flex: 2,
         display: 'flex',
         backgroundColor: '#fff'
     },
     elContainerDark: {
-        flex:2,
+        flex: 2,
         display: 'flex',
         backgroundColor: '#0D0D0D'
     },
-    container:{
+    container: {
         display: "flex",
         flexDirection: "column",
-        minHeight: height < 813? 125 : 155,
+        minHeight: height < 813 ? 125 : 155,
         paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#C7C6C6",
-        borderWidth: showBorder?1:0,
+        borderWidth: showBorder ? 1 : 0,
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 0 },
@@ -32,15 +33,15 @@ export const styles = StyleSheet.create({
         shadowRadius: 0.5,
         backgroundColor: '#fff'
     },
-    containerDark:{
+    containerDark: {
         display: "flex",
         flexDirection: "column",
-        minHeight: height < 813? 125 : 155,
+        minHeight: height < 813 ? 125 : 155,
         paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#3C3C3C",
-        borderWidth: showBorder?0.5:0,
+        borderWidth: showBorder ? 0.5 : 0,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 0 },
@@ -50,13 +51,13 @@ export const styles = StyleSheet.create({
     altContiner: {
         display: "flex",
         flexDirection: "column",
-        minHeight: height < 813? 125 : 155,
+        minHeight: height < 813 ? 125 : 155,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#C7C6C6",
-        borderWidth: showBorder?1:0,
+        borderWidth: showBorder ? 1 : 0,
         elevation: 2,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 0 },
@@ -67,13 +68,13 @@ export const styles = StyleSheet.create({
     altContinerDark: {
         display: "flex",
         flexDirection: "column",
-        minHeight: height < 813? 125 : 155,
+        minHeight: height < 813 ? 125 : 155,
         paddingTop: 10,
         paddingBottom: 10,
         paddingLeft: 10,
         paddingRight: 10,
         borderColor: "#3C3C3C",
-        borderWidth: showBorder?0.5:0,
+        borderWidth: showBorder ? 0.5 : 0,
         elevation: 1,
         shadowColor: '#000',
         shadowOffset: { width: 1, height: 0 },
@@ -215,7 +216,7 @@ export const styles = StyleSheet.create({
         marginTop: !showBorder ? 8 : 0
     },
     textScrollView: {
-        flex:1,
+        flex: 1,
         overflow: "hidden",
         paddingLeft: 10,
         paddingRight: 10,
@@ -258,7 +259,6 @@ export const styles = StyleSheet.create({
         position: showBorder ? 'absolute' : 'relative',
         left: 1,
         width: showBorder ? null : 40,
-        borderWidth: 0,
         backgroundColor: "#fff",
         top: showBorder ? -29 : 0,
         borderColor: "#C7C6C6",
@@ -274,14 +274,13 @@ export const styles = StyleSheet.create({
         paddingTop: 2,
         paddingBottom: 2,
         paddingLeft: 15,
-        paddingRight: 15, 
+        paddingRight: 15,
         zIndex: 1000
     },
     closePlayerContainerDark: {
         position: showBorder ? 'absolute' : 'relative',
         left: 1,
         width: showBorder ? null : 40,
-        borderWidth: 0,
         backgroundColor: showBorder ? "#0D0D0D" : '#7F8787',
         top: showBorder ? -28 : 0,
         borderColor: "#757575",
@@ -334,14 +333,14 @@ export const styles = StyleSheet.create({
         backgroundColor: "#000",
         borderRadius: 2
     },
-    buttonContainer:{
+    buttonContainer: {
         marginTop: 5,
         marginLeft: 30,
         marginRight: 30,
         paddingTop: 5,
         paddingBottom: 5
     },
-    altButtonContainer:{
+    altButtonContainer: {
         marginTop: 5,
         marginLeft: 30,
         marginRight: 30
@@ -428,11 +427,11 @@ export const styles = StyleSheet.create({
         color: "#000"
     },
     trackElapsedTime: {
-        flex:1,
+        flex: 1,
         alignContent: "flex-start"
     },
     trackRemainingTime: {
-        flex:1,
+        flex: 1,
         alignItems: "flex-end"
     },
     volumeImagesContainer: {
@@ -441,7 +440,7 @@ export const styles = StyleSheet.create({
         flexDirection: "row"
     },
     volumeDown: {
-        flex:1,
+        flex: 1,
         alignContent: "flex-start"
     },
     volumeUp: {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
     View,
@@ -12,16 +13,13 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
 import TrackPlayer from 'react-native-track-player';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {
-    AudioAndroid,
-    Toast,
-    Footer,
-    Header,
-    SoundBar,
-    PurchaseOverview
-} from '..';
+import AudioAndroid from '../Audio/AudioAndroid';
+import Toast from '../Toast/Toast';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import SoundBar from '../SoundBar/SoundBar';
+import PurchaseOverview from '../PurchaseOverview/PurchaseOverview';
 import ProgressCircle from 'react-native-progress-circle';
-import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
@@ -33,17 +31,19 @@ import { setUserType } from '../../Actions/userInput';
 import { changeRefsView, storeRefs } from '../../Actions/references';
 import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from '../../Actions/generalActions';
 import * as RNIap from 'react-native-iap';
+import analytics from '@react-native-firebase/analytics';
+import database from '@react-native-firebase/database';
 
 const items = [
     '01',
     'android.test.purchased',
     'android.test.canceled',
-    'android.test.item_unavailable'
+    'android.test.item_unavailable',
 ];
 
-const Analytics = firebase.analytics();
-const referencesRef = firebase.database().ref('/references');
-const tracksRef = firebase.database().ref("/tracks");
+const Analytics = analytics();
+const referencesRef = database().ref('/references');
+const tracksRef = database().ref("/tracks");
 
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
@@ -297,7 +297,7 @@ class Tracks extends React.Component {
                                             //alert that track is streaming
                                             currentAction[pos] = currentAction[pos] || {};
                                             currentAction[pos].action = "streaming";
-                                            this.setState({currentAction});
+                                            this.setState({ currentAction });
                                         })
                                     });
                                 }
@@ -368,7 +368,7 @@ class Tracks extends React.Component {
                                     audioFiles[pos].title ? Analytics.logEvent('consumption_type_prod', { streaming: audioFiles[pos].title }) : null;
                                     //alert that track is streaming
                                     currentAction[pos].action = "streaming";
-                                    this.setState({currentAction});
+                                    this.setState({ currentAction });
                                 })
                             });
                         }
@@ -509,7 +509,7 @@ class Tracks extends React.Component {
                     startPurchasing(false);
                 }
                 else {
-                    console.log(e.message)
+                    // console.log(e.message)
                     let showToast = true
                     toggleShowPurchaseOverview(false)
                     store({ showToast, toastText: tracks.restartApp });
@@ -544,10 +544,9 @@ class Tracks extends React.Component {
 
     buyProduct = () => {
         const { products } = this.state;
-        const { toggleShowPurchaseOverview, startPurchasing } = this.props;
+        const { toggleShowPurchaseOverview, startPurchasing, updateUserType, store } = this.props;
         if (products && products.length > 0) {
             const tracksId = items[0];
-            const { updateUserType, store } = this.props;
             startPurchasing(true);
             RNIap.requestPurchase(tracksId, false).then(purchase => {
                 if (purchase.transactionReceipt) {

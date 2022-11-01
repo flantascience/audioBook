@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Platform } from 'react-native';
 const Android = Platform.OS === 'android';
 

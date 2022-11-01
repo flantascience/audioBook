@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Platform } from 'react-native';
 import {
     FIREBASE_ANDROID_API_KEY,
@@ -8,7 +9,7 @@ import {
     FIREBASE_IOS_APP_ID,
     FIREBASE_PROJECT_ID,
     FIREBASE_SENDER_MESSAGING_ID,
-    FIREBASE_STORAGE_BUCKET
+    FIREBASE_STORAGE_BUCKET,
 } from 'react-native-dotenv';
 const OS = Platform.OS;
 
@@ -19,9 +20,9 @@ export const firebaseConfig = {
     projectId: FIREBASE_PROJECT_ID,
     storageBucket: FIREBASE_STORAGE_BUCKET,
     messagingSenderId: FIREBASE_SENDER_MESSAGING_ID,
-    appId: OS === 'android'? FIREBASE_ANDROID_APP_ID : FIREBASE_IOS_APP_ID
+    appId: OS === 'android' ? FIREBASE_ANDROID_APP_ID : FIREBASE_IOS_APP_ID
 };
-export const TIPS = [5,20,50, 120, 240, 1000];
+export const TIPS = [5, 20, 50, 120, 240, 1000];
 export const SLOW_CONNECTION_TIMER = 5000;
 export const TOAST_TIMEOUT = 1500;
 export const LONG_TOAST_TIMEOUT = 2000;

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
@@ -5,31 +6,28 @@ import {
     Dimensions,
     Image,
     AppState,
-    Platform
+    Platform,
 } from 'react-native';
 import { storeMedia, toggleStartTracks } from '../../Actions/mediaFiles';
 import { storeRefs } from '../../Actions/references';
-import {
-    Audio,
-    AudioAndroid,
-    Footer,
-    Header,
-    Button
-} from '../';
+import Audio from '../Audio/Audio';
+import AudioAndroid from '../Audio/AudioAndroid';
+import Footer from '../Footer/Footer';
+import Button from '../Button/Button';
 import Video from 'react-native-video';
-import firebase from 'react-native-firebase';
-import { withNavigationFocus } from 'react-navigation';
+import { useIsFocused } from '@react-navigation/native';
 import { styles } from './style';
 import LeaveSchoolIntro from "../../Misc/media/LeaveSchool-Intro.mp4";
+import analytics from '@react-native-firebase/analytics';
 
-const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
+const Analytics = analytics();
 
-const mode = 'dark' // eventEmitter.currentMode;
+const mode = 'dark'; // eventEmitter.currentMode;
 
 class Home extends React.Component {
     constructor() {
-        super()
+        super();
         this.state = {
             loaded: false,
             showVid: false,
@@ -39,33 +37,16 @@ class Home extends React.Component {
             paused: true,
             fullscreen: false,
             willResume: false,
-            startButtonTitle: "Start"
+            startButtonTitle: "Start",
         }
     }
 
-    static navigationOptions = () => {
-        return {
-            headerLeft: <Header Android={Android} />,
-            headerTitleStyle: {
-                textAlign: 'center',
-                justifyContent: 'center',
-                color: '#FF6D00',
-                alignItems: 'center'
-            },
-            headerStyle: {
-                backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
-                height: 80,
-                borderBottomWidth: Android ? 0 : 1,
-                borderBottomColor: mode === 'dark' ? '#525253' : '#C7C6C6'
-            }
-        }
-    };
-
     componentDidMount() {
         // console.log(this.props.audioFiles)
+        const { navigation } = this.props;
         AppState.addEventListener("change", this._handleAppStateChange);
         Analytics.setCurrentScreen('Home_prod');
-        this.blurSubscription = this.props.navigation.addListener(
+        this.blurSubscription = navigation.addListener(
             'willBlur',
             () => {
                 if (!this.state.paused) {
@@ -77,16 +58,15 @@ class Home extends React.Component {
 
     componentDidUpdate() {
         let {
-            navigation,
             paused,
             currentlyPlaying,
             playingIntro,
-            storeMedia
+            storeMedia,
+            isFocused,
         } = this.props;
 
         if (!currentlyPlaying) {
             let vidPlaying = !this.state.paused;
-            let isFocused = navigation.isFocused();
             let audioPlaying = !paused;
             if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
                 this.setState({ paused: true, showVid: false });
@@ -97,7 +77,7 @@ class Home extends React.Component {
     }
 
     componentWillUnmount() {
-        this.blurSubscription.remove();
+        if (this.blurSubscription && typeof this.blurSubscription.remove === 'function') { this.blurSubscription.remove() };
     }
 
     startTracks = () => {
@@ -123,10 +103,10 @@ class Home extends React.Component {
             currentlyPlayingName,
             showOverview,
             storeMedia,
-            playingIntro
+            playingIntro,
+            isFocused,
         } = this.props;
         let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
-        let isFocused = navigation.isFocused();
         let dark = mode === 'dark';
         let audioPlaying = !this.props.paused;
 
@@ -324,4 +304,10 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(Home));
+const WrappedHome = (props) => {
+    const isFocused = useIsFocused();
+
+    return <Home {...props} isFocused={isFocused} />;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedHome);

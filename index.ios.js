@@ -5,8 +5,8 @@
 import React from 'react';
 import { AppRegistry, Platform } from 'react-native';
 import Home from './Components/Home/Home';
-import Tracks from './Components/Tracks';
-import Header from './Components/Header';
+import Tracks from './Components/Tracks/Tracks';
+import Header from './Components/Header/Header';
 import Author from './Components/Author/Author';
 import PreLoad from './Components/PreLoad/PreLoad';
 import Tip from './Components/Tip';
@@ -173,4 +173,3 @@ const App = () => (
 );
 
 AppRegistry.registerComponent(appName, () => App);
-TrackPlayer.registerPlaybackService(() => require('./service'));

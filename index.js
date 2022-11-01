@@ -174,4 +174,4 @@ const App = () => (
 );
 
 AppRegistry.registerComponent(appName, () => App);
-TrackPlayer.registerPlaybackService(() => require('./service'));
+Android ? TrackPlayer.registerEventHandler(() => require('./service')) : null;

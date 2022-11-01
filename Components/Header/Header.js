@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -5,21 +6,21 @@ import {
     Text,
     Image,
     Platform,
-    StatusBar
+    StatusBar,
 } from 'react-native';
 import { header } from '../../Misc/Strings';
 import { storeMedia } from '../../Actions/mediaFiles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { styles } from './style';
-import { eventEmitter } from 'react-native-dark-mode';
+// import { eventEmitter } from 'react-native-dark-mode';
 // import jsonStringifier from 'json-stringify-safe';
 
 const Android = Platform.OS === 'android';
 
-const Header = ({ playingIntro, media, preloader=false }) => {
+const Header = ({ playingIntro, media, preloader = false }) => {
     const [mode = 'dark' /*eventEmitter.currentMode*/, changeMode] = useState();
     useEffect(() => {
-        return cleanup = () => {
+        return function cleanup() {
             if (!preloader) {
                 const {
                     screen,
@@ -33,13 +34,13 @@ const Header = ({ playingIntro, media, preloader=false }) => {
                     initCurrentlyPlaying,
                     buttonsActive,
                     showOverview,
-                    trackDuration, 
+                    trackDuration,
                     stopped,
-                    loaded, 
-                    totalLength, 
+                    loaded,
+                    totalLength,
                     formattedDuration
                 } = media;
-                
+
                 const stringifiedMedia = JSON.stringify({
                     screen,
                     audioFiles,
@@ -64,20 +65,20 @@ const Header = ({ playingIntro, media, preloader=false }) => {
     })
 
     if (!playingIntro || !Android)
-    return(
-        <View style={ styles.header }>
-            <StatusBar backgroundColor={'#212121'} barStyle={'light-content'} />
-            <View style={ styles.headerElementsContainer}>
-                <View style={ styles.navLogoConatiner }>
-                    <Image style={ styles.navLogo } source={require('./images/crzy-head-shot-trans.png')} />
-                </View>
-                <View style={ styles.textContainer }>
-                    <Text style={ mode === 'light' ? styles.headerText : styles.headerTextAlt }>{ header.headerText }</Text>
-                    <Text style = { mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt }>{ header.subHeaderText }</Text>
+        return (
+            <View style={styles.header}>
+                <StatusBar backgroundColor={'#212121'} barStyle={'light-content'} />
+                <View style={styles.headerElementsContainer}>
+                    <View style={styles.navLogoConatiner}>
+                        <Image style={styles.navLogo} source={require('./images/crzy-head-shot-trans.png')} />
+                    </View>
+                    <View style={styles.textContainer}>
+                        <Text style={mode === 'light' ? styles.headerText : styles.headerTextAlt}>{header.headerText}</Text>
+                        <Text style={mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt}>{header.subHeaderText}</Text>
+                    </View>
                 </View>
             </View>
-        </View>
-    ) 
+        )
     else return null;
 }
 
@@ -94,7 +95,7 @@ const mapStateToProps = state => {
         playingIntro: state.media.playingIntro,
         loadedFromMemory: state.media.loadedFromMemory,
         media: state.media
-    }  
+    }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

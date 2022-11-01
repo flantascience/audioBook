@@ -1,6 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet } from 'react-native';
 import {
-    Colors
+    Colors,
 } from 'react-native/Libraries/NewAppScreen';
 
 //import { eventEmitter } from 'react-native-dark-mode';

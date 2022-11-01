@@ -1,33 +1,34 @@
-import React, { useEffect }  from 'react';
+/* eslint-disable prettier/prettier */
+import React, { useEffect } from 'react';
 import { Platform } from 'react-native'
 import { connect } from 'react-redux';
 import TrackPlayer, { useProgress } from 'react-native-track-player';
 //import { formatTime } from '../../Misc/helpers';
 import Slider from '@react-native-community/slider';
-import firebase from 'react-native-firebase';
 import { styles } from './styles';
-import { POST_SEEK_TIMEOUT } from '../../Misc/Constants'
+import { POST_SEEK_TIMEOUT } from '../../Misc/Constants';
 import { storeMedia } from '../../Actions/mediaFiles';
+import analytics from '@react-native-firebase/analytics';
 
-const Analytics = firebase.analytics();
+const Analytics = analytics();
 const Android = Platform.OS === 'android';
 
-const ProgressBar = ({iOSTrackPlayer, paused, trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, buttonsActive, dark, currentPosition, store}) => {
+const ProgressBar = ({ iOSTrackPlayer, paused, trackDuration, audioFiles, currentlyPlaying, reached90, toggleReached90, buttonsActive, dark, currentPosition, store }) => {
     const { position, duration } = useProgress();
     useEffect(() => {
         let tempPosition = Android ? position : currentPosition;
         let flooredCurrentPosition = Math.floor(parseFloat(tempPosition));
-        const percentage = flooredCurrentPosition/Math.floor(parseFloat(tempPosition)) * 100;
+        const percentage = flooredCurrentPosition / Math.floor(parseFloat(tempPosition)) * 100;
         if (Android) {
-            !paused && flooredCurrentPosition? store({currentPosition:flooredCurrentPosition, trackDuration: duration}) : null;
+            !paused && flooredCurrentPosition ? store({ currentPosition: flooredCurrentPosition, trackDuration: duration }) : null;
         }
-        else store({currentPosition:flooredCurrentPosition});
+        else store({ currentPosition: flooredCurrentPosition });
         if (percentage >= 90 && !reached90) {
-            Analytics.logEvent('tracks_completed_prod', {tracks: audioFiles[currentlyPlaying].title});
+            Analytics.logEvent('tracks_completed_prod', { tracks: audioFiles[currentlyPlaying].title });
             toggleReached90();
         }
     })
-    
+
     return (
         <Slider
             style={styles.slider}
@@ -35,10 +36,10 @@ const ProgressBar = ({iOSTrackPlayer, paused, trackDuration, audioFiles, current
             maximumValue={trackDuration || 10}
             onSlidingComplete={currentPosition => {
                 if (Android) {
-                    store({currentPosition});
+                    store({ currentPosition });
                     setTimeout(() => TrackPlayer.seekTo(currentPosition), POST_SEEK_TIMEOUT)
                 } else {
-                    store({currentPosition});
+                    store({ currentPosition });
                     iOSTrackPlayer ? setTimeout(() => iOSTrackPlayer.seek(currentPosition), POST_SEEK_TIMEOUT) : null;
                 }
             }}
@@ -68,7 +69,6 @@ const mapStateToProps = state => {
         trackDuration: state.media.trackDuration,
         totalLength: state.media.totalLength,
         stopped: state.media.stopped,
-        paused: state.media.paused
     }
 }
 

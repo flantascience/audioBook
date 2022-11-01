@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   },
   buttonStyleDark: {
     flex: 1,
-    margin:5,
+    margin: 5,
     padding: 10,
     backgroundColor: "#212121",
     borderRadius: 2

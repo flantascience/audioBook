@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useEffect } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { View, Text, TouchableOpacity, Platform, ActivityIndicator } from 'react-native';

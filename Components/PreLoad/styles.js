@@ -1,8 +1,9 @@
+/* eslint-disable prettier/prettier */
 import { StyleSheet, Dimensions } from 'react-native';
 import {
-    Colors
+    Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import { eventEmitter } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const mode = 'dark'; // eventEmitter.currentMode;
 const dark = mode === 'dark';
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeMid: {
-        flex:6,
+        flex: 6,
         display: "flex",
         flexDirection: "row",
         alignContent: "center",
@@ -38,10 +39,10 @@ export const styles = StyleSheet.create({
     IntroductionVideo: {
         position: "absolute",
         backgroundColor: "#000",
-        bottom:0,
+        bottom: 0,
         left: 0,
-        right:0,
-        top:0
+        right: 0,
+        top: 0
     },
     thumb: {
         height: Dimensions.get('window').height - 160,
@@ -72,11 +73,11 @@ export const styles = StyleSheet.create({
         backgroundColor: dark ? '#0D0D0D' : '#fff'
     },
     homeFooter: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#EBEAEA"
     },
     homeFooterDark: {
-        flex:1,
+        flex: 1,
         backgroundColor: "#212121"
     },
     altHomeFooter: {
@@ -90,7 +91,7 @@ export const styles = StyleSheet.create({
     centerImageContainer: {
         display: "flex",
         flexDirection: "column",
-        flex:1,
+        flex: 1,
         alignContent: "center",
         justifyContent: "center"
     },

@@ -1,13 +1,14 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { connect } from 'react-redux';
 import {
   View,
   Dimensions,
   ActivityIndicator,
-  Platform
+  Platform,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-import Header from '../Header/Header';
+// import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import NetInfo from "@react-native-community/netinfo";
 import { storeMedia } from '../../Actions/mediaFiles';
@@ -16,51 +17,34 @@ import { storeRefs, fetchingRefs } from '../../Actions/references';
 import { slowConnectionDetected, noConnectionDetected, connected } from '../../Actions/connection';
 import { REDIRECT_TIMER } from '../../Misc/Constants';
 import { navInfo } from '../../Misc/Strings';
-import firebase from 'react-native-firebase';
-import { withNavigationFocus } from 'react-navigation'
+import { useIsFocused } from '@react-navigation/native';
 import { styles } from './styles';
 import { eventEmitter } from 'react-native-dark-mode';
+import database from '@react-native-firebase/database';
 
-const tracksRef = firebase.database().ref("/tracks");
-const versionsRef = firebase.database().ref("/versions");
-const referencesRef = firebase.database().ref("/references");
+const tracksRef = database().ref("/tracks");
+const versionsRef = database().ref("/versions");
+const referencesRef = database().ref("/references");
 const Android = Platform.OS === 'android';
 
 const mode = 'dark'; //eventEmitter.currentMode
 
 class PreLoad extends React.Component {
-
-  static navigationOptions = () => ({
-    headerLeft: <Header pre={true} />,
-    headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
-    },
-    headerStyle: {
-        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-    },
-  });
-
-  componentDidMount(){
-    const { navigation: { navigate }, reportConnection, reportNoConnection, reportSlowConnection, loadedFromMemory, screen, storeMedia } = this.props;
+  componentDidMount() {
+    const { navigation: { navigate }, reportConnection, reportNoConnection, reportSlowConnection, loadedFromMemory, screen, storeMedia, } = this.props;
     this.fetchAndStoreMedia();
     this.fetchAndStoreRefs();
-    NetInfo.isConnected.addEventListener('connectionChange', () => {
-      NetInfo.getConnectionInfo().then(info => {
-        const {type, effectiveType} = info;
-        if (type === 'none') reportNoConnection();
-        else if ( type === 'wifi' )  reportConnection('fast');
-        else if (type === 'cellular' && effectiveType === '4g' || type === 'cellular' && effectiveType === 'unknown' ) reportConnection('normal');
-        else if ( type === 'cellular' && effectiveType === '3g' || type === 'cellular' && effectiveType === '2g' ) reportSlowConnection();
-      });
+    NetInfo.addEventListener((state) => {
+      const { type, effectiveType } = state;
+      if (type === 'none') reportNoConnection();
+      else if (type === 'wifi') reportConnection('fast');
+      else if (type === 'cellular' && effectiveType === '4g' || type === 'cellular' && effectiveType === 'unknown') reportConnection('normal');
+      else if (type === 'cellular' && effectiveType === '3g' || type === 'cellular' && effectiveType === '2g') reportSlowConnection();
     });
     eventEmitter.on('currentModeChanged', newMode => {
       // console.log('Switched to', newMode, 'mode');
       this.props.navigation.setParams({
-        headerStyle:{
+        headerStyle: {
           backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
           height: 80,
         }
@@ -69,7 +53,7 @@ class PreLoad extends React.Component {
     });
 
     if (!loadedFromMemory) {
-      AsyncStorage.getItem('media').then( res => {
+      AsyncStorage.getItem('media').then(res => {
         if (res) {
           const objMedia = JSON.parse(res);
           const {
@@ -84,10 +68,10 @@ class PreLoad extends React.Component {
             currentlyPlayingName,
             initCurrentlyPlaying,
             buttonsActive,
-            trackDuration, 
+            trackDuration,
             stopped,
-            loaded, 
-            totalLength, 
+            loaded,
+            totalLength,
             formattedDuration
           } = objMedia;
           storeMedia({
@@ -101,10 +85,10 @@ class PreLoad extends React.Component {
             initCurrentlyPlaying,
             buttonsActive,
             showOverview,
-            trackDuration, 
+            trackDuration,
             stopped,
-            loaded, 
-            totalLength, 
+            loaded,
+            totalLength,
             formattedDuration,
             loadedFromMemory: true
           });
@@ -122,7 +106,7 @@ class PreLoad extends React.Component {
           }, REDIRECT_TIMER);
         }
         else {
-          storeMedia({loadedFromMemory:true});
+          storeMedia({ loadedFromMemory: true });
           setTimeout(() => {
             navigate(navInfo[screen]);
           }, REDIRECT_TIMER);
@@ -165,9 +149,9 @@ class PreLoad extends React.Component {
         if (track) cloudAudio.push(track);
       });
       let newAudioFiles = [...cloudAudio];
-      if (fixOnlyCloud) this.props.storeMedia({audioFilesCloud: newAudioFiles});
+      if (fixOnlyCloud) this.props.storeMedia({ audioFilesCloud: newAudioFiles });
       else {
-        this.props.storeMedia({audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles});
+        this.props.storeMedia({ audioFiles: newAudioFiles, audioFilesCloud: newAudioFiles });
         this._storeAudioFilesData(newAudioFiles);
       }
     }).catch(err => {
@@ -189,23 +173,23 @@ class PreLoad extends React.Component {
               if (res) {
                 let storedAudioFiles = JSON.parse(res);
                 this.fetchFromFirebase();
-                for(var i = 0; i < storedAudioFiles.length; i++){
+                for (var i = 0; i < storedAudioFiles.length; i++) {
                   if (!storedAudioFiles[i]) {
                     dataIntact = false;
                     break;
                   }
                 }
                 if (dataIntact) {
-                  this.props.storeMedia({audioFiles: storedAudioFiles});
+                  this.props.storeMedia({ audioFiles: storedAudioFiles });
                   this.fetchFromFirebase();
-                } 
+                }
                 else this.fetchFromFirebase(false);
               }
               else this.fetchFromFirebase(false);
             });
           }
         });
-      } 
+      }
       else {
         this._getStoredData("audioFiles").then(res => {
           if (res) {
@@ -216,15 +200,15 @@ class PreLoad extends React.Component {
                 break;
               }
             }
-            if (dataIntact) this.props.storeMedia({audioFiles: storedAudioFiles})
+            if (dataIntact) this.props.storeMedia({ audioFiles: storedAudioFiles })
             else {
-              let filteredData = storedAudioFiles.filter( e => {
+              let filteredData = storedAudioFiles.filter(e => {
                 return e != null;
               });
-              this.props.storeMedia({audioFiles: filteredData})
+              this.props.storeMedia({ audioFiles: filteredData })
             }
           }
-          else this.props.storeMedia({audioFiles: []});
+          else this.props.storeMedia({ audioFiles: [] });
         });
       }
     });
@@ -258,13 +242,13 @@ class PreLoad extends React.Component {
     try {
       let stringAudioFiles = JSON.stringify(audioFiles);
       await AsyncStorage.setItem('audioFiles', stringAudioFiles);
-      this.props.storeMedia({audioFiles});
+      this.props.storeMedia({ audioFiles });
     } catch (error) {
       console.log(error);
     }
   };
-  
-  render(){
+
+  render() {
     let {
       navigation,
       currentlyPlayingName,
@@ -273,20 +257,20 @@ class PreLoad extends React.Component {
 
     let height = Dimensions.get('window').height;
     return (
-      <View style={ styles.Home }>
-        <View style={ styles.homeMid}>
-          <ActivityIndicator 
-            size="large" 
+      <View style={styles.Home}>
+        <View style={styles.homeMid}>
+          <ActivityIndicator
+            size="large"
             color="#D4D4D4"
             style={{ marginTop: "10%" }}
           />
         </View>
-        <View 
-            style = { currentlyPlayingName && height < 570 ? 
+        <View
+          style={currentlyPlayingName && height < 570 ?
             !dark ? styles.altHomeFooter : styles.altHomeFooterDark :
             !dark ? styles.homeFooter : styles.homeFooterDark
           }>
-          <Footer navigation={ navigation } />
+          <Footer navigation={navigation} />
         </View>
       </View>
     );
@@ -294,7 +278,7 @@ class PreLoad extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return{
+  return {
     screen: state.media.screen,
     currentlyPlaying: state.media.currentlyPlaying,
     currentlyPlayingName: state.media.currentlyPlayingName,
@@ -337,4 +321,10 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withNavigationFocus(PreLoad));
+const WrappedPreLoad = (props) => {
+  const isFocused = useIsFocused();
+
+  return <PreLoad {...props} isFocused={isFocused} />;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedPreLoad);
