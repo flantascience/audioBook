@@ -582,7 +582,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "export NODE_BINARY=/Users/stevenmuganwa/.nvm/versions/node/v16.10.0/bin/node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2BF50EA984F9BB1C13992891 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
