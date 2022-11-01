@@ -87,7 +87,7 @@ class Tracks extends React.Component {
     }
 
     componentDidMount() {
-        Analytics.setCurrentScreen('Tracks_prod');
+        // Analytics.setCurrentScreen('Tracks_prod');
         const {
             connectionInfo: { connected },
             refsInfo: { fetched },

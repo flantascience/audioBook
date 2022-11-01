@@ -45,7 +45,7 @@ class Home extends React.Component {
         // console.log(this.props.audioFiles)
         const { navigation } = this.props;
         AppState.addEventListener("change", this._handleAppStateChange);
-        Analytics.setCurrentScreen('Home_prod');
+        // Analytics.setCurrentScreen('Home_prod');
         this.blurSubscription = navigation.addListener(
             'willBlur',
             () => {

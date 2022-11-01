@@ -54,7 +54,7 @@ class Author extends React.Component {
   };
 
   componentDidMount() {
-    Analytics.setCurrentScreen('Author_prod');
+    // Analytics.setCurrentScreen('Author_prod');
     this.fetchSubscribers();
   }
 

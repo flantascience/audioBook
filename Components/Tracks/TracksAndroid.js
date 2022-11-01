@@ -204,7 +204,7 @@ class Tracks extends React.Component {
             this.toggleNowPlaying("0", true);
             changeStartTracks(false);
         }
-        Analytics.setCurrentScreen('Tracks_prod');
+        // Analytics.setCurrentScreen('Tracks_prod');
         if (!connected) {
             let showMessage = true;
             this.props.store({ showMessage, message: tracks.noInternetConnection });
