@@ -77,7 +77,7 @@ class Tip extends React.Component {
   };
 
   componentDidMount() {
-    Analytics.setCurrentScreen('Tip_prod');
+    // Analytics.setCurrentScreen('Tip_prod');
     RNIap.initConnection().then(async () => {
       let products = await RNIap.getProducts(itemSkus);
       products.sort((a, b) => Number(a.price) - Number(b.price));

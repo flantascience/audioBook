@@ -81,10 +81,11 @@ const App = () => (
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 100,
+                  height: 120,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
+                title: '',
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
@@ -96,15 +97,16 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 100,
+                  height: 120,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
+                title: '',
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
@@ -115,15 +117,16 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 100,
+                  height: 120,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
+                title: '',
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
@@ -134,15 +137,16 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 100,
+                  height: 120,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
+                title: '',
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
@@ -153,15 +157,16 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-                  height: 100,
+                  height: 120,
                   borderBottomWidth: Android ? 0 : 1,
                   borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
                 },
+                title: '',
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
