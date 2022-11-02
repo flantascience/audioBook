@@ -137,9 +137,10 @@ android {
         applicationId "com.curricu_dumb_audiobook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 306
-        versionName "3.0.6"
+        versionCode 311
+        versionName "3.1.1"
         resConfigs "en"
+        missingDimensionStrategy ('store', 'play')
     }
     splits {
         abi {

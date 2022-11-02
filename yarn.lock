@@ -3209,11 +3209,6 @@ domexception@^2.0.1:
   dependencies:
     webidl-conversions "^5.0.0"
 
-dooboolab-welcome@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/dooboolab-welcome/-/dooboolab-welcome-1.2.0.tgz#295818ce85a8e97dc90c0ec0510b4008e2d722dc"
-  integrity sha512-XgEbjJHAsKLge/e8jtuHsv84Ovg1Gx0GvnOTOmOlVGV1643nduTAkT3fyo/mxKbzvyXBr47RHaJAY4R2toI0UA==
-
 dot-prop@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-3.0.0.tgz#1b708af094a49c9a0e7dbcad790aba539dac1177"
@@ -6939,12 +6934,10 @@ react-native-gradle-plugin@^0.70.3:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
 
-react-native-iap@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-5.1.1.tgz#467248fe4ed0ad9ec83b02d5a1354475978dc488"
-  integrity sha512-+R60GpJZzUFC0UHe0oyy1c/a3d3ph6KK0bMkGFa6lfNdD57jWG4PLhLQqirvWwnJRTNttlAF2HEXa+sQvLkmLA==
-  dependencies:
-    dooboolab-welcome "^1.2.0"
+react-native-iap@^12.3.4:
+  version "12.3.4"
+  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-12.3.4.tgz#142ea59980ad2581783e6fc9a82b2532d773b9c9"
+  integrity sha512-bGvh+w8r8CI4saOvHjdJEskn5UBWgSZWdkV9iA+s8EM2Mxtvz2Pnlny+J4q02D5n312uiGidZ/W0h/EtFl7/Ig==
 
 react-native-input-scroll-view@^1.9.3:
   version "1.9.3"

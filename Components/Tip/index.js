@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Toast from '../Toast/Toast';
 import Audio from '../Audio/Audio';
@@ -55,12 +54,13 @@ class Tip extends React.Component {
     this.purchaseErrorSubscription = null;
     this.state = {
       Tips: TIPS,
-      loaded: false
-    }
+      loaded: false,
+    };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     Analytics.setCurrentScreen('Tip_prod');
+    await RNIap.prepare();
     RNIap.initConnection().then(async () => {
       let products = await RNIap.getProducts(itemSkus);
       products.sort((a, b) => Number(a.price) - Number(b.price));
