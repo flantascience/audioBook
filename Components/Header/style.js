@@ -1,7 +1,8 @@
-import { StyleSheet, Dimensions } from 'react-native';
+/* eslint-disable prettier/prettier */
+import { StyleSheet, Dimensions, Platform } from 'react-native';
 const headerWidth = Dimensions.get('window').width;
-const imageContainerFlex = headerWidth < 330?2:2;
-const textContainerFlex = headerWidth < 330?5:4;
+const imageContainerFlex = headerWidth < 330 ? 2 : 2;
+const textContainerFlex = headerWidth < 330 ? 5 : 4;
 export const styles = StyleSheet.create({
     navLogoConatiner: {
         flex: imageContainerFlex,
@@ -26,20 +27,26 @@ export const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
+        textAlign: 'center',
+        justifyContent: 'center',
+        marginTop: Platform.OS === 'ios' ? 0 : 10,
     },
     textContainer: {
         flex: textContainerFlex,
         display: "flex",
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: "column"
     },
-    headerText:{
+    headerText: {
         textTransform: "uppercase",
         fontSize: 18,
         width: 190,
         textAlign: "center",
         fontWeight: "bold",
     },
-    headerTextAlt:{
+    headerTextAlt: {
         textTransform: "uppercase",
         fontSize: 18,
         width: 190,

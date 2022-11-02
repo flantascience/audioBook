@@ -10,7 +10,7 @@ import Header from './Components/Header';
 import Author from './Components/Author/Author';
 import TracksAndroid from './Components/Tracks/TracksAndroid';
 import PreLoad from './Components/PreLoad/PreLoad';
-import Tip from './Components/Tip';
+//import Tip from './Components/Tip';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -147,7 +147,7 @@ const App = () => (
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name='Fifth'
               component={Tip}
               options={{
@@ -165,7 +165,7 @@ const App = () => (
                 },
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
-            />
+            /> */}
           </Stack.Navigator>
         </NavigationContainer>
       </DarkModeProvider>

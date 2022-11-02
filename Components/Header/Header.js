@@ -69,9 +69,9 @@ const Header = ({ playingIntro, media, preloader = false }) => {
             <View style={styles.header}>
                 <StatusBar backgroundColor={'#212121'} barStyle={'light-content'} />
                 <View style={styles.headerElementsContainer}>
-                    <View style={styles.navLogoConatiner}>
+                    {/* <View style={styles.navLogoConatiner}>
                         <Image style={styles.navLogo} source={require('./images/crzy-head-shot-trans.png')} />
-                    </View>
+                    </View> */}
                     <View style={styles.textContainer}>
                         <Text style={mode === 'light' ? styles.headerText : styles.headerTextAlt}>{header.headerText}</Text>
                         <Text style={mode === 'light' ? styles.subHeaderText : styles.subHeaderTextAlt}>{header.subHeaderText}</Text>
