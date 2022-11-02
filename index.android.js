@@ -76,7 +76,7 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
@@ -96,7 +96,7 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
@@ -115,7 +115,7 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
@@ -134,7 +134,7 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
@@ -153,7 +153,7 @@ const App = () => (
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
-                  color: '#FF6D00',
+                  color: 'rgba(0,0,0,0)',
                   alignItems: 'center'
                 },
                 headerStyle: {
