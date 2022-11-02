@@ -8,7 +8,7 @@ import Home from './Components/Home/Home';
 import Author from './Components/Author/Author';
 import TracksAndroid from './Components/Tracks/TracksAndroid';
 import PreLoad from './Components/PreLoad/PreLoad';
-import Tip from './Components/Tip';
+//import Tip from './Components/Tip';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -60,47 +60,7 @@ TrackPlayer.setupPlayer().then(() => {
   });
 });
 
-// const screenConfig = {
-//   duration: 1,
-//   easing: Easing.out(Easing.poly(4)),
-// };
-
 const Stack = createStackNavigator();
-
-//{
-//   First: { screen: PreLoad },
-//   Second: { screen: Home },
-//   Third: { screen: TracksAndroid },
-//   Fourth: { screen: Author },
-//   Fifth: { screen: Tip }
-// },
-//   {
-//     initialRouteName: 'First',
-//     headerMode: 'float',
-//     mode: 'modal',
-//     transitionConfig: sceneProps => ({
-//       transitionSpec: screenConfig,
-//       screenInterpolator: (sceneProps) => {
-//         if (sceneProps.scene.route.routeName === 'Second') {
-//           const { layout, position, scene } = sceneProps;
-//           const { index } = scene;
-
-//           const width = layout.initWidth;
-//           const translateX = position.interpolate({
-//             inputRange: [index - 1, index, index + 1],
-//             outputRange: [width, 0, 0],
-//           });
-
-//           const opacity = position.interpolate({
-//             inputRange: [index - 1, index - 0.99, index],
-//             outputRange: [0, 1, 1],
-//           });
-
-//           return { opacity, transform: [{ translateX }] };
-//         }
-//       },
-//     })
-//   });
 
 const App = () => (
   <Provider store={store}>
@@ -186,7 +146,7 @@ const App = () => (
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
               name='Fifth'
               component={Tip}
               options={{
@@ -204,7 +164,7 @@ const App = () => (
                 },
                 headerLeft: (props) => <Header {...props} Android={Android} />,
               }}
-            />
+            /> */}
           </Stack.Navigator>
         </NavigationContainer>
       </DarkModeProvider>

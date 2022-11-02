@@ -106,7 +106,7 @@ const Footer = ({ store, screen, currentlyPlayingName, navigation: { navigate } 
                         mode === 'light' ? styles.iconText : styles.iconTextDark}
                     text={footer.author.text}
                 />
-                <IconButton
+                {/* <IconButton
                     onPress={() => {
                         store({ screen: 'Tip' });
                         goTo(footer.tip.place);
@@ -119,7 +119,7 @@ const Footer = ({ store, screen, currentlyPlayingName, navigation: { navigate } 
                         mode === 'light' ? styles.altIconText : styles.altIconTextDark :
                         mode === 'light' ? styles.iconText : styles.iconTextDark}
                     text={footer.tip.text}
-                />
+                /> */}
                 <IconButton
                     onPress={share}
                     name={footer.share.icon}

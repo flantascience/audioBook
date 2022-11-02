@@ -7,19 +7,24 @@ import { AppRegistry, Platform } from 'react-native';
 import Home from './Components/Home/Home';
 import Author from './Components/Author/Author';
 import Tracks from './Components/Tracks/Tracks';
+import Header from './Components/Header/Header';
 import TracksAndroid from './Components/Tracks/TracksAndroid';
 import PreLoad from './Components/PreLoad/PreLoad';
-import Tip from './Components/Tip';
+//import Tip from './Components/Tip';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import TrackPlayer from 'react-native-track-player';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import TrackPlayer, { Capability } from 'react-native-track-player';
 import { name as appName } from './app.json';
 import { Provider } from 'react-redux';
 import configureStore from './store';
 import { DarkModeProvider } from 'react-native-dark-mode';
+//import { eventEmitter } from 'react-native-dark-mode';
 
 const store = configureStore();
 const Android = Platform.OS === 'android';
+
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 Android ? TrackPlayer.setupPlayer().then(() => {
   TrackPlayer.updateOptions({
@@ -27,89 +32,145 @@ Android ? TrackPlayer.setupPlayer().then(() => {
     waitForBuffer: true,
     stopWithApp: true,
     capabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpForward,
+      Capability.JumpBackward,
+      Capability.Stop,
     ],
     notificationCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SEEK_TO,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_JUMP_FORWARD,
-      TrackPlayer.CAPABILITY_JUMP_BACKWARD,
-      TrackPlayer.CAPABILITY_STOP
+      Capability.Play,
+      Capability.Pause,
+      Capability.SeekTo,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.JumpForward,
+      Capability.JumpBackward,
+      Capability.Stop,
     ],
     compactCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_STOP,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-    ]
+      Capability.Play,
+      Capability.Pause,
+      Capability.SkipToNext,
+      Capability.SkipToPrevious,
+      Capability.Stop,
+    ],
   });
 }) :
   null;
 
-// const screenConfig = {
-//   duration: 1,
-//   easing: Easing.out(Easing.poly(4))
-// };
-
 const Stack = createStackNavigator();
-// {  First: { screen: PreLoad },
-//   Second: { screen: Home },
-//   Third: { screen: Android ? TracksAndroid : Tracks },
-//   Fourth: { screen: Author },
-//   Fifth: { screen: Tip }
-// },
-//   {
-//     initialRouteName: 'First',
-//     headerMode: 'float',
-//     mode: 'modal',
-//     transitionConfig: sceneProps => ({
-//       transitionSpec: screenConfig,
-//       screenInterpolator: (sceneProps) => {
-//         if (sceneProps.scene.route.routeName === 'Second') {
-//           const { layout, position, scene } = sceneProps;
-//           const { index } = scene;
-
-//           const width = layout.initWidth;
-//           const translateX = position.interpolate({
-//             inputRange: [index - 1, index, index + 1],
-//             outputRange: [width, 0, 0],
-//           });
-
-//           const opacity = position.interpolate({
-//             inputRange: [index - 1, index - 0.99, index],
-//             outputRange: [0, 1, 1],
-//           });
-
-//           return { opacity, transform: [{ translateX }] };
-//         }
-//       },
-//     })
-//   });
 
 const App = () => (
   <Provider store={store}>
-    <DarkModeProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name='First' component={PreLoad} />
-          <Stack.Screen name='Second' component={Home} />
-          <Stack.Screen name='Third' component={Android ? TracksAndroid : Tracks} />
-          <Stack.Screen name='Fourth' component={Author} />
-          <Stack.Screen name='Fifth' component={Tip} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </DarkModeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <DarkModeProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+          >
+            <Stack.Screen
+              name='First'
+              component={PreLoad}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 100,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            <Stack.Screen
+              name='Second'
+              component={Home}
+              options={{
+                headerTitle: "Home",
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 100,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            <Stack.Screen
+              name='Third'
+              component={Android ? TracksAndroid : Tracks}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 100,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            <Stack.Screen
+              name='Fourth'
+              component={Author}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 100,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            />
+            {/* <Stack.Screen
+              name='Fifth'
+              component={Tip}
+              options={{
+                headerTitleStyle: {
+                  textAlign: 'center',
+                  justifyContent: 'center',
+                  color: '#FF6D00',
+                  alignItems: 'center'
+                },
+                headerStyle: {
+                  backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
+                  height: 100,
+                  borderBottomWidth: Android ? 0 : 1,
+                  borderBottomColor: currentMode === 'dark' ? '#525253' : '#C7C6C6',
+                },
+                headerLeft: (props) => <Header {...props} Android={Android} />,
+              }}
+            /> */}
+          </Stack.Navigator>
+        </NavigationContainer>
+      </DarkModeProvider>
+    </GestureHandlerRootView>
   </Provider>
 );
 
