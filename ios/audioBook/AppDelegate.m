@@ -12,6 +12,8 @@
 #import <Firebase.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Branch.h"
+
+@import UserNotifications;
 @import Firebase;
 
 
@@ -59,10 +61,12 @@
   return YES;
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-  // handler for Push Notifications
-  [[Branch getInstance] handlePushNotification:userInfo];
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler
+{
+    // handler for Push Notifications
+    [[Branch getInstance] handlePushNotification:userInfo];
 }
+
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
 {
