@@ -1,35 +1,36 @@
-import { 
-  STORE_MEDIA, 
-  UPDATE_AUDIO_FILES, 
+/* eslint-disable prettier/prettier */
+import {
+  STORE_MEDIA,
+  UPDATE_AUDIO_FILES,
   TOGGLE_QUESTIONNAIRE,
-  SET_START_TRACKS
+  SET_START_TRACKS,
 } from './types';
 
 export const storeMedia = media => {
   return {
     type: STORE_MEDIA,
-    payload: media
-  }
-}
+    payload: media,
+  };
+};
 
-export const changeQuestionnaireVew  = payload => {
+export const changeQuestionnaireVew = payload => {
   return {
     type: TOGGLE_QUESTIONNAIRE,
-    payload
-  }
-}
+    payload,
+  };
+};
 
 export const toggleStartTracks = payload => {
   return {
     type: SET_START_TRACKS,
-    payload
+    payload,
 
-  }
-}
+  };
+};
 
 export const updateAudio = audioFiles => {
   return {
     type: UPDATE_AUDIO_FILES,
-    payload: audioFiles
-  }
-}
+    payload: audioFiles,
+  };
+};

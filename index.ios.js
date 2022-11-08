@@ -9,7 +9,6 @@ import Tracks from './Components/Tracks/Tracks';
 import Header from './Components/Header/Header';
 import Author from './Components/Author/Author';
 import PreLoad from './Components/PreLoad/PreLoad';
-//import Tip from './Components/Tip';
 import { NavigationContainer } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -55,7 +54,7 @@ Android ? TrackPlayer.setupPlayer().then(() => {
       Capability.SkipToNext,
       Capability.SkipToPrevious,
       Capability.Stop,
-    ]
+    ],
   });
 }) :
   null;

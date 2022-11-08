@@ -153,7 +153,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (2.1.0)
+  - GTMSessionFetcher/Core (2.2.0)
   - hermes-engine (0.70.3)
   - leveldb-library (1.22.1)
   - libevent (2.1.12)
@@ -162,15 +162,15 @@ PODS:
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
-  - OneSignalXCFramework (3.11.4):
-    - OneSignalXCFramework/OneSignalCore (= 3.11.4)
-    - OneSignalXCFramework/OneSignalExtension (= 3.11.4)
-    - OneSignalXCFramework/OneSignalOutcomes (= 3.11.4)
-  - OneSignalXCFramework/OneSignalCore (3.11.4)
-  - OneSignalXCFramework/OneSignalExtension (3.11.4):
+  - OneSignalXCFramework (3.11.5):
+    - OneSignalXCFramework/OneSignalCore (= 3.11.5)
+    - OneSignalXCFramework/OneSignalExtension (= 3.11.5)
+    - OneSignalXCFramework/OneSignalOutcomes (= 3.11.5)
+  - OneSignalXCFramework/OneSignalCore (3.11.5)
+  - OneSignalXCFramework/OneSignalExtension (3.11.5):
     - OneSignalXCFramework/OneSignalCore
     - OneSignalXCFramework/OneSignalOutcomes
-  - OneSignalXCFramework/OneSignalOutcomes (3.11.4):
+  - OneSignalXCFramework/OneSignalOutcomes (3.11.5):
     - OneSignalXCFramework/OneSignalCore
   - PromisesObjC (2.1.1)
   - RCT-Folly (2021.07.22.00):
@@ -399,8 +399,8 @@ PODS:
   - React-jsinspector (0.70.3)
   - React-logger (0.70.3):
     - glog
-  - react-native-music-control (0.10.8):
-    - React
+  - react-native-music-control (1.4.1):
+    - React-Core
   - react-native-netinfo (9.3.6):
     - React-Core
   - react-native-safe-area-context (4.4.1):
@@ -741,12 +741,12 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: e490e248af3da95afe8fa8e7baac232dc8d020b7
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
-  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
+  GTMSessionFetcher: d62ffccea5108bb9e7762ee121ae63bbdd2c6303
   hermes-engine: bb344d89a0d14c2c91ad357480a79698bb80e186
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
-  OneSignalXCFramework: 45932e3c1e659e1485bfd765e0543d7f30cc737b
+  OneSignalXCFramework: 080b8f31bf0fb571dd5f4d83c02e2b5f9d5c8b04
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
   RCTRequired: 5cf7e7d2f12699724b59f90350257a422eaa9492
@@ -763,7 +763,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 7e2e1772ef7b97168c880eeaf3749d8c145ffd6e
   React-jsinspector: 0553c9fe7218e1f127be070bd5a4d2fc19fb8190
   React-logger: cffcc09e8aba8a3014be8d18da7f922802e9f19e
-  react-native-music-control: dcfe5b61e56a15898c4618579cb8ce612c9d21a8
+  react-native-music-control: 3fc719c179a6562e18af1ac6e30ba9e33b397a31
   react-native-netinfo: f80db8cac2151405633324cb645c60af098ee461
   react-native-safe-area-context: 99b24a0c5acd0d5dcac2b1a7f18c49ea317be99a
   react-native-slider: e540525ea731783850802b7af457d8551edb0711
@@ -796,6 +796,6 @@ SPEC CHECKSUMS:
   toolbar-android: 2a73856e98b750d7e71ce4644d3f41cc98211719
   Yoga: 2ed968a4f060a92834227c036279f2736de0fce3
 
-PODFILE CHECKSUM: 09d80bc68b6d7f134554f5e068ea0bf6becf4fb1
+PODFILE CHECKSUM: eb6467c714dc144ac64fbd5ffe780d3f6074e11f
 
 COCOAPODS: 1.11.3

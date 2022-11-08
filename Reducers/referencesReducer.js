@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { STORE_REFERENCES, TOGGLE_REFS_VIEW, FETCHING_REFS } from '../Actions/types';
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
 };
 
 const referencesReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case STORE_REFERENCES:
       return {
         ...state,
@@ -16,7 +17,7 @@ const referencesReducer = (state = initialState, action) => {
         fetched: true,
         fetching: false
       };
-    case FETCHING_REFS: 
+    case FETCHING_REFS:
       return {
         ...state,
         fetching: true

@@ -8,12 +8,14 @@ import {
     Text,
     Platform,
     ScrollView,
+    Image
 } from 'react-native';
 import {
     formatTime,
     removeTrack,
 } from '../../Misc/helpers';
 import TrackPlayer from 'react-native-video';
+import MusicControl from 'react-native-music-control';
 import Toast from '../Toast/Toast';
 import ProgressBar from './ProgressBar';
 import Questionnaire from './Questionnaire';
@@ -35,15 +37,19 @@ class Audio extends React.Component {
     state = {
         lastTrackId: null,
         currentTime: null,
-        reached90: false
+        reached90: false,
     }
 
     componentDidMount() {
-        let { audioFiles, trackPlayer } = this.props;
+        let { audioFiles } = this.props;
         this.props.store({ showToast: false, toastText: null });
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({ lastTrackId });
+    }
+
+    componentWillUnmount() {
+        MusicControl.resetNowPlaying();
     }
 
     toggleTrack = pos => {
@@ -63,7 +69,7 @@ class Audio extends React.Component {
                         selectedTrack: pos,
                         selectedTrackId: stringPos,
                         currentlyPlayingName: title,
-                        showTextinput: false
+                        showTextinput: false,
                     };
                     store(newState);
                     resolve('done');
@@ -214,7 +220,7 @@ class Audio extends React.Component {
             loaded: false,
             paused: true,
             showOverview: false,
-            currentPosition: 0
+            currentPosition: 0,
         });
     }
 
@@ -239,12 +245,12 @@ class Audio extends React.Component {
             questionnaire: {
                 confusing,
                 question,
-                comment
+                comment,
             },
             showQuestionnaire,
             connected,
             fetchingRefs,
-            store
+            store,
         } = this.props;
         /** End reconfigure */
         let { confusing1, otherQuestion1, confusingFinal, otherQuestionFinal, titleText, anythingElse } = audioOverview;
@@ -267,7 +273,7 @@ class Audio extends React.Component {
 
         let trackDuration = selectedTrack ? audioFiles[selectedTrack].duration : "";
         let remainingTime = (trackDuration - currentPosition);
-        let mode = 'dark' // eventEmitter.currentMode;
+        let mode = 'dark'; // eventEmitter.currentMode;
         let dark = mode === 'dark';
 
         const trackTimeSlider = <View style={dark ? styles.trackTimeContainerDark : styles.trackTimeContainer}>
@@ -288,13 +294,23 @@ class Audio extends React.Component {
                         ref={ref => {
                             this.trackPlayer = ref;
                         }}
+                        poster={Image.resolveAssetSource(require('./images/appstore.png')).uri}
+                        posterResizeMode={'contain'}
                         bufferConfig={{
                             minBufferMs: 1000,
                             maxBufferMs: 5000,
                             bufferForPlaybackMs: 2500,
-                            bufferForPlaybackAfterRebufferMs: 5000
+                            bufferForPlaybackAfterRebufferMs: 5000,
                         }}
                         source={audioSource}
+                        onLoadStart={() => {
+                            MusicControl.setNowPlaying({
+                                title: 'Leave School',
+                                artwork: require('./images/appstore.png'), // URL or RN's image require()
+                                artist: 'Jim Flinnary',
+                                //duration,
+                            });
+                        }}
                         onProgress={data => {
                             let { currentTime } = data;
                             this.setState({ currentTime: Math.floor(currentTime) });
@@ -306,7 +322,6 @@ class Audio extends React.Component {
                             // check if there's a next track
                             const nextTrackId = currentlyPlaying + 1;
                             const nextTrackInfo = audioFiles[nextTrackId];
-                            console.log('track ended')
                             if (nextTrackInfo && toggleNowPlaying) {
                                 //this.toggleTrack(nextTrackId);
                                 toggleNowPlaying(nextTrackId, true);
@@ -319,9 +334,15 @@ class Audio extends React.Component {
                         onLoad={data => {
                             store({ trackPlayer: this.trackPlayer });
                             let { duration } = data;
-                            if (duration) store({ loaded: true, trackDuration: Math.floor(duration) });
-                            else store({ loaded: true });
-                            if (currentPosition !== 0) this.trackPlayer.seek(currentPosition);
+                            if (duration) { store({ loaded: true, trackDuration: Math.floor(duration) }); }
+                            else { store({ loaded: true }); }
+                            if (currentPosition !== 0) { this.trackPlayer.seek(currentPosition); }
+                            MusicControl.setNowPlaying({
+                                title: 'Leave School',
+                                artwork: require('./images/appstore.png'), // URL or RN's image require()
+                                artist: 'Jim Flinnary',
+                                //duration,
+                            });
                         }}
                         repeat={true}
                         controls={true}

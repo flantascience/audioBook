@@ -57,7 +57,7 @@ const items = Platform.select({
 const Analytics = analytics();
 const tracksRef = database().ref('/tracks');
 const referencesRef = database().ref('/references');
-const Android = Platform.OS === 'android';
+// const Android = Platform.OS === 'android';
 
 const currentMode = 'dark' /* eventEmitter.currentMode; */
 
@@ -91,7 +91,7 @@ class Tracks extends React.Component {
         const {
             connectionInfo: { connected },
             refsInfo: { fetched },
-            references
+            references,
         } = this.props;
         if (!connected) {
             let showMessage = true
@@ -168,7 +168,7 @@ class Tracks extends React.Component {
             const mediaType = audioFiles[pos].type
             const title = audioFiles[pos].title
             const free = audioFiles[pos].free
-            const trackAvailable = free || userType === 'paid'
+            //const trackAvailable = free || userType === 'paid'
             /**If track is cloud based one needs an internet connection*/
             //console.log(currPos)
             let playable =
@@ -450,29 +450,29 @@ class Tracks extends React.Component {
                     this._storeAudioFilesData(newAudioFiles)
                 })
                 .catch((err) => {
-                    console.log(err)
-                    let showToast = true
-                    store({ showToast, toastText: tracks.downloadError })
+                    console.log(err);
+                    let showToast = true;
+                    store({ showToast, toastText: tracks.downloadError });
                     setTimeout(() => {
-                        store({ showToast: !showToast, toastText: null })
-                    }, TOAST_TIMEOUT)
-                })
+                        store({ showToast: !showToast, toastText: null });
+                    }, TOAST_TIMEOUT);
+                });
         } else {
-            let showToast = true
-            store({ showToast, toastText: tracks.noInternetConnection })
+            let showToast = true;
+            store({ showToast, toastText: tracks.noInternetConnection });
             setTimeout(() => {
-                store({ showToast: !showToast, toastText: null })
-            }, TOAST_TIMEOUT)
+                store({ showToast: !showToast, toastText: null });
+            }, TOAST_TIMEOUT);
         }
     }
 
     fetchAvailableProducts = async () => {
         try {
-            await RNIap.initConnection()
-            const products = await RNIap.getProducts(items)
-            this.setState({ products })
+            await RNIap.initConnection();
+            const products = await RNIap.getProducts(items);
+            this.setState({ products });
         } catch (err) {
-            console.warn(err) // standardized err.code and err.message available
+            console.warn(err); // standardized err.code and err.message available
         }
     }
 

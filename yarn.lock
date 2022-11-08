@@ -7116,10 +7116,10 @@ react-native-input-scroll-view@^1.9.3:
   dependencies:
     prop-types "^15.7.2"
 
-react-native-music-control@^0.10.5:
-  version "0.10.8"
-  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-0.10.8.tgz#72272bf9cb1fc0142dc38c99e5f2142fece3c37a"
-  integrity sha512-MRPdHpRwl4E2xS4JP2S+XtlFznGrYhizHERKrqE0GnpF/Osei+0fBtOdjHBVu/PkiYS/cwNeUxWdymmpmyQVpg==
+react-native-music-control@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-music-control/-/react-native-music-control-1.4.1.tgz#a1212c082f39783ff10befec1ef53cade585933e"
+  integrity sha512-IBiP2Yhb9iUPutXFFfNWKnf+CG/up9oPlMqY6qq1MDlhJ6giMCGQ+qO/Qd5hoDE0ZfxyqShs3CZaSch+oV/2zg==
 
 react-native-progress-circle@^2.0.1:
   version "2.1.0"

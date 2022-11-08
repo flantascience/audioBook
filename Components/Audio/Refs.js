@@ -14,9 +14,6 @@ import analytics from '@react-native-firebase/analytics';
 const Analytics = analytics();
 const width = Dimensions.get('window').width;
 const Refs = ({ styles, fetching, connected, referencesInfo, references, showRefs, currentlyPlayingName, dark }) => {
-    /*useEffect(() => {
-        console.log(connected);
-    }, [])*/
     const showStatement = references.length > 0;
     const goTo = (url) => {
         Linking.canOpenURL(url).then(supported => {
@@ -71,15 +68,16 @@ const Refs = ({ styles, fetching, connected, referencesInfo, references, showRef
                                     {connected ? refsStrings.noRefs : refsStrings.noConnection}
                                 </Text> :
                             <View style={styles.refRowContainer}>
-                                {fetching && connected ?
-                                    <View style={{ display: 'flex', width: width - 70 }}>
-                                        <ActivityIndicator
-                                            size="small"
-                                            color={dark ? "#D4D4D4" : "#000"}
-                                            style={{ marginBottom: "10%" }}
-                                        />
-                                    </View> :
-                                    null}
+                                {
+                                    fetching && connected ?
+                                        <View style={{ display: 'flex', width: width - 70 }}>
+                                            <ActivityIndicator
+                                                size="small"
+                                                color={dark ? "#D4D4D4" : "#000"}
+                                                style={{ marginBottom: "10%" }}
+                                            />
+                                        </View> :
+                                        null}
                             </View> :
                         null
                 }
