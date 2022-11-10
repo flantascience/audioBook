@@ -24,7 +24,6 @@ export const toggleStartTracks = payload => {
   return {
     type: SET_START_TRACKS,
     payload,
-
   };
 };
 

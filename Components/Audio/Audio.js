@@ -15,7 +15,6 @@ import {
     removeTrack,
 } from '../../Misc/helpers';
 import TrackPlayer from 'react-native-video';
-import MusicControl from 'react-native-music-control';
 import Toast from '../Toast/Toast';
 import ProgressBar from './ProgressBar';
 import Questionnaire from './Questionnaire';
@@ -46,10 +45,6 @@ class Audio extends React.Component {
         let newAudioFiles = [...audioFiles];
         let lastTrackId = (newAudioFiles.pop()).id;
         this.setState({ lastTrackId });
-    }
-
-    componentWillUnmount() {
-        MusicControl.resetNowPlaying();
     }
 
     toggleTrack = pos => {
@@ -303,14 +298,6 @@ class Audio extends React.Component {
                             bufferForPlaybackAfterRebufferMs: 5000,
                         }}
                         source={audioSource}
-                        onLoadStart={() => {
-                            MusicControl.setNowPlaying({
-                                title: 'Leave School',
-                                artwork: require('./images/appstore.png'), // URL or RN's image require()
-                                artist: 'Jim Flinnary',
-                                //duration,
-                            });
-                        }}
                         onProgress={data => {
                             let { currentTime } = data;
                             this.setState({ currentTime: Math.floor(currentTime) });
@@ -337,12 +324,6 @@ class Audio extends React.Component {
                             if (duration) { store({ loaded: true, trackDuration: Math.floor(duration) }); }
                             else { store({ loaded: true }); }
                             if (currentPosition !== 0) { this.trackPlayer.seek(currentPosition); }
-                            MusicControl.setNowPlaying({
-                                title: 'Leave School',
-                                artwork: require('./images/appstore.png'), // URL or RN's image require()
-                                artist: 'Jim Flinnary',
-                                //duration,
-                            });
                         }}
                         repeat={true}
                         controls={true}

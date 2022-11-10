@@ -3,6 +3,7 @@ import { STORE_MEDIA, UPDATE_AUDIO_FILES, TOGGLE_QUESTIONNAIRE } from '../Action
 
 const initialState = {
   emails: undefined,
+  bio: undefined,
   loadedFromMemory: false,
   playingIntro: false,
   toggleNowPlaying: null,
@@ -48,12 +49,12 @@ const mediaReducer = (state = initialState, action) => {
     case UPDATE_AUDIO_FILES:
       return {
         ...state,
-        audioFiles: [...action.payload]
+        audioFiles: [...action.payload],
       };
     case TOGGLE_QUESTIONNAIRE:
       return {
         ...state,
-        showQuestionnaire: action.payload
+        showQuestionnaire: action.payload,
       }
     default:
       return state;

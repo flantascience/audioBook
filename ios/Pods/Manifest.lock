@@ -153,7 +153,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (2.2.0)
+  - GTMSessionFetcher/Core (2.3.0)
   - hermes-engine (0.70.3)
   - leveldb-library (1.22.1)
   - libevent (2.1.12)
@@ -741,7 +741,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: e490e248af3da95afe8fa8e7baac232dc8d020b7
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
   GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
-  GTMSessionFetcher: d62ffccea5108bb9e7762ee121ae63bbdd2c6303
+  GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
   hermes-engine: bb344d89a0d14c2c91ad357480a79698bb80e186
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913

@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import NetInfo from "@react-native-community/netinfo";
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Toast from '../Toast/Toast';
 import AudioAndroid from '../Audio/AudioAndroid';
@@ -30,36 +29,23 @@ import database from '@react-native-firebase/database';
 
 const Analytics = analytics();
 const Android = Platform.OS === 'android';
-const dbRef = database().ref("/subscriptions");
+const subs = database().ref("/subscriptions");
+const bio = database().ref('bio');
 
 const mode = 'dark'; // eventEmitter.currentMode;
 class Author extends React.Component {
-
-  static navigationOptions = () => {
-    return {
-      headerLeft: <Header />,
-      headerTitleStyle: {
-        textAlign: 'center',
-        justifyContent: 'center',
-        color: '#FF6D00',
-        alignItems: 'center'
-      },
-      headerStyle: {
-        backgroundColor: mode === 'dark' ? '#212121' : '#EBEAEA',
-        height: 80,
-        borderBottomWidth: Android ? 0 : 1,
-        borderBottomColor: mode === 'dark' ? '#525253' : '#C7C6C6'
-      }
-    }
-  };
+  state = {
+    bio: undefined,
+  }
 
   componentDidMount() {
     // Analytics.setCurrentScreen('Author_prod');
     this.fetchSubscribers();
+    this.fetchBio();
   }
 
   fetchSubscribers = () => {
-    dbRef.once('value', data => {
+    subs.once('value', data => {
       let emails = [];
       data.forEach(inf => {
         let email = inf.val();
@@ -67,32 +53,34 @@ class Author extends React.Component {
         //console.log(email);
       });
       this.props.storeMediaInf({ emails });
-    })
+    });
+  }
+
+  fetchBio = () => {
+    bio.once('value', data => {
+      this.setState({ bio: data.val() });
+    });
   }
 
   checkAvailability = userEmail => {
     return new Promise(resolve => {
-      resolve(true);
-      /*
-      *removed check
-      *let { emails } = this.props;
-      //console.log(this.props)
-      if(emails && emails.length > 0){
+      let { emails } = this.props;
+      if (emails && emails.length > 0) {
         let available = true;
         emails.map(email => {
-          if(userEmail.toLowerCase() === email.toLowerCase()){
+          if (userEmail.toLowerCase() === email.toLowerCase()) {
             available = false;
             //console.log(available);
           }
         });
         resolve(available);
-      }else{
+      } else {
         let showToast = true;
-        this.props.storeMediaInf({showToast, toastText: author.messages.tryLater });
+        this.props.storeMediaInf({ showToast, toastText: author.messages.tryLater });
         setTimeout(() => {
-          this.props.storeMediaInf({showToast: !showToast, toastText: null });
+          this.props.storeMediaInf({ showToast: !showToast, toastText: null });
         }, TOAST_TIMEOUT);
-      }**/
+      }
     });
   }
 
@@ -104,7 +92,6 @@ class Author extends React.Component {
           if (available) {
             NetInfo.fetch().then(state => {
               let conType = state.type;
-              //console.log(conType)
               if (conType !== "wifi" && conType !== "cellular") {
                 let showToast = true;
                 this.props.storeMediaInf({ showToast, toastText: connectionFeedback.noConnection });
@@ -112,7 +99,7 @@ class Author extends React.Component {
                   this.props.storeMediaInf({ showToast: !showToast, toastText: null });
                 }, TOAST_TIMEOUT);
               } else {
-                dbRef.push(userEmail);
+                subs.push(userEmail);
                 let showToast = true;
                 this.props.storeMediaInf({ showToast, toastText: author.messages.subscribed });
                 setTimeout(() => {
@@ -162,7 +149,8 @@ class Author extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      showOverview
+      showOverview,
+      bio
     } = this.props;
 
     let dark = mode === 'dark';
@@ -201,9 +189,9 @@ class Author extends React.Component {
               </View>
               <Text style={dark ? styles.nameDark : styles.name}>{author.name}</Text>
               <Text style={dark ? styles.authorTitleDark : styles.authorTitle}>{author.title}</Text>
-              <View style={dark ? styles.introContainerDark : styles.introContainer}>
-                <Text style={dark ? styles.introTextDark : styles.introText}>{author.intro}</Text>
-              </View>
+              {this.state.bio && <View style={dark ? styles.introContainerDark : styles.introContainer}>
+                <Text style={dark ? styles.introTextDark : styles.introText}>{this.state.bio}</Text>
+              </View>}
               <View style={styles.actionContainer}>
                 <Text style={dark ? styles.callToActionDark : styles.callToAction}>{author.callToAction}</Text>
                 {showToast ?

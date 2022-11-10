@@ -8,7 +8,7 @@ import {
   SET_USER_TYPE,
   UPDATE_SHOW_PURCHASE_OVERVIEW,
   UPDATE_PURCHASING,
-  UPDATE_IS_PURCHASING
+  UPDATE_IS_PURCHASING,
 } from '../Actions/types';
 
 const initialState = {
@@ -20,7 +20,7 @@ const initialState = {
   connection: 'normal',
   connectionChecked: false,
   connected: true,
-  userType: 'free'
+  userType: 'free',
 };
 
 const generalReducer = (state = initialState, action) => {
