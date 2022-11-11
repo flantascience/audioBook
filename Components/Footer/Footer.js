@@ -24,7 +24,7 @@ const Footer = ({ store, screen, currentlyPlayingName, navigation: { navigate } 
         toggleOverview().then(res => {
             if (res === "hidden") navigate(place);
         });
-    }
+    };
 
     const toggleOverview = () => {
         return new Promise(resolve => {
@@ -131,8 +131,8 @@ const Footer = ({ store, screen, currentlyPlayingName, navigation: { navigate } 
                 />
             </View>
         </View>
-    )
-}
+    );
+};
 
 const mapStateToProps = state => {
     return {
@@ -147,16 +147,16 @@ const mapStateToProps = state => {
         selectedTrack: state.media.selectedTrack,
         currentPostion: state.media.currentPostion,
         showTextinput: state.media.showTextinput,
-        paused: state.media.paused
-    }
-}
+        paused: state.media.paused,
+    };
+};
 
 const mapDispatchToProps = dispatch => {
     return {
         store: media => {
             dispatch(storeMedia(media));
-        }
-    }
-}
+        },
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

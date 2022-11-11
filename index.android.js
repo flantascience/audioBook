@@ -112,11 +112,12 @@ const App = () => (
               name='Third'
               component={TracksAndroid}
               options={{
+                headerTitle: 'Tracks',
                 headerTitleStyle: {
                   textAlign: 'center',
                   justifyContent: 'center',
                   color: 'rgba(0,0,0,0)',
-                  alignItems: 'center'
+                  alignItems: 'center',
                 },
                 headerStyle: {
                   backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',

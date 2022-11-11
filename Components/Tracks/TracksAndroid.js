@@ -7,7 +7,7 @@ import {
   Text,
   Platform,
   Dimensions,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import { connect } from 'react-redux';
@@ -36,7 +36,7 @@ const items = [
   '01',
   'android.test.purchased',
   'android.test.canceled',
-  'android.test.item_unavailable'
+  'android.test.item_unavailable',
 ];
 
 const Analytics = firebase.analytics();
@@ -46,11 +46,16 @@ const tracksRef = firebase.database().ref("/tracks");
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Tracks extends React.Component {
-  constructor(props) {
-    super(props);
-    let { audioFiles } = props;
+  state = {
+    currentAction: [],
+    products: null,
+    autoPlayStarted: false,
+  };
+
+  async componentDidMount() {
+    let { audioFiles, connectionInfo: { connected }, store, references, refsInfo: { fetched } } = this.props;
     let currentAction = [];
-    audioFiles.forEach(file => {
+    await audioFiles.forEach(file => {
       let { id } = file;
       currentAction.push({
         id,
@@ -59,15 +64,7 @@ class Tracks extends React.Component {
         error: null
       });
     });
-    this.state = {
-      currentAction,
-      products: null,
-      autoPlayStarted: false
-    }
-  }
-
-  componentDidMount() {
-    let { audioFiles, connectionInfo: { connected }, store, references, refsInfo: { fetched } } = this.props;
+    this.setState({ currentAction });
     if (!fetched || references.length === 0) this.fetchAndStoreRefs();
     this.onStateChange = TrackPlayer.addEventListener('playback-state', async data => {
       const playerState = data.state;
@@ -156,7 +153,7 @@ class Tracks extends React.Component {
     if (connected) {
       let showMessage = true;
       store({ showMessage, message: tracks.noInternetConnection });
-      this.fetchAvailableProducts();
+      //this.fetchAvailableProducts();
     }
     else store({ showMessage: false, message: null });
   }
@@ -707,7 +704,7 @@ class Tracks extends React.Component {
               null}
             {!loading ?
               <ScrollView>{
-                Object.keys(audioFiles).map(key => {
+                audioFiles && Object.keys(audioFiles).map(key => {
                   const { title, type, formattedDuration, free } = audioFiles[key];
                   const { currentAction } = this.state;
                   /**Set default action */

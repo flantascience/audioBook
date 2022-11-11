@@ -29,20 +29,6 @@ const Android = Platform.OS === 'android'
 const currentMode = 'dark' /* eventEmitter.currentMode; */
 
 class PreLoad extends React.Component {
-  static navigationOptions = () => ({
-    headerLeft: <Header pre={true} />,
-    headerTitleStyle: {
-      textAlign: 'center',
-      justifyContent: 'center',
-      color: '#FF6D00',
-      alignItems: 'center'
-    },
-    headerStyle: {
-      backgroundColor: currentMode === 'dark' ? '#212121' : '#EBEAEA',
-      height: 80
-    }
-  })
-
   componentDidMount() {
     const {
       reportConnection,
@@ -294,11 +280,9 @@ class PreLoad extends React.Component {
   componentDidUpdate() {
     const { audioFiles, navigation: { navigate }, screen } = this.props;
     if (audioFiles.length > 0) {
-      console.log('files loaded')
-      console.log(screen)
       setTimeout(() => {
-        navigate(navInfo[screen])
-      }, REDIRECT_TIMER)
+        navigate(navInfo[screen]);
+      }, REDIRECT_TIMER);
     }
   }
 

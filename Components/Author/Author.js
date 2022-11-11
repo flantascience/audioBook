@@ -28,26 +28,35 @@ import InputScrollView from 'react-native-input-scroll-view';
 
 const Analytics = firebase.analytics();
 const Android = Platform.OS === 'android';
-const dbRef = firebase.database().ref("/subscriptions");
+const subs = firebase.database().ref("/subscriptions");
+const bio = firebase.database().ref('bio');
 
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class Author extends React.Component {
-
+  state = {
+    bio: undefined,
+  }
   componentDidMount() {
     Analytics.setCurrentScreen('Author_prod');
     this.fetchSubscribers();
   }
 
   fetchSubscribers = () => {
-    dbRef.once('value', data => {
+    subs.once('value', data => {
       let emails = [];
       data.forEach(inf => {
         let email = inf.val();
         emails.push(email);
       });
       this.props.storeMediaInf({ emails });
-    })
+    });
+  }
+
+  fetchBio = () => {
+    bio.once('value', data => {
+      this.setState({ bio: data.val() });
+    });
   }
 
   checkAvailability = userEmail => {
@@ -88,7 +97,7 @@ class Author extends React.Component {
                 }, TOAST_TIMEOUT);
               }
               else {
-                dbRef.push(userEmail);
+                subs.push(userEmail);
                 let showToast = true;
                 this.props.storeMediaInf({ showToast, toastText: author.messages.subscribed });
                 setTimeout(() => {
@@ -181,9 +190,9 @@ class Author extends React.Component {
               </View>
               <Text style={dark ? styles.nameDark : styles.name}>{author.name}</Text>
               <Text style={dark ? styles.authorTitleDark : styles.authorTitle}>{author.title}</Text>
-              <View style={dark ? styles.introContainerDark : styles.introContainer}>
-                <Text style={dark ? styles.introTextDark : styles.introText}>{author.intro}</Text>
-              </View>
+              {this.state.bio && <View style={dark ? styles.introContainerDark : styles.introContainer}>
+                <Text style={dark ? styles.introTextDark : styles.introText}>{this.state.bio}</Text>
+              </View>}
               <View style={styles.actionContainer}>
                 <Text style={dark ? styles.callToActionDark : styles.callToAction}>{author.callToAction}</Text>
                 {showToast ?
@@ -212,9 +221,9 @@ class Author extends React.Component {
                 <Image style={styles.authorImage} source={require('./images/author-pic.jpg')} />
               </View>
               <Text style={dark ? styles.nameDark : styles.name}>{author.name}</Text>
-              <View style={dark ? styles.introContainerDark : styles.introContainer}>
-                <Text style={dark ? styles.introTextDark : styles.introText}>{author.intro}</Text>
-              </View>
+              {this.state.bio && <View style={dark ? styles.introContainerDark : styles.introContainer}>
+                <Text style={dark ? styles.introTextDark : styles.introText}>{this.state.bio}</Text>
+              </View>}
               <View style={styles.actionContainer}>
                 <Text style={dark ? styles.callToActionDark : styles.callToAction}>{author.callToAction}</Text>
                 {showToast ?

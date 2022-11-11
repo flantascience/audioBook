@@ -17,6 +17,8 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/cb6f2de49e9c448d0bfb105750a52e06/transformed/jetified-firebase-firestore-19.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/d781cecc36b64815f61bed8cd45208e9/transformed/jetified-firebase-firestore-19.0.2/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/d781cecc36b64815f61bed8cd45208e9/transformed/jetified-firebase-firestore-19.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2e210063f85b80b6fcdd4100d3a5ed8b/transformed/jetified-firebase-firestore-19.0.2/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2e210063f85b80b6fcdd4100d3a5ed8b/transformed/jetified-firebase-firestore-19.0.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-firestore/19.0.2/1531281358770081af9b7cf0401a02d9b456f958/firebase-firestore-19.0.2-javadoc.jar!/" />
