@@ -1,0 +1,12 @@
+[
+	{
+		"relation": ["delegate_permission/common.handle_all_urls"],
+		"target": {
+			"namespace": "android_app",
+			"package_name": "com.curricu_dumb_audiobook",
+			"sha256_cert_fingerprints": [
+				"f4:3e:34:3d:71:d8:46:3d:bf:4c:df:7c:66:52:78:d2:3c:09:30:9d:4b:8d:8e:26:ac:04:ed:af:9f:0a:ef:3f"
+			]
+		}
+	}
+]
