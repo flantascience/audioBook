@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.curricu_dumb_audiobook"
-    >
+    package="com.curricu_dumb_audiobook">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,45 +9,57 @@
 
 
     <application
-      android:name="com.curricu_dumb_audiobook.MainApplication"
-      android:screenOrientation="portrait"
-      android:label="@string/app_name"
-      android:icon="@mipmap/ic_launcher"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:allowBackup="false"
-      android:theme="@style/AppTheme">
-      <activity
-        android:name="com.curricu_dumb_audiobook.MainActivity"
+        android:name="com.curricu_dumb_audiobook.MainApplication"
         android:screenOrientation="portrait"
         android:label="@string/app_name"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-        android:windowSoftInputMode="adjustResize"
-          android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-          <!-- Branch URI scheme -->
-          <intent-filter android:scheme="http">
-              <data android:scheme="yourapp" android:host="open" />
-              <action android:name="android.intent.action.VIEW" />
-              <category android:name="android.intent.category.DEFAULT" />
-              <category android:name="android.intent.category.BROWSABLE" />
-          </intent-filter>
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="false"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.curricu_dumb_audiobook.MainActivity"
+            android:screenOrientation="portrait"
+            android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- Branch URI scheme -->
+            <intent-filter android:scheme="http">
+                <data
+                    android:scheme="yourapp"
+                    android:host="open" />
+                <action android:name="android.intent.action.VIEW" />
 
-          <!-- Branch App Links -->
-          <intent-filter android:autoVerify="true">
-              <action android:name="android.intent.action.VIEW" />
-              <category android:name="android.intent.category.DEFAULT" />
-              <category android:name="android.intent.category.BROWSABLE" />
-              <data android:scheme="https" android:host="curricudumb.app.link" />
-          </intent-filter>
-      </activity>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <!-- Branch App Links -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="jim-flannery.com"
+                    android:path="/leave-school" />
+            </intent-filter>
+        </activity>
         <!-- Branch init -->
-        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_lhPUGcRynkQUCiCZECjFkkohtAgrescK" />
+        <meta-data
+            android:name="io.branch.sdk.BranchKey"
+            android:value="key_live_lhPUGcRynkQUCiCZECjFkkohtAgrescK" />
         <!-- Branch testing (TestMode "true" to simulate fresh installs on dev environment) -->
-        <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
-      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+        <meta-data
+            android:name="io.branch.sdk.TestMode"
+            android:value="false" />
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
 
 </manifest>
