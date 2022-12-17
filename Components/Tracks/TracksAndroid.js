@@ -23,21 +23,20 @@ import firebase from 'react-native-firebase';
 import RNFS from 'react-native-fs';
 import { formatTime, removeTrack, getDuration } from '../../Misc/helpers';
 import { tracks, connectionFeedback } from '../../Misc/Strings';
-import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, LONG_TOAST_TIMEOUT, NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
+import { SLOW_CONNECTION_TIMER, TOAST_TIMEOUT, NEXT_TRACK_TIMEOUT } from '../../Misc/Constants';
 import { styles } from './style';
 import { slowConnectionDetected, noConnectionDetected } from '../../Actions/connection';
 import { storeMedia, updateAudio, changeQuestionnaireVew, toggleStartTracks } from '../../Actions/mediaFiles';
 import { setUserType } from '../../Actions/userInput';
 import { changeRefsView, storeRefs } from '../../Actions/references';
 import { updateShowPurchaseOverview, updatePurchasing, updateIsPurchasing } from '../../Actions/generalActions';
-import * as RNIap from 'react-native-iap';
 
-const items = [
-  '01',
-  'android.test.purchased',
-  'android.test.canceled',
-  'android.test.item_unavailable',
-];
+// const items = [
+//   '01',
+//   'android.test.purchased',
+//   'android.test.canceled',
+//   'android.test.item_unavailable',
+// ];
 
 const Analytics = firebase.analytics();
 const referencesRef = firebase.database().ref('/references');
@@ -77,7 +76,6 @@ class Tracks extends React.Component {
           const trackAvailable = free || userType === 'paid';
           if (nextTrackInfo && trackAvailable) setTimeout(() => this.toggleNowPlaying(String(nextTrackId), true), NEXT_TRACK_TIMEOUT);
           else {
-            console.log('no playing next')
             let showToast = true;
             store({ showToast, toastText: tracks.nextTrackIsPaid });
             setTimeout(() => {
@@ -439,132 +437,135 @@ class Tracks extends React.Component {
   }
 
   fetchAvailableProducts = () => {
-    try {
-      RNIap.getProducts(items).then(products => {
-        //handle success of fetch product list
-        this.setState({ products });
-      }).catch(error => {
-        console.log(error.message);
-      })
-    } catch (err) {
-      console.warn(err); // standardized err.code and err.message available
-    }
+    //try {
+    // RNIap.getProducts(items).then(products => {
+    //   //handle success of fetch product list
+    //   this.setState({ products });
+    // }).catch(error => {
+    //   console.log(error.message);
+    // });
+    return;
+    // } catch (err) {
+    //   console.warn(err); // standardized err.code and err.message available
+    // }
   }
 
   RestorePurchase = () => {
-    const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
-    startPurchasing(true);
-    RNIap.getAvailablePurchases().then(response => {
-      //console.log(response)
-      if (response[0]) {
-        if (response[0].transactionId) {
-          updateUserType('paid');
-          let showToast = true;
-          toggleShowPurchaseOverview(false);
-          store({ showToast, toastText: tracks.successfullyRestored });
-          setTimeout(() => {
-            store({ showToast: !showToast, toastText: null });
-          }, TOAST_TIMEOUT);
-          startPurchasing(false);
-        }
-        else {
-          let showToast = true
-          toggleShowPurchaseOverview(false)
-          store({ showToast, toastText: tracks.restartApp });
-          setTimeout(() => {
-            store({ showToast: !showToast, toastText: null })
-          }, LONG_TOAST_TIMEOUT)
-          startPurchasing(false);
-        }
-      }
-      else {
-        updateUserType('free');
-        let showToast = true;
-        toggleShowPurchaseOverview(false);
-        store({ showToast, toastText: tracks.notPurchased });
-        setTimeout(() => {
-          store({ showToast: !showToast, toastText: null });
-        }, LONG_TOAST_TIMEOUT);
-        startPurchasing(false);
-      }
-    }).
-      catch(e => {
-        console.log(e.message)
-        let showToast = true
-        toggleShowPurchaseOverview(false)
-        store({ showToast, toastText: tracks.restartApp });
-        setTimeout(() => {
-          store({ showToast: !showToast, toastText: null })
-        }, LONG_TOAST_TIMEOUT)
-        startPurchasing(false)
-      })
+    // const { updateUserType, store, toggleShowPurchaseOverview, startPurchasing } = this.props;
+    // startPurchasing(true);
+    // RNIap.getAvailablePurchases().then(response => {
+    //   //console.log(response)
+    //   if (response[0]) {
+    //     if (response[0].transactionId) {
+    //       updateUserType('paid');
+    //       let showToast = true;
+    //       toggleShowPurchaseOverview(false);
+    //       store({ showToast, toastText: tracks.successfullyRestored });
+    //       setTimeout(() => {
+    //         store({ showToast: !showToast, toastText: null });
+    //       }, TOAST_TIMEOUT);
+    //       startPurchasing(false);
+    //     }
+    //     else {
+    //       let showToast = true
+    //       toggleShowPurchaseOverview(false)
+    //       store({ showToast, toastText: tracks.restartApp });
+    //       setTimeout(() => {
+    //         store({ showToast: !showToast, toastText: null })
+    //       }, LONG_TOAST_TIMEOUT)
+    //       startPurchasing(false);
+    //     }
+    //   }
+    //   else {
+    //     updateUserType('free');
+    //     let showToast = true;
+    //     toggleShowPurchaseOverview(false);
+    //     store({ showToast, toastText: tracks.notPurchased });
+    //     setTimeout(() => {
+    //       store({ showToast: !showToast, toastText: null });
+    //     }, LONG_TOAST_TIMEOUT);
+    //     startPurchasing(false);
+    //   }
+    // }).
+    //   catch(e => {
+    //     console.log(e.message)
+    //     let showToast = true
+    //     toggleShowPurchaseOverview(false)
+    //     store({ showToast, toastText: tracks.restartApp });
+    //     setTimeout(() => {
+    //       store({ showToast: !showToast, toastText: null })
+    //     }, LONG_TOAST_TIMEOUT)
+    //     startPurchasing(false)
+    //   })
+    return;
   }
 
   buyProduct = () => {
-    const { products } = this.state;
-    const { toggleShowPurchaseOverview, startPurchasing } = this.props;
-    const { updateUserType, store } = this.props;
-    if (products && products.length > 0) {
-      const tracksId = items[0];
-      startPurchasing(true);
-      RNIap.requestPurchase(tracksId, false).then(purchase => {
-        if (purchase.transactionReceipt) {
-          AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
-          updateUserType('paid');
-          let showToast = true;
-          toggleShowPurchaseOverview(false);
-          store({ showToast, toastText: tracks.successfullyPaid });
-          setTimeout(() => {
-            store({ showToast: !showToast, toastText: null });
-          }, TOAST_TIMEOUT);
-          RNIap.acknowledgePurchaseAndroid(purchase.purchaseToken);
-          startPurchasing(false);
-        }
-        else {
-          updateUserType('free');
-          let showToast = true;
-          toggleShowPurchaseOverview(false);
-          store({ showToast, toastText: tracks.restartApp });
-          setTimeout(() => {
-            store({ showToast: !showToast, toastText: null });
-          }, LONG_TOAST_TIMEOUT);
-          startPurchasing(false);
-        }
-      }).
-        catch(e => {
-          // console.log(e.code)
-          if (e.code === 'E_ALREADY_OWNED') {
-            updateUserType('paid');
-            let showToast = true;
-            toggleShowPurchaseOverview(false);
-            store({ showToast, toastText: tracks.alreadyPaid });
-            setTimeout(() => {
-              store({ showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
-            startPurchasing(false);
-          }
-          else {
-            updateUserType('free');
-            let showToast = true;
-            toggleShowPurchaseOverview(false);
-            store({ showToast, toastText: tracks.transactionFailed });
-            setTimeout(() => {
-              store({ showToast: !showToast, toastText: null });
-            }, TOAST_TIMEOUT);
-            startPurchasing(false);
-          }
-        });
-    }
-    else {
-      updateUserType('free');
-      let showToast = true;
-      toggleShowPurchaseOverview(false);
-      store({ showToast, toastText: tracks.productsUnavailable });
-      setTimeout(() => {
-        store({ showToast: !showToast, toastText: null });
-      }, LONG_TOAST_TIMEOUT);
-      startPurchasing(false);
-    }
+    // const { products } = this.state;
+    // const { toggleShowPurchaseOverview, startPurchasing } = this.props;
+    // const { updateUserType, store } = this.props;
+    // if (products && products.length > 0) {
+    //   const tracksId = items[0];
+    //   startPurchasing(true);
+    //   RNIap.requestPurchase(tracksId, false).then(purchase => {
+    //     if (purchase.transactionReceipt) {
+    //       AsyncStorage.setItem('transactionReceipt', JSON.stringify(purchase.transactionReceipt));
+    //       updateUserType('paid');
+    //       let showToast = true;
+    //       toggleShowPurchaseOverview(false);
+    //       store({ showToast, toastText: tracks.successfullyPaid });
+    //       setTimeout(() => {
+    //         store({ showToast: !showToast, toastText: null });
+    //       }, TOAST_TIMEOUT);
+    //       RNIap.acknowledgePurchaseAndroid(purchase.purchaseToken);
+    //       startPurchasing(false);
+    //     }
+    //     else {
+    //       updateUserType('free');
+    //       let showToast = true;
+    //       toggleShowPurchaseOverview(false);
+    //       store({ showToast, toastText: tracks.restartApp });
+    //       setTimeout(() => {
+    //         store({ showToast: !showToast, toastText: null });
+    //       }, LONG_TOAST_TIMEOUT);
+    //       startPurchasing(false);
+    //     }
+    //   }).
+    //     catch(e => {
+    //       // console.log(e.code)
+    //       if (e.code === 'E_ALREADY_OWNED') {
+    //         updateUserType('paid');
+    //         let showToast = true;
+    //         toggleShowPurchaseOverview(false);
+    //         store({ showToast, toastText: tracks.alreadyPaid });
+    //         setTimeout(() => {
+    //           store({ showToast: !showToast, toastText: null });
+    //         }, TOAST_TIMEOUT);
+    //         startPurchasing(false);
+    //       }
+    //       else {
+    //         updateUserType('free');
+    //         let showToast = true;
+    //         toggleShowPurchaseOverview(false);
+    //         store({ showToast, toastText: tracks.transactionFailed });
+    //         setTimeout(() => {
+    //           store({ showToast: !showToast, toastText: null });
+    //         }, TOAST_TIMEOUT);
+    //         startPurchasing(false);
+    //       }
+    //     });
+    // }
+    // else {
+    //   updateUserType('free');
+    //   let showToast = true;
+    //   toggleShowPurchaseOverview(false);
+    //   store({ showToast, toastText: tracks.productsUnavailable });
+    //   setTimeout(() => {
+    //     store({ showToast: !showToast, toastText: null });
+    //   }, LONG_TOAST_TIMEOUT);
+    //   startPurchasing(false);
+    // }
+    return;
   }
 
   updateReferenceInfo = (currentlyPlaying, audioFiles, references) => {
@@ -705,7 +706,7 @@ class Tracks extends React.Component {
             {!loading ?
               <ScrollView>{
                 audioFiles && Object.keys(audioFiles).map(key => {
-                  const { title, type, formattedDuration, free } = audioFiles[key];
+                  const { title, type, formattedDuration } = audioFiles[key];
                   const { currentAction } = this.state;
                   /**Set default action */
                   const action = currentAction[key] ? currentAction[key].action : "stop";

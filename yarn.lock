@@ -6934,11 +6934,6 @@ react-native-gradle-plugin@^0.70.3:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
 
-react-native-iap@^12.3.4:
-  version "12.3.4"
-  resolved "https://registry.yarnpkg.com/react-native-iap/-/react-native-iap-12.3.4.tgz#142ea59980ad2581783e6fc9a82b2532d773b9c9"
-  integrity sha512-bGvh+w8r8CI4saOvHjdJEskn5UBWgSZWdkV9iA+s8EM2Mxtvz2Pnlny+J4q02D5n312uiGidZ/W0h/EtFl7/Ig==
-
 react-native-input-scroll-view@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/react-native-input-scroll-view/-/react-native-input-scroll-view-1.9.3.tgz#064eb1c5208445eeba0dde97b0bee4b67910fd45"

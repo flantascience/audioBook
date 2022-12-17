@@ -137,8 +137,8 @@ android {
         applicationId "com.curricu_dumb_audiobook"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 320
-        versionName "3.2.0"
+        versionCode 322
+        versionName "3.2.2"
         resConfigs "en"
         missingDimensionStrategy ('store', 'play')
     }
@@ -228,11 +228,11 @@ dependencies {
     implementation "com.google.firebase:firebase-storage:20.1.0"
     implementation project(':react-native-track-player')
     implementation project(':react-native-fs')
-    implementation 'com.google.firebase:firebase-crashlytics:18.3.1'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.2'
     // Recommended: Add the Google Analytics SDK.
     implementation 'com.google.firebase:firebase-analytics:21.2.0'
     // Add the dependency for the Performance Monitoring library
-    implementation 'com.google.firebase:firebase-perf:20.2.0'
+    implementation 'com.google.firebase:firebase-perf:20.3.0'
     // def multidex_version = "2.0.1"
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation "androidx.appcompat:appcompat:1.5.1"

@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         flex: 6,
         overflow: "hidden",
         marginBottom: 40,
-        backgroundColor: dark ? '#0D0D0D' : '#fff'
+        backgroundColor: dark ? '#0D0D0D' : '#fff',
     },
     IntroductionVideoBeforeLoad: {
         display: "none",
@@ -52,26 +52,26 @@ export const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         right: 0,
-        top: 0
+        top: 0,
     },
     altOverviewContainer: {
         flex: 2,
-        backgroundColor: dark ? '#0D0D0D' : '#fff'
+        backgroundColor: dark ? '#0D0D0D' : '#fff',
     },
     altAltOverviewContainer: {
         flex: 2,
         marginBottom: 30,
-        backgroundColor: dark ? '#0D0D0D' : '#fff'
+        backgroundColor: dark ? '#0D0D0D' : '#fff',
     },
     longAltOverviewContanier: {
         flex: 2,
         marginBottom: -20,
-        backgroundColor: dark ? '#0D0D0D' : '#fff'
+        backgroundColor: dark ? '#0D0D0D' : '#fff',
     },
     longerAltOverviewContanier: {
         flex: 2,
         marginBottom: -35,
-        backgroundColor: dark ? '#0D0D0D' : '#fff'
+        backgroundColor: dark ? '#0D0D0D' : '#fff',
     },
     homeFooter: {
         flex: 1,
@@ -93,14 +93,14 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'flex-start',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
     },
     thumb: {
         height: height > 800 ? height - 190 :
             height > 600 && height < 800 ? height - 160 :
                 height - 140,
         width,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
     mainTextThumb: {
         position: 'absolute',
@@ -110,45 +110,36 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? 10 :
-            height > 600 && height < 800 ? - 10 :
-                -25,
+        top: height > 850 ? -150 : height > 800 ? -180 : -220,
     },
     mainTextThumbImg: {
         flex: 1,
         marginTop: 0,
         resizeMode: 'contain',
-        width: '97%'
+        width: '80%',
     },
     pressStart: {
         resizeMode: 'contain',
         marginTop: height > 800 ? '20%' : '10%',
-        width: '50%'
+        width: '50%',
     },
     playButtonContainer: {
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        top: height > 800 ? (height / 3) - 30 :
-            height > 600 && height < 800 ? (height / 3) :
-                (height / 2.8)
-        /*bottom: height > 800 ? '38%' : 
-        height > 600 ? '35%' : 
-        '30%'*/
+        bottom: height > 800 ? 140 : height > 800 ? 160 : 180,
     },
     playButton: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         elevation: iOS ? 0 : 10,
-        width: 60,
-        height: 60,
-        //paddingTop: 5,
     },
     playButtonImage: {
-        height: 60,
-        width: 60
+        height: 80,
+        width: 140,
+        resizeMode: 'contain',
     },
     playButtonText: {
         color: '#fff',

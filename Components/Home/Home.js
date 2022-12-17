@@ -46,7 +46,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     // console.log(this.props.audioFiles)
-    AppState.addEventListener("change", this._handleAppStateChange);
+    AppState.addEventListener('change', this._handleAppStateChange);
     Analytics.setCurrentScreen('Home_prod');
     this.blurSubscription = this.props.navigation.addListener(
       'willBlur',
@@ -148,12 +148,12 @@ class Home extends React.Component {
               {!loaded ?
                 <View style={styles.imagesContainer}>
                   <Image
-                    source={require('./images/chalkboard-with-hands.jpg')}
+                    source={require('./images/plain-chalkboard.jpg')}
                     style={styles.thumb}
                   />
                   <View style={styles.mainTextThumb}>
                     <Image
-                      source={require('./images/book-title.png')}
+                      source={require('./images/book-title-2.png')}
                       style={styles.mainTextThumbImg}
                     />
                   </View>
@@ -162,12 +162,12 @@ class Home extends React.Component {
                 loaded && !showVid ?
                   <View style={styles.imagesContainer}>
                     <Image
-                      source={require('./images/chalkboard-with-hands.jpg')}
+                      source={require('./images/plain-chalkboard.jpg')}
                       style={styles.thumb}
                     />
                     <View style={styles.mainTextThumb}>
                       <Image
-                        source={require('./images/book-title.png')}
+                        source={require('./images/book-title-2.png')}
                         style={styles.mainTextThumbImg}
                       />
                       <View style={styles.playButtonContainer}>
@@ -176,7 +176,7 @@ class Home extends React.Component {
                           dark={dark}
                           textStyle={styles.playButtonText}
                           imageStyle={styles.playButtonImage}
-                          image={require('./images/play_image.png')}
+                          image={require('./images/play-button.png')}
                           onPress={() => {
                             setTimeout(() => {
                               this.setState({ showVid: true, paused: false, secondaryHide: false });
