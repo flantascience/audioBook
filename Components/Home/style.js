@@ -100,7 +100,7 @@ export const styles = StyleSheet.create({
             height > 600 && height < 800 ? height - 160 :
                 height - 140,
         width,
-        resizeMode: 'cover'
+        resizeMode: 'cover',
     },
     mainTextThumb: {
         position: 'absolute',
@@ -110,32 +110,25 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 800 ? 10 :
-            height > 600 && height < 800 ? - 10 :
-                -25,
+        top: height > 850 ? -130 : height > 800 ? -160 : -200,
     },
     mainTextThumbImg: {
         flex: 1,
         marginTop: 0,
         resizeMode: 'contain',
-        width: '97%'
+        width: '97%',
     },
     pressStart: {
         resizeMode: 'contain',
         marginTop: height > 800 ? '20%' : '10%',
-        width: '50%'
+        width: '50%',
     },
     playButtonContainer: {
         position: 'absolute',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        top: height > 800 ? (height / 3) - 30 :
-            height > 600 && height < 800 ? (height / 3) :
-                (height / 2.8)
-        /*bottom: height > 800 ? '38%' : 
-        height > 600 ? '35%' : 
-        '30%'*/
+        bottom: height > 800 ? 160 : height > 800 ? 180 : 200,
     },
     playButton: {
         display: 'flex',
@@ -147,8 +140,9 @@ export const styles = StyleSheet.create({
         //paddingTop: 5,
     },
     playButtonImage: {
-        height: 60,
-        width: 60
+        height: 80,
+        width: 140,
+        resizeMode: 'contain',
     },
     playButtonText: {
         color: '#fff',
