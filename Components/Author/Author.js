@@ -150,7 +150,7 @@ class Author extends React.Component {
       initCurrentlyPlaying,
       audioFiles,
       currentlyPlayingName,
-      showOverview
+      showOverview,
     } = this.props;
 
     let mode = currentMode;
@@ -214,7 +214,7 @@ class Author extends React.Component {
                   />
                 </View>
               </View>
-              <View style={styles.spacer}></View>
+              <View style={styles.spacer} />
             </InputScrollView> :
             <ScrollView style={dark ? styles.scrollViewDark : styles.scrollView}>
               <View style={styles.centerImageContainer}>
