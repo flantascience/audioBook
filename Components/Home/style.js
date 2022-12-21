@@ -10,6 +10,8 @@ const iOS = Platform.OS === "ios" ? true : false;
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
+console.log({ height, width })
+
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 const mode = currentMode;
@@ -110,7 +112,11 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 850 ? -150 : height > 800 ? -180 : -220,
+        top: height > 815 ? -105 :
+            height < 815 && height > 800 ? -95 :
+                height > 600 && height < 800 ? -80 :
+                    -75,
+        bottom: 0,
     },
     mainTextThumbImg: {
         flex: 1,
@@ -128,7 +134,10 @@ export const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        bottom: height > 800 ? 140 : height > 800 ? 160 : 180,
+        bottom: height > 815 ? 100 :
+            height < 815 && height > 800 ? 90 :
+                height > 600 && height < 800 ? 50 :
+                    25,
     },
     playButton: {
         display: 'flex',

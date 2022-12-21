@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   Image,
+  ImageBackground,
   AppState,
   Platform,
 } from 'react-native';
@@ -64,7 +65,7 @@ class Home extends React.Component {
       paused,
       currentlyPlaying,
       playingIntro,
-      storeMedia,
+      mediaStorage,
     } = this.props;
     if (!currentlyPlaying) {
       let vidPlaying = !this.state.paused;
@@ -72,9 +73,11 @@ class Home extends React.Component {
       let audioPlaying = !paused;
       if (!isFocused && vidPlaying || audioPlaying && vidPlaying) {
         this.setState({ paused: true, showVid: false });
-        storeMedia({ playingIntro: false });
+        mediaStorage({ playingIntro: false });
       }
-      else if (vidPlaying && !playingIntro) storeMedia({ playingIntro: true });
+      else if (vidPlaying && !playingIntro) {
+        mediaStorage({ playingIntro: true });
+      }
     }
   }
 
@@ -83,10 +86,10 @@ class Home extends React.Component {
   }
 
   startTracks = () => {
-    const { navigation: { navigate }, changeStartTracks, storeMedia } = this.props;
+    const { navigation: { navigate }, changeStartTracks, mediaStorage } = this.props;
     changeStartTracks(true);
     navigate('Third');
-    storeMedia({
+    mediaStorage({
       screen: "Tracks"
     });
   }
@@ -104,11 +107,11 @@ class Home extends React.Component {
       audioFiles,
       currentlyPlayingName,
       showOverview,
-      storeMedia,
+      mediaStorage,
       isFocused,
       playingIntro,
     } = this.props;
-    let { loaded, showVid, paused, introPlayed, startButtonTitle } = this.state;
+    let { loaded, showVid, paused, introPlayed, } = this.state;
 
     //let isFocused = navigation.isFocused();
     let mode = currentMode;
@@ -146,25 +149,17 @@ class Home extends React.Component {
           <View style={styles.homeMid}>
             <View style={styles.centerImageContainer}>
               {!loaded ?
-                <View style={styles.imagesContainer}>
-                  <Image
-                    source={require('./images/plain-chalkboard.jpg')}
-                    style={styles.thumb}
-                  />
+                <ImageBackground source={require('./images/plain-chalkboard.jpg')} style={styles.thumb}>
                   <View style={styles.mainTextThumb}>
                     <Image
                       source={require('./images/book-title-2.png')}
                       style={styles.mainTextThumbImg}
                     />
                   </View>
-                </View> : null}
+                </ImageBackground> : null}
               {
                 loaded && !showVid ?
-                  <View style={styles.imagesContainer}>
-                    <Image
-                      source={require('./images/plain-chalkboard.jpg')}
-                      style={styles.thumb}
-                    />
+                  <ImageBackground source={require('./images/plain-chalkboard.jpg')} style={styles.thumb}>
                     <View style={styles.mainTextThumb}>
                       <Image
                         source={require('./images/book-title-2.png')}
@@ -182,13 +177,13 @@ class Home extends React.Component {
                               this.setState({ showVid: true, paused: false, secondaryHide: false });
                             }, 200);
                             this.player ? this.player.presentFullscreenPlayer() : null;
-                            storeMedia({ playingIntro: true });
+                            mediaStorage({ playingIntro: true });
                           }
                           }
                         />
                       </View>
                     </View>
-                  </View> :
+                  </ImageBackground> :
                   null}
               {!audioPlaying &&
                 <Video
@@ -215,7 +210,7 @@ class Home extends React.Component {
                     });
                     this.player ? this.player.dismissFullscreenPlayer() : null;
                     this.startTracks();
-                    storeMedia({ playingIntro: false });
+                    mediaStorage({ playingIntro: false });
                   }}
                   onProgress={data => {
                     const { currentTime, playableDuration } = data;
@@ -245,7 +240,7 @@ class Home extends React.Component {
                       paused: !paused
                     }) : null;
                     this.player ? this.player.dismissFullscreenPlayer() : null;
-                    storeMedia({ playingIntro: !playingIntro });
+                    mediaStorage({ playingIntro: !playingIntro });
                   }}
                   repeat={false}
                   fullscreen={Android ? false : true}
@@ -304,7 +299,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    storeMedia: media => {
+    mediaStorage: media => {
       dispatch(storeMedia(media));
     },
     storeReferences: refs => {

@@ -649,10 +649,9 @@ class Tracks extends React.Component {
       showToast,
       connectionInfo: {
         connection,
-        connected
+        connected,
       },
       reportSlowConnection,
-      userType,
       toggleShowPurchaseOverview,
       showPurchaseOverview,
       isPurchasing

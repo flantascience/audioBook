@@ -26,7 +26,7 @@ const versionsRef = firebase.database().ref('/versions')
 const referencesRef = firebase.database().ref('/references')
 const Android = Platform.OS === 'android'
 
-const currentMode = 'dark' /* eventEmitter.currentMode; */
+const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 class PreLoad extends React.Component {
   componentDidMount() {
@@ -65,10 +65,9 @@ class PreLoad extends React.Component {
   }
 
   loadFromMemory = () => {
-
     const {
       loadedFromMemory,
-      storeMedia
+      mediaStorage
     } = this.props
     if (!loadedFromMemory) {
       AsyncStorage.getItem('media').then(res => {
@@ -92,7 +91,7 @@ class PreLoad extends React.Component {
             totalLength,
             formattedDuration
           } = objMedia
-          storeMedia({
+          mediaStorage({
             screen: !Android ? 'Intro' : screen,
             selectedTrack,
             audioFiles,
@@ -131,7 +130,7 @@ class PreLoad extends React.Component {
           }
         }
         else {
-          storeMedia({ loadedFromMemory: true });
+          mediaStorage({ loadedFromMemory: true });
           this.fetchAndStoreMedia();
           this.fetchAndStoreRefs();
         }
@@ -177,9 +176,9 @@ class PreLoad extends React.Component {
         })
         let newAudioFiles = [...cloudAudio]
         if (fixOnlyCloud)
-          this.props.storeMedia({ audioFilesCloud: newAudioFiles })
+          this.props.mediaStorage({ audioFilesCloud: newAudioFiles })
         else {
-          this.props.storeMedia({
+          this.props.mediaStorage({
             audioFiles: newAudioFiles,
             audioFilesCloud: newAudioFiles
           })
@@ -212,7 +211,7 @@ class PreLoad extends React.Component {
                   }
                 }
                 if (dataIntact) {
-                  this.props.storeMedia({ audioFiles: storedAudioFiles })
+                  this.props.mediaStorage({ audioFiles: storedAudioFiles })
                   this.fetchFromFirebase()
                 } else this.fetchFromFirebase(false)
               } else this.fetchFromFirebase(false)
@@ -230,14 +229,14 @@ class PreLoad extends React.Component {
               }
             }
             if (dataIntact)
-              this.props.storeMedia({ audioFiles: storedAudioFiles })
+              this.props.mediaStorage({ audioFiles: storedAudioFiles })
             else {
               let filteredData = storedAudioFiles.filter(e => {
                 return e != null
               })
-              this.props.storeMedia({ audioFiles: filteredData })
+              this.props.mediaStorage({ audioFiles: filteredData })
             }
-          } else this.props.storeMedia({ audioFiles: [] })
+          } else this.props.mediaStorage({ audioFiles: [] })
         })
       }
     })
@@ -270,8 +269,8 @@ class PreLoad extends React.Component {
   _storeAudioFilesData = async audioFiles => {
     try {
       let stringAudioFiles = JSON.stringify(audioFiles)
-      await AsyncStorage.setItem('audioFiles', stringAudioFiles)
-      this.props.storeMedia({ audioFiles })
+      await AsyncStorage.setItem('audioFiles', stringAudioFiles);
+      this.props.mediaStorage({ audioFiles });
     } catch (error) {
       console.log(error)
     }
@@ -342,7 +341,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    storeMedia: media => {
+    mediaStorage: media => {
       dispatch(storeMedia(media))
     },
     startFetchingRefs: () => {
