@@ -116,7 +116,7 @@ export const styles = StyleSheet.create({
         top: height > 815 ? -105 :
             height < 815 && height > 800 ? -95 :
                 height > 600 && height < 800 ? -70 :
-                    -35,
+                    -75,
         bottom: 0,
     },
     mainTextThumbImg: {
@@ -136,7 +136,7 @@ export const styles = StyleSheet.create({
         bottom: height > 815 ? 100 :
             height < 815 && height > 800 ? 90 :
                 height > 600 && height < 800 ? 40 :
-                    45,
+                    25,
     },
     playButton: {
         display: 'flex',
