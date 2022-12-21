@@ -10,8 +10,6 @@ const iOS = Platform.OS === "ios" ? true : false;
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 
-console.log({ height, width })
-
 const currentMode = 'dark'; /* eventEmitter.currentMode; */
 
 const mode = currentMode;
