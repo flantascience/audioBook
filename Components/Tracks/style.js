@@ -197,7 +197,7 @@ export const styles = StyleSheet.create({
     audioElement: {
         minHeight: 50,
         elevation: 10,
-        zIndex: 1000
+        zIndex: 1000,
     },
     audioElementDark: {
         minHeight: 50,

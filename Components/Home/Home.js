@@ -5,6 +5,7 @@ import {
   View,
   Dimensions,
   Image,
+  ImageBackground,
   AppState,
   Platform,
 } from 'react-native';
@@ -140,25 +141,17 @@ class Home extends React.Component {
           <View style={styles.homeMid}>
             <View style={styles.centerImageContainer}>
               {!loaded ?
-                <View style={styles.imagesContainer}>
-                  <Image
-                    source={require('./images/plain-chalkboard.jpg')}
-                    style={styles.thumb}
-                  />
+                <ImageBackground source={require('./images/plain-chalkboard.jpg')} style={styles.thumb}>
                   <View style={styles.mainTextThumb}>
                     <Image
                       source={require('./images/book-title-2.png')}
                       style={styles.mainTextThumbImg}
                     />
                   </View>
-                </View> : null}
+                </ImageBackground> : null}
               {
                 loaded && !showVid ?
-                  <View style={styles.imagesContainer}>
-                    <Image
-                      source={require('./images/plain-chalkboard.jpg')}
-                      style={styles.thumb}
-                    />
+                  <ImageBackground source={require('./images/plain-chalkboard.jpg')} style={styles.thumb}>
                     <View style={styles.mainTextThumb}>
                       <Image
                         source={require('./images/book-title-2.png')}
@@ -182,7 +175,7 @@ class Home extends React.Component {
                         />
                       </View>
                     </View>
-                  </View> :
+                  </ImageBackground> :
                   null}
               {!audioPlaying ?
                 <Video

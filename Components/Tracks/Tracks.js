@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React from 'react'
+import React from 'react';
 import {
     View,
     ScrollView,
@@ -8,8 +8,8 @@ import {
     Platform,
     Dimensions,
     ActivityIndicator,
-} from 'react-native'
-import AsyncStorage from '@react-native-community/async-storage'
+} from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 // import TrackPlayer from 'react-native-video';
 import { connect } from 'react-redux';
 import Toast from '../Toast/Toast';
@@ -52,7 +52,7 @@ import database from '@react-native-firebase/database';
 
 const items = Platform.select({
     ios: ['01'],
-})
+});
 
 const Analytics = analytics();
 const tracksRef = database().ref('/tracks');
@@ -64,18 +64,18 @@ const currentMode = 'dark' /* eventEmitter.currentMode; */
 class Tracks extends React.Component {
     constructor(props) {
         super(props);
-        let { audioFiles } = props
-        let currentAction = []
+        let { audioFiles } = props;
+        let currentAction = [];
 
         audioFiles.forEach((file) => {
-            let { id } = file
+            let { id } = file;
             currentAction.push({
                 id,
                 action: 'stop',
                 percentage: 1,
                 error: null,
-            })
-        })
+            });
+        });
         this.state = {
             currentAction,
             products: null,
@@ -83,7 +83,7 @@ class Tracks extends React.Component {
             autoPlayStarted: false,
             referencesInfo: [],
             togglePushed: false,
-        }
+        };
     }
 
     componentDidMount() {

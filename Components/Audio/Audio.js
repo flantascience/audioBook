@@ -330,7 +330,7 @@ class Audio extends React.Component {
                         ignoreSilentSwitch={"ignore"}
                     /> : null}
                 {showOverview ?
-                    <ScrollView style={{ height: 300 }}>
+                    <ScrollView style={{ height: 300, backgroundColor: '#0D0D0D', }}>
                         <View style={style}>
                             {currentlyPlaying != null ?
                                 <View style={dark ? styles.altContinerDark : styles.altContiner}>

@@ -93,13 +93,16 @@ export const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'flex-start',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
     },
     thumb: {
         height: height > 800 ? height - 190 :
-            height > 600 && height < 800 ? height - 160 :
-                height - 140,
+            height > 600 && height < 800 ? height - 180 :
+                height - 160,
         width,
+        top: height > 800 ? 0 :
+            height > 600 && height < 800 ? -5 :
+                -8,
         resizeMode: 'cover',
     },
     mainTextThumb: {
@@ -110,13 +113,17 @@ export const styles = StyleSheet.create({
         width,
         left: 0,
         right: 0,
-        top: height > 850 ? -130 : height > 800 ? -160 : -200,
+        top: height > 815 ? -105 :
+            height < 815 && height > 800 ? -95 :
+                height > 600 && height < 800 ? -70 :
+                    -35,
+        bottom: 0,
     },
     mainTextThumbImg: {
         flex: 1,
         marginTop: 0,
         resizeMode: 'contain',
-        width: '97%',
+        width: '85%',
     },
     pressStart: {
         resizeMode: 'contain',
@@ -126,14 +133,15 @@ export const styles = StyleSheet.create({
     playButtonContainer: {
         position: 'absolute',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        bottom: height > 800 ? 160 : height > 800 ? 180 : 200,
+        bottom: height > 815 ? 100 :
+            height < 815 && height > 800 ? 90 :
+                height > 600 && height < 800 ? 40 :
+                    45,
     },
     playButton: {
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-end',
         elevation: iOS ? 0 : 10,
         width: 60,
         height: 60,

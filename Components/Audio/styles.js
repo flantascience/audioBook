@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
     container: {
         display: "flex",
         flexDirection: "column",
+        top: height < 813 ? -30 : 0,
         minHeight: height < 813 ? 125 : 155,
         paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
@@ -31,12 +32,13 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
     },
     containerDark: {
         display: "flex",
         flexDirection: "column",
-        minHeight: height < 813 ? 125 : 155,
+        top: height < 813 ? -30 : 0,
+        minHeight: height < 813 ? 155 : 155,
         paddingTop: showBorder ? 10 : 0,
         paddingLeft: 10,
         paddingRight: 10,
@@ -47,6 +49,7 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
+        backgroundColor: '#0D0D0D',
     },
     altContiner: {
         display: "flex",
@@ -80,6 +83,7 @@ export const styles = StyleSheet.create({
         shadowOffset: { width: 1, height: 0 },
         shadowOpacity: 0.5,
         shadowRadius: 0.5,
+        backgroundColor: '#0D0D0D',
     },
     refsContainer: {
         flex: 6,
@@ -191,6 +195,7 @@ export const styles = StyleSheet.create({
     },
     controllerContainer: {
         flex: 1,
+        backgroundColor: '#0D0D0D',
         display: "flex",
         flexDirection: "row"
     },
@@ -241,7 +246,7 @@ export const styles = StyleSheet.create({
     altButtonGroup: {
         flex: 2,
         display: "flex",
-        flexDirection: "row"
+        flexDirection: "row",
     },
     groupedButtons: {
         flex: 1,
